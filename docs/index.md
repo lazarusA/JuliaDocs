@@ -25,7 +25,7 @@ hero:
 
 ::: danger
 
-This is a fork from the origial repo. Please visit the [official website](https://julialang.org).
+This is a fork from the original repo. Please visit the [official website](https://julialang.org).
 
 :::
 
