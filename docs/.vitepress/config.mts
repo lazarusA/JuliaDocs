@@ -5,14 +5,14 @@ import footnote from "markdown-it-footnote";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/docs.julialang.org.git/',// TODO: replace this in makedocs!
+  base: '/JuliaDocs',// TODO: replace this in makedocs!
   title: 'Programming',
   description: "The Julia Programming Language",
   lastUpdated: true,
   cleanUrls: true,
-  outDir: '../final_site', // This is required for MarkdownVitepress to work correctly...
-  
-  ignoreDeadLinks: true,
+  // outDir: '../final_site', // This is required for MarkdownVitepress to work correctly...
+
+  ignoreDeadLinks: false,
 
   markdown: {
     math: true,
@@ -360,7 +360,7 @@ export default defineConfig({
       }
     ]
 ,
-    editLink: { pattern: "https://github.com/JuliaLang/docs.julialang.org.git/edit/master/docs/src/:path" },
+    editLink: { pattern: "https://github.com/JuliaLang/julia/edit/master/doc/src/:path" },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/JuliaLang/docs.julialang.org.git' }
     ],
