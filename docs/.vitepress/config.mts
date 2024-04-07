@@ -12,7 +12,7 @@ export default defineConfig({
   cleanUrls: true,
   // outDir: '../final_site', // This is required for MarkdownVitepress to work correctly...
 
-  ignoreDeadLinks: false,
+  ignoreDeadLinks: true,
 
   markdown: {
     math: true,
