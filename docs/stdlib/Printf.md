@@ -76,7 +76,7 @@ Dynamic width specifiers like `%*s` and `%0*.*f` require Julia 1.10.
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Printf/src/Printf.jl#L949-L1007)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Printf/src/Printf.jl#L949-L1007)
 
 </div>
 <br>
@@ -102,7 +102,7 @@ julia> @sprintf "this is a %s %15.1f" "test" 34.567
 
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Printf/src/Printf.jl#L1022-L1032)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Printf/src/Printf.jl#L1022-L1032)
 
 </div>
 <br>
@@ -132,7 +132,7 @@ For convenience, the `Printf.format"..."` string macro form can be used for buil
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Printf/src/Printf.jl#L65-L81)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Printf/src/Printf.jl#L65-L81)
 
 </div>
 <br>
@@ -151,7 +151,7 @@ Printf.format(io::IO, f::Printf.Format, args...)
 Apply a printf format object `f` to provided `args` and return the formatted string (1st method), or print directly to an `io` object (2nd method). See [`@printf`](/stdlib/Printf#Printf.@printf) for more details on C `printf` support.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Printf/src/Printf.jl#L924-L931)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Printf/src/Printf.jl#L924-L931)
 
 </div>
 <br>

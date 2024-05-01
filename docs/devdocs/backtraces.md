@@ -21,13 +21,13 @@ No matter the error, we will always need to know what version of Julia you are r
 julia> using InteractiveUtils
 
 julia> versioninfo()
-Julia Version 1.12.0-DEV.321
-Commit ad044fee2e* (2024-04-07 09:11 UTC)
+Julia Version 1.12.0-DEV.459
+Commit e162027b05 (2024-05-01 16:23 UTC)
 Platform Info:
-  OS: macOS (arm64-apple-darwin23.0.0)
+  OS: macOS (arm64-apple-darwin23.4.0)
   CPU: 8 × Apple M1
   WORD_SIZE: 64
-  LLVM: libLLVM-16.0.6 (ORCJIT, apple-m1)
+  LLVM: libLLVM-17.0.6 (ORCJIT, apple-m1)
 Threads: 1 default, 0 interactive, 1 GC (on 4 virtual cores)
 Environment:
   JULIA_EXECUTABLE = /Users/lalonso/Documents/julia/usr/bin/julia --startup-file=no

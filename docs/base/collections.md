@@ -39,7 +39,7 @@ iterate(iter [, state]) -> Union{Nothing, Tuple{Any, Any}}
 Advance the iterator to obtain the next element. If no elements remain, `nothing` should be returned. Otherwise, a 2-tuple of the next element and the new iteration state should be returned.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/essentials.jl#L1209-L1215)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/essentials.jl#L1211-L1217)
 
 </div>
 <br>
@@ -78,7 +78,7 @@ Base.HasLength()
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/generator.jl#L68-L93)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/generator.jl#L68-L93)
 
 </div>
 <br>
@@ -110,7 +110,7 @@ Base.HasEltype()
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/generator.jl#L109-L127)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/generator.jl#L109-L127)
 
 </div>
 <br>
@@ -162,7 +162,7 @@ Supertype for linear ranges with elements of type `T`. [`UnitRange`](/base/colle
 All subtypes must define [`step`](/base/collections#Base.step). Thus [`LogRange`](/base/math#Base.LogRange) is not a subtype of `AbstractRange`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/range.jl#L262-L270)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/range.jl#L262-L270)
 
 </div>
 <br>
@@ -180,7 +180,7 @@ OrdinalRange{T, S} <: AbstractRange{T}
 Supertype for ordinal ranges with elements of type `T` with spacing(s) of type `S`. The steps should be always-exact multiples of [`oneunit`](/base/numbers#Base.oneunit), and `T` should be a &quot;discrete&quot; type, which cannot have values smaller than `oneunit`. For example, `Integer` or `Date` types would qualify, whereas `Float64` would not (since this type can represent values smaller than `oneunit(Float64)`. [`UnitRange`](/base/collections#Base.UnitRange), [`StepRange`](/base/collections#Base.StepRange), and other types are subtypes of this.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/range.jl#L280-L290)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/range.jl#L280-L290)
 
 </div>
 <br>
@@ -198,7 +198,7 @@ AbstractUnitRange{T} <: OrdinalRange{T, T}
 Supertype for ranges with a step size of [`oneunit(T)`](/base/numbers#Base.oneunit) with elements of type `T`. [`UnitRange`](/base/collections#Base.UnitRange) and other types are subtypes of this.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/range.jl#L293-L298)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/range.jl#L293-L298)
 
 </div>
 <br>
@@ -235,7 +235,7 @@ StepRange{Int64, Int64}
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/range.jl#L301-L326)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/range.jl#L301-L326)
 
 </div>
 <br>
@@ -267,7 +267,7 @@ UnitRange{Int64}
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/range.jl#L393-L411)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/range.jl#L393-L411)
 
 </div>
 <br>
@@ -317,7 +317,7 @@ julia> collect(LinRange(-0.1, 0.3, 5))
 See also [`Logrange`](/base/math#Base.LogRange) for logarithmically spaced points.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/range.jl#L531-L566)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/range.jl#L531-L566)
 
 </div>
 <br>
@@ -354,7 +354,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/essentials.jl#L1071-L1092)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/essentials.jl#L1073-L1094)
 
 
 
@@ -366,7 +366,7 @@ isempty(condition)
 Return `true` if no tasks are waiting on the condition, `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/condition.jl#L165-L169)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/condition.jl#L172-L176)
 
 </div>
 <br>
@@ -390,7 +390,7 @@ If the result is `missing`, callers may go ahead and compute `iterate(x, state) 
 See also [`iterate`](/base/collections#Base.iterate), [`isempty`](/base/collections#Base.isempty)
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/essentials.jl#L1190-L1206)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/essentials.jl#L1192-L1208)
 
 </div>
 <br>
@@ -423,7 +423,7 @@ Dict{String, Int64}()
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L202-L219)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L202-L219)
 
 
 
@@ -435,7 +435,7 @@ empty!(c::Channel)
 Empty a Channel `c` by calling `empty!` on the internal buffer. Return the empty channel.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/channels.jl#L221-L226)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L221-L226)
 
 </div>
 <br>
@@ -471,7 +471,7 @@ julia> length([1 2; 3 4])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L278-L298)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L278-L298)
 
 </div>
 <br>
@@ -489,7 +489,7 @@ Base.checked_length(r)
 Calculates `length(r)`, but may check for overflow errors where applicable when the result doesn&#39;t fit into `Union{Integer(eltype(r)),Int}`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/checked.jl#L374-L379)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/checked.jl#L374-L379)
 
 </div>
 <br>
@@ -533,9 +533,15 @@ in(item, collection) -> Bool
 ```
 
 
-Determine whether an item is in the given collection, in the sense that it is [`==`](/base/math#Base.:==) to one of the values generated by iterating over the collection. Return a `Bool` value, except if `item` is [`missing`](/manual/missing#missing) or `collection` contains `missing` but not `item`, in which case `missing` is returned ([three-valued logic](https://en.wikipedia.org/wiki/Three-valued_logic), matching the behavior of [`any`](/base/collections#Base.any-Tuple{Any}) and [`==`](/base/math#Base.:==)).
+Determine whether an item is in the given collection, in the sense that it is [`==`](/base/math#Base.:==) to one of the values generated by iterating over the collection. Can equivalently be used with infix syntax:
 
-Some collections follow a slightly different definition. For example, [`Set`](/base/collections#Base.Set)s check whether the item [`isequal`](/base/base#Base.isequal) to one of the elements; [`Dict`](/base/collections#Base.Dict)s look for `key=>value` pairs, and the `key` is compared using [`isequal`](/base/base#Base.isequal).
+```
+item in collection
+item ∈ collection
+```
+
+
+Return a `Bool` value, except if `item` is [`missing`](/manual/missing#missing) or `collection` contains `missing` but not `item`, in which case `missing` is returned ([three-valued logic](https://en.wikipedia.org/wiki/Three-valued_logic), matching the behavior of [`any`](/base/collections#Base.any-Tuple{Any}) and [`==`](/base/math#Base.:==)). Some collections follow a slightly different definition. For example, [`Set`](/base/collections#Base.Set)s check whether the item [`isequal`](/base/base#Base.isequal) to one of the elements; [`Dict`](/base/collections#Base.Dict)s look for `key=>value` pairs, and the `key` is compared using [`isequal`](/base/base#Base.isequal).
 
 To test for the presence of a key in a dictionary, use [`haskey`](/base/collections#Base.haskey) or `k in keys(dict)`. For the collections mentioned above, the result is always a `Bool`.
 
@@ -583,7 +589,7 @@ julia> [1, 2] .∈ ([2, 3],)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/operators.jl#L1379-L1445)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/operators.jl#L1379-L1449)
 
 </div>
 <br>
@@ -625,7 +631,7 @@ julia> [1, 2] .∉ ([2, 3],)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/operators.jl#L1448-L1480)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/operators.jl#L1452-L1484)
 
 </div>
 <br>
@@ -645,7 +651,7 @@ Determine whether the computation `x ∈ collection` where `collection::T` can b
 The default for `hasfastin(T)` is `true` for subtypes of [`AbstractSet`](/base/collections#Base.AbstractSet), [`AbstractDict`](/base/collections#Base.AbstractDict) and [`AbstractRange`](/base/collections#Base.AbstractRange) and `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L348-L360)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L348-L360)
 
 </div>
 <br>
@@ -676,7 +682,7 @@ UInt8
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L219-L238)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L219-L238)
 
 </div>
 <br>
@@ -720,7 +726,7 @@ julia> indexin(b, a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L2717-L2747)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L2708-L2738)
 
 </div>
 <br>
@@ -756,7 +762,7 @@ julia> unique(Real[1, 1.0, 2])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L200-L223)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L200-L223)
 
 
 
@@ -803,7 +809,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L264-L300)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L264-L300)
 
 
 
@@ -851,7 +857,7 @@ julia> unique(A, dims=3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multidimensional.jl#L1682-L1720)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multidimensional.jl#L1682-L1720)
 
 </div>
 <br>
@@ -897,7 +903,7 @@ julia> unique!(iseven, [2, 3, 5, 7, 9])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L344-L372)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L344-L372)
 
 
 
@@ -937,7 +943,7 @@ julia> unique!(B)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L436-L469)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L436-L469)
 
 </div>
 <br>
@@ -988,7 +994,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L480-L514)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L480-L514)
 
 </div>
 <br>
@@ -1046,7 +1052,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L604-L642)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L604-L642)
 
 </div>
 <br>
@@ -1083,7 +1089,7 @@ julia> reduce(*, [2; 3; 4]; init=-1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L444-L478)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L444-L478)
 
 </div>
 <br>
@@ -1126,7 +1132,7 @@ julia> reduce(max, a, dims=1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L344-L375)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L344-L375)
 
 </div>
 <br>
@@ -1160,7 +1166,7 @@ julia> accumulate(=>, (1,2,3,4))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L169-L189)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L169-L189)
 
 </div>
 <br>
@@ -1189,7 +1195,7 @@ julia> foldr(=>, 1:4; init=0)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L218-L233)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L218-L233)
 
 </div>
 <br>
@@ -1229,7 +1235,7 @@ julia> maximum(sin, Real[]; init=-1.0)  # good, since output of sin is >= -1
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L669-L693)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L669-L693)
 
 
 
@@ -1268,7 +1274,7 @@ julia> maximum((); init=-Inf)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L723-L752)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L723-L752)
 
 
 
@@ -1301,7 +1307,7 @@ julia> maximum(A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L597-L622)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L597-L622)
 
 
 
@@ -1332,7 +1338,7 @@ julia> maximum(abs2, A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L625-L647)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L625-L647)
 
 </div>
 <br>
@@ -1375,7 +1381,7 @@ julia> maximum!([1 1], A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L650-L673)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L650-L673)
 
 </div>
 <br>
@@ -1415,7 +1421,7 @@ julia> minimum(sin, Real[]; init=1.0)  # good, since output of sin is <= 1
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L696-L720)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L696-L720)
 
 
 
@@ -1454,7 +1460,7 @@ Inf
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L755-L784)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L755-L784)
 
 
 
@@ -1487,7 +1493,7 @@ julia> minimum(A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L676-L701)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L676-L701)
 
 
 
@@ -1518,7 +1524,7 @@ julia> minimum(abs2, A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L704-L726)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L704-L726)
 
 </div>
 <br>
@@ -1561,7 +1567,7 @@ julia> minimum!([1 1], A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L729-L752)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L729-L752)
 
 </div>
 <br>
@@ -1601,7 +1607,7 @@ julia> extrema([]; init = (Inf, -Inf))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L787-L813)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L787-L813)
 
 
 
@@ -1638,7 +1644,7 @@ julia> extrema(sin, Real[]; init = (1.0, -1.0))  # good, since -1 ≤ sin(::Real
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L816-L843)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L816-L843)
 
 
 
@@ -1675,7 +1681,7 @@ julia> extrema(A, dims = (1,2))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L755-L782)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L755-L782)
 
 
 
@@ -1693,7 +1699,7 @@ This method requires Julia 1.2 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L785-L793)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L785-L793)
 
 </div>
 <br>
@@ -1742,7 +1748,7 @@ julia> extrema!([(1, 1);; (1, 1)], A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L796-L822)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L796-L822)
 
 </div>
 <br>
@@ -1760,7 +1766,7 @@ argmax(r::AbstractRange)
 Ranges can have multiple maximal elements. In that case `argmax` will return a maximal index, but not necessarily the first one.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/range.jl#L879-L885)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/range.jl#L879-L885)
 
 
 
@@ -1795,7 +1801,7 @@ julia> argmax(cos, 0:π/2:2π)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L995-L1018)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L995-L1018)
 
 
 
@@ -1829,7 +1835,7 @@ julia> argmax([1, 7, 7, NaN])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L1021-L1047)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L1021-L1047)
 
 
 
@@ -1860,7 +1866,7 @@ julia> argmax(A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L1249-L1271)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L1249-L1271)
 
 </div>
 <br>
@@ -1878,7 +1884,7 @@ argmin(r::AbstractRange)
 Ranges can have multiple minimal elements. In that case `argmin` will return a minimal index, but not necessarily the first one.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/range.jl#L862-L868)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/range.jl#L862-L868)
 
 
 
@@ -1916,7 +1922,7 @@ julia> argmin(acos, 0:0.1:1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L1050-L1076)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L1050-L1076)
 
 
 
@@ -1950,7 +1956,7 @@ julia> argmin([7, 1, 1, NaN])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L1079-L1105)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L1079-L1105)
 
 
 
@@ -1981,7 +1987,7 @@ julia> argmin(A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L1224-L1246)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L1224-L1246)
 
 </div>
 <br>
@@ -2026,7 +2032,7 @@ julia> findmax(cos, 0:π/2:2π)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L866-L896)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L866-L896)
 
 
 
@@ -2056,7 +2062,7 @@ julia> findmax([1, 7, 7, NaN])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L901-L925)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L901-L925)
 
 
 
@@ -2084,7 +2090,7 @@ julia> findmax(A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L1153-L1172)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L1153-L1172)
 
 
 
@@ -2112,7 +2118,7 @@ julia> findmax(abs2, A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L1176-L1195)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L1176-L1195)
 
 </div>
 <br>
@@ -2159,7 +2165,7 @@ julia> findmin(cos, 0:π/2:2π)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L929-L962)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L929-L962)
 
 
 
@@ -2189,7 +2195,7 @@ julia> findmin([1, 7, 7, NaN])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L967-L991)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L967-L991)
 
 
 
@@ -2217,7 +2223,7 @@ julia> findmin(A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L1080-L1099)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L1080-L1099)
 
 
 
@@ -2245,7 +2251,7 @@ julia> findmin(abs2, A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L1103-L1122)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L1103-L1122)
 
 </div>
 <br>
@@ -2269,7 +2275,7 @@ Behavior can be unexpected when any mutated argument shares memory with any othe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L1139-L1147)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L1139-L1147)
 
 </div>
 <br>
@@ -2293,7 +2299,7 @@ Behavior can be unexpected when any mutated argument shares memory with any othe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L1066-L1074)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L1066-L1074)
 
 </div>
 <br>
@@ -2342,7 +2348,7 @@ julia> reduce(+, Int8[100, 28])
 In the former case, the integers are widened to system word size and therefore the result is 128. In the latter case, no such widening happens and integer overflow results in -128.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L487-L523)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L487-L523)
 
 
 
@@ -2377,7 +2383,7 @@ julia> sum(1:20; init = 0.0)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L526-L552)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L526-L552)
 
 
 
@@ -2408,7 +2414,7 @@ julia> sum(A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L447-L468)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L447-L468)
 
 
 
@@ -2439,7 +2445,7 @@ julia> sum(abs2, A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L471-L493)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L471-L493)
 
 </div>
 <br>
@@ -2482,7 +2488,7 @@ julia> sum!([1 1], A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L496-L519)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L496-L519)
 
 </div>
 <br>
@@ -2518,7 +2524,7 @@ julia> prod(abs2, [2; 3; 4])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L558-L579)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L558-L579)
 
 
 
@@ -2553,7 +2559,7 @@ julia> prod(1:5; init = 1.0)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L582-L608)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L582-L608)
 
 
 
@@ -2584,7 +2590,7 @@ julia> prod(A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L522-L543)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L522-L543)
 
 
 
@@ -2615,7 +2621,7 @@ julia> prod(abs2, A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L546-L568)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L546-L568)
 
 </div>
 <br>
@@ -2658,7 +2664,7 @@ julia> prod!([1 1], A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L571-L594)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L571-L594)
 
 </div>
 <br>
@@ -2705,7 +2711,7 @@ missing
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L1110-L1145)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L1110-L1145)
 
 </div>
 <br>
@@ -2749,7 +2755,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L1187-L1219)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L1187-L1219)
 
 </div>
 <br>
@@ -2792,7 +2798,7 @@ julia> any!([1 1], A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L947-L971)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L947-L971)
 
 </div>
 <br>
@@ -2840,7 +2846,7 @@ missing
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L1148-L1184)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L1148-L1184)
 
 </div>
 <br>
@@ -2883,7 +2889,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L1261-L1292)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L1261-L1292)
 
 </div>
 <br>
@@ -2926,7 +2932,7 @@ julia> all!([1 1], A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L873-L896)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L873-L896)
 
 </div>
 <br>
@@ -2966,7 +2972,7 @@ julia> count(>(3), 1:7, init=0x03)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L1340-L1364)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L1340-L1364)
 
 
 
@@ -3010,7 +3016,7 @@ julia> count(r"a(.)a", "cabacabac")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L531-L561)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L531-L561)
 
 
 
@@ -3053,7 +3059,7 @@ julia> count(<=(2), A, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reducedim.jl#L380-L408)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reducedim.jl#L380-L408)
 
 </div>
 <br>
@@ -3093,7 +3099,7 @@ julia> foreach((x, y) -> println(x, " with ", y), tri, 'a':'z')
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L3194-L3221)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L3211-L3238)
 
 </div>
 <br>
@@ -3130,7 +3136,7 @@ julia> map(+, [1, 2, 3], [10, 20, 30, 400, 5000])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L3411-L3433)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L3428-L3450)
 
 
 
@@ -3163,7 +3169,7 @@ julia> map(+, [1 2; 3 4], [1,10,100,1000], zeros(3,1))  # iterates until 3rd is 
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L3505-L3529)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L3522-L3546)
 
 </div>
 <br>
@@ -3212,7 +3218,7 @@ julia> map!(+, zeros(Int, 5), 100:999, 1:3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L3468-L3498)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L3485-L3515)
 
 
 
@@ -3245,7 +3251,7 @@ ValueIterator for a Dict{Symbol, Int64} with 2 entries. Values:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L644-L666)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L644-L666)
 
 </div>
 <br>
@@ -3281,7 +3287,7 @@ julia> mapreduce(x->x^2, +, [1:3;]) # == 1 + 4 + 9
 The associativity of the reduction is implementation-dependent. Additionally, some implementations may reuse the return value of `f` for elements that appear multiple times in `itr`. Use [`mapfoldl`](/base/collections#Base.mapfoldl-Tuple{Any,%20Any,%20Any}) or [`mapfoldr`](/base/collections#Base.mapfoldr-Tuple{Any,%20Any,%20Any}) instead for guaranteed left or right associativity and invocation of `f` for every value.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L272-L298)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L272-L298)
 
 </div>
 <br>
@@ -3299,7 +3305,7 @@ mapfoldl(f, op, itr; [init])
 Like [`mapreduce`](/base/collections#Base.mapreduce-Tuple{Any,%20Any,%20Any}), but with guaranteed left associativity, as in [`foldl`](/base/collections#Base.foldl-Tuple{Any,%20Any}). If provided, the keyword argument `init` will be used exactly once. In general, it will be necessary to provide `init` to work with empty collections.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L160-L166)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L160-L166)
 
 </div>
 <br>
@@ -3317,7 +3323,7 @@ mapfoldr(f, op, itr; [init])
 Like [`mapreduce`](/base/collections#Base.mapreduce-Tuple{Any,%20Any,%20Any}), but with guaranteed right associativity, as in [`foldr`](/base/collections#Base.foldr-Tuple{Any,%20Any}). If provided, the keyword argument `init` will be used exactly once. In general, it will be necessary to provide `init` to work with empty collections.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/reduce.jl#L208-L214)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/reduce.jl#L208-L214)
 
 </div>
 <br>
@@ -3348,7 +3354,7 @@ julia> first([1; 2; 3; 4])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L454-L470)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L454-L470)
 
 
 
@@ -3384,7 +3390,7 @@ Bool[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L477-L501)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L477-L501)
 
 
 
@@ -3410,7 +3416,7 @@ julia> first("∀ϵ≠0: ϵ²>0", 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L690-L706)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L690-L706)
 
 </div>
 <br>
@@ -3441,7 +3447,7 @@ julia> last([1; 2; 3; 4])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L509-L526)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L509-L526)
 
 
 
@@ -3475,7 +3481,7 @@ Float64[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L529-L551)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L529-L551)
 
 
 
@@ -3501,7 +3507,7 @@ julia> last("∀ϵ≠0: ϵ²>0", 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L709-L725)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L709-L725)
 
 </div>
 <br>
@@ -3532,7 +3538,7 @@ ERROR: ArgumentError: Cannot call front on an empty tuple.
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/tuple.jl#L324-L339)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/tuple.jl#L324-L339)
 
 </div>
 <br>
@@ -3563,7 +3569,7 @@ ERROR: ArgumentError: Cannot call tail on an empty tuple.
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/essentials.jl#L473-L488)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/essentials.jl#L475-L490)
 
 </div>
 <br>
@@ -3598,7 +3604,7 @@ julia> step(range(2.5, stop=10.9, length=85))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/range.jl#L692-L711)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/range.jl#L692-L711)
 
 </div>
 <br>
@@ -3642,7 +3648,7 @@ julia> collect(x^2 for x in 1:3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L676-L709)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L667-L700)
 
 </div>
 <br>
@@ -3671,7 +3677,7 @@ julia> collect(Float64, 1:2:5)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L626-L640)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L617-L631)
 
 </div>
 <br>
@@ -3713,7 +3719,7 @@ julia> filter(isodd, a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L2850-L2874)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L2841-L2865)
 
 
 
@@ -3747,7 +3753,7 @@ This method requires at least Julia 1.9.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L2937-L2959)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L2928-L2950)
 
 
 
@@ -3773,7 +3779,7 @@ Dict{Int64, String} with 1 entry:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L455-L472)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L455-L472)
 
 
 
@@ -3805,7 +3811,7 @@ julia> filter(isodd, skipmissing(x))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/missing.jl#L363-L383)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/missing.jl#L363-L383)
 
 </div>
 <br>
@@ -3836,7 +3842,7 @@ julia> filter!(isodd, Vector(1:10))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L2904-L2920)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L2895-L2911)
 
 
 
@@ -3864,7 +3870,7 @@ Dict{Int64, String} with 2 entries:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L413-L432)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L413-L432)
 
 </div>
 <br>
@@ -3909,7 +3915,7 @@ julia> replace([1, missing], missing=>0)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L780-L814)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L780-L814)
 
 </div>
 <br>
@@ -3952,7 +3958,7 @@ Dict{Int64, Int64} with 2 entries:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L841-L867)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L841-L867)
 
 </div>
 <br>
@@ -3988,7 +3994,7 @@ Set{Int64} with 3 elements:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L710-L734)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L710-L734)
 
 
 
@@ -4024,7 +4030,7 @@ Set{Int64} with 2 elements:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L748-L776)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L748-L776)
 
 </div>
 <br>
@@ -4068,7 +4074,7 @@ julia> first, Base.rest(a, state)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/tuple.jl#L172-L202)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/tuple.jl#L172-L202)
 
 </div>
 <br>
@@ -4114,7 +4120,7 @@ julia> first, Base.split_rest(a, 1, state)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/tuple.jl#L210-L241)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/tuple.jl#L210-L241)
 
 </div>
 <br>
@@ -4149,7 +4155,7 @@ julia> getindex(A, "a")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L900-L918)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L891-L909)
 
 </div>
 <br>
@@ -4181,7 +4187,7 @@ Dict{String, Int64} with 2 entries:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L958-L975)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L949-L966)
 
 </div>
 <br>
@@ -4215,7 +4221,7 @@ julia> firstindex(rand(3,4,5), 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L429-L448)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L429-L448)
 
 </div>
 <br>
@@ -4249,7 +4255,7 @@ julia> lastindex(rand(3,4,5), 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L406-L425)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L406-L425)
 
 </div>
 <br>
@@ -4309,7 +4315,7 @@ AbstractDict{K, V}
 Supertype for dictionary-like types with keys of type `K` and values of type `V`. [`Dict`](/base/collections#Base.Dict), [`IdDict`](/base/collections#Base.IdDict) and other types are subtypes of this. An `AbstractDict{K, V}` should be an iterator of `Pair{K, V}`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/essentials.jl#L28-L34)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/essentials.jl#L28-L34)
 
 </div>
 <br>
@@ -4355,7 +4361,7 @@ Keys are allowed to be mutable, but if you do mutate stored keys, the hash table
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L31-L64)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L31-L64)
 
 </div>
 <br>
@@ -4390,7 +4396,7 @@ IdDict{Any, String} with 3 entries:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iddict.jl#L3-L26)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iddict.jl#L3-L26)
 
 </div>
 <br>
@@ -4412,7 +4418,7 @@ See [`Dict`](/base/collections#Base.Dict) for further help.  Note, unlike [`Dict
 See also [`WeakRef`](/base/base#Core.WeakRef).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/weakkeydict.jl#L5-L17)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/weakkeydict.jl#L5-L17)
 
 </div>
 <br>
@@ -4441,7 +4447,7 @@ Create a new entry in the `ImmutableDict` for a `key => value` pair
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L778-L793)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L778-L793)
 
 </div>
 <br>
@@ -4486,7 +4492,7 @@ Base.PersistentDict{Symbol, Int64} with 1 entry:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L907-L937)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L898-L928)
 
 </div>
 <br>
@@ -4520,7 +4526,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L529-L547)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L529-L547)
 
 </div>
 <br>
@@ -4557,7 +4563,7 @@ julia> get(d, "c", 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L480-L499)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L480-L499)
 
 
 
@@ -4579,7 +4585,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L507-L521)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L507-L521)
 
 </div>
 <br>
@@ -4617,7 +4623,7 @@ Dict{String, Int64} with 4 entries:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L385-L408)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L385-L408)
 
 
 
@@ -4652,7 +4658,7 @@ Dict{Int64, Int64} with 1 entry:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L411-L437)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L411-L437)
 
 </div>
 <br>
@@ -4686,7 +4692,7 @@ julia> getkey(D, 'd', 'a')
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L551-L569)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L551-L569)
 
 </div>
 <br>
@@ -4722,7 +4728,7 @@ Dict{String, Int64} with 1 entry:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L651-L671)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L651-L671)
 
 </div>
 <br>
@@ -4758,7 +4764,7 @@ julia> pop!(d, "e", 4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L586-L607)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L586-L607)
 
 </div>
 <br>
@@ -4776,7 +4782,7 @@ keys(iterator)
 For an iterator or collection that has keys and values (e.g. arrays and dictionaries), return an iterator over the keys.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L75-L80)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L75-L80)
 
 </div>
 <br>
@@ -4810,7 +4816,7 @@ julia> values([2])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/essentials.jl#L1099-L1120)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/essentials.jl#L1101-L1122)
 
 
 
@@ -4837,7 +4843,7 @@ julia> collect(values(D))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L109-L132)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L109-L132)
 
 </div>
 <br>
@@ -4890,7 +4896,7 @@ CartesianIndex(2, 2) e
 See also [`IndexStyle`](/base/arrays#Base.IndexStyle), [`axes`](/base/arrays#Base.axes-Tuple{Any}).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iterators.jl#L228-L273)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iterators.jl#L228-L273)
 
 
 
@@ -4936,7 +4942,7 @@ julia> (;a=1, b=2, c=3) |> collect
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L135-L173)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L135-L173)
 
 </div>
 <br>
@@ -4954,7 +4960,7 @@ merge(initial::Face, others::Face...)
 Merge the properties of the `initial` face and `others`, with later faces taking priority.
 
 
-[source](https://github.com/JuliaLang/StyledStrings.jl/blob/e0ca0f85412ea5cafabfeaaec4d62ca26c3959d2/src/faces.jl#L458-L463)
+[source](https://github.com/JuliaLang/StyledStrings.jl/blob/ac472083359dde956aed8c61d43b8158ac84d9ce/src/faces.jl#L481-L486)
 
 
 
@@ -4993,7 +4999,7 @@ Dict{String, Float64} with 3 entries:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L321-L354)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L321-L354)
 
 
 
@@ -5025,7 +5031,7 @@ julia> merge((a=1, b=2), (b=3, c=(d=1,)), (c=(d=2,),))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/namedtuple.jl#L309-L333)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/namedtuple.jl#L309-L333)
 
 
 
@@ -5043,7 +5049,7 @@ julia> merge((a=1, b=2, c=3), [:b=>4, :d=>5])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/namedtuple.jl#L357-L366)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/namedtuple.jl#L357-L366)
 
 </div>
 <br>
@@ -5095,7 +5101,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L358-L396)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L358-L396)
 
 </div>
 <br>
@@ -5130,7 +5136,7 @@ Dict{Int64, Int64} with 3 entries:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L199-L219)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L199-L219)
 
 </div>
 <br>
@@ -5189,7 +5195,7 @@ Dict{Int64, Int64} with 3 entries:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L232-L277)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L232-L277)
 
 </div>
 <br>
@@ -5229,7 +5235,7 @@ The `shrink` and `first` arguments were added in Julia 1.11.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1464-L1497)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1455-L1488)
 
 </div>
 <br>
@@ -5265,7 +5271,7 @@ For arrays, this function requires at least Julia 1.2.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L168-L187)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L168-L187)
 
 
 
@@ -5285,7 +5291,7 @@ Int32
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L293-L303)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L293-L303)
 
 </div>
 <br>
@@ -5318,7 +5324,7 @@ For arrays, this function requires at least Julia 1.2.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractarray.jl#L197-L212)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractarray.jl#L197-L212)
 
 
 
@@ -5338,7 +5344,7 @@ String
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractdict.jl#L307-L317)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractdict.jl#L307-L317)
 
 </div>
 <br>
@@ -5386,7 +5392,7 @@ AbstractSet{T}
 Supertype for set-like types whose elements are of type `T`. [`Set`](/base/collections#Base.Set), [`BitSet`](/base/collections#Base.BitSet) and other types are subtypes of this.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/essentials.jl#L20-L25)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/essentials.jl#L20-L25)
 
 </div>
 <br>
@@ -5434,7 +5440,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L3-L38)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L3-L38)
 
 </div>
 <br>
@@ -5452,7 +5458,7 @@ BitSet([itr])
 Construct a sorted set of `Int`s generated by the given iterable object, or an empty set. Implemented as a bit string, and therefore designed for dense integer sets. If the set will be sparse (for example, holding a few very large integers), use [`Set`](/base/collections#Base.Set) instead.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/bitset.jl#L25-L32)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/bitset.jl#L25-L32)
 
 </div>
 <br>
@@ -5468,18 +5474,27 @@ IdSet()
 ```
 
 
-IdSet{T}() constructs a set (see [`Set`](/base/collections#Base.Set)) using `===` as equality with values of type `V`.
+IdSet{T}() constructs a set (see [`Set`](/base/collections#Base.Set)) using `===` as equality with values of type `T`.
 
-In the example below, the values are all `isequal` so they get overwritten. The `IdSet` compares by `===` so preserves the 3 different keys.
+In the example below, the values are all `isequal` so they get overwritten in the ordinary `Set`. The `IdSet` compares by `===` and so preserves the 3 different values.
 
-Examples ≡≡≡≡≡≡≡≡
+**Examples**
 
-julia&gt; Set(Any[true, 1, 1.0]) Set{Any} with 1 element:   1.0
+```julia
+julia> Set(Any[true, 1, 1.0])
+Set{Any} with 1 element:
+  1.0
 
-julia&gt; IdSet{Any}(Any[true, 1, 1.0]) IdSet{Any} with 3 elements:   1.0   1   true
+julia> IdSet{Any}(Any[true, 1, 1.0])
+IdSet{Any} with 3 elements:
+  1.0
+  1
+  true
+```
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/idset.jl#L3-L25)
+
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/idset.jl#L3-L25)
 
 </div>
 <br>
@@ -5534,7 +5549,7 @@ Set{Int64} with 3 elements:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L13-L54)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L13-L54)
 
 </div>
 <br>
@@ -5575,7 +5590,7 @@ Set{Int64} with 5 elements:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L62-L84)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L62-L84)
 
 </div>
 <br>
@@ -5631,7 +5646,7 @@ Set{Float64} with 1 element:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L112-L152)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L112-L152)
 
 </div>
 <br>
@@ -5661,7 +5676,7 @@ julia> setdiff([1,2,3], [3,4,5])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L200-L215)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L200-L215)
 
 </div>
 <br>
@@ -5698,7 +5713,7 @@ Set{Int64} with 1 element:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L219-L237)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L219-L237)
 
 </div>
 <br>
@@ -5732,7 +5747,7 @@ Int64[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L252-L271)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L252-L271)
 
 </div>
 <br>
@@ -5756,7 +5771,7 @@ Behavior can be unexpected when any mutated argument shares memory with any othe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L275-L283)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L275-L283)
 
 </div>
 <br>
@@ -5780,7 +5795,7 @@ Behavior can be unexpected when any mutated argument shares memory with any othe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L182-L189)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L182-L189)
 
 </div>
 <br>
@@ -5816,7 +5831,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L304-L324)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L304-L324)
 
 </div>
 <br>
@@ -5863,7 +5878,7 @@ Set{Any} with 4 elements:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/set.jl#L94-L124)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/set.jl#L94-L124)
 
 </div>
 <br>
@@ -5895,7 +5910,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L448-L464)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L448-L464)
 
 </div>
 <br>
@@ -5927,7 +5942,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L396-L412)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L396-L412)
 
 </div>
 <br>
@@ -5958,7 +5973,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L498-L514)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L498-L514)
 
 
 
@@ -5976,7 +5991,7 @@ This functionality requires at least Julia 1.11.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L532-L542)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L532-L542)
 
 </div>
 <br>
@@ -6013,7 +6028,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L546-L565)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L546-L565)
 
 
 
@@ -6031,7 +6046,7 @@ This functionality requires at least Julia 1.11.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/abstractset.jl#L591-L601)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/abstractset.jl#L591-L601)
 
 </div>
 <br>
@@ -6083,7 +6098,7 @@ See [`sizehint!`](/base/collections#Base.sizehint!) for notes about the performa
 See also [`pushfirst!`](/base/collections#Base.pushfirst!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1232-L1257)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1223-L1248)
 
 </div>
 <br>
@@ -6137,7 +6152,7 @@ julia> pop!(Dict(1=>2))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1542-L1582)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1533-L1573)
 
 
 
@@ -6167,7 +6182,7 @@ julia> pop!(d, "e", 4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/dict.jl#L586-L607)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/dict.jl#L586-L607)
 
 </div>
 <br>
@@ -6214,7 +6229,7 @@ ERROR: BoundsError: attempt to access 3-element Vector{Int64} at index [4]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1592-L1623)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1583-L1614)
 
 </div>
 <br>
@@ -6248,7 +6263,7 @@ julia> pushfirst!([1, 2, 3, 4], 5, 6)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1640-L1658)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1631-L1649)
 
 </div>
 <br>
@@ -6295,7 +6310,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1683-L1714)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1674-L1705)
 
 </div>
 <br>
@@ -6330,7 +6345,7 @@ julia> insert!(Any[1:6;], 3, "here")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1724-L1744)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1715-L1735)
 
 </div>
 <br>
@@ -6363,7 +6378,7 @@ julia> deleteat!([6, 5, 4, 3, 2, 1], 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1755-L1773)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1746-L1764)
 
 
 
@@ -6399,7 +6414,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1792-L1820)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1783-L1811)
 
 </div>
 <br>
@@ -6443,7 +6458,7 @@ julia> keepat!([6, 5, 4, 3, 2, 1], 1:2:5)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L2964-L2988)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L2955-L2979)
 
 
 
@@ -6473,7 +6488,7 @@ julia> a
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L2991-L3013)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L2982-L3004)
 
 </div>
 <br>
@@ -6535,7 +6550,7 @@ julia> A
 To insert `replacement` before an index `n` without removing any items, use `splice!(collection, n:n-1, replacement)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1895-L1945)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1886-L1936)
 
 
 
@@ -6586,7 +6601,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1964-L2000)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1955-L1991)
 
 </div>
 <br>
@@ -6629,7 +6644,7 @@ julia> a[1:6]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1421-L1450)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1412-L1441)
 
 </div>
 <br>
@@ -6679,7 +6694,7 @@ See [`sizehint!`](/base/collections#Base.sizehint!) for notes about the performa
 See also [`vcat`](/base/arrays#Base.vcat) for vectors, [`union!`](/base/collections#Base.union!) for sets, and [`prepend!`](/base/collections#Base.prepend!) and [`pushfirst!`](/base/collections#Base.pushfirst!) for the opposite order.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1285-L1320)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1276-L1311)
 
 </div>
 <br>
@@ -6725,7 +6740,7 @@ julia> prepend!([6], [1, 2], [3, 4, 5])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/array.jl#L1352-L1380)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/array.jl#L1343-L1371)
 
 </div>
 <br>
@@ -6779,7 +6794,7 @@ julia> replace.(["xops", "oxps"], "x" => "o")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/pair.jl#L5-L37)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/pair.jl#L5-L37)
 
 </div>
 <br>
@@ -6797,7 +6812,7 @@ Base.Pairs(values, keys) <: AbstractDict{eltype(keys), eltype(values)}
 Transforms an indexable container into a Dictionary-view of the same data. Modifying the key-space of the underlying data may invalidate this object.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/essentials.jl#L463-L468)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/essentials.jl#L465-L470)
 
 </div>
 <br>

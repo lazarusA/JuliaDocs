@@ -109,7 +109,7 @@ julia> @time begin
 The `:dynamic` example takes 2 seconds since one of the non-occupied threads is able to run two of the 1-second iterations to complete the for loop.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threadingconstructs.jl#L260-L380)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threadingconstructs.jl#L260-L380)
 
 </div>
 <br>
@@ -156,7 +156,7 @@ This function requires Julia 1.6 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threads_overloads.jl#L3-L40)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threads_overloads.jl#L3-L40)
 
 </div>
 <br>
@@ -213,7 +213,7 @@ Hello from 4
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threadingconstructs.jl#L419-L458)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threadingconstructs.jl#L419-L458)
 
 </div>
 <br>
@@ -253,7 +253,7 @@ The thread that a task runs on may change if the task yields, which is known as 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threadingconstructs.jl#L6-L30)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threadingconstructs.jl#L6-L30)
 
 </div>
 <br>
@@ -271,7 +271,7 @@ Threads.maxthreadid() -> Int
 Get a lower bound on the number of threads (across all thread pools) available to the Julia process, with atomic-acquire semantics. The result will always be greater than or equal to [`threadid()`](/base/multi-threading#Base.Threads.threadid) as well as `threadid(task)` for any task you were able to observe before calling `maxthreadid`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threadingconstructs.jl#L34-L41)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threadingconstructs.jl#L34-L41)
 
 </div>
 <br>
@@ -291,7 +291,7 @@ Get the current number of threads within the specified thread pool. The threads 
 See also `BLAS.get_num_threads` and `BLAS.set_num_threads` in the [`LinearAlgebra`](/stdlib/LinearAlgebra#man-linalg) standard library, and `nprocs()` in the [`Distributed`](/stdlib/Distributed#man-distributed) standard library and [`Threads.maxthreadid()`](/base/multi-threading#Base.Threads.maxthreadid).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threadingconstructs.jl#L44-L54)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threadingconstructs.jl#L44-L54)
 
 </div>
 <br>
@@ -309,7 +309,7 @@ Threads.threadpool(tid = threadid()) -> Symbol
 Returns the specified thread&#39;s threadpool; either `:default`, `:interactive`, or `:foreign`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threadingconstructs.jl#L86-L90)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threadingconstructs.jl#L86-L90)
 
 </div>
 <br>
@@ -327,7 +327,7 @@ Threads.nthreadpools() -> Int
 Returns the number of threadpools currently configured.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threadingconstructs.jl#L96-L100)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threadingconstructs.jl#L96-L100)
 
 </div>
 <br>
@@ -347,7 +347,7 @@ Get the number of threads available to the default thread pool (or to the specif
 See also: `BLAS.get_num_threads` and `BLAS.set_num_threads` in the [`LinearAlgebra`](/stdlib/LinearAlgebra#man-linalg) standard library, and `nprocs()` in the [`Distributed`](/stdlib/Distributed#man-distributed) standard library.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threadingconstructs.jl#L103-L112)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threadingconstructs.jl#L103-L112)
 
 </div>
 <br>
@@ -365,7 +365,7 @@ Threads.ngcthreads() -> Int
 Returns the number of GC threads currently configured. This includes both mark threads and concurrent sweep threads.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threadingconstructs.jl#L140-L145)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threadingconstructs.jl#L140-L145)
 
 </div>
 <br>
@@ -384,7 +384,7 @@ Unsafe pointer operations are compatible with loading and storing pointers decla
 See also: [`unsafe_load`](/base/c#Base.unsafe_load), [`unsafe_modify!`](/base/c#Base.unsafe_modify!), [`unsafe_replace!`](/base/c#Base.unsafe_replace!), [`unsafe_store!`](/base/c#Base.unsafe_store!), [`unsafe_swap!`](/base/c#Base.unsafe_swap!)
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/basedocs.jl#L3589-L3595)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/basedocs.jl#L3589-L3595)
 
 </div>
 <br>
@@ -468,7 +468,7 @@ This functionality requires at least Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/expr.jl#L1092-L1157)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/expr.jl#L1092-L1157)
 
 </div>
 <br>
@@ -513,7 +513,7 @@ This functionality requires at least Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/expr.jl#L1216-L1242)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/expr.jl#L1216-L1242)
 
 </div>
 <br>
@@ -570,7 +570,7 @@ This functionality requires at least Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/expr.jl#L1260-L1300)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/expr.jl#L1260-L1300)
 
 </div>
 <br>
@@ -622,7 +622,7 @@ This functionality requires at least Julia 1.11.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/expr.jl#L1326-L1361)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/expr.jl#L1326-L1361)
 
 </div>
 <br>
@@ -646,7 +646,7 @@ This type requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/genericmemory.jl#L25-L33)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/genericmemory.jl#L25-L33)
 
 </div>
 <br>
@@ -694,7 +694,7 @@ julia> x[]
 Atomic operations use an `atomic_` prefix, such as [`atomic_add!`](/base/multi-threading#Base.Threads.atomic_add!), [`atomic_xchg!`](/base/multi-threading#Base.Threads.atomic_xchg!), etc.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L45-L74)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L45-L74)
 
 </div>
 <br>
@@ -736,7 +736,7 @@ Base.Threads.Atomic{Int64}(2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L90-L122)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L90-L122)
 
 </div>
 <br>
@@ -772,7 +772,7 @@ julia> x[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L125-L146)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L125-L146)
 
 </div>
 <br>
@@ -808,7 +808,7 @@ julia> x[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L149-L170)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L149-L170)
 
 </div>
 <br>
@@ -844,7 +844,7 @@ julia> x[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L173-L194)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L173-L194)
 
 </div>
 <br>
@@ -880,7 +880,7 @@ julia> x[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L197-L217)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L197-L217)
 
 </div>
 <br>
@@ -916,7 +916,7 @@ julia> x[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L220-L240)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L220-L240)
 
 </div>
 <br>
@@ -952,7 +952,7 @@ julia> x[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L243-L263)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L243-L263)
 
 </div>
 <br>
@@ -988,7 +988,7 @@ julia> x[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L266-L286)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L266-L286)
 
 </div>
 <br>
@@ -1024,7 +1024,7 @@ julia> x[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L289-L309)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L289-L309)
 
 </div>
 <br>
@@ -1060,7 +1060,7 @@ julia> x[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L312-L332)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L312-L332)
 
 </div>
 <br>
@@ -1084,7 +1084,7 @@ This is likely a very expensive operation. Given that all other atomic operation
 For further details, see LLVM&#39;s `fence` instruction.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/atomics.jl#L450-L464)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/atomics.jl#L450-L464)
 
 </div>
 <br>
@@ -1106,7 +1106,7 @@ The `@threadcall` macro is called in the same way as [`ccall`](/base/c#ccall) bu
 Note that the called function should never call back into Julia.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/threadcall.jl#L8-L19)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/threadcall.jl#L8-L19)
 
 </div>
 <br>
@@ -1132,7 +1132,7 @@ Each [`lock`](/base/parallel#Base.lock) must be matched with an [`unlock`](/base
 Test-and-test-and-set spin locks are quickest up to about 30ish contending threads. If you have more contention than that, different synchronization approaches should be considered.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/locks-mt.jl#L14-L30)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/locks-mt.jl#L14-L30)
 
 </div>
 <br>

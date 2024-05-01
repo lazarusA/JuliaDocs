@@ -203,7 +203,7 @@ julia> sort([2, NaN, 1, NaN, 3], lt=<) # wrong sort due to invalid lt. This beha
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L1595-L1696)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L1595-L1696)
 
 
 
@@ -243,7 +243,7 @@ julia> sort!(A, dims = 2); A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L2069-L2098)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L2069-L2098)
 
 </div>
 <br>
@@ -280,7 +280,7 @@ julia> v
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L1708-L1729)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L1708-L1729)
 
 
 
@@ -314,7 +314,7 @@ julia> sort(A, dims = 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L1997-L2023)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L1997-L2023)
 
 </div>
 <br>
@@ -374,7 +374,7 @@ julia> sortperm(A, dims = 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L1831-L1877)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L1831-L1877)
 
 </div>
 <br>
@@ -406,7 +406,7 @@ Characteristics:
 it is well-suited to small collections but should not be used for large ones.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L799-L813)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L799-L813)
 
 </div>
 <br>
@@ -434,7 +434,7 @@ Characteristics:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L2288-L2305)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L2288-L2305)
 
 </div>
 <br>
@@ -462,7 +462,7 @@ Characteristics:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L2272-L2285)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L2272-L2285)
 
 </div>
 <br>
@@ -510,7 +510,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L2233-L2267)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L2233-L2267)
 
 </div>
 <br>
@@ -571,7 +571,7 @@ julia> sortperm!(p, A; dims=2); p
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L1909-L1948)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L1909-L1948)
 
 </div>
 <br>
@@ -692,7 +692,7 @@ julia> sortslices(reshape([5; 4; 3; 2; 1], (1,1,5)), dims=3, by=x->x[1,1])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multidimensional.jl#L1809-L1925)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multidimensional.jl#L1809-L1925)
 
 </div>
 <br>
@@ -732,7 +732,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L64-L87)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L64-L87)
 
 </div>
 <br>
@@ -777,7 +777,7 @@ julia> searchsorted([1=>"one", 2=>"two", 2=>"two", 4=>"four"], 2=>"two", by=firs
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L308-L343)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L308-L343)
 
 </div>
 <br>
@@ -824,7 +824,7 @@ julia> searchsortedfirst([1=>"one", 2=>"two", 4=>"four"], 3=>"three", by=first) 
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L345-L382)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L345-L382)
 
 </div>
 <br>
@@ -869,7 +869,7 @@ julia> searchsortedlast([1=>"one", 2=>"two", 4=>"four"], 3=>"three", by=first) #
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L384-L419)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L384-L419)
 
 </div>
 <br>
@@ -920,7 +920,7 @@ true
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L421-L458)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L421-L458)
 
 </div>
 <br>
@@ -983,7 +983,7 @@ julia> a
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L108-L160)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L108-L160)
 
 </div>
 <br>
@@ -1001,7 +1001,7 @@ partialsort(v, k, by=identity, lt=isless, rev=false)
 Variant of [`partialsort!`](/base/sort#Base.Sort.partialsort!) that copies `v` before partially sorting it, thereby returning the same thing as `partialsort!` but leaving `v` unmodified.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L165-L170)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L165-L170)
 
 </div>
 <br>
@@ -1012,7 +1012,7 @@ Variant of [`partialsort!`](/base/sort#Base.Sort.partialsort!) that copies `v` b
 
 
 ```julia
-partialsortperm(v, k; by=ientity, lt=isless, rev=false)
+partialsortperm(v, k; by=identity, lt=isless, rev=false)
 ```
 
 
@@ -1043,7 +1043,7 @@ julia> v[p]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L1734-L1764)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L1734-L1764)
 
 </div>
 <br>
@@ -1105,7 +1105,7 @@ julia> partialsortperm!(ix, v, 2:3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/sort.jl#L1768-L1807)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sort.jl#L1768-L1807)
 
 </div>
 <br>
@@ -1158,7 +1158,7 @@ Abstract type which represents a strict weak order on some set of elements. See 
 Use [`Base.Order.lt`](/base/sort#Base.Order.lt) to compare two elements according to the ordering.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/ordering.jl#L21-L28)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/ordering.jl#L21-L28)
 
 </div>
 <br>
@@ -1176,7 +1176,7 @@ lt(o::Ordering, a, b) -> Bool
 Test whether `a` is less than `b` according to the ordering `o`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/ordering.jl#L113-L117)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/ordering.jl#L113-L117)
 
 </div>
 <br>
@@ -1196,7 +1196,7 @@ Construct an [`Ordering`](/base/sort#Base.Order.Ordering) object from the same a
 Passing an `lt` other than `isless` along with an `order` other than [`Base.Order.Forward`](/base/sort#Base.Order.Forward) or [`Base.Order.Reverse`](/base/sort#Base.Order.Reverse) is not permitted, otherwise all options are independent and can be used together in all possible combinations.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/ordering.jl#L139-L154)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/ordering.jl#L139-L154)
 
 </div>
 <br>
@@ -1214,7 +1214,7 @@ Base.Order.Forward
 Default ordering according to [`isless`](/base/base#Base.isless).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/ordering.jl#L60-L64)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/ordering.jl#L60-L64)
 
 </div>
 <br>
@@ -1239,7 +1239,7 @@ lt(ReverseOrdering(o), a, b) == lt(o, b, a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/ordering.jl#L33-L41)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/ordering.jl#L33-L41)
 
 </div>
 <br>
@@ -1257,7 +1257,7 @@ Base.Order.Reverse
 Reverse ordering according to [`isless`](/base/base#Base.isless).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/ordering.jl#L67-L71)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/ordering.jl#L67-L71)
 
 </div>
 <br>
@@ -1275,7 +1275,7 @@ By(by, order::Ordering=Forward)
 `Ordering` which applies `order` to elements after they have been transformed by the function `by`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/ordering.jl#L74-L79)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/ordering.jl#L74-L79)
 
 </div>
 <br>
@@ -1293,7 +1293,7 @@ Lt(lt)
 `Ordering` that calls `lt(a, b)` to compare elements. `lt` must obey the same rules as the `lt` parameter of [`sort!`](/base/sort#Base.sort!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/ordering.jl#L88-L93)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/ordering.jl#L88-L93)
 
 </div>
 <br>
@@ -1311,7 +1311,7 @@ Perm(order::Ordering, data::AbstractVector)
 `Ordering` on the indices of `data` where `i` is less than `j` if `data[i]` is less than `data[j]` according to `order`. In the case that `data[i]` and `data[j]` are equal, `i` and `j` are compared by numeric value.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/ordering.jl#L98-L104)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/ordering.jl#L98-L104)
 
 </div>
 <br>

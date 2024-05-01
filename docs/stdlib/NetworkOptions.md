@@ -1,4 +1,6 @@
 
+
+
 # Network Options {#Network-Options}
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='NetworkOptions.ca_roots' href='#NetworkOptions.ca_roots'>#</a>&nbsp;<b><u>NetworkOptions.ca_roots</u></b> &mdash; <i>Function</i>.
@@ -16,7 +18,7 @@ The `ca_roots()` function tells the caller where, if anywhere, to find a file or
 The default value returned by `ca_roots()` may be overridden by setting the `JULIA_SSL_CA_ROOTS_PATH`, `SSL_CERT_DIR`, or `SSL_CERT_FILE` environment variables, in which case this function will always return the value of the first of these variables that is set (whether the path exists or not). If `JULIA_SSL_CA_ROOTS_PATH` is set to the empty string, then the other variables are ignored (as if unset); if the other variables are set to the empty string, they behave is if they are not set.
 
 
-[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/aab83e5dd900c874826d430e25158dff43559d78/src/ca_roots.jl#L3-L23)
+[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/8eec5cb0acec4591e6db3c017f7499426cd8e352/src/ca_roots.jl#L3-L23)
 
 </div>
 <br>
@@ -38,7 +40,7 @@ If it is possible to configure a library that uses TLS to use the system certifi
 The default value returned by `ca_roots_path()` may be overridden by setting the `JULIA_SSL_CA_ROOTS_PATH`, `SSL_CERT_DIR`, or `SSL_CERT_FILE` environment variables, in which case this function will always return the value of the first of these variables that is set (whether the path exists or not). If `JULIA_SSL_CA_ROOTS_PATH` is set to the empty string, then the other variables are ignored (as if unset); if the other variables are set to the empty string, they behave is if they are not set.
 
 
-[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/aab83e5dd900c874826d430e25158dff43559d78/src/ca_roots.jl#L26-L50)
+[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/8eec5cb0acec4591e6db3c017f7499426cd8e352/src/ca_roots.jl#L26-L50)
 
 </div>
 <br>
@@ -56,7 +58,7 @@ ssh_dir() :: String
 The `ssh_dir()` function returns the location of the directory where the `ssh` program keeps/looks for configuration files. By default this is `~/.ssh` but this can be overridden by setting the environment variable `SSH_DIR`.
 
 
-[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/aab83e5dd900c874826d430e25158dff43559d78/src/ssh_options.jl#L10-L16)
+[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/8eec5cb0acec4591e6db3c017f7499426cd8e352/src/ssh_options.jl#L10-L16)
 
 </div>
 <br>
@@ -74,7 +76,7 @@ ssh_key_pass() :: String
 The `ssh_key_pass()` function returns the value of the environment variable `SSH_KEY_PASS` if it is set or `nothing` if it is not set. In the future, this may be able to find a password by other means, such as secure system storage, so packages that need a password to decrypt an SSH private key should use this API instead of directly checking the environment variable so that they gain such capabilities automatically when they are added.
 
 
-[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/aab83e5dd900c874826d430e25158dff43559d78/src/ssh_options.jl#L19-L28)
+[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/8eec5cb0acec4591e6db3c017f7499426cd8e352/src/ssh_options.jl#L19-L28)
 
 </div>
 <br>
@@ -92,7 +94,7 @@ ssh_key_name() :: String
 The `ssh_key_name()` function returns the base name of key files that SSH should use for when establishing a connection. There is usually no reason that this function should be called directly and libraries should generally use the `ssh_key_path` and `ssh_pub_key_path` functions to get full paths. If the environment variable `SSH_KEY_NAME` is set then this function returns that; otherwise it returns `id_rsa` by default.
 
 
-[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/aab83e5dd900c874826d430e25158dff43559d78/src/ssh_options.jl#L31-L40)
+[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/8eec5cb0acec4591e6db3c017f7499426cd8e352/src/ssh_options.jl#L31-L40)
 
 </div>
 <br>
@@ -117,7 +119,7 @@ joinpath(ssh_dir(), ssh_key_name())
 This default value in turn depends on the `SSH_DIR` and `SSH_KEY_NAME` environment variables.
 
 
-[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/aab83e5dd900c874826d430e25158dff43559d78/src/ssh_options.jl#L43-L54)
+[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/8eec5cb0acec4591e6db3c017f7499426cd8e352/src/ssh_options.jl#L43-L54)
 
 </div>
 <br>
@@ -142,7 +144,7 @@ joinpath(ssh_dir(), ssh_key_name() * ".pub")
 This default value in turn depends on the `SSH_DIR` and `SSH_KEY_NAME` environment variables.
 
 
-[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/aab83e5dd900c874826d430e25158dff43559d78/src/ssh_options.jl#L61-L74)
+[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/8eec5cb0acec4591e6db3c017f7499426cd8e352/src/ssh_options.jl#L61-L74)
 
 </div>
 <br>
@@ -169,7 +171,7 @@ where `bundled_known_hosts` is the path of a copy of a known hosts file that is 
 Packages that use `ssh_known_hosts_files()` should ideally look for matching entries by comparing the host name and key types, considering the first entry in any of the files which matches to be the definitive identity of the host. If the caller cannot compare the key type (e.g. because it has been hashes) then it must approximate the above algorithm by looking for all matching entries for a host in each file: if a file has any entries for a host then one of them must match; the caller should only continue to search further known hosts files if there are no entries for the host in question in an earlier file.
 
 
-[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/aab83e5dd900c874826d430e25158dff43559d78/src/ssh_options.jl#L83-L107)
+[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/8eec5cb0acec4591e6db3c017f7499426cd8e352/src/ssh_options.jl#L83-L107)
 
 </div>
 <br>
@@ -187,7 +189,7 @@ ssh_known_hosts_file() :: String
 The `ssh_known_hosts_file()` function returns a single path of an SSH known hosts file that should be used when establishing the identities of remote servers for SSH connections. It returns the first path returned by `ssh_known_hosts_files` that actually exists. Callers who can look in more than one known hosts file should use `ssh_known_hosts_files` instead and look for host matches in all the files returned as described in that function&#39;s docs.
 
 
-[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/aab83e5dd900c874826d430e25158dff43559d78/src/ssh_options.jl#L126-L135)
+[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/8eec5cb0acec4591e6db3c017f7499426cd8e352/src/ssh_options.jl#L126-L135)
 
 </div>
 <br>
@@ -245,7 +247,7 @@ When matching a host name against a pattern list in one of these variables, the 
   
 
 
-[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/aab83e5dd900c874826d430e25158dff43559d78/src/verify_host.jl#L3-L54)
+[source](https://github.com/JuliaLang/NetworkOptions.jl/blob/8eec5cb0acec4591e6db3c017f7499426cd8e352/src/verify_host.jl#L3-L54)
 
 </div>
 <br>

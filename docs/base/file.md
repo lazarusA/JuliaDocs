@@ -28,7 +28,7 @@ read(filename::AbstractString, args...)
 Open a file and read its contents. `args` is passed to `read`: this is equivalent to `open(io->read(io, args...), filename)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L491-L504)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L491-L504)
 
 </div>
 <br>
@@ -48,7 +48,7 @@ Write the canonical binary representation of `content` to a file, which will be 
 Return the number of bytes written into the file.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L482-L488)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L482-L488)
 
 </div>
 <br>
@@ -81,7 +81,7 @@ julia> pwd()
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L34-L51)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L34-L51)
 
 </div>
 <br>
@@ -116,7 +116,7 @@ julia> pwd()
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L69-L88)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L69-L88)
 
 </div>
 <br>
@@ -158,7 +158,7 @@ julia> pwd()
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L119-L146)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L119-L146)
 
 </div>
 <br>
@@ -246,7 +246,7 @@ julia> readdir(abspath("base"), join=true)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L856-L931)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L856-L931)
 
 </div>
 <br>
@@ -298,7 +298,7 @@ julia> (root, dirs, files) = first(itr)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L1038-L1078)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L1038-L1078)
 
 </div>
 <br>
@@ -329,7 +329,7 @@ julia> pwd()
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L156-L176)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L156-L176)
 
 </div>
 <br>
@@ -380,7 +380,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L194-L234)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L194-L234)
 
 </div>
 <br>
@@ -406,7 +406,7 @@ This method was added in Julia 1.8.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L1164-L1174)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L1164-L1174)
 
 </div>
 <br>
@@ -442,7 +442,7 @@ The `dir_target` keyword argument was added in Julia 1.6.  Prior to this, symlin
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L1184-L1216)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L1184-L1216)
 
 </div>
 <br>
@@ -460,7 +460,7 @@ readlink(path::AbstractString) -> String
 Return the target location a symbolic link `path` points to.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L1260-L1264)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L1260-L1264)
 
 </div>
 <br>
@@ -484,7 +484,7 @@ Prior to Julia 1.6, this did not correctly manipulate filesystem ACLs  on Window
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L1284-L1296)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L1284-L1296)
 
 </div>
 <br>
@@ -502,7 +502,7 @@ chown(path::AbstractString, owner::Integer, group::Integer=-1)
 Change the owner and/or group of `path` to `owner` and/or `group`. If the value entered for `owner` or `group` is `-1` the corresponding ID will not change. Only integer `owner`s and `group`s are currently supported. Return `path`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L1310-L1316)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L1310-L1316)
 
 </div>
 <br>
@@ -520,7 +520,7 @@ RawFD
 Primitive type which wraps the native OS file descriptor. `RawFD`s can be passed to methods like [`stat`](/base/file#Base.stat) to discover information about the underlying file, and can also be used to open streams, with the `RawFD` describing the OS file backing the stream.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/libc.jl#L25-L33)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L25-L33)
 
 </div>
 <br>
@@ -555,7 +555,7 @@ Return a structure whose fields contain information about the file. The fields o
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L194-L215)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L194-L215)
 
 </div>
 <br>
@@ -579,7 +579,7 @@ This method was added in Julia 1.8.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L1357-L1366)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L1357-L1366)
 
 </div>
 <br>
@@ -597,7 +597,7 @@ lstat(file)
 Like [`stat`](/base/file#Base.stat), but for symbolic links gets the info for the link itself rather than the file it refers to. This function must be called on a file path rather than a file object or a file descriptor.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L218-L225)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L218-L225)
 
 </div>
 <br>
@@ -615,7 +615,7 @@ ctime(file)
 Equivalent to `stat(file).ctime`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L312-L316)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L312-L316)
 
 </div>
 <br>
@@ -633,7 +633,7 @@ mtime(file)
 Equivalent to `stat(file).mtime`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L305-L309)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L305-L309)
 
 </div>
 <br>
@@ -651,7 +651,7 @@ filemode(file)
 Equivalent to `stat(file).mode`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L275-L279)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L275-L279)
 
 </div>
 <br>
@@ -669,7 +669,7 @@ filesize(path...)
 Equivalent to `stat(file).size`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L298-L302)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L298-L302)
 
 </div>
 <br>
@@ -696,7 +696,7 @@ Get the permissions of the owner of the file as a bitfield of
 For allowed arguments, see [`stat`](/base/file#Base.stat).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L443-L455)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L443-L455)
 
 </div>
 <br>
@@ -714,7 +714,7 @@ gperm(file)
 Like [`uperm`](/base/file#Base.Filesystem.uperm) but gets the permissions of the group owning the file.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L458-L462)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L458-L462)
 
 </div>
 <br>
@@ -732,7 +732,7 @@ operm(file)
 Like [`uperm`](/base/file#Base.Filesystem.uperm) but gets the permissions for people who neither own the file nor are a member of the group owning the file
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L465-L470)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L465-L470)
 
 </div>
 <br>
@@ -758,7 +758,7 @@ The `cp` function is different from the `cp` command. The `cp` function always o
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L372-L389)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L372-L389)
 
 </div>
 <br>
@@ -782,7 +782,7 @@ Since Julia 1.6, this function is deprecated and is just a thin wrapper around `
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/download.jl#L8-L18)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/download.jl#L8-L18)
 
 </div>
 <br>
@@ -830,7 +830,7 @@ julia> rm("goodbye.txt");
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L403-L437)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L403-L437)
 
 </div>
 <br>
@@ -864,7 +864,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L256-L276)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L256-L276)
 
 </div>
 <br>
@@ -884,7 +884,7 @@ Update the `mtime` on the lock, to indicate it is still fresh.
 See also the `refresh` keyword in the [`mkpidlock`](/stdlib/FileWatching#FileWatching.Pidfile.mkpidlock) constructor.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/FileWatching/src/pidfile.jl#L124-L130)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/FileWatching/src/pidfile.jl#L124-L130)
 
 
 
@@ -918,7 +918,7 @@ julia> mtime("my_little_file")
 We can see the [`mtime`](/base/file#Base.Filesystem.mtime) has been modified by `touch`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L444-L468)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L444-L468)
 
 </div>
 <br>
@@ -958,7 +958,7 @@ This can lead to security holes if another process obtains the same file name an
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L696-L730)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L696-L730)
 
 </div>
 <br>
@@ -976,7 +976,7 @@ tempdir()
 Gets the path of the temporary directory. On Windows, `tempdir()` uses the first environment variable found in the ordered list `TMP`, `TEMP`, `USERPROFILE`. On all other operating systems, `tempdir()` uses the first environment variable found in the ordered list `TMPDIR`, `TMP`, `TEMP`, and `TEMPDIR`. If none of these are found, the path `"/tmp"` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L480-L487)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L480-L487)
 
 </div>
 <br>
@@ -1000,7 +1000,7 @@ The `cleanup` keyword argument was added in Julia 1.3. Relatedly, starting from 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L733-L744)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L733-L744)
 
 </div>
 <br>
@@ -1020,7 +1020,7 @@ Apply the function `f` to the result of [`mktemp(parent)`](/base/file#Base.Files
 See also: [`mktempdir`](/base/file#Base.Filesystem.mktempdir-Tuple{AbstractString}).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L795-L802)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L795-L802)
 
 </div>
 <br>
@@ -1052,7 +1052,7 @@ The `cleanup` keyword argument was added in Julia 1.3. Relatedly, starting from 
 See also: [`mktemp`](/base/file#Base.Filesystem.mktemp-Tuple{AbstractString}), [`mkdir`](/base/file#Base.Filesystem.mkdir).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L747-L766)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L747-L766)
 
 </div>
 <br>
@@ -1078,7 +1078,7 @@ The `prefix` keyword argument was added in Julia 1.2.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/file.jl#L820-L830)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/file.jl#L820-L830)
 
 </div>
 <br>
@@ -1096,7 +1096,7 @@ isblockdev(path) -> Bool
 Return `true` if `path` is a block device, `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L372-L376)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L372-L376)
 
 </div>
 <br>
@@ -1114,7 +1114,7 @@ ischardev(path) -> Bool
 Return `true` if `path` is a character device, `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L347-L351)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L347-L351)
 
 </div>
 <br>
@@ -1145,7 +1145,7 @@ false
 See also [`isfile`](/base/file#Base.Filesystem.isfile) and [`ispath`](/base/file#Base.Filesystem.ispath).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L354-L369)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L354-L369)
 
 </div>
 <br>
@@ -1163,7 +1163,7 @@ isfifo(path) -> Bool
 Return `true` if `path` is a FIFO, `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L340-L344)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L340-L344)
 
 </div>
 <br>
@@ -1203,7 +1203,7 @@ false
 See also [`isdir`](/base/file#Base.Filesystem.isdir) and [`ispath`](/base/file#Base.Filesystem.ispath).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L379-L403)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L379-L403)
 
 </div>
 <br>
@@ -1221,7 +1221,7 @@ islink(path) -> Bool
 Return `true` if `path` is a symbolic link, `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L406-L410)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L406-L410)
 
 </div>
 <br>
@@ -1239,7 +1239,7 @@ ismount(path) -> Bool
 Return `true` if `path` is a mount point, `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L511-L515)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L511-L515)
 
 </div>
 <br>
@@ -1257,7 +1257,7 @@ ispath(path) -> Bool
 Return `true` if a valid filesystem entity exists at `path`, otherwise returns `false`. This is the generalization of [`isfile`](/base/file#Base.Filesystem.isfile), [`isdir`](/base/file#Base.Filesystem.isdir) etc.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L321-L327)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L321-L327)
 
 </div>
 <br>
@@ -1275,7 +1275,7 @@ issetgid(path) -> Bool
 Return `true` if `path` has the setgid flag set, `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L429-L433)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L429-L433)
 
 </div>
 <br>
@@ -1293,7 +1293,7 @@ issetuid(path) -> Bool
 Return `true` if `path` has the setuid flag set, `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L422-L426)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L422-L426)
 
 </div>
 <br>
@@ -1311,7 +1311,7 @@ issocket(path) -> Bool
 Return `true` if `path` is a socket, `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L413-L417)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L413-L417)
 
 </div>
 <br>
@@ -1329,7 +1329,7 @@ issticky(path) -> Bool
 Return `true` if `path` has the sticky bit set, `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L436-L440)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L436-L440)
 
 </div>
 <br>
@@ -1355,7 +1355,7 @@ Return the current user&#39;s home directory.
 See also [`Sys.username`](/base/base#Base.Sys.username).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L71-L82)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L71-L82)
 
 </div>
 <br>
@@ -1386,7 +1386,7 @@ julia> dirname("/home/myuser/")
 See also [`basename`](/base/file#Base.Filesystem.basename).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L166-L182)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L166-L182)
 
 </div>
 <br>
@@ -1423,7 +1423,7 @@ julia> basename("/home/myuser/")
 See also [`dirname`](/base/file#Base.Filesystem.dirname).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L185-L204)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L185-L204)
 
 </div>
 <br>
@@ -1452,7 +1452,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L106-L119)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L106-L119)
 
 </div>
 <br>
@@ -1481,7 +1481,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L122-L135)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L122-L135)
 
 </div>
 <br>
@@ -1517,7 +1517,7 @@ julia> joinpath(["/home/myuser", "example.jl"])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L348-L372)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L348-L372)
 
 </div>
 <br>
@@ -1548,7 +1548,7 @@ Which gives a path like `"/home/JuliaUser/data/"`.
 See also [`joinpath`](/base/file#Base.Filesystem.joinpath), [`pwd`](/base/file#Base.Filesystem.pwd), [`expanduser`](/base/file#Base.Filesystem.expanduser).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L432-L447)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L432-L447)
 
 
 
@@ -1560,7 +1560,7 @@ abspath(path::AbstractString, paths::AbstractString...) -> String
 Convert a set of paths to an absolute path by joining them together and adding the current directory if necessary. Equivalent to `abspath(joinpath(path, paths...))`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L462-L467)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L462-L467)
 
 </div>
 <br>
@@ -1589,7 +1589,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L375-L389)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L375-L389)
 
 
 
@@ -1601,7 +1601,7 @@ normpath(path::AbstractString, paths::AbstractString...) -> String
 Convert a set of paths to a normalized path by joining them together and removing &quot;.&quot; and &quot;..&quot; entries. Equivalent to `normpath(joinpath(path, paths...))`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L424-L429)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L424-L429)
 
 </div>
 <br>
@@ -1621,7 +1621,7 @@ Canonicalize a path by expanding symbolic links and removing &quot;.&quot; and &
 (This function throws an exception if `path` does not exist in the filesystem.)
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L489-L497)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L489-L497)
 
 </div>
 <br>
@@ -1641,7 +1641,7 @@ Return a relative filepath to `path` either from the current directory or from a
 On Windows, case sensitivity is applied to every part of the path except drive letters. If `path` and `startpath` refer to different drives, the absolute path of `path` is returned.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L563-L572)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L563-L572)
 
 </div>
 <br>
@@ -1661,7 +1661,7 @@ On Unix systems, replace a tilde character at the start of a path with the curre
 See also: [`contractuser`](/base/file#Base.Filesystem.contractuser).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L544-L550)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L544-L550)
 
 </div>
 <br>
@@ -1681,7 +1681,7 @@ On Unix systems, if the path starts with `homedir()`, replace it with a tilde ch
 See also: [`expanduser`](/base/file#Base.Filesystem.expanduser).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L553-L559)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L553-L559)
 
 </div>
 <br>
@@ -1699,7 +1699,7 @@ samefile(path_a::AbstractString, path_b::AbstractString)
 Check if the paths `path_a` and `path_b` refer to the same existing file or directory.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stat.jl#L504-L508)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stat.jl#L504-L508)
 
 </div>
 <br>
@@ -1725,7 +1725,7 @@ julia> splitdir("/home/myuser")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L138-L148)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L138-L148)
 
 </div>
 <br>
@@ -1743,7 +1743,7 @@ splitdrive(path::AbstractString) -> (AbstractString, AbstractString)
 On Windows, split a path into the drive letter part and the path part. On Unix systems, the first component is always the empty string.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L63-L68)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L63-L68)
 
 </div>
 <br>
@@ -1775,7 +1775,7 @@ julia> splitext("/home/my.user/example")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L207-L225)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L207-L225)
 
 </div>
 <br>
@@ -1811,7 +1811,7 @@ julia> splitpath("/home/myuser/example.jl")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/path.jl#L236-L255)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/path.jl#L236-L255)
 
 </div>
 <br>

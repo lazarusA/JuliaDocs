@@ -27,7 +27,7 @@ help?> "pattern"
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/Docs.jl#L724-L735)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/Docs.jl#L725-L736)
 
 </div>
 <br>
@@ -59,7 +59,7 @@ The memory consumption estimate is an approximate lower bound on the size of the
 The output of `varinfo` is intended for display purposes only.  See also [`names`](/base/base#Base.names) to get an array of symbols defined in a module, which is suitable for more general manipulations.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/InteractiveUtils.jl#L28-L44)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/InteractiveUtils.jl#L28-L44)
 
 </div>
 <br>
@@ -87,7 +87,7 @@ The output of this function may contain sensitive information. Before sharing th
 See also: [`VERSION`](/base/constants#Base.VERSION).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/InteractiveUtils.jl#L88-L101)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/InteractiveUtils.jl#L88-L101)
 
 </div>
 <br>
@@ -111,7 +111,7 @@ If keyword `supertypes` is `true`, also return arguments with a parent type of `
 See also: [`methods`](/base/base#Base.methods).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/InteractiveUtils.jl#L200-L212)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/InteractiveUtils.jl#L200-L212)
 
 </div>
 <br>
@@ -142,7 +142,7 @@ julia> subtypes(Integer)
 
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/InteractiveUtils.jl#L284-L300)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/InteractiveUtils.jl#L284-L300)
 
 </div>
 <br>
@@ -170,7 +170,7 @@ julia> supertypes(Int)
 
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/InteractiveUtils.jl#L303-L317)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/InteractiveUtils.jl#L303-L317)
 
 </div>
 <br>
@@ -190,7 +190,7 @@ Edit a file or directory optionally providing a line number to edit the file at.
 See also [`InteractiveUtils.define_editor`](/stdlib/InteractiveUtils#InteractiveUtils.define_editor).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/editless.jl#L219-L227)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/editless.jl#L219-L227)
 
 </div>
 <br>
@@ -217,7 +217,7 @@ Edit the definition of a function, optionally specifying a tuple of types to ind
 To ensure that the file can be opened at the given line, you may need to call `InteractiveUtils.define_editor` first.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/editless.jl#L246-L259)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/editless.jl#L246-L259)
 
 </div>
 <br>
@@ -237,7 +237,7 @@ Evaluates the arguments to the function or macro call, determines their types, a
 See also: [`@less`](/stdlib/InteractiveUtils#InteractiveUtils.@less), [`@which`](/stdlib/InteractiveUtils#InteractiveUtils.@which).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/macros.jl#L290-L297)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/macros.jl#L290-L297)
 
 </div>
 <br>
@@ -334,7 +334,7 @@ end
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/editless.jl#L17-L91)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/editless.jl#L17-L91)
 
 </div>
 <br>
@@ -352,7 +352,7 @@ less(file::AbstractString, [line::Integer])
 Show a file using the default pager, optionally providing a starting line number. Returns to the `julia` prompt when you quit the pager.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/editless.jl#L295-L300)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/editless.jl#L295-L300)
 
 </div>
 <br>
@@ -370,7 +370,7 @@ less(function, [types])
 Show the definition of a function using the default pager, optionally specifying a tuple of types to indicate which method to see.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/editless.jl#L303-L308)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/editless.jl#L303-L308)
 
 </div>
 <br>
@@ -390,7 +390,7 @@ Evaluates the arguments to the function or macro call, determines their types, a
 See also: [`@edit`](/stdlib/InteractiveUtils#InteractiveUtils.@edit), [`@which`](/stdlib/InteractiveUtils#InteractiveUtils.@which), [`@code_lowered`](/stdlib/InteractiveUtils#InteractiveUtils.@code_lowered).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/macros.jl#L280-L287)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/macros.jl#L280-L287)
 
 </div>
 <br>
@@ -410,7 +410,7 @@ Applied to a function or macro call, it evaluates the arguments to the specified
 See also: [`@less`](/stdlib/InteractiveUtils#InteractiveUtils.@less), [`@edit`](/stdlib/InteractiveUtils#InteractiveUtils.@edit).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/macros.jl#L268-L277)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/macros.jl#L268-L277)
 
 </div>
 <br>
@@ -428,7 +428,7 @@ See also: [`@less`](/stdlib/InteractiveUtils#InteractiveUtils.@less), [`@edit`](
 Applied to a function or macro call, it evaluates the arguments to the specified call, and returns a tuple `(filename,line)` giving the location for the method that would be called for those arguments. It calls out to the [`functionloc`](/base/base#Base.functionloc-Tuple{Any,%20Any}) function.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/macros.jl#L259-L265)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/macros.jl#L259-L265)
 
 </div>
 <br>
@@ -448,7 +448,7 @@ Evaluates the arguments to the function or macro call, determines their types, a
 See also: [`code_lowered`](/base/base#Base.code_lowered), [`@code_warntype`](/stdlib/InteractiveUtils#InteractiveUtils.@code_warntype), [`@code_typed`](/stdlib/InteractiveUtils#InteractiveUtils.@code_typed), [`@code_llvm`](/stdlib/InteractiveUtils#InteractiveUtils.@code_llvm), [`@code_native`](/stdlib/InteractiveUtils#InteractiveUtils.@code_native).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/macros.jl#L314-L321)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/macros.jl#L314-L321)
 
 </div>
 <br>
@@ -475,7 +475,7 @@ to control whether additional optimizations, such as inlining, are also applied.
 See also: [`code_typed`](/base/base#Base.code_typed), [`@code_warntype`](/stdlib/InteractiveUtils#InteractiveUtils.@code_warntype), [`@code_lowered`](/stdlib/InteractiveUtils#InteractiveUtils.@code_lowered), [`@code_llvm`](/stdlib/InteractiveUtils#InteractiveUtils.@code_llvm), [`@code_native`](/stdlib/InteractiveUtils#InteractiveUtils.@code_native).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/macros.jl#L300-L311)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/macros.jl#L300-L311)
 
 </div>
 <br>
@@ -501,7 +501,7 @@ See the [`@code_warntype`](/manual/performance-tips#man-code-warntype) section i
 See also: [`@code_warntype`](/stdlib/InteractiveUtils#InteractiveUtils.@code_warntype), [`code_typed`](/base/base#Base.code_typed), [`code_lowered`](/base/base#Base.code_lowered), [`code_llvm`](/stdlib/InteractiveUtils#InteractiveUtils.code_llvm), [`code_native`](/stdlib/InteractiveUtils#InteractiveUtils.code_native).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/codeview.jl#L126-L145)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/codeview.jl#L126-L145)
 
 </div>
 <br>
@@ -521,7 +521,7 @@ Evaluates the arguments to the function or macro call, determines their types, a
 See also: [`code_warntype`](/stdlib/InteractiveUtils#InteractiveUtils.code_warntype), [`@code_typed`](/stdlib/InteractiveUtils#InteractiveUtils.@code_typed), [`@code_lowered`](/stdlib/InteractiveUtils#InteractiveUtils.@code_lowered), [`@code_llvm`](/stdlib/InteractiveUtils#InteractiveUtils.@code_llvm), [`@code_native`](/stdlib/InteractiveUtils#InteractiveUtils.@code_native).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/macros.jl#L324-L331)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/macros.jl#L324-L331)
 
 </div>
 <br>
@@ -543,7 +543,7 @@ If the `optimize` keyword is unset, the code will be shown before LLVM optimizat
 See also: [`@code_llvm`](/stdlib/InteractiveUtils#InteractiveUtils.@code_llvm), [`code_warntype`](/stdlib/InteractiveUtils#InteractiveUtils.code_warntype), [`code_typed`](/base/base#Base.code_typed), [`code_lowered`](/base/base#Base.code_lowered), [`code_native`](/stdlib/InteractiveUtils#InteractiveUtils.code_native).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/codeview.jl#L280-L292)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/codeview.jl#L282-L294)
 
 </div>
 <br>
@@ -571,7 +571,7 @@ Evaluates the arguments to the function or macro call, determines their types, a
 See also: [`code_llvm`](/stdlib/InteractiveUtils#InteractiveUtils.code_llvm), [`@code_warntype`](/stdlib/InteractiveUtils#InteractiveUtils.@code_warntype), [`@code_typed`](/stdlib/InteractiveUtils#InteractiveUtils.@code_typed), [`@code_lowered`](/stdlib/InteractiveUtils#InteractiveUtils.@code_lowered), [`@code_native`](/stdlib/InteractiveUtils#InteractiveUtils.@code_native).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/macros.jl#L334-L351)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/macros.jl#L334-L351)
 
 </div>
 <br>
@@ -601,7 +601,7 @@ Prints the native assembly instructions generated for running the method matchin
 See also: [`@code_native`](/stdlib/InteractiveUtils#InteractiveUtils.@code_native), [`code_warntype`](/stdlib/InteractiveUtils#InteractiveUtils.code_warntype), [`code_typed`](/base/base#Base.code_typed), [`code_lowered`](/base/base#Base.code_lowered), [`code_llvm`](/stdlib/InteractiveUtils#InteractiveUtils.code_llvm).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/codeview.jl#L305-L318)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/codeview.jl#L307-L320)
 
 </div>
 <br>
@@ -636,7 +636,7 @@ Set any of the optional keyword arguments `syntax`, `debuginfo`, `binary` or `du
 See also: [`code_native`](/stdlib/InteractiveUtils#InteractiveUtils.code_native), [`@code_warntype`](/stdlib/InteractiveUtils#InteractiveUtils.@code_warntype), [`@code_typed`](/stdlib/InteractiveUtils#InteractiveUtils.@code_typed), [`@code_lowered`](/stdlib/InteractiveUtils#InteractiveUtils.@code_lowered), [`@code_llvm`](/stdlib/InteractiveUtils#InteractiveUtils.@code_llvm).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/macros.jl#L354-L371)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/macros.jl#L354-L371)
 
 </div>
 <br>
@@ -691,7 +691,7 @@ This macro requires at least Julia 1.8
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/macros.jl#L374-L410)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/macros.jl#L374-L410)
 
 </div>
 <br>
@@ -709,7 +709,7 @@ clipboard(x)
 Send a printed form of `x` to the operating system clipboard (&quot;copy&quot;).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/clipboard.jl#L149-L153)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/clipboard.jl#L149-L153)
 
 
 
@@ -721,7 +721,7 @@ clipboard() -> String
 Return a string with the contents of the operating system clipboard (&quot;paste&quot;).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/InteractiveUtils/src/clipboard.jl#L156-L160)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/InteractiveUtils/src/clipboard.jl#L156-L160)
 
 </div>
 <br>

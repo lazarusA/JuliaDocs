@@ -392,7 +392,7 @@ Since the primary environment is typically the environment of a project you&#39;
 
 ### Package Extensions {#man-extensions}
 
-A package &quot;extension&quot; is a module that is automatically loaded when a specified set of other packages (its &quot;extension dependencies&quot;) are loaded in the current Julia session. Extensions are defined under the `[extensions]` section in the project file. The extension dependencies of an extension are a subset of those packages listed under the `[weakdeps]` section of the project file. Those packages can have compat entries like other packages.
+A package &quot;extension&quot; is a module that is automatically loaded when a specified set of other packages (its &quot;triggers&quot;) are loaded in the current Julia session. Extensions are defined under the `[extensions]` section in the project file. The triggers of an extension are a subset of those packages listed under the `[weakdeps]` (and possibly, but uncommonly the `[deps]`) section of the project file. Those packages can have compat entries like other packages.
 
 ```toml
 name = "MyPackage"
@@ -412,22 +412,22 @@ FooExt = "ExtDep"
 ```
 
 
-The keys under `extensions` are the names of the extensions. They are loaded when all the packages on the right hand side (the extension dependencies) of that extension are loaded. If an extension only has one extension dependency the list of extension dependencies can be written as just a string for brevity. The location for the entry point of the extension is either in `ext/FooExt.jl` or `ext/FooExt/FooExt.jl` for extension `FooExt`. The content of an extension is often structured as:
+The keys under `extensions` are the names of the extensions. They are loaded when all the packages on the right hand side (the triggers) of that extension are loaded. If an extension only has one trigger the list of triggers can be written as just a string for brevity. The location for the entry point of the extension is either in `ext/FooExt.jl` or `ext/FooExt/FooExt.jl` for extension `FooExt`. The content of an extension is often structured as:
 
 ```
 module FooExt
 
-# Load main package and extension dependencies
+# Load main package and triggers
 using MyPackage, ExtDep
 
-# Extend functionality in main package with types from the extension dependencies
+# Extend functionality in main package with types from the triggers
 MyPackage.func(x::ExtDep.SomeStruct) = ...
 
 end
 ```
 
 
-When a package with extensions is added to an environment, the `weakdeps` and `extensions` sections are stored in the manifest file in the section for that package. The dependency lookup rules for a package are the same as for its &quot;parent&quot; except that the listed extension dependencies are also considered as dependencies.
+When a package with extensions is added to an environment, the `weakdeps` and `extensions` sections are stored in the manifest file in the section for that package. The dependency lookup rules for a package are the same as for its &quot;parent&quot; except that the listed triggers are also considered as dependencies.
 
 ### Workspaces {#workspaces}
 

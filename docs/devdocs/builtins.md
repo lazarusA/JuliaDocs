@@ -25,7 +25,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L25-L33)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L25-L33)
 
 </div>
 <br>
@@ -49,7 +49,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L36-L43)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L36-L43)
 
 </div>
 <br>
@@ -73,7 +73,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L46-L54)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L46-L54)
 
 </div>
 <br>
@@ -97,7 +97,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L57-L65)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L57-L65)
 
 </div>
 <br>
@@ -121,7 +121,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L68-L77)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L68-L77)
 
 </div>
 <br>
@@ -147,7 +147,7 @@ This function requires Julia 1.11 or later.
 See also [`swapproperty!`](/base/base#Base.swapproperty!) and [`Core.memoryrefset!`](/devdocs/builtins#Core.memoryrefset!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L80-L89)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L80-L89)
 
 </div>
 <br>
@@ -173,7 +173,7 @@ This function requires Julia 1.11 or later.
 See also [`modifyproperty!`](/base/base#Base.modifyproperty!) and [`Core.memoryrefset!`](/devdocs/builtins#Core.memoryrefset!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L92-L102)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L92-L102)
 
 </div>
 <br>
@@ -200,7 +200,7 @@ This function requires Julia 1.11 or later.
 See also [`replaceproperty!`](/base/base#Base.replaceproperty!) and [`Core.memoryrefset!`](/devdocs/builtins#Core.memoryrefset!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L105-L115)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L105-L115)
 
 </div>
 <br>
@@ -227,7 +227,7 @@ This function requires Julia 1.11 or later.
 See also [`setpropertyonce!`](/base/base#Base.replaceproperty!) and [`Core.memoryrefset!`](/devdocs/builtins#Core.memoryrefset!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L118-L129)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L118-L129)
 
 </div>
 <br>
@@ -251,7 +251,7 @@ This function requires Julia 1.7 or later.
 See [`unsafe_load`](/base/c#Base.unsafe_load).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L132-L139)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L132-L139)
 
 </div>
 <br>
@@ -275,7 +275,7 @@ This function requires Julia 1.7 or later.
 See [`unsafe_store!`](/base/c#Base.unsafe_store!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L142-L149)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L142-L149)
 
 </div>
 <br>
@@ -299,7 +299,7 @@ This function requires Julia 1.7 or later.
 See [`unsafe_swap!`](/base/c#Base.unsafe_swap!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L152-L159)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L152-L159)
 
 </div>
 <br>
@@ -323,7 +323,7 @@ This function requires Julia 1.7 or later.
 See [`unsafe_modify!`](/base/c#Base.unsafe_modify!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L162-L169)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L162-L169)
 
 </div>
 <br>
@@ -347,7 +347,7 @@ This function requires Julia 1.7 or later.
 See [`unsafe_replace!`](/base/c#Base.unsafe_replace!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L172-L179)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L172-L179)
 
 </div>
 <br>
@@ -371,7 +371,7 @@ This function requires Julia 1.9 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/basedocs.jl#L2514-L2521)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/basedocs.jl#L2514-L2521)
 
 </div>
 <br>
@@ -395,7 +395,7 @@ This function requires Julia 1.9 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/basedocs.jl#L2524-L2533)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/basedocs.jl#L2524-L2533)
 
 </div>
 <br>
@@ -413,7 +413,7 @@ Core.IntrinsicFunction <: Core.Builtin <: Function
 The `Core.IntrinsicFunction` function define some basic primitives for what defines the abilities and behaviors of a Julia program
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L10-L15)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L10-L15)
 
 </div>
 <br>
@@ -431,7 +431,7 @@ Core.Intrinsics
 The `Core.Intrinsics` module holds the `Core.IntrinsicFunction` objects.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L18-L22)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L18-L22)
 
 </div>
 <br>
@@ -449,7 +449,7 @@ Core.IR
 The `Core.IR` module exports the IR object model.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/intrinsicsdocs.jl#L3-L7)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/intrinsicsdocs.jl#L3-L7)
 
 </div>
 <br>

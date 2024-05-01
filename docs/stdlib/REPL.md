@@ -13,8 +13,8 @@ $ julia
   (_)     | (_) (_)    |
    _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
   | | | | | | |/ _` |  |
-  | | |_| | | | (_| |  |  Version 1.12.0-DEV.321 (2024-04-07)
- _/ |\__'_|_|_|\__'_|  |  la/docs/ad044fee2e* (fork: 10 commits, 0 days)
+  | | |_| | | | (_| |  |  Version 1.12.0-DEV.459 (2024-05-01)
+ _/ |\__'_|_|_|\__'_|  |  la/docs/e162027b05 (fork: 13 commits, 0 days)
 |__/                   |
 
 
@@ -823,7 +823,7 @@ atreplinit(f)
 Register a one-argument function to be called before the REPL interface is initialized in interactive sessions; this is useful to customize the interface. The argument of `f` is the REPL object. This function should be called from within the `.julia/config/startup.jl` initialization file.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/client.jl#L370-L377)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/client.jl#L370-L377)
 
 </div>
 <br>
@@ -858,7 +858,7 @@ Your favorite fruit is blueberry!
 
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/RadioMenu.jl#L3-L21)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/RadioMenu.jl#L3-L21)
 
 </div>
 <br>
@@ -897,7 +897,7 @@ You like the following fruits:
 
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/MultiSelectMenu.jl#L3-L29)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/MultiSelectMenu.jl#L3-L29)
 
 </div>
 <br>
@@ -937,7 +937,7 @@ Subtypes of `ConfiguredMenu` will print `cursor`, `up_arrow`, and `down_arrow` a
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/config.jl#L20-L44)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/config.jl#L20-L44)
 
 </div>
 <br>
@@ -967,7 +967,7 @@ All other keyword arguments are as described for [`TerminalMenus.Config`](/stdli
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/config.jl#L70-L86)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/config.jl#L70-L86)
 
 </div>
 <br>
@@ -1011,7 +1011,7 @@ As of Julia 1.6, `config` is deprecated. Use `Config` or `MultiSelectConfig` ins
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/config.jl#L117-L135)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/config.jl#L117-L135)
 
 </div>
 <br>
@@ -1039,7 +1039,7 @@ The `cursor` argument requires Julia 1.6 or later.
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L166-L178)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L166-L178)
 
 
 
@@ -1051,7 +1051,7 @@ request([term,] msg::AbstractString, m::AbstractMenu)
 Shorthand for `println(msg); request(m)`.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L250-L254)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L250-L254)
 
 </div>
 <br>
@@ -1073,7 +1073,7 @@ pick(m::AbstractMenu, cursor::Int)
 Defines what happens when a user presses the Enter key while the menu is open. If `true` is returned, `request()` will exit. `cursor` indexes the position of the selection.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L76-L82)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L76-L82)
 
 </div>
 <br>
@@ -1091,7 +1091,7 @@ cancel(m::AbstractMenu)
 Define what happens when a user cancels (&#39;q&#39; or ctrl-c) a menu. `request()` will always exit after calling this function.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L85-L90)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L85-L90)
 
 </div>
 <br>
@@ -1121,7 +1121,7 @@ This older function is supported on all Julia 1.x versions but will be dropped i
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L102-L120)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L102-L120)
 
 </div>
 <br>
@@ -1143,7 +1143,7 @@ Return a list of strings to be displayed as options in the current page.
 Alternatively, implement `numoptions`, in which case `options` is not needed.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L93-L99)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L93-L99)
 
 </div>
 <br>
@@ -1167,7 +1167,7 @@ This function requires Julia 1.6 or later.
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L148-L155)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L148-L155)
 
 </div>
 <br>
@@ -1187,7 +1187,7 @@ selected(m::AbstractMenu)
 Return information about the user-selected option. By default it returns `m.selected`.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L158-L163)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L158-L163)
 
 </div>
 <br>
@@ -1207,7 +1207,7 @@ header(m::AbstractMenu) -> String
 Return a header string to be printed above the menu. Defaults to &quot;&quot;.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L131-L136)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L131-L136)
 
 </div>
 <br>
@@ -1225,7 +1225,7 @@ keypress(m::AbstractMenu, i::UInt32) -> Bool
 Handle any non-standard keypress event. If `true` is returned, [`TerminalMenus.request`](/stdlib/REPL#REPL.TerminalMenus.request) will exit. Defaults to `false`.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L139-L145)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/REPL/src/TerminalMenus/AbstractMenu.jl#L139-L145)
 
 </div>
 <br>

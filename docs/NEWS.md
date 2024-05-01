@@ -58,6 +58,8 @@
   
 
 ## Standard library changes {#Standard-library-changes}
+- `gcdx(0, 0)` now returns `(0, 0, 0)` instead of `(0, 1, 0)` ([#40989](https://github.com/JuliaLang/julia/issues/40989)).
+  
 
 #### StyledStrings {#StyledStrings}
 
@@ -66,6 +68,8 @@
 #### Package Manager {#Package-Manager}
 
 #### LinearAlgebra {#LinearAlgebra}
+- `rank` can now take a `QRPivoted` matrix to allow rank estimation via QR factorization ([#54283](https://github.com/JuliaLang/julia/issues/54283)).
+  
 
 #### Logging {#Logging}
 

@@ -204,7 +204,7 @@ It&#39;s sometimes useful to know when a task is spawning other tasks. This is v
    _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
   | | | | | | |/ _` |  |
   | | |_| | | | (_| |  |  Version 1.6.2 (2021-07-14)
- _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org release
 |__/                   |
 
 1> getpid()
@@ -277,7 +277,7 @@ We can see this problem illustrated with `bpftrace` quite easily. First, in one 
    _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
   | | | | | | |/ _` |  |
   | | |_| | | | (_| |  |  Version 1.6.2 (2021-07-14)
- _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org release
 |__/                   |
 
 1> getpid()

@@ -16,7 +16,7 @@ stdout::IO
 Global variable referring to the standard out stream.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/libuv.jl#L160-L164)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libuv.jl#L160-L164)
 
 </div>
 <br>
@@ -34,7 +34,7 @@ stderr::IO
 Global variable referring to the standard error stream.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/libuv.jl#L167-L171)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libuv.jl#L167-L171)
 
 </div>
 <br>
@@ -52,7 +52,7 @@ stdin::IO
 Global variable referring to the standard input stream.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/libuv.jl#L153-L157)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libuv.jl#L153-L157)
 
 </div>
 <br>
@@ -84,7 +84,7 @@ read(filename::AbstractString, args...)
 Open a file and read its contents. `args` is passed to `read`: this is equivalent to `open(io->read(io, args...), filename)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L491-L504)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L491-L504)
 
 </div>
 <br>
@@ -104,7 +104,7 @@ Write the canonical binary representation of `content` to a file, which will be 
 Return the number of bytes written into the file.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L482-L488)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L482-L488)
 
 </div>
 <br>
@@ -134,7 +134,7 @@ julia> rm("myfile.txt")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L391-L406)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L391-L406)
 
 
 
@@ -165,7 +165,7 @@ The `lock` argument is available as of Julia 1.5.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L255-L276)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L255-L276)
 
 
 
@@ -226,7 +226,7 @@ The `lock` argument is available as of Julia 1.5.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L309-L359)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L309-L359)
 
 
 
@@ -244,7 +244,7 @@ Do not call this on a handle that&#39;s already owned by some other part of the 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L318-L329)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L318-L329)
 
 
 
@@ -264,7 +264,7 @@ Run `command` asynchronously. Like `open(command, stdio; read, write)` except sp
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/process.jl#L360-L373)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/process.jl#L360-L373)
 
 
 
@@ -276,7 +276,7 @@ open(command, stdio=devnull; write::Bool = false, read::Bool = !write)
 Start running `command` asynchronously, and return a `process::IO` object.  If `read` is true, then reads from the process come from the process&#39;s standard output and `stdio` optionally specifies the process&#39;s standard input stream.  If `write` is true, then writes go to the process&#39;s standard input and `stdio` optionally specifies the process&#39;s standard output stream. The process&#39;s standard error stream is connected to the current global `stderr`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/process.jl#L387-L396)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/process.jl#L387-L396)
 
 
 
@@ -288,7 +288,7 @@ open(f::Function, command, args...; kwargs...)
 Similar to `open(command, args...; kwargs...)`, but calls `f(stream)` on the resulting process stream, then closes the input stream and waits for the process to complete. Return the value returned by `f` on success. Throw an error if the process failed, or if the process attempts to print anything to stdout.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/process.jl#L420-L427)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/process.jl#L420-L427)
 
 </div>
 <br>
@@ -306,7 +306,7 @@ IOStream
 A buffered IO stream wrapping an OS file descriptor. Mostly used to represent files returned by [`open`](/base/io-network#Base.open).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L7-L12)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L7-L12)
 
 </div>
 <br>
@@ -373,7 +373,7 @@ julia> length(read(IOBuffer(b"data", read=true, truncate=true)))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iobuffer.jl#L49-L96)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iobuffer.jl#L49-L96)
 
 
 
@@ -398,7 +398,7 @@ julia> String(take!(io))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L292-L307)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L292-L307)
 
 </div>
 <br>
@@ -429,7 +429,7 @@ julia> String(take!(io))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iobuffer.jl#L420-L435)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iobuffer.jl#L430-L445)
 
 </div>
 <br>
@@ -466,7 +466,7 @@ julia> read(err, String)
 See also [`Base.link_pipe!`](/base/io-network#Base.link_pipe!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L748-L771)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L748-L771)
 
 </div>
 <br>
@@ -484,7 +484,7 @@ link_pipe!(pipe; reader_supports_async=false, writer_supports_async=false)
 Initialize `pipe` and link the `in` endpoint to the `out` endpoint. The keyword arguments `reader_supports_async`/`writer_supports_async` correspond to `OVERLAPPED` on Windows and `O_NONBLOCK` on POSIX systems. They should be `true` unless they&#39;ll be used by an external program (e.g. the output of a command executed with [`run`](/base/base#Base.run)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L776-L784)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L776-L784)
 
 </div>
 <br>
@@ -502,7 +502,7 @@ fdio([name::AbstractString, ]fd::Integer[, own::Bool=false]) -> IOStream
 Create an [`IOStream`](/base/io-network#Base.IOStream) object from an integer file descriptor. If `own` is `true`, closing this object will close the underlying descriptor. By default, an `IOStream` is closed when it is garbage collected. `name` allows you to associate the descriptor with a named file.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L240-L246)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L240-L246)
 
 </div>
 <br>
@@ -520,7 +520,7 @@ flush(stream)
 Commit all currently buffered writes to the given stream.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L99-L103)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L99-L103)
 
 </div>
 <br>
@@ -538,7 +538,7 @@ close(stream)
 Close an I/O stream. Performs a [`flush`](/base/io-network#Base.flush) first.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L65-L69)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L65-L69)
 
 </div>
 <br>
@@ -574,7 +574,7 @@ julia> read(io, String)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L72-L96)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L72-L96)
 
 </div>
 <br>
@@ -658,7 +658,7 @@ Base.RefValue{MyStruct}(MyStruct(42.0))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L239-L302)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L239-L302)
 
 </div>
 <br>
@@ -700,7 +700,7 @@ julia> read(io, String)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L210-L234)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L210-L234)
 
 
 
@@ -726,7 +726,7 @@ read(filename::AbstractString, args...)
 Open a file and read its contents. `args` is passed to `read`: this is equivalent to `open(io->read(io, args...), filename)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L491-L504)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L491-L504)
 
 
 
@@ -738,7 +738,7 @@ read(s::IO, nb=typemax(Int))
 Read at most `nb` bytes from `s`, returning a `Vector{UInt8}` of the bytes read.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1167-L1171)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1167-L1171)
 
 
 
@@ -752,7 +752,7 @@ Read at most `nb` bytes from `s`, returning a `Vector{UInt8}` of the bytes read.
 If `all` is `true` (the default), this function will block repeatedly trying to read all requested bytes, until an error or end-of-file occurs. If `all` is `false`, at most one `read` call is performed, and the amount of data returned is device-dependent. Note that not all stream types support the `all` option.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L588-L597)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L588-L597)
 
 
 
@@ -764,7 +764,7 @@ read(command::Cmd)
 Run `command` and return the resulting output as an array of bytes.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/process.jl#L474-L478)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/process.jl#L474-L478)
 
 
 
@@ -776,7 +776,7 @@ read(command::Cmd, String)
 Run `command` and return the resulting output as a `String`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/process.jl#L486-L490)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/process.jl#L486-L490)
 
 </div>
 <br>
@@ -795,7 +795,7 @@ read!(filename::AbstractString, array::AbstractArray)
 Read binary data from an I/O stream or file, filling in `array`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L509-L514)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L509-L514)
 
 </div>
 <br>
@@ -813,7 +813,7 @@ readbytes!(stream::IO, b::AbstractVector{UInt8}, nb=length(b))
 Read at most `nb` bytes from `stream` into `b`, returning the number of bytes read. The size of `b` will be increased if needed (i.e. if `nb` is greater than `length(b)` and enough bytes could be read), but it will never be decreased.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1141-L1147)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1141-L1147)
 
 
 
@@ -827,7 +827,7 @@ Read at most `nb` bytes from `stream` into `b`, returning the number of bytes re
 If `all` is `true` (the default), this function will block repeatedly trying to read all requested bytes, until an error or end-of-file occurs. If `all` is `false`, at most one `read` call is performed, and the amount of data returned is device-dependent. Note that not all stream types support the `all` option.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L538-L549)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L538-L549)
 
 </div>
 <br>
@@ -847,7 +847,7 @@ Copy `nbytes` from the `IO` stream object into `ref` (converted to a pointer).
 It is recommended that subtypes `T<:IO` override the following method signature to provide more efficient implementations: `unsafe_read(s::T, p::Ptr{UInt8}, n::UInt)`
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L325-L333)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L325-L333)
 
 </div>
 <br>
@@ -867,7 +867,7 @@ Copy `nbytes` from `ref` (converted to a pointer) into the `IO` object.
 It is recommended that subtypes `T<:IO` override the following method signature to provide more efficient implementations: `unsafe_write(s::T, p::Ptr{UInt8}, n::UInt)`
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L308-L316)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L308-L316)
 
 </div>
 <br>
@@ -906,7 +906,7 @@ JuliaLang is a GitHub organization.
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1359-L1379)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1359-L1379)
 
 </div>
 <br>
@@ -946,7 +946,7 @@ The method which accepts a type requires Julia 1.5 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/essentials.jl#L1153-L1176)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/essentials.jl#L1155-L1178)
 
 </div>
 <br>
@@ -964,7 +964,7 @@ position(l::Lexer)
 Returns the current position.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base//Users/lalonso/Documents/julia/base/JuliaSyntax/src/tokenize.jl#L354-L358)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base//Users/lalonso/Documents/julia/base/JuliaSyntax/src/tokenize.jl#L354-L358)
 
 
 
@@ -998,7 +998,7 @@ julia> position(io)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L193-L217)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L193-L217)
 
 </div>
 <br>
@@ -1028,7 +1028,7 @@ julia> read(io, Char)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L114-L128)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L114-L128)
 
 </div>
 <br>
@@ -1063,7 +1063,7 @@ julia> read(io, Char)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L136-L155)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L136-L155)
 
 </div>
 <br>
@@ -1081,7 +1081,7 @@ seekend(s)
 Seek a stream to its end.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L158-L162)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L158-L162)
 
 </div>
 <br>
@@ -1113,7 +1113,7 @@ julia> read(io, Char)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L169-L185)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L169-L185)
 
 </div>
 <br>
@@ -1133,7 +1133,7 @@ Add a mark at the current position of stream `s`. Return the marked position.
 See also [`unmark`](/base/io-network#Base.unmark), [`reset`](/base/io-network#Base.reset-Tuple{IO}), [`ismarked`](/base/io-network#Base.ismarked).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1396-L1402)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1396-L1402)
 
 </div>
 <br>
@@ -1153,7 +1153,7 @@ Remove a mark from stream `s`. Return `true` if the stream was marked, `false` o
 See also [`mark`](/base/io-network#Base.mark), [`reset`](/base/io-network#Base.reset-Tuple{IO}), [`ismarked`](/base/io-network#Base.ismarked).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1407-L1413)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1407-L1413)
 
 </div>
 <br>
@@ -1173,7 +1173,7 @@ Reset a stream `s` to a previously marked position, and remove the mark. Return 
 See also [`mark`](/base/io-network#Base.mark), [`unmark`](/base/io-network#Base.unmark), [`ismarked`](/base/io-network#Base.ismarked).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1420-L1427)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1420-L1427)
 
 </div>
 <br>
@@ -1193,7 +1193,7 @@ Return `true` if stream `s` is marked.
 See also [`mark`](/base/io-network#Base.mark), [`unmark`](/base/io-network#Base.unmark), [`reset`](/base/io-network#Base.reset-Tuple{IO}).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1436-L1442)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1436-L1442)
 
 </div>
 <br>
@@ -1226,7 +1226,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L182-L203)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L182-L203)
 
 </div>
 <br>
@@ -1259,7 +1259,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L770-L787)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L770-L787)
 
 </div>
 <br>
@@ -1297,7 +1297,7 @@ This function requires at least Julia 1.11.
 See also [`ispath`](/base/file#Base.Filesystem.ispath), [`isexecutable`](/base/io-network#Base.isexecutable), [`isreadable`](/base/io-network#Base.isreadable).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/filesystem.jl#L422-L440)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/filesystem.jl#L422-L440)
 
 
 
@@ -1327,7 +1327,7 @@ julia> rm("myfile.txt")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L159-L179)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L159-L179)
 
 </div>
 <br>
@@ -1365,7 +1365,7 @@ This function requires at least Julia 1.11.
 See also [`ispath`](/base/file#Base.Filesystem.ispath), [`isexecutable`](/base/io-network#Base.isexecutable), [`iswritable`](/base/io-network#Base.iswritable).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/filesystem.jl#L395-L413)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/filesystem.jl#L395-L413)
 
 
 
@@ -1395,7 +1395,7 @@ julia> rm("myfile.txt")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L136-L156)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L136-L156)
 
 </div>
 <br>
@@ -1427,7 +1427,7 @@ Prior to Julia 1.6, this did not correctly interrogate filesystem ACLs on Window
 See also [`ispath`](/base/file#Base.Filesystem.ispath), [`isreadable`](/base/io-network#Base.isreadable), [`iswritable`](/base/io-network#Base.iswritable).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/filesystem.jl#L369-L386)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/filesystem.jl#L369-L386)
 
 </div>
 <br>
@@ -1460,7 +1460,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L41-L62)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L41-L62)
 
 </div>
 <br>
@@ -1478,7 +1478,7 @@ fd(stream)
 Return the file descriptor backing the stream or file. Note that this function only applies to synchronous `File`&#39;s and `IOStream`&#39;s not to any of the asynchronous streams.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L49-L54)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L49-L54)
 
 </div>
 <br>
@@ -1502,7 +1502,7 @@ Redirect a subset of the streams `stdin`, `stderr`, `stdout`. Each argument must
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L1335-L1344)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L1335-L1344)
 
 
 
@@ -1575,7 +1575,7 @@ julia> redirect_stdio(f, stdout=io, stdin=io) # not supported
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L1351-L1402)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L1351-L1402)
 
 </div>
 <br>
@@ -1601,7 +1601,7 @@ Create a pipe to which all C and Julia level [`stdout`](/base/io-network#Base.st
 See also [`redirect_stdio`](/base/io-network#Base.redirect_stdio).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L1292-L1305)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L1292-L1305)
 
 </div>
 <br>
@@ -1619,7 +1619,7 @@ redirect_stdout(f::Function, stream)
 Run the function `f` while redirecting [`stdout`](/base/io-network#Base.stdout) to `stream`. Upon completion, [`stdout`](/base/io-network#Base.stdout) is restored to its prior setting.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L1463-L1468)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L1463-L1468)
 
 </div>
 <br>
@@ -1645,7 +1645,7 @@ Like [`redirect_stdout`](/base/io-network#Base.redirect_stdout), but for [`stder
 See also [`redirect_stdio`](/base/io-network#Base.redirect_stdio).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L1308-L1318)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L1308-L1318)
 
 </div>
 <br>
@@ -1663,7 +1663,7 @@ redirect_stderr(f::Function, stream)
 Run the function `f` while redirecting [`stderr`](/base/io-network#Base.stderr) to `stream`. Upon completion, [`stderr`](/base/io-network#Base.stderr) is restored to its prior setting.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L1471-L1476)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L1471-L1476)
 
 </div>
 <br>
@@ -1689,7 +1689,7 @@ Like [`redirect_stdout`](/base/io-network#Base.redirect_stdout), but for [`stdin
 See also [`redirect_stdio`](/base/io-network#Base.redirect_stdio).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L1321-L1332)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L1321-L1332)
 
 </div>
 <br>
@@ -1707,7 +1707,7 @@ redirect_stdin(f::Function, stream)
 Run the function `f` while redirecting [`stdin`](/base/io-network#Base.stdin) to `stream`. Upon completion, [`stdin`](/base/io-network#Base.stdin) is restored to its prior setting.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L1479-L1484)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L1479-L1484)
 
 </div>
 <br>
@@ -1737,7 +1737,7 @@ julia> rm("my_file.txt");
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1121-L1136)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1121-L1136)
 
 </div>
 <br>
@@ -1780,7 +1780,7 @@ julia> String(take!(io))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iostream.jl#L79-L107)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iostream.jl#L79-L107)
 
 </div>
 <br>
@@ -1812,7 +1812,7 @@ julia> String(readavailable(buf))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1450-L1468)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1450-L1468)
 
 </div>
 <br>
@@ -1871,7 +1871,7 @@ julia> rm("my_file.txt")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1481-L1525)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1481-L1525)
 
 </div>
 <br>
@@ -1889,7 +1889,7 @@ PipeBuffer(data::AbstractVector{UInt8}=UInt8[]; maxsize::Integer = typemax(Int))
 An [`IOBuffer`](/base/io-network#Base.IOBuffer) that allows reading and performs writes by appending. Seeking and truncating are not supported. See [`IOBuffer`](/base/io-network#Base.IOBuffer) for the available constructors. If `data` is given, creates a `PipeBuffer` to operate on a data vector, optionally specifying a size beyond which the underlying `Array` may not be grown.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/iobuffer.jl#L142-L150)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/iobuffer.jl#L142-L150)
 
 </div>
 <br>
@@ -1913,7 +1913,7 @@ The amount of data returned is implementation-dependent; for example it can depe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L121-L131)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L121-L131)
 
 </div>
 <br>
@@ -1933,7 +1933,7 @@ IOContext
 In short, it is an immutable dictionary that is a subclass of `IO`. It supports standard dictionary operations such as [`getindex`](/base/collections#Base.getindex), and can also be used as an I/O stream.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/show.jl#L291-L298)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/show.jl#L291-L298)
 
 </div>
 <br>
@@ -2009,7 +2009,7 @@ short
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/show.jl#L342-L409)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/show.jl#L342-L409)
 
 </div>
 <br>
@@ -2027,7 +2027,7 @@ IOContext(io::IO, context::IOContext)
 Create an `IOContext` that wraps an alternate `IO` but inherits the properties of `context`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/show.jl#L335-L339)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/show.jl#L335-L339)
 
 </div>
 <br>
@@ -2063,7 +2063,7 @@ Hello World!
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/show.jl#L447-L473)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/show.jl#L447-L473)
 
 </div>
 <br>
@@ -2095,7 +2095,7 @@ julia> summary(zeros(2))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/show.jl#L3137-L3155)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/show.jl#L3137-L3155)
 
 </div>
 <br>
@@ -2112,7 +2112,7 @@ print([io::IO], xs...)
 
 Write to `io` (or to the default output stream [`stdout`](/base/io-network#Base.stdout) if `io` is not given) a canonical (un-decorated) text representation. The representation used by `print` includes minimal formatting and tries to avoid Julia-specific details.
 
-`print` falls back to calling `show`, so most types should just define `show`. Define `print` if your type has a separate &quot;plain&quot; representation. For example, `show` displays strings with quotes, and `print` displays strings without quotes.
+`print` falls back to calling the 2-argument `show(io, x)` for each argument `x` in `xs`, so most types should just define `show`. Define `print` if your type has a separate &quot;plain&quot; representation.  For example, `show` displays strings with quotes, and `print` displays strings without quotes.
 
 See also [`println`](/base/io-network#Base.println), [`string`](/base/strings#Base.string), [`printstyled`](/base/io-network#Base.printstyled).
 
@@ -2131,7 +2131,7 @@ julia> String(take!(io))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L5-L31)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L5-L31)
 
 </div>
 <br>
@@ -2166,7 +2166,7 @@ julia> String(take!(io))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L54-L74)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L54-L74)
 
 </div>
 <br>
@@ -2208,7 +2208,7 @@ Support for italic output was added in Julia 1.10.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/util.jl#L117-L140)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/util.jl#L117-L140)
 
 </div>
 <br>
@@ -2245,7 +2245,7 @@ julia> sprint(showerror, BoundsError([1], 100))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L79-L106)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L79-L106)
 
 </div>
 <br>
@@ -2286,7 +2286,7 @@ ERROR: MyException: test exception
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/errorshow.jl#L3-L29)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/errorshow.jl#L3-L29)
 
 </div>
 <br>
@@ -2328,7 +2328,7 @@ MyStruct
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/show.jl#L3044-L3071)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/show.jl#L3044-L3071)
 
 </div>
 <br>
@@ -2346,7 +2346,7 @@ MyStruct
 Show every part of the representation of the given expression. Equivalent to [`dump(:(expr))`](/base/io-network#Base.dump).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/meta.jl#L146-L151)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/meta.jl#L146-L151)
 
 </div>
 <br>
@@ -2394,7 +2394,7 @@ Logan
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L580-L616)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L580-L616)
 
 </div>
 <br>
@@ -2430,7 +2430,7 @@ julia> rm("my_file.txt")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L519-L544)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L519-L544)
 
 </div>
 <br>
@@ -2468,7 +2468,7 @@ julia> rm("my_file.txt")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L677-L702)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L677-L702)
 
 </div>
 <br>
@@ -2511,7 +2511,7 @@ Julia 1.8 is required to use `Iterators.reverse` or `last` with `eachline` itera
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L1193-L1225)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L1193-L1225)
 
 </div>
 <br>
@@ -2551,7 +2551,7 @@ julia> rm("my_file.txt")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L622-L653)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L622-L653)
 
 </div>
 <br>
@@ -2587,7 +2587,7 @@ julia> rm("my_file.txt")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L551-L577)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L551-L577)
 
 </div>
 <br>
@@ -2623,7 +2623,7 @@ julia> displaysize(stdout)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/stream.jl#L545-L567)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/stream.jl#L545-L567)
 
 </div>
 <br>
@@ -2653,7 +2653,7 @@ AbstractDisplay
 Abstract supertype for rich display output devices. [`TextDisplay`](/base/io-network#Base.Multimedia.TextDisplay) is a subtype of this.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L219-L224)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L219-L224)
 
 </div>
 <br>
@@ -2680,7 +2680,7 @@ There are also two variants with a `mime` argument (a MIME type string, such as 
 To customize how instances of a type are displayed, overload [`show`](/base/io-network#Base.show-Tuple{IO,%20Any}) rather than `display`, as explained in the manual section on [custom pretty-printing](/manual/types#man-custom-pretty-printing).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L309-L335)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L309-L335)
 
 </div>
 <br>
@@ -2701,7 +2701,7 @@ redisplay(d::AbstractDisplay, mime, x)
 By default, the `redisplay` functions simply call [`display`](/base/io-network#Base.Multimedia.display). However, some display backends may override `redisplay` to modify an existing display of `x` (if any). Using `redisplay` is also a hint to the backend that `x` may be redisplayed several times, and the backend may choose to defer the display until (for example) the next interactive prompt.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L382-L394)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L382-L394)
 
 </div>
 <br>
@@ -2720,7 +2720,7 @@ displayable(d::AbstractDisplay, mime) -> Bool
 Return a boolean value indicating whether the given `mime` type (string) is displayable by any of the displays in the current display stack, or specifically by the display `d` in the second variant.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L231-L238)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L231-L238)
 
 </div>
 <br>
@@ -2760,7 +2760,7 @@ julia> Day(1)
 Container types generally implement 3-argument `show` by calling `show(io, MIME"text/plain"(), x)` for elements `x`, with `:compact => true` set in an [`IOContext`](/base/io-network#Base.IOContext) passed as the first argument.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L79-L121)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L79-L121)
 
 </div>
 <br>
@@ -2791,7 +2791,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L57-L75)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L57-L75)
 
 </div>
 <br>
@@ -2825,7 +2825,7 @@ julia> repr("text/plain", A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L125-L158)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L125-L158)
 
 </div>
 <br>
@@ -2853,7 +2853,7 @@ julia> show(stdout, MIME("text/plain"), "hi")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L16-L31)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L16-L31)
 
 </div>
 <br>
@@ -2871,7 +2871,7 @@ julia> show(stdout, MIME("text/plain"), "hi")
 A convenience macro for writing [`MIME`](/base/io-network#Base.Multimedia.MIME) types, typically used when adding methods to [`show`](/base/io-network#Base.show-Tuple{IO,%20Any}). For example the syntax `show(io::IO, ::MIME"text/html", x::MyType) = ...` could be used to define how to write an HTML representation of `MyType`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L34-L41)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L34-L41)
 
 </div>
 <br>
@@ -2893,7 +2893,7 @@ pushdisplay(d::AbstractDisplay)
 Pushes a new display `d` on top of the global display-backend stack. Calling `display(x)` or `display(mime, x)` will display `x` on the topmost compatible backend in the stack (i.e., the topmost backend that does not throw a [`MethodError`](/base/base#Core.MethodError)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L274-L280)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L274-L280)
 
 </div>
 <br>
@@ -2912,7 +2912,7 @@ popdisplay(d::AbstractDisplay)
 Pop the topmost backend off of the display-backend stack, or the topmost copy of `d` in the second variant.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L286-L292)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L286-L292)
 
 </div>
 <br>
@@ -2930,7 +2930,7 @@ TextDisplay(io::IO)
 Return a `TextDisplay <: AbstractDisplay`, which displays any object as the text/plain MIME type (by default), writing the text representation to the given I/O stream. (This is how objects are printed in the Julia REPL.)
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L244-L250)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L244-L250)
 
 </div>
 <br>
@@ -2959,7 +2959,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/multimedia.jl#L180-L194)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/multimedia.jl#L180-L194)
 
 </div>
 <br>
@@ -2989,7 +2989,7 @@ julia> bytesavailable(io)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L106-L118)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L106-L118)
 
 </div>
 <br>
@@ -3007,7 +3007,7 @@ ntoh(x)
 Convert the endianness of a value from Network byte order (big-endian) to that used by the Host.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L741-L745)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L741-L745)
 
 </div>
 <br>
@@ -3025,7 +3025,7 @@ hton(x)
 Convert the endianness of a value from that used by the Host to Network byte order (big-endian).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L748-L752)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L748-L752)
 
 </div>
 <br>
@@ -3043,7 +3043,7 @@ ltoh(x)
 Convert the endianness of a value from Little-endian to that used by the Host.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L755-L759)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L755-L759)
 
 </div>
 <br>
@@ -3061,7 +3061,7 @@ htol(x)
 Convert the endianness of a value from that used by the Host to Little-endian.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L762-L766)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L762-L766)
 
 </div>
 <br>
@@ -3079,7 +3079,7 @@ ENDIAN_BOM
 The 32-bit byte-order-mark indicates the native byte order of the host machine. Little-endian machines will contain the value `0x04030201`. Big-endian machines will contain the value `0x01020304`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/io.jl#L732-L738)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/io.jl#L732-L738)
 
 </div>
 <br>

@@ -36,7 +36,7 @@ UUID("cfc395e8-590f-11e8-1f13-43a2532b2fa8")
 
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/UUIDs/src/UUIDs.jl#L38-L63)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/UUIDs/src/UUIDs.jl#L38-L63)
 
 </div>
 <br>
@@ -74,7 +74,7 @@ UUID("856e446e-0c6a-472a-9638-f7b8557cd282")
 
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/UUIDs/src/UUIDs.jl#L87-L111)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/UUIDs/src/UUIDs.jl#L87-L111)
 
 </div>
 <br>
@@ -113,7 +113,7 @@ UUID("2df91e3f-da06-5362-a6fe-03772f2e14c9")
 
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/UUIDs/src/UUIDs.jl#L119-L140)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/UUIDs/src/UUIDs.jl#L119-L140)
 
 </div>
 <br>
@@ -139,7 +139,7 @@ julia> uuid_version(uuid4())
 
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/UUIDs/src/UUIDs.jl#L17-L28)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/UUIDs/src/UUIDs.jl#L17-L28)
 
 </div>
 <br>

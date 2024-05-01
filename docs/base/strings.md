@@ -35,7 +35,7 @@ Some string functions that extract code units, characters or substrings from str
 See also [`codeunit`](/base/strings#Base.codeunit), [`ncodeunits`](/base/strings#Base.ncodeunits-Tuple{AbstractString}), [`thisind`](/base/strings#Base.thisind), [`nextind`](/base/arrays#Base.nextind), [`prevind`](/base/arrays#Base.prevind).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L3-L38)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L3-L38)
 
 </div>
 <br>
@@ -54,7 +54,7 @@ Internally, an `AbstractChar` type may use a variety of encodings.  Conversion v
 `write(io, c)`, in contrast, may emit an encoding depending on `typeof(c)`, and `read(io, typeof(c))` should read the same encoding as `write`. New `AbstractChar` types must provide their own implementations of `write` and `read`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/char.jl#L3-L30)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/char.jl#L3-L30)
 
 </div>
 <br>
@@ -74,7 +74,7 @@ Char(c::Union{Number,AbstractChar})
 In order to losslessly represent arbitrary byte streams stored in a `String`, a `Char` value may store information that cannot be converted to a Unicode codepoint — converting such a `Char` to `UInt32` will throw an error. The [`isvalid(c::Char)`](/base/strings#Base.isvalid-Tuple{Any}) function can be used to query whether `c` represents a valid Unicode character.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/char.jl#L33-L45)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/char.jl#L33-L45)
 
 </div>
 <br>
@@ -92,7 +92,7 @@ codepoint(c::AbstractChar) -> Integer
 Return the Unicode codepoint (an unsigned integer) corresponding to the character `c` (or throw an exception if `c` does not represent a valid character). For `Char`, this is a `UInt32` value, but `AbstractChar` types that represent only a subset of Unicode may return a different-sized integer (e.g. `UInt8`).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/char.jl#L67-L75)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/char.jl#L74-L82)
 
 </div>
 <br>
@@ -129,7 +129,7 @@ julia> length("jμΛIα")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L375-L403)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L375-L403)
 
 </div>
 <br>
@@ -158,7 +158,7 @@ julia> sizeof("∀")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L162-L176)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L162-L176)
 
 </div>
 <br>
@@ -187,7 +187,7 @@ julia> 'j' * "ulia"
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L243-L260)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L243-L260)
 
 </div>
 <br>
@@ -215,7 +215,7 @@ julia> "Test "^3
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L766-L778)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L766-L778)
 
 </div>
 <br>
@@ -246,7 +246,7 @@ julia> string(-13, base = 5, pad = 4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/intfuncs.jl#L902-L918)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/intfuncs.jl#L903-L919)
 
 
 
@@ -270,7 +270,7 @@ julia> string("a", 1, true)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L170-L188)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L170-L188)
 
 </div>
 <br>
@@ -298,7 +298,7 @@ julia> repeat("ha", 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L751-L763)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L751-L763)
 
 </div>
 <br>
@@ -324,7 +324,7 @@ julia> repeat('A', 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/string.jl#L563-L574)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/string.jl#L563-L574)
 
 </div>
 <br>
@@ -339,11 +339,11 @@ repr(x; context=nothing)
 ```
 
 
-Create a string from any value using the [`show`](/base/io-network#Base.show-Tuple{IO,%20Any}) function. You should not add methods to `repr`; define a `show` method instead.
+Create a string from any value using the 2-argument `show(io, x)` function. You should not add methods to `repr`; define a [`show`](/base/io-network#Base.show-Tuple{IO,%20Any}) method instead.
 
 The optional keyword argument `context` can be set to a `:key=>value` pair, a tuple of `:key=>value` pairs, or an `IO` or [`IOContext`](/base/io-network#Base.IOContext) object whose attributes are used for the I/O stream passed to `show`.
 
-Note that `repr(x)` is usually similar to how the value of `x` would be entered in Julia.  See also [`repr(MIME("text/plain"), x)`](/base/io-network#Base.repr-Tuple{MIME,%20Any}) to instead return a &quot;pretty-printed&quot; version of `x` designed more for human consumption, equivalent to the REPL display of `x`.
+Note that `repr(x)` is usually similar to how the value of `x` would be entered in Julia.  See also [`repr(MIME("text/plain"), x)`](/base/io-network#Base.repr-Tuple{MIME,%20Any}) to instead return a &quot;pretty-printed&quot; version of `x` designed more for human consumption, equivalent to the REPL display of `x`, using the 3-argument `show(io, mime, x)`.
 
 ::: tip Julia 1.7
 
@@ -370,7 +370,7 @@ julia> repr(big(1/3), context=:compact => true)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L252-L285)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L252-L285)
 
 </div>
 <br>
@@ -388,7 +388,7 @@ String(s::AbstractString)
 Create a new `String` from an existing `AbstractString`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/string.jl#L111-L115)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/string.jl#L111-L115)
 
 </div>
 <br>
@@ -423,7 +423,7 @@ julia> SubString("abc", 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/substring.jl#L3-L24)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/substring.jl#L3-L24)
 
 </div>
 <br>
@@ -471,7 +471,7 @@ A lazy string itself does not introduce any concurrency problems even if it is p
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/lazy.jl#L1-L35)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/lazy.jl#L1-L35)
 
 </div>
 <br>
@@ -508,7 +508,7 @@ LazyString
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/lazy.jl#L44-L65)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/lazy.jl#L44-L65)
 
 </div>
 <br>
@@ -541,6 +541,16 @@ The above diagram represents a `AnnotatedString` where three ranges have been an
 
 Labels do not need to be unique, the same region can hold multiple annotations with the same label.
 
+Code written for `AnnotatedString`s in general should conserve the following properties:
+- Which characters an annotation is applied to
+  
+- The order in which annotations are applied to each character
+  
+
+Additional semantics may be introduced by specific uses of `AnnotatedString`s.
+
+A corollary of these rules is that adjacent, consecutively placed, annotations with identical labels and values are equivalent to a single annotation spanning the combined range.
+
 See also [`AnnotatedChar`](/base/strings#Base.AnnotatedChar), [`annotatedstring`](/base/strings#Base.annotatedstring), [`annotations`](/base/strings#Base.annotations), and [`annotate!`](/base/strings#Base.annotate!).
 
 ::: warning Warning
@@ -569,7 +579,7 @@ julia> AnnotatedString("this is an example annotated string",
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/annotated.jl#L3-L55)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/annotated.jl#L3-L66)
 
 </div>
 <br>
@@ -613,7 +623,7 @@ julia> AnnotatedChar('j', :label => 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/annotated.jl#L61-L93)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/annotated.jl#L72-L104)
 
 </div>
 <br>
@@ -646,7 +656,7 @@ julia> annotatedstring(AnnotatedString("annotated", [(1:9, :label => 1)]), ", an
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/annotated.jl#L179-L199)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/annotated.jl#L206-L226)
 
 </div>
 <br>
@@ -667,10 +677,12 @@ Get all annotations that apply to `str`. Should `position` be provided, only ann
 
 Annotations are provided together with the regions they apply to, in the form of a vector of region–annotation tuples.
 
+In accordance with the semantics documented in [`AnnotatedString`](/base/strings#Base.AnnotatedString), the order of annotations returned matches the order in which they were applied.
+
 See also: `annotate!`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/annotated.jl#L360-L372)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/annotated.jl#L355-L370)
 
 
 
@@ -682,7 +694,7 @@ annotations(chr::AnnotatedChar) -> Vector{Pair{Symbol, Any}}
 Get all annotations of `chr`, in the form of a vector of annotation pairs.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/annotated.jl#L395-L399)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/annotated.jl#L393-L397)
 
 </div>
 <br>
@@ -700,8 +712,10 @@ annotate!(str::SubString{AnnotatedString}, [range::UnitRange{Int}], label::Symbo
 
 Annotate a `range` of `str` (or the entire string) with a labeled value (`label` =&gt; `value`). To remove existing `label` annotations, use a value of `nothing`.
 
+The order in which annotations are applied to `str` is semantically meaningful, as described in [`AnnotatedString`](/base/strings#Base.AnnotatedString).
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/annotated.jl#L333-L339)
+
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/annotated.jl#L325-L334)
 
 
 
@@ -713,7 +727,7 @@ annotate!(char::AnnotatedChar, label::Symbol => value)
 Annotate `char` with the pair `label => value`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/annotated.jl#L352-L356)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/annotated.jl#L347-L351)
 
 </div>
 <br>
@@ -752,7 +766,7 @@ julia> transcode(String, transcode(UInt16, str))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/cstring.jl#L129-L160)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/cstring.jl#L129-L160)
 
 </div>
 <br>
@@ -772,7 +786,7 @@ Copy a string from the address of a C-style (NUL-terminated) string encoded as U
 This function is labeled &quot;unsafe&quot; because it will crash if `p` is not a valid memory address to data of the requested length.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/string.jl#L88-L97)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/string.jl#L88-L97)
 
 </div>
 <br>
@@ -806,7 +820,7 @@ julia> ncodeunits('∫'), ncodeunits('e'), ncodeunits('ˣ')
 See also [`codeunit`](/base/strings#Base.codeunit), [`checkbounds`](/base/arrays#Base.checkbounds), [`sizeof`](/base/base#Base.sizeof-Tuple{Type}), [`length`](/base/collections#Base.length), [`lastindex`](/base/collections#Base.lastindex).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L43-L65)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L43-L65)
 
 </div>
 <br>
@@ -826,7 +840,7 @@ Return the code unit type of the given string object. For ASCII, Latin-1, or UTF
 See also [`ncodeunits`](/base/strings#Base.ncodeunits-Tuple{AbstractString}).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L68-L79)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L68-L79)
 
 
 
@@ -858,7 +872,7 @@ UInt8
 See also [`ncodeunits`](/base/strings#Base.ncodeunits-Tuple{AbstractString}), [`checkbounds`](/base/arrays#Base.checkbounds).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L84-L104)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L84-L104)
 
 </div>
 <br>
@@ -890,7 +904,7 @@ julia> codeunits("Juλia")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L812-L830)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L812-L830)
 
 </div>
 <br>
@@ -923,7 +937,7 @@ julia> ascii("abcdefgh")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L1088-L1106)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L1088-L1106)
 
 </div>
 <br>
@@ -949,7 +963,7 @@ To escape interpolated variables use `\Q` and `\E` (e.g. `Regex("\\Q$x\\E")`)
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L10-L22)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L10-L22)
 
 </div>
 <br>
@@ -989,7 +1003,7 @@ RegexMatch("angry,\nBad world")
 This regex has the first three flags enabled.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L91-L122)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L91-L122)
 
 </div>
 <br>
@@ -1021,7 +1035,7 @@ SubstitutionString{String}
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L576-L593)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L576-L593)
 
 </div>
 <br>
@@ -1049,7 +1063,7 @@ julia> replace(msg, r"#(.+)# from (?<from>\w+)" => s"FROM: \g<from>; MESSAGE: \1
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L610-L624)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L610-L624)
 
 </div>
 <br>
@@ -1084,7 +1098,7 @@ julia> println(raw"\\x \\\"")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L575-L599)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L575-L599)
 
 </div>
 <br>
@@ -1117,7 +1131,7 @@ julia> v[2]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L552-L569)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L552-L569)
 
 </div>
 <br>
@@ -1143,7 +1157,7 @@ HTML{String}("Julia")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/utils.jl#L44-L54)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/utils.jl#L44-L54)
 
 </div>
 <br>
@@ -1169,7 +1183,7 @@ Julia
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/docs/utils.jl#L98-L108)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/utils.jl#L98-L108)
 
 </div>
 <br>
@@ -1201,7 +1215,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L11-L28)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L12-L29)
 
 </div>
 <br>
@@ -1239,7 +1253,7 @@ Support for subarray values was added in Julia 1.6.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L31-L53)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L32-L54)
 
 </div>
 <br>
@@ -1280,7 +1294,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L108-L140)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L108-L140)
 
 </div>
 <br>
@@ -1325,7 +1339,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L394-L424)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L394-L424)
 
 </div>
 <br>
@@ -1365,7 +1379,7 @@ julia> collect(eachmatch(rx, "a1a2a3a", overlap = true))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L766-L792)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L766-L792)
 
 </div>
 <br>
@@ -1429,7 +1443,7 @@ Dict{Any, Union{Nothing, SubString{String}}} with 3 entries:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L167-L225)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L167-L225)
 
 </div>
 <br>
@@ -1466,7 +1480,7 @@ julia> keys(match(r"(?<hour>\d+):(?<minute>\d+)(am|pm)?", "11:30"))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L238-L259)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L238-L259)
 
 </div>
 <br>
@@ -1498,7 +1512,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L341-L358)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L341-L358)
 
 </div>
 <br>
@@ -1527,7 +1541,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L323-L338)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L323-L338)
 
 </div>
 <br>
@@ -1571,7 +1585,7 @@ julia> cmp("b", "β")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L279-L311)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L279-L311)
 
 </div>
 <br>
@@ -1603,7 +1617,7 @@ In Julia 1.7, this function was changed to use `textwidth` rather than a raw cha
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L452-L466)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L452-L466)
 
 </div>
 <br>
@@ -1635,7 +1649,7 @@ In Julia 1.7, this function was changed to use `textwidth` rather than a raw cha
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L484-L498)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L484-L498)
 
 </div>
 <br>
@@ -1664,7 +1678,7 @@ julia> findfirst("Julia", "JuliaLang")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/search.jl#L105-L119)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/search.jl#L105-L119)
 
 </div>
 <br>
@@ -1701,7 +1715,7 @@ julia> findnext("Lang", "JuliaLang", 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/search.jl#L293-L318)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/search.jl#L293-L318)
 
 </div>
 <br>
@@ -1736,7 +1750,7 @@ julia> findnext('o', "Hello to the world", 6)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/search.jl#L321-L337)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/search.jl#L321-L337)
 
 </div>
 <br>
@@ -1765,7 +1779,7 @@ julia> findfirst("Julia", "JuliaLang")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/search.jl#L365-L379)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/search.jl#L365-L379)
 
 </div>
 <br>
@@ -1800,7 +1814,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/search.jl#L400-L416)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/search.jl#L400-L416)
 
 </div>
 <br>
@@ -1836,7 +1850,7 @@ julia> findprev("Julia", "JuliaLang", 6)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/search.jl#L611-L633)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/search.jl#L611-L633)
 
 </div>
 <br>
@@ -1873,7 +1887,7 @@ false
 See also [`contains`](/base/strings#Base.contains).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/search.jl#L676-L698)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/search.jl#L676-L698)
 
 
 
@@ -1906,7 +1920,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/search.jl#L702-L723)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/search.jl#L702-L723)
 
 </div>
 <br>
@@ -1951,7 +1965,7 @@ julia> join(reverse(collect(graphemes("ax̂e")))) # reverses graphemes; hat is a
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/substring.jl#L145-L180)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/substring.jl#L145-L180)
 
 </div>
 <br>
@@ -2005,7 +2019,7 @@ julia> replace("abcabc", "a" => "b", "b" => "c", r".+" => "a")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L886-L932)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L886-L932)
 
 </div>
 <br>
@@ -2056,7 +2070,7 @@ julia> collect(b)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L516-L550)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L516-L550)
 
 </div>
 <br>
@@ -2106,7 +2120,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L613-L648)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L613-L648)
 
 </div>
 <br>
@@ -2148,7 +2162,7 @@ julia> split(a, ".")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L708-L736)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L708-L736)
 
 </div>
 <br>
@@ -2192,7 +2206,7 @@ julia> rsplit(a, "."; limit=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L747-L775)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L747-L775)
 
 </div>
 <br>
@@ -2231,7 +2245,7 @@ julia> strip("{3, 5}\n", ['{', '}', '\n'])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L421-L444)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L421-L444)
 
 </div>
 <br>
@@ -2267,7 +2281,7 @@ julia> lstrip(a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L351-L374)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L351-L374)
 
 </div>
 <br>
@@ -2303,7 +2317,7 @@ julia> rstrip(a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L386-L409)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L386-L409)
 
 </div>
 <br>
@@ -2331,7 +2345,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L16-L30)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L16-L30)
 
 
 
@@ -2343,7 +2357,7 @@ startswith(io::IO, prefix::Union{AbstractString,Base.Chars})
 Check if an `IO` object starts with a prefix, which can be either a string, a character, or a tuple/vector/set of characters.  See also [`peek`](/base/io-network#Base.peek).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L81-L86)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L81-L86)
 
 
 
@@ -2374,7 +2388,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L166-L186)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L166-L186)
 
 
 
@@ -2408,7 +2422,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L316-L337)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L316-L337)
 
 </div>
 <br>
@@ -2436,7 +2450,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L42-L56)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L42-L56)
 
 
 
@@ -2467,7 +2481,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L143-L163)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L143-L163)
 
 
 
@@ -2501,7 +2515,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/regex.jl#L348-L369)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/regex.jl#L348-L369)
 
 </div>
 <br>
@@ -2544,7 +2558,7 @@ The `contains` function requires at least Julia 1.5.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L114-L140)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L114-L140)
 
 
 
@@ -2558,7 +2572,7 @@ Create a function that checks whether its argument contains `needle`, i.e. a fun
 The returned function is of type `Base.Fix2{typeof(contains)}`, which can be used to implement specialized methods.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L189-L197)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L189-L197)
 
 </div>
 <br>
@@ -2590,7 +2604,7 @@ julia> first("∀ϵ≠0: ϵ²>0", 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L690-L706)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L690-L706)
 
 </div>
 <br>
@@ -2622,7 +2636,7 @@ julia> last("∀ϵ≠0: ϵ²>0", 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L709-L725)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L709-L725)
 
 </div>
 <br>
@@ -2653,7 +2667,7 @@ julia> uppercase('ê')
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L293-L308)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L298-L313)
 
 
 
@@ -2675,7 +2689,7 @@ julia> uppercase("Julia")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L595-L607)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L604-L616)
 
 </div>
 <br>
@@ -2706,7 +2720,7 @@ julia> lowercase('Ö')
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L274-L289)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L277-L292)
 
 
 
@@ -2728,7 +2742,7 @@ julia> lowercase("STRINGS AND THINGS")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L610-L622)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L620-L632)
 
 </div>
 <br>
@@ -2762,7 +2776,7 @@ julia> uppercase('ǆ')
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L312-L331)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L319-L338)
 
 
 
@@ -2790,7 +2804,7 @@ julia> titlecase("a-a b-b", wordsep = c->c==' ')
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L625-L650)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L636-L661)
 
 </div>
 <br>
@@ -2818,7 +2832,7 @@ julia> uppercasefirst("python")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L672-L687)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L700-L715)
 
 </div>
 <br>
@@ -2846,7 +2860,7 @@ julia> lowercasefirst("Julia")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L696-L709)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L735-L748)
 
 </div>
 <br>
@@ -2875,7 +2889,7 @@ julia> join([1,2,3,4,5])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L313-L329)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L313-L329)
 
 </div>
 <br>
@@ -2912,7 +2926,7 @@ julia> chop(a, head = 5, tail = 5)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L200-L224)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L200-L224)
 
 </div>
 <br>
@@ -2949,7 +2963,7 @@ julia> chopprefix("Hamburger", "hotdog")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L235-L253)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L235-L253)
 
 </div>
 <br>
@@ -2986,7 +3000,7 @@ julia> chopsuffix("Hamburger", "hotdog")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L276-L294)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L276-L294)
 
 </div>
 <br>
@@ -3014,7 +3028,7 @@ julia> chomp("Hello\n")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/util.jl#L320-L332)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/util.jl#L320-L332)
 
 </div>
 <br>
@@ -3057,7 +3071,7 @@ ERROR: BoundsError: attempt to access 2-codeunit String at index [-1]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L421-L452)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L421-L452)
 
 </div>
 <br>
@@ -3103,7 +3117,7 @@ julia> nextind("α", 1, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L524-L567)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L524-L567)
 
 </div>
 <br>
@@ -3149,7 +3163,7 @@ julia> prevind("α", 2, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L465-L508)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L465-L508)
 
 </div>
 <br>
@@ -3178,7 +3192,7 @@ julia> textwidth('⛵')
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L242-L255)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L243-L256)
 
 
 
@@ -3198,7 +3212,7 @@ julia> textwidth("March")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L261-L271)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L262-L272)
 
 </div>
 <br>
@@ -3244,7 +3258,7 @@ julia> replace("abcdeγfgh", !isascii=>' ') # replace non-ASCII chars with space
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L596-L625)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L596-L625)
 
 
 
@@ -3256,7 +3270,7 @@ isascii(cu::AbstractVector{CU}) where {CU <: Integer} -> Bool
 Test whether all values in the vector belong to the ASCII character set (0x00 to 0x7f). This function is intended to be used by other string implementations that need a fast ASCII check.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/basic.jl#L647-L652)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/basic.jl#L647-L652)
 
 </div>
 <br>
@@ -3285,7 +3299,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L493-L507)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L502-L516)
 
 </div>
 <br>
@@ -3319,7 +3333,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L420-L438)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L429-L447)
 
 </div>
 <br>
@@ -3353,7 +3367,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L441-L461)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L450-L470)
 
 </div>
 <br>
@@ -3387,7 +3401,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L359-L378)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L368-L387)
 
 </div>
 <br>
@@ -3424,7 +3438,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L464-L488)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L473-L497)
 
 </div>
 <br>
@@ -3453,7 +3467,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L558-L571)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L567-L580)
 
 </div>
 <br>
@@ -3485,7 +3499,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L510-L527)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L519-L536)
 
 </div>
 <br>
@@ -3520,7 +3534,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L532-L553)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L541-L562)
 
 </div>
 <br>
@@ -3554,7 +3568,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L383-L402)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L392-L411)
 
 </div>
 <br>
@@ -3583,7 +3597,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/unicode.jl#L576-L590)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/unicode.jl#L585-L599)
 
 </div>
 <br>
@@ -3636,7 +3650,7 @@ julia> escape_string(string('\u2135','\0','0')) # \0 would be ambiguous
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L376-L415)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L376-L415)
 
 </div>
 <br>
@@ -3656,10 +3670,10 @@ Escape a string in the manner used for parsing raw string literals. For each dou
 
 This escaping convention is used in raw strings and other non-standard string literals. (It also happens to be the escaping convention expected by the Microsoft C/C++ compiler runtime when it parses a command-line string into the argv[] array.)
 
-See also [`escape_string`](/base/strings#Base.escape_string).
+See also [`Base.escape_string()`](/base/strings#Base.escape_string).
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L602-L619)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L602-L619)
 
 </div>
 <br>
@@ -3713,7 +3727,7 @@ julia> unescape_string("aaa \\g \\n", ['g']) # using `keep` argument
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/strings/io.jl#L457-L491)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/strings/io.jl#L457-L491)
 
 </div>
 <br>

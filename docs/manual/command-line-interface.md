@@ -42,7 +42,7 @@ See also [Scripting](/manual/faq#man-scripting) for more information on writing 
 
 ## The `Main.main` entry point {#The-Main.main-entry-point}
 
-As of Julia, 1.11, `Base` exports the macro `@main`. This macro expands to the symbol `main`, but at the conclusion of executing a script or expression, `julia` will attempt to execute the function `Main.main(ARGS)` if such a function has been defined and this behavior was opted into by using the `@main` macro.
+As of Julia, 1.11, `Base` exports the macro `@main`. This macro expands to the symbol `main`, but at the conclusion of executing a script or expression, `julia` will attempt to execute `Main.main(Base.ARGS)` if such a function `Main.main` has been defined and this behavior was opted into by using the `@main` macro.
 
 This feature is intended to aid in the unification of compiled and interactive workflows. In compiled workflows, loading the code that defines the `main` function may be spatially and temporally separated from the invocation. However, for interactive workflows, the behavior is equivalent to explicitly calling `exit(main(ARGS))` at the end of the evaluated script or expression.
 
@@ -55,7 +55,7 @@ The special entry point `Main.main` was added in Julia 1.11. For compatibility w
 To see this feature in action, consider the following definition, which will execute the print function despite there being no explicit call to `main`:
 
 ```
-$ julia -e '(@main)(ARGS) = println("Hello World!")'
+$ julia -e '(@main)(args) = println("Hello World!")'
 Hello World!
 $
 ```
@@ -66,7 +66,7 @@ Only the `main` binding in the `Main` module has this behavior and only if the m
 For example, using `hello` instead of `main` will not result in the `hello` function executing:
 
 ```
-$ julia -e 'hello(ARGS) = println("Hello World!")'
+$ julia -e 'hello(args) = println("Hello World!")'
 $
 ```
 
@@ -74,7 +74,7 @@ $
 and neither will a plain definition of `main`:
 
 ```
-$ julia -e 'main(ARGS) = println("Hello World!")'
+$ julia -e 'main(args) = println("Hello World!")'
 $
 ```
 
@@ -82,7 +82,7 @@ $
 However, the opt-in need not occur at definition time:
 
 ```
-$ julia -e 'main(ARGS) = println("Hello World!"); @main'
+$ julia -e 'main(args) = println("Hello World!"); @main'
 Hello World!
 $
 ```
@@ -94,7 +94,7 @@ The `main` binding may be imported from a package. A _hello world_ package defin
 module Hello
 
 export main
-(@main)(ARGS) = println("Hello from the package!")
+(@main)(args) = println("Hello from the package!")
 
 end
 ```

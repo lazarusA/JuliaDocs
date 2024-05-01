@@ -219,7 +219,7 @@ julia> global_logger(debuglogger)
 Utilities for capturing, filtering and presenting streams of log events. Normally you don&#39;t need to import `Logging` to create log events; for this the standard logging macros such as `@info` are already exported by `Base` and available by default.
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Logging/src/Logging.jl#L3-L8)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L3-L8)
 
 </div>
 <br>
@@ -287,7 +287,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L277-L344)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L277-L344)
 
 </div>
 <br>
@@ -315,7 +315,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L110-L124)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L110-L124)
 
 </div>
 <br>
@@ -333,7 +333,7 @@ Debug
 Alias for [`LogLevel(-1000)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Logging/src/Logging.jl#L35-L39)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L35-L39)
 
 </div>
 <br>
@@ -351,7 +351,7 @@ Info
 Alias for [`LogLevel(0)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Logging/src/Logging.jl#L41-L45)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L41-L45)
 
 </div>
 <br>
@@ -369,7 +369,7 @@ Warn
 Alias for [`LogLevel(1000)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Logging/src/Logging.jl#L47-L51)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L47-L51)
 
 </div>
 <br>
@@ -387,7 +387,7 @@ Error
 Alias for [`LogLevel(2000)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Logging/src/Logging.jl#L53-L57)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L53-L57)
 
 </div>
 <br>
@@ -405,7 +405,7 @@ BelowMinLevel
 Alias for [`LogLevel(-1_000_001)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Logging/src/Logging.jl#L59-L63)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L59-L63)
 
 </div>
 <br>
@@ -423,7 +423,7 @@ AboveMaxLevel
 Alias for [`LogLevel(1_000_001)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Logging/src/Logging.jl#L65-L69)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L65-L69)
 
 </div>
 <br>
@@ -449,7 +449,7 @@ Event processing is controlled by overriding functions associated with `Abstract
 A logger controls how log records are filtered and dispatched.  When a log record is generated, the logger is the first piece of user configurable code which gets to inspect the record and decide what to do with it.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L25-L29)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L25-L29)
 
 </div>
 <br>
@@ -467,7 +467,7 @@ handle_message(logger, level, message, _module, group, id, file, line; key1=val1
 Log a message to `logger` at `level`.  The logical location at which the message was generated is given by module `_module` and `group`; the source location by `file` and `line`. `id` is an arbitrary unique value (typically a [`Symbol`](/base/base#Core.Symbol)) to be used as a key to identify the log statement when filtering.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L32-L40)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L32-L40)
 
 </div>
 <br>
@@ -485,7 +485,7 @@ shouldlog(logger, level, _module, group, id)
 Return `true` when `logger` accepts a message at `level`, generated for `_module`, `group` and with unique log identifier `id`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L43-L48)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L43-L48)
 
 </div>
 <br>
@@ -503,7 +503,7 @@ min_enabled_level(logger)
 Return the minimum enabled level for `logger` for early filtering.  That is, the log level below or equal to which all messages are filtered.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L51-L56)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L51-L56)
 
 </div>
 <br>
@@ -525,7 +525,7 @@ By default all exceptions are caught to prevent log message generation from cras
 If you want to use logging as an audit trail you should disable this for your logger type.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L59-L71)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L59-L71)
 
 </div>
 <br>
@@ -550,7 +550,7 @@ Logging.disable_logging(Logging.Info) # Disable debug and info
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L527-L538)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L527-L538)
 
 </div>
 <br>
@@ -579,7 +579,7 @@ global_logger(logger)
 Set the global logger to `logger`, and return the previous global logger.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L595-L604)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L595-L604)
 
 </div>
 <br>
@@ -611,7 +611,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L613-L630)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L613-L630)
 
 </div>
 <br>
@@ -629,7 +629,7 @@ current_logger()
 Return the logger for the current task, or the global logger if none is attached to the task.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L635-L640)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L635-L640)
 
 </div>
 <br>
@@ -649,7 +649,7 @@ NullLogger()
 Logger which disables all messages and produces no output - the logger equivalent of /dev/null.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L94-L99)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L94-L99)
 
 </div>
 <br>
@@ -678,7 +678,7 @@ Message formatting can be controlled by setting keyword arguments:
   
 
 
-[source](https://github.com/lazarusA/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/stdlib/Logging/src/ConsoleLogger.jl#L3-L24)
+[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/ConsoleLogger.jl#L3-L24)
 
 </div>
 <br>
@@ -696,7 +696,7 @@ SimpleLogger([stream,] min_level=Info)
 Simplistic logger for logging all messages with level greater than or equal to `min_level` to `stream`. If stream is closed then messages with log level greater or equal to `Warn` will be logged to `stderr` and below to `stdout`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/ad044fee2e4ee6365c524c10a5d8c6d07c12e3f0/base/logging.jl#L648-L654)
+[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L648-L654)
 
 </div>
 <br>
