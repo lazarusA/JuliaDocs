@@ -143,7 +143,7 @@ Sets the maximum number of different instances of a single package that are to b
 
 If set to true, linker commands will be displayed during precompilation.
 
-## Pkg.jl {#Pkg.jl}
+## Pkg.jl
 
 ### `JULIA_CI` {#JULIA_CI}
 
@@ -187,7 +187,7 @@ Specifies the URL of the package registry to use. By default, `Pkg` uses `https:
 
 ### `JULIA_PKG_SERVER_REGISTRY_PREFERENCE` {#JULIA_PKG_SERVER_REGISTRY_PREFERENCE}
 
-Specifies the preferred registry flavor. Currently supported values are `conservative` (the default), which will only publish resources that have been processed by the storage server (and thereby have a higher probability of being available from the PkgServers), whereas `eager` will publish registries whose resources have not necessarily been processed by the storage servers.  Users behind restrictive firewalls that do not allow downloading from arbitrary servers should not use the `eager` flavor.
+Specifies the preferred registry flavor. Currently supported values are `conservative` (the default), which will only publish resources that have been processed by the storage server (and thereby have a higher probability of being available from the PkgServers), whereas `eager` will publish registries whose resources have not necessarily been processed by the storage servers. Users behind restrictive firewalls that do not allow downloading from arbitrary servers should not use the `eager` flavor.
 
 ::: tip Julia 1.7
 
@@ -265,7 +265,7 @@ The editor returned by `InteractiveUtils.editor()` and used in, e.g., [`Interact
 
 To use Visual Studio Code on Windows, set `$JULIA_EDITOR` to `code.cmd`.
 
-## Parallelization {#Parallelization}
+## Parallelization
 
 ### `JULIA_CPU_THREADS` {#JULIA_CPU_THREADS}
 
@@ -277,7 +277,7 @@ A [`Float64`](/base/numbers#Core.Float64) that sets the value of `Distributed.wo
 
 ### `JULIA_NUM_THREADS` {#JULIA_NUM_THREADS}
 
-An unsigned 64-bit integer (`uint64_t`) that sets the maximum number of threads available to Julia.  If `$JULIA_NUM_THREADS` is not positive or is not set, or if the number of CPU threads cannot be determined through system calls, then the number of threads is set to `1`.
+An unsigned 64-bit integer (`uint64_t`) that sets the maximum number of threads available to Julia. If `$JULIA_NUM_THREADS` is not positive or is not set, or if the number of CPU threads cannot be determined through system calls, then the number of threads is set to `1`.
 
 If `$JULIA_NUM_THREADS` is set to `auto`, then the number of threads will be set to the number of CPU threads.
 
@@ -327,7 +327,7 @@ If set to anything besides `0`, then Julia&#39;s thread policy is consistent wit
 
 ## REPL formatting {#REPL-formatting}
 
-Environment variables that determine how REPL output should be formatted at the terminal. Generally, these variables should be set to [ANSI terminal escape sequences](https://en.wikipedia.org/wiki/ANSI_escape_code). Julia provides a high-level interface with much of the same functionality; see the section on [The Julia REPL](/stdlib/REPL#The-Julia-REPL).
+Environment variables that determine how REPL output should be formatted at the terminal. The `JULIA_*_COLOR` variables should be set to [ANSI terminal escape sequences](https://en.wikipedia.org/wiki/ANSI_escape_code). Julia provides a high-level interface with much of the same functionality; see the section on [The Julia REPL](/stdlib/REPL#The-Julia-REPL).
 
 ### `JULIA_ERROR_COLOR` {#JULIA_ERROR_COLOR}
 
@@ -349,6 +349,14 @@ The formatting `Base.input_color()` (default: normal, `"\033[0m"`) that input sh
 
 The formatting `Base.answer_color()` (default: normal, `"\033[0m"`) that output should have at the terminal.
 
+### `NO_COLOR` {#NO_COLOR}
+
+When this variable is present and not an empty string (regardless of its value) then colored text will be disabled on the REPL. Can be overridden with the flag `--color=yes` or with the environment variable [`FORCE_COLOR`](/manual/environment-variables#FORCE_COLOR). This environment variable is [commonly recognized by command-line applications](https://no-color.org/).
+
+### `FORCE_COLOR` {#FORCE_COLOR}
+
+When this variable is present and not an empty string (regardless of its value) then colored text will be enabled on the REPL. Can be overridden with the flag `--color=no`. This environment variable is [commonly recognized by command-line applications](https://force-color.org/).
+
 ## System and Package Image Building {#System-and-Package-Image-Building}
 
 ### `JULIA_CPU_TARGET` {#JULIA_CPU_TARGET}
@@ -365,13 +373,13 @@ A few special features are supported:
 1. `clone_all`
   This forces the target to have all functions in sysimg cloned.   When used in negative form (i.e. `-clone_all`), this disables full clone that&#39;s   enabled by default for certain targets.
   
-1. `base([0-9]*)`
+2. `base([0-9]*)`
   This specifies the (0-based) base target index. The base target is the target   that the current target is based on, i.e. the functions that are not being cloned   will use the version in the base target. This option causes the base target to be   fully cloned (as if `clone_all` is specified for it) if it is not the default target (0).   The index can only be smaller than the current index.
   
-1. `opt_size`
+3. `opt_size`
   Optimize for size with minimum performance impact. Clang/GCC&#39;s `-Os`.
   
-1. `min_size`
+4. `min_size`
   Optimize only for size. Clang&#39;s `-Oz`.
   
 

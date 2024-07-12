@@ -1,5 +1,5 @@
 
-# Tar {#Tar}
+# Tar
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='Tar.create' href='#Tar.create'>#</a>&nbsp;<b><u>Tar.create</u></b> &mdash; <i>Function</i>.
 

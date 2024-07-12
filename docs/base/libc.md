@@ -14,7 +14,7 @@ malloc(size::Integer) -> Ptr{Cvoid}
 Call `malloc` from the C standard library.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L387-L391)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L387-L391)
 
 </div>
 <br>
@@ -32,7 +32,7 @@ calloc(num::Integer, size::Integer) -> Ptr{Cvoid}
 Call `calloc` from the C standard library.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L404-L408)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L404-L408)
 
 </div>
 <br>
@@ -52,7 +52,7 @@ Call `realloc` from the C standard library.
 See warning in the documentation for [`free`](/base/libc#Base.Libc.free) regarding only using this on memory originally obtained from [`malloc`](/base/libc#Base.Libc.malloc).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L394-L401)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L394-L401)
 
 </div>
 <br>
@@ -76,7 +76,7 @@ Support for `memcpy` requires at least Julia 1.10.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cmem.jl#L3-L11)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmem.jl#L3-L11)
 
 </div>
 <br>
@@ -100,7 +100,7 @@ Support for `memmove` requires at least Julia 1.10.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cmem.jl#L17-L25)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmem.jl#L17-L25)
 
 </div>
 <br>
@@ -124,7 +124,7 @@ Support for `memset` requires at least Julia 1.10.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cmem.jl#L31-L39)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmem.jl#L31-L39)
 
 </div>
 <br>
@@ -148,7 +148,7 @@ Support for `memcmp` requires at least Julia 1.9.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cmem.jl#L45-L53)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmem.jl#L45-L53)
 
 </div>
 <br>
@@ -166,7 +166,7 @@ free(addr::Ptr)
 Call `free` from the C standard library. Only use this on memory obtained from [`malloc`](/base/libc#Base.Libc.malloc), not on pointers retrieved from other C libraries. [`Ptr`](/base/c#Core.Ptr) objects obtained from C libraries should be freed by the free functions defined in that library, to avoid assertion failures if multiple `libc` libraries exist on the system.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L375-L382)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L375-L382)
 
 </div>
 <br>
@@ -186,7 +186,7 @@ Get the value of the C library&#39;s `errno`. If an argument is specified, it is
 The value of `errno` is only valid immediately after a `ccall` to a C library routine that sets it. Specifically, you cannot call `errno` at the next prompt in a REPL, because lots of code is executed between prompts.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L316-L325)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L316-L325)
 
 </div>
 <br>
@@ -204,7 +204,7 @@ strerror(n=errno())
 Convert a system call error code to a descriptive string
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L329-L333)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L329-L333)
 
 </div>
 <br>
@@ -222,7 +222,7 @@ GetLastError()
 Call the Win32 `GetLastError` function [only available on Windows].
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L337-L341)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L337-L341)
 
 </div>
 <br>
@@ -240,7 +240,7 @@ FormatMessage(n=GetLastError())
 Convert a Win32 system call error code to a descriptive string [only available on Windows].
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L344-L348)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L344-L348)
 
 </div>
 <br>
@@ -258,7 +258,7 @@ time(t::TmStruct) -> Float64
 Converts a `TmStruct` struct to a number of seconds since the epoch.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L273-L277)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L273-L277)
 
 </div>
 <br>
@@ -276,7 +276,7 @@ strftime([format], time)
 Convert time, given as a number of seconds since the epoch or a `TmStruct`, to a formatted string using the given format. Supported formats are the same as those in the standard C library.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L221-L227)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L221-L227)
 
 </div>
 <br>
@@ -294,7 +294,7 @@ strptime([format], timestr)
 Parse a formatted time string into a `TmStruct` giving the seconds, minute, hour, date, etc. Supported formats are the same as those in the standard C library. On some platforms, timezones will not be parsed correctly. If the result of this function will be passed to `time` to convert it to seconds since the epoch, the `isdst` field should be filled in manually. Setting it to `-1` will tell the C library to use the current system settings to determine the timezone.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L239-L248)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L239-L248)
 
 </div>
 <br>
@@ -312,7 +312,7 @@ TmStruct([seconds])
 Convert a number of seconds since the epoch to broken-down format, with fields `sec`, `min`, `hour`, `mday`, `month`, `year`, `wday`, `yday`, and `isdst`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L186-L191)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L186-L191)
 
 </div>
 <br>
@@ -353,7 +353,7 @@ julia> mktemp() do _, io
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L83-L110)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L83-L110)
 
 </div>
 <br>
@@ -371,7 +371,7 @@ flush_cstdio()
 Flushes the C `stdout` and `stderr` streams (which may have been written to by external C code).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L143-L147)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L143-L147)
 
 </div>
 <br>
@@ -391,7 +391,7 @@ Suspends execution for `s` seconds. This function does not yield to Julia&#39;s 
 See also [`sleep`](/base/parallel#Base.sleep).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L163-L171)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L163-L171)
 
 </div>
 <br>
@@ -417,7 +417,7 @@ Make a FIFO special file (a named pipe) at `path`.  Return `path` as-is on succe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libc.jl#L445-L454)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L445-L454)
 
 </div>
 <br>

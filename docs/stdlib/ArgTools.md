@@ -1,7 +1,7 @@
 
 
 
-# ArgTools {#ArgTools}
+# ArgTools
 
 ## Argument Handling {#Argument-Handling}
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>

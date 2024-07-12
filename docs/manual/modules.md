@@ -4,9 +4,9 @@
 Modules in Julia help organize code into coherent units. They are delimited syntactically inside `module NameOfModule ... end`, and have the following features:
 1. Modules are separate namespaces, each introducing a new global scope. This is useful, because it allows the same name to be used for different functions or global variables without conflict, as long as they are in separate modules.
   
-1. Modules have facilities for detailed namespace management: each defines a set of names it `export`s and marks as `public`, and can import names from other modules with `using` and `import` (we explain these below).
+2. Modules have facilities for detailed namespace management: each defines a set of names it `export`s and marks as `public`, and can import names from other modules with `using` and `import` (we explain these below).
   
-1. Modules can be precompiled for faster loading, and may contain code for runtime initialization.
+3. Modules can be precompiled for faster loading, and may contain code for runtime initialization.
   
 
 Typically, in larger Julia packages you will see module code organized into files, eg
@@ -86,7 +86,7 @@ To mark a name as public without exporting it into the namespace of folks who ca
 Possibly the most common way of loading a module is `using ModuleName`. This [loads](/manual/code-loading#code-loading) the code associated with `ModuleName`, and brings
 1. the module name
   
-1. and the elements of the export list into the surrounding global namespace.
+2. and the elements of the export list into the surrounding global namespace.
   
 
 Technically, the statement `using ModuleName` means that a module called `ModuleName` will be available for resolving names as needed. When a global variable is encountered that has no definition in the current module, the system will search for it among variables exported by `ModuleName` and use it if it is found there. This means that all uses of that global within the current module will resolve to the definition of that variable in `ModuleName`.
@@ -258,7 +258,7 @@ ERROR: UndefVarError: `f` not defined in `Main`
 Here, Julia cannot decide which `f` you are referring to, so you have to make a choice. The following solutions are commonly used:
 1. Simply proceed with qualified names like `A.f` and `B.f`. This makes the context clear to the reader of your code, especially if `f` just happens to coincide but has different meaning in various packages. For example, `degree` has various uses in mathematics, the natural sciences, and in everyday life, and these meanings should be kept separate.
   
-1. Use the `as` keyword above to rename one or both identifiers, eg
+2. Use the `as` keyword above to rename one or both identifiers, eg
   
   ```julia
   julia> using .A: f as f
@@ -269,7 +269,7 @@ Here, Julia cannot decide which `f` you are referring to, so you have to make a 
   
   would make `B.f` available as `g`. Here, we are assuming that you did not use `using A` before, which would have brought `f` into the namespace.
   
-1. When the names in question _do_ share a meaning, it is common for one module to import it from another, or have a lightweight “base” package with the sole function of defining an interface like this, which can be used by other packages. It is conventional to have such package names end in `...Base` (which has nothing to do with Julia&#39;s `Base` module).
+3. When the names in question _do_ share a meaning, it is common for one module to import it from another, or have a lightweight “base” package with the sole function of defining an interface like this, which can be used by other packages. It is conventional to have such package names end in `...Base` (which has nothing to do with Julia&#39;s `Base` module).
   
 
 ### Default top-level definitions and bare modules {#Default-top-level-definitions-and-bare-modules}
@@ -407,7 +407,7 @@ end
 
 Large modules can take several seconds to load because executing all of the statements in a module often involves compiling a large amount of code. Julia creates precompiled caches of the module to reduce this time.
 
-Precompiled module files (sometimes called &quot;cache files&quot;) are created and used automatically when `import` or `using` loads a module.  If the cache file(s) do not yet exist, the module will be compiled and saved for future reuse. You can also manually call [`Base.compilecache(Base.identify_package("modulename"))`](/base/base#Base.compilecache) to create these files without loading the module. The resulting cache files will be stored in the `compiled` subfolder of `DEPOT_PATH[1]`. If nothing about your system changes, such cache files will be used when you load the module with `import` or `using`.
+Precompiled module files (sometimes called &quot;cache files&quot;) are created and used automatically when `import` or `using` loads a module. If the cache file(s) do not yet exist, the module will be compiled and saved for future reuse. You can also manually call [`Base.compilecache(Base.identify_package("modulename"))`](/base/base#Base.compilecache) to create these files without loading the module. The resulting cache files will be stored in the `compiled` subfolder of `DEPOT_PATH[1]`. If nothing about your system changes, such cache files will be used when you load the module with `import` or `using`.
 
 Precompilation cache files store definitions of modules, types, methods, and constants. They may also store method specializations and the code generated for them, but this typically requires that the developer add explicit [`precompile`](/base/base#Base.precompile) directives or execute workloads that force compilation during the package build.
 
@@ -421,7 +421,7 @@ You may need to be aware of certain behaviors inherent in the creation of increm
 
 In particular, if you define a `function __init__()` in a module, then Julia will call `__init__()` immediately _after_ the module is loaded (e.g., by `import`, `using`, or `require`) at runtime for the _first_ time (i.e., `__init__` is only called once, and only after all statements in the module have been executed). Because it is called after the module is fully imported, any submodules or other imported modules have their `__init__` functions called _before_ the `__init__` of the enclosing module.
 
-Two typical uses of `__init__` are calling runtime initialization functions of external C libraries and initializing global constants that involve pointers returned by external libraries.  For example, suppose that we are calling a C library `libfoo` that requires us to call a `foo_init()` initialization function at runtime. Suppose that we also want to define a global constant `foo_data_ptr` that holds the return value of a `void *foo_data()` function defined by `libfoo` – this constant must be initialized at runtime (not at compile time) because the pointer address will change from run to run.  You could accomplish this by defining the following `__init__` function in your module:
+Two typical uses of `__init__` are calling runtime initialization functions of external C libraries and initializing global constants that involve pointers returned by external libraries. For example, suppose that we are calling a C library `libfoo` that requires us to call a `foo_init()` initialization function at runtime. Suppose that we also want to define a global constant `foo_data_ptr` that holds the return value of a `void *foo_data()` function defined by `libfoo` – this constant must be initialized at runtime (not at compile time) because the pointer address will change from run to run. You could accomplish this by defining the following `__init__` function in your module:
 
 ```julia
 const foo_data_ptr = Ref{Ptr{Cvoid}}(0)
@@ -437,7 +437,7 @@ Notice that it is perfectly possible to define a global inside a function like `
 
 Constants involving most Julia objects that are not produced by [`ccall`](/base/c#ccall) do not need to be placed in `__init__`: their definitions can be precompiled and loaded from the cached module image. This includes complicated heap-allocated objects like arrays. However, any routine that returns a raw pointer value must be called at runtime for precompilation to work ([`Ptr`](/base/c#Core.Ptr) objects will turn into null pointers unless they are hidden inside an [`isbits`](/base/base#Base.isbits) object). This includes the return values of the Julia functions [`@cfunction`](/base/c#Base.@cfunction) and [`pointer`](/base/c#Base.pointer).
 
-Dictionary and set types, or in general anything that depends on the output of a `hash(key)` method, are a trickier case.  In the common case where the keys are numbers, strings, symbols, ranges, `Expr`, or compositions of these types (via arrays, tuples, sets, pairs, etc.) they are safe to precompile.  However, for a few other key types, such as `Function` or `DataType` and generic user-defined types where you haven&#39;t defined a `hash` method, the fallback `hash` method depends on the memory address of the object (via its `objectid`) and hence may change from run to run. If you have one of these key types, or if you aren&#39;t sure, to be safe you can initialize this dictionary from within your `__init__` function. Alternatively, you can use the [`IdDict`](/base/collections#Base.IdDict) dictionary type, which is specially handled by precompilation so that it is safe to initialize at compile-time.
+Dictionary and set types, or in general anything that depends on the output of a `hash(key)` method, are a trickier case. In the common case where the keys are numbers, strings, symbols, ranges, `Expr`, or compositions of these types (via arrays, tuples, sets, pairs, etc.) they are safe to precompile. However, for a few other key types, such as `Function` or `DataType` and generic user-defined types where you haven&#39;t defined a `hash` method, the fallback `hash` method depends on the memory address of the object (via its `objectid`) and hence may change from run to run. If you have one of these key types, or if you aren&#39;t sure, to be safe you can initialize this dictionary from within your `__init__` function. Alternatively, you can use the [`IdDict`](/base/collections#Base.IdDict) dictionary type, which is specially handled by precompilation so that it is safe to initialize at compile-time.
 
 When using precompilation, it is important to keep a clear sense of the distinction between the compilation phase and the execution phase. In this mode, it will often be much more clearly apparent that Julia is a compiler which allows execution of arbitrary Julia code, not a standalone interpreter that also generates compiled code.
 
@@ -457,11 +457,11 @@ Other known potential failure scenarios include:
   Note that `objectid` (which works by hashing the memory pointer) has similar issues (see notes on `Dict` usage below).
   One alternative is to use a macro to capture [`@__MODULE__`](/base/base#Base.@__MODULE__) and store it alone with the current `counter` value, however, it may be better to redesign the code to not depend on this global state.
   
-1. Associative collections (such as `Dict` and `Set`) need to be re-hashed in `__init__`. (In the future, a mechanism may be provided to register an initializer function.)
+2. Associative collections (such as `Dict` and `Set`) need to be re-hashed in `__init__`. (In the future, a mechanism may be provided to register an initializer function.)
   
-1. Depending on compile-time side-effects persisting through load-time. Example include: modifying arrays or other variables in other Julia modules; maintaining handles to open files or devices; storing pointers to other system resources (including memory);
+3. Depending on compile-time side-effects persisting through load-time. Example include: modifying arrays or other variables in other Julia modules; maintaining handles to open files or devices; storing pointers to other system resources (including memory);
   
-1. Creating accidental &quot;copies&quot; of global state from another module, by referencing it directly instead of via its lookup path. For example, (in global scope):
+4. Creating accidental &quot;copies&quot; of global state from another module, by referencing it directly instead of via its lookup path. For example, (in global scope):
   
   ```julia
   #mystdout = Base.stdout #= will not work correctly, since this will copy Base.stdout into this module =#
@@ -476,21 +476,21 @@ Other known potential failure scenarios include:
 Several additional restrictions are placed on the operations that can be done while precompiling code to help the user avoid other wrong-behavior situations:
 1. Calling [`eval`](/base/base#eval) to cause a side-effect in another module. This will also cause a warning to be emitted when the incremental precompile flag is set.
   
-1. `global const` statements from local scope after `__init__()` has been started (see issue #12010 for plans to add an error for this)
+2. `global const` statements from local scope after `__init__()` has been started (see issue #12010 for plans to add an error for this)
   
-1. Replacing a module is a runtime error while doing an incremental precompile.
+3. Replacing a module is a runtime error while doing an incremental precompile.
   
 
 A few other points to be aware of:
 1. No code reload / cache invalidation is performed after changes are made to the source files themselves, (including by `Pkg.update`), and no cleanup is done after `Pkg.rm`
   
-1. The memory sharing behavior of a reshaped array is disregarded by precompilation (each view gets its own copy)
+2. The memory sharing behavior of a reshaped array is disregarded by precompilation (each view gets its own copy)
   
-1. Expecting the filesystem to be unchanged between compile-time and runtime e.g. [`@__FILE__`](/base/base#Base.@__FILE__)/`source_path()` to find resources at runtime, or the BinDeps `@checked_lib` macro. Sometimes this is unavoidable. However, when possible, it can be good practice to copy resources into the module at compile-time so they won&#39;t need to be found at runtime.
+3. Expecting the filesystem to be unchanged between compile-time and runtime e.g. [`@__FILE__`](/base/base#Base.@__FILE__)/`source_path()` to find resources at runtime, or the BinDeps `@checked_lib` macro. Sometimes this is unavoidable. However, when possible, it can be good practice to copy resources into the module at compile-time so they won&#39;t need to be found at runtime.
   
-1. `WeakRef` objects and finalizers are not currently handled properly by the serializer (this will be fixed in an upcoming release).
+4. `WeakRef` objects and finalizers are not currently handled properly by the serializer (this will be fixed in an upcoming release).
   
-1. It is usually best to avoid capturing references to instances of internal metadata objects such as `Method`, `MethodInstance`, `MethodTable`, `TypeMapLevel`, `TypeMapEntry` and fields of those objects, as this can confuse the serializer and may not lead to the outcome you desire. It is not necessarily an error to do this, but you simply need to be prepared that the system will try to copy some of these and to create a single unique instance of others.
+5. It is usually best to avoid capturing references to instances of internal metadata objects such as `Method`, `MethodInstance`, `MethodTable`, `TypeMapLevel`, `TypeMapEntry` and fields of those objects, as this can confuse the serializer and may not lead to the outcome you desire. It is not necessarily an error to do this, but you simply need to be prepared that the system will try to copy some of these and to create a single unique instance of others.
   
 
 It is sometimes helpful during module development to turn off incremental precompilation. The command line flag `--compiled-modules={yes|no|existing}` enables you to toggle module precompilation on and off. When Julia is started with `--compiled-modules=no` the serialized modules in the compile cache are ignored when loading modules and module dependencies. In some cases, you may want to load existing precompiled modules, but not create new ones. This can be done by starting Julia with `--compiled-modules=existing`. More fine-grained control is available with `--pkgimages={yes|no|existing}`, which only affects native-code storage during precompilation. `Base.compilecache` can still be called manually. The state of this command line flag is passed to `Pkg.build` to disable automatic precompilation triggering when installing, updating, and explicitly building packages.

@@ -85,15 +85,15 @@ Assuming that you had made no changes to the source tree that will conflict with
   
   As described, running `make clean && make` is usually sufficient. Occasionally, the stronger cleanup done by `make cleanall` is needed.
   
-1. New versions of external dependencies may be introduced which may occasionally cause conflicts with existing builds of older versions.
+2. New versions of external dependencies may be introduced which may occasionally cause conflicts with existing builds of older versions.
   a. Special `make` targets exist to help wipe the existing build of a    dependency. For example, `make -C deps clean-llvm` will clean out the    existing build of `llvm` so that `llvm` will be rebuilt from the    downloaded source distribution the next time `make` is called.    `make -C deps distclean-llvm` is a stronger wipe which will also delete    the downloaded source distribution, ensuring that a fresh copy of the    source distribution will be downloaded and that any new patches will be    applied the next time `make` is called.
   b. To delete existing binaries of `julia` and all its dependencies,    delete the `./usr` directory _in the source tree_.
   
-1. If you&#39;ve updated macOS recently, be sure to run `xcode-select --install` to update the command line tools. Otherwise, you could run into errors for missing headers and libraries, such as `ld: library not found for -lcrt1.10.6.o`.
+3. If you&#39;ve updated macOS recently, be sure to run `xcode-select --install` to update the command line tools. Otherwise, you could run into errors for missing headers and libraries, such as `ld: library not found for -lcrt1.10.6.o`.
   
-1. If you&#39;ve moved the source directory, you might get errors such as  `CMake Error: The current CMakeCache.txt directory ... is different than the directory ... where     CMakeCache.txt was created.`, in which case you may delete the offending dependency under `deps`
+4. If you&#39;ve moved the source directory, you might get errors such as  `CMake Error: The current CMakeCache.txt directory ... is different than the directory ... where     CMakeCache.txt was created.`, in which case you may delete the offending dependency under `deps`
   
-1. In extreme cases, you may wish to reset the source tree to a pristine state. The following git commands may be helpful:
+5. In extreme cases, you may wish to reset the source tree to a pristine state. The following git commands may be helpful:
   
   ```sh
    git reset --hard #Forcibly remove any changes to any files under version control
@@ -206,7 +206,7 @@ If you already have one or more of these packages installed on your system, you 
 
 Please be aware that this procedure is not officially supported, as it introduces additional variability into the installation and versioning of the dependencies, and is recommended only for system package maintainers. Unexpected compile errors may result, as the build system will do no further checking to ensure the proper packages are installed.
 
-### LLVM {#LLVM}
+### LLVM
 
 The most complicated dependency is LLVM, for which we require additional patches from upstream (LLVM is not backward compatible).
 
@@ -240,7 +240,7 @@ DEPS_GIT = llvm
 #  LLVM_BRANCH = julia-16.0.6-0
 #SHA hash of the alternate commit to check out automatically
 #  LLVM_SHA1 = $(LLVM_BRANCH)
-#List of LLVM targets to build.  It is strongly recommended to keep at least all the
+#List of LLVM targets to build. It is strongly recommended to keep at least all the
 #default targets listed in `deps/llvm.mk`, even if you don't necessarily need all of them.
 #  LLVM_TARGETS = ...
 #Use ccache for faster recompilation in case you need to restart a build.
@@ -269,7 +269,7 @@ The various build phases are controlled by specific files:
 
 Though Julia can be built with newer LLVM versions, support for this should be regarded as experimental and not suitable for packaging.
 
-### libuv {#libuv}
+### libuv
 
 Julia uses a custom fork of libuv. It is a small dependency, and can be safely bundled in the same package as Julia, and will not conflict with the system library. Julia builds should _not_ try to use the system libuv.
 
@@ -307,7 +307,7 @@ Please note that assert builds of Julia will be slower than regular (non-assert)
 
 ## Building 32-bit Julia on a 64-bit machine {#Building-32-bit-Julia-on-a-64-bit-machine}
 
-Occasionally, bugs specific to 32-bit architectures may arise, and when this happens it is useful to be able to debug the problem on your local machine.  Since most modern 64-bit systems support running programs built for 32-bit ones, if you don&#39;t have to recompile Julia from source (e.g. you mainly need to inspect the behavior of a 32-bit Julia without having to touch the C code), you can likely use a 32-bit build of Julia for your system that you can obtain from the [official downloads page](https://julialang.org/downloads/). However, if you do need to recompile Julia from source one option is to use a Docker container of a 32-bit system.  At least for now, building a 32-bit version of Julia is relatively straightforward using [ubuntu 32-bit docker images](https://hub.docker.com/r/i386/ubuntu). In brief, after setting up `docker` here are the required steps:
+Occasionally, bugs specific to 32-bit architectures may arise, and when this happens it is useful to be able to debug the problem on your local machine. Since most modern 64-bit systems support running programs built for 32-bit ones, if you don&#39;t have to recompile Julia from source (e.g. you mainly need to inspect the behavior of a 32-bit Julia without having to touch the C code), you can likely use a 32-bit build of Julia for your system that you can obtain from the [official downloads page](https://julialang.org/downloads/). However, if you do need to recompile Julia from source one option is to use a Docker container of a 32-bit system. At least for now, building a 32-bit version of Julia is relatively straightforward using [ubuntu 32-bit docker images](https://hub.docker.com/r/i386/ubuntu). In brief, after setting up `docker` here are the required steps:
 
 ```sh
 $ docker pull i386/ubuntu
@@ -333,7 +333,7 @@ Then add all the [build dependencies](/devdocs/build/build#required-build-tools-
 There are two types of builds
 1. Build everything (`deps/` and `src/`) from source code.  (Add `USE_BINARYBUILDER=0` to `Make.user`, see [Building Julia](/devdocs/build/build#building-julia))
   
-1. Build from source (`src/`) with pre-compiled dependencies (default)
+2. Build from source (`src/`) with pre-compiled dependencies (default)
   
 
 When you want to update the version number of a dependency in `deps/`, you may want to use the following checklist:
@@ -370,15 +370,15 @@ Note:
   - `OPENLIBM_SHA1 = new-sha1-hash`
     
   
-1. Update Version number in `stdlib/OpenLibm_jll/Project.toml`
+2. Update Version number in `stdlib/OpenLibm_jll/Project.toml`
   - `version = "0.X.Y+0"`
     
   
-1. Update checksums in `deps/checksums/openlibm`
+3. Update checksums in `deps/checksums/openlibm`
   - `make -f contrib/refresh_checksums.mk openlibm`
     
   
-1. Check if the patch files `deps/patches/openlibm-*.patch` exist
+4. Check if the patch files `deps/patches/openlibm-*.patch` exist
   - if patches don&#39;t exist, skip.
     
   - if patches exist, check if they have been merged into the new version and need to be removed.   When deleting a patch, remember to modify the corresponding Makefile file (`deps/openlibm.mk`).

@@ -5,17 +5,58 @@ The _scope_ of a variable is the region of code within which a variable is acces
 
 Certain constructs in the language introduce _scope blocks_, which are regions of code that are eligible to be the scope of some set of variables. The scope of a variable cannot be an arbitrary set of source lines; instead, it will always line up with one of these blocks. There are two main types of scopes in Julia, _global scope_ and _local scope_. The latter can be nested. There is also a distinction in Julia between constructs which introduce a &quot;hard scope&quot; and those which only introduce a &quot;soft scope&quot;, which affects whether [shadowing](https://en.wikipedia.org/wiki/Variable_shadowing) a global variable by the same name is allowed or not.
 
-### Scope constructs {#man-scope-table}
+::: tip Summary
+
+Variables defined in global scope may be undefined in inner local scopes, depending on where the code is run, in order to balance safety and convenience. The hard and soft local scoping rules define the interplay between global and local variables.
+
+However, variables defined only in local scope behave consistently in all contexts. If the variable is already defined, it will be reused. If the variable is not defined, it will be made available to the current and inner scopes (but not outer scopes).
+
+:::
+
+::: tip A Common Confusion
+
+If you run into an unexpectedly undefined variable,
+
+```julia
+# Print the numbers 1 through 5
+i = 0
+while i < 5  # ERROR: UndefVarError: `i` not defined
+    i += 1
+    println(i)
+end
+```
+
+
+a simple fix is to change all global variable definitions into local definitions by wrapping the code in a `let` block or `function`.
+
+```julia
+# Print the numbers 1 through 5
+let i = 0
+    while i < 5  # Now `i` is defined in the inner scope of the while loop
+        i += 1
+        println(i)
+    end
+end
+```
+
+
+This is a common source of confusion when writing procedural scripts, but it becomes a non-issue if code is moved inside functions or executed interactively in the REPL.
+
+See also the [`global`](/base/base#global) and [`local`](/base/base#local) keywords to explicitly achieve any desired scoping behavior.
+
+:::
+
+### Scope Constructs {#man-scope-table}
 
 The constructs introducing scope blocks are:
 
-| Construct                                                                                           | Scope type   | Allowed within |
-|:--------------------------------------------------------------------------------------------------- |:------------ |:-------------- |
-| [`module`](/base/base#module), [`baremodule`](/base/base#baremodule)                                | global       | global         |
-| [`struct`](/base/base#struct)                                                                       | local (soft) | global         |
-| [`for`](/base/base#for), [`while`](/base/base#while), [`try`](/base/base#try)                       | local (soft) | global, local  |
-| [`macro`](/base/base#macro)                                                                         | local (hard) | global         |
-| functions, [`do`](/base/base#do) blocks, [`let`](/base/base#let) blocks, comprehensions, generators | local (hard) | global, local  |
+| Construct                                                                                                                                                                           | Scope Type Introduced | Scope Types Able to Contain Construct |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:--------------------- |:------------------------------------- |
+| [`module`](/base/base#module), [`baremodule`](/base/base#baremodule)                                                                                                                | global                | global                                |
+| [`struct`](/base/base#struct)                                                                                                                                                       | local (soft)          | global                                |
+| [`macro`](/base/base#macro)                                                                                                                                                         | local (hard)          | global                                |
+| [`for`](/base/base#for), [`while`](/base/base#while), [`try`](/base/base#try)                                                                                                       | local (soft)          | global, local                         |
+| [`function`](/base/base#function), [`do`](/base/base#do), [`let`](/base/base#let), [comprehensions](/manual/arrays#man-comprehensions), [generators](/manual/arrays#man-generators) | local (hard)          | global, local                         |
 
 
 Notably missing from this table are [begin blocks](/manual/control-flow#man-compound-expressions) and [if blocks](/manual/control-flow#man-conditional-evaluation) which do _not_ introduce new scopes. The three types of scopes follow somewhat different rules which will be explained below.
@@ -75,9 +116,9 @@ Mostly this is pretty intuitive, but as with many things that behave intuitively
 When `x = <value>` occurs in a local scope, Julia applies the following rules to decide what the expression means based on where the assignment expression occurs and what `x` already refers to at that location:
 1. **Existing local:** If `x` is _already a local variable_, then the existing local `x` is assigned;
   
-1. **Hard scope:** If `x` is _not already a local variable_ and assignment occurs inside of any hard scope construct (i.e. within a `let` block, function or macro body, comprehension, or generator), a new local named `x` is created in the scope of the assignment;
+2. **Hard scope:** If `x` is _not already a local variable_ and assignment occurs inside of any hard scope construct (i.e. within a `let` block, function or macro body, comprehension, or generator), a new local named `x` is created in the scope of the assignment;
   
-1. **Soft scope:** If `x` is _not already a local variable_ and all of the scope constructs containing the assignment are soft scopes (loops, `try`/`catch` blocks, or `struct` blocks), the behavior depends on whether the global variable `x` is defined:
+3. **Soft scope:** If `x` is _not already a local variable_ and all of the scope constructs containing the assignment are soft scopes (loops, `try`/`catch` blocks, or `struct` blocks), the behavior depends on whether the global variable `x` is defined:
   - if global `x` is _undefined_, a new local named `x` is created in the scope of the assignment;
     
   - if global `x` is _defined_, the assignment is considered ambiguous:
@@ -212,7 +253,7 @@ julia> sum_to_def_closure(10)
 This example illustrates a couple of key points:
 1. Inner function scopes are just like any other nested local scope. In particular, if a variable is already a local outside of an inner function and you assign to it in the inner function, the outer local variable is updated.
   
-1. It doesn&#39;t matter if the definition of an outer local happens below where it is updated, the rule remains the same. The entire enclosing local scope is parsed and its locals determined before inner local meanings are resolved.
+2. It doesn&#39;t matter if the definition of an outer local happens below where it is updated, the rule remains the same. The entire enclosing local scope is parsed and its locals determined before inner local meanings are resolved.
   
 
 This design means that you can generally move code in or out of an inner function without changing its meaning, which facilitates a number of common idioms in the language using closures (see [do blocks](/manual/functions#Do-Block-Syntax-for-Function-Arguments)).
@@ -312,7 +353,7 @@ This demonstrates some important aspects of scope: in a scope, each variable can
 We have now covered all the local scope rules, but before wrapping up this section, perhaps a few words should be said about why the ambiguous soft scope case is handled differently in interactive and non-interactive contexts. There are two obvious questions one could ask:
 1. Why doesn&#39;t it just work like the REPL everywhere?
   
-1. Why doesn&#39;t it just work like in files everywhere? And maybe skip the warning?
+2. Why doesn&#39;t it just work like in files everywhere? And maybe skip the warning?
   
 
 In Julia ≤ 0.6, all global scopes did work like the current REPL: when `x = <value>` occurred in a loop (or `try`/`catch`, or `struct` body) but outside of a function body (or `let` block or comprehension), it was decided based on whether a global named `x` was defined or not whether `x` should be local to the loop. This behavior has the advantage of being intuitive and convenient since it approximates the behavior inside of a function body as closely as possible. In particular, it makes it easy to move code back and forth between a function body and the REPL when trying to debug the behavior of a function. However, it has some downsides. First, it&#39;s quite a complex behavior: many people over the years were confused about this behavior and complained that it was complicated and hard both to explain and understand. Fair point. Second, and arguably worse, is that it&#39;s bad for programming &quot;at scale.&quot; When you see a small piece of code in one place like this, it&#39;s quite clear what&#39;s going on:
@@ -361,7 +402,7 @@ end
 Do you see that `global` annotation in there? Hideous. Obviously this situation could not be tolerated. But seriously, there are two main issues with requiring `global` for this kind of top-level code:
 1. It&#39;s no longer convenient to copy and paste the code from inside a function body into the REPL to debug it—you have to add `global` annotations and then remove them again to go back;
   
-1. Beginners will write this kind of code without the `global` and have no idea why their code doesn&#39;t work—the error that they get is that `s` is undefined, which does not seem to enlighten anyone who happens to make this mistake.
+2. Beginners will write this kind of code without the `global` and have no idea why their code doesn&#39;t work—the error that they get is that `s` is undefined, which does not seem to enlighten anyone who happens to make this mistake.
   
 
 As of Julia 1.5, this code works without the `global` annotation in interactive contexts like the REPL or Jupyter notebooks (just like Julia 0.6) and in files and other non-interactive contexts, it prints this very direct warning:
@@ -517,7 +558,7 @@ julia> f()
 ```
 
 
-## Constants {#Constants}
+## Constants
 
 A common use of variables is giving names to specific, unchanging values. Such variables are only assigned once. This intent can be conveyed to the compiler using the [`const`](/base/base#const) keyword:
 

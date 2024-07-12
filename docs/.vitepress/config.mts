@@ -1,57 +1,17 @@
-import { defineConfig, DefaultTheme } from 'vitepress'
+import { defineConfig } from 'vitepress'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import mathjax3 from "markdown-it-mathjax3";
 import footnote from "markdown-it-footnote";
-// https://github.com/cap-js/docs/blob/main/.vitepress/config.ts
-const localSearchOptions = {
-  provider: 'local',
-  options: {
-    miniSearch: {
-      options: {
-        tokenize: text => text.split( /[\n\r #%*,=/:;?[\]{}()&]+/u ), // simplified charset: removed [-_.@] and non-english chars (diacritics etc.)
-        processTerm: (term, fieldName) => {
-          term = term.trim().toLowerCase().replace(/^[^a-zA-Z0-9@!\.]+/, '').replace(/[^a-zA-Z0-9@!\.]+$/, '')
-          const stopWords = ["a", "able", "about", "across", "after", "almost", "also", "am", "among", "an", "and", "are", "as", "at", "be", "because", "been", "but", "by", "can", "cannot", "could", "dear", "did", "does", "either", "ever", "every", "from", "got", "had", "has", "have", "he", "her", "hers", "him", "his", "how", "however", "i", "if", "into", "it", "its", "just", "least", "like", "likely", "may", "me", "might", "most", "must", "my", "neither", "no", "nor", "not", "of", "off", "often", "on", "or", "other", "our", "own", "rather", "said", "say", "says", "she", "should", "since", "so", "some", "than", "that", "the", "their", "them", "then", "there", "these", "they", "this", "tis", "to", "too", "twas", "us", "wants", "was", "we", "were", "what", "when", "who", "whom", "why", "will", "would", "yet", "you", "your"]
-          if (term.length < 2 || stopWords.includes(term))  return false
-
-          if (fieldName === 'text') {
-            // as we don't tokenize along . to keep expressions like `LinearAlgebra.mean`, split and add the single parts as extra terms
-            const parts = term.split('.')
-            if (parts.length > 1) {
-              const newTerms = [term, ...parts].filter(t => t.length >= 2).filter(t => !stopWords.includes(t))
-              return newTerms
-            }
-          }
-          return term
-        },
-      },
-      searchOptions: {
-        prefix: true,
-        combineWith: 'AND',
-        boost: { title: 100 },
-        fuzzy: false,
-        boostDocument: (documentId, term, storedFields:Record<string, string|string[]>) => {
-
-          const titles = (storedFields?.titles as string[]).filter(t => !!t).map(t => t.toLowerCase())
-          // Uprate if term appears in titles. Add bonus for higher levels (i.e. lower index)
-          const titleIndex = titles.map((t, i) => t?.includes(term) ? i : -1).find(i => i>=0) ?? -1
-          if (titleIndex >=0)  return 10000 - titleIndex
-          return 1
-        }
-      }
-    }
-  }
-} as { provider: 'local'; options?: DefaultTheme.LocalSearchOptions }
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/JuliaDocs',// TODO: replace this in makedocs!
+  base: '/docs.julialang.org.git/',// TODO: replace this in makedocs!
   title: 'Programming',
   description: "The Julia Programming Language",
   lastUpdated: true,
   cleanUrls: true,
-  // outDir: '../final_site', // This is required for MarkdownVitepress to work correctly...
-
+  outDir: '../final_site', // This is required for MarkdownVitepress to work correctly...
+  
   ignoreDeadLinks: true,
 
   markdown: {
@@ -68,9 +28,13 @@ export default defineConfig({
   themeConfig: {
     outline: 'deep',
     logo: { light: "/logo.svg", dark: "/logo-dark.svg", alt: "julia" },
-    search: localSearchOptions,
-
-nav: [
+    search: {
+      provider: 'local',
+      options: {
+        detailedView: true
+      }
+    },
+    nav: [
 { text: 'Home', link: '/index' },
 { text: 'Manual', items: [
 { text: 'Getting Started', link: '/manual/getting-started' },
@@ -396,7 +360,7 @@ nav: [
       }
     ]
 ,
-    editLink: { pattern: "https://github.com/JuliaLang/julia/edit/master/doc/src/:path" },
+    editLink: { pattern: "https://github.com/JuliaLang/docs.julialang.org.git/edit/master/docs/src/:path" },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/JuliaLang/docs.julialang.org.git' }
     ],

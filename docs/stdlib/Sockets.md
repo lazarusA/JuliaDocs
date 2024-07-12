@@ -1,7 +1,7 @@
 
 
 
-# Sockets {#Sockets}
+# Sockets
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='Sockets.Sockets' href='#Sockets.Sockets'>#</a>&nbsp;<b><u>Sockets.Sockets</u></b> &mdash; <i>Module</i>.
 
@@ -11,7 +11,7 @@
 Support for sockets. Provides [`IPAddr`](/stdlib/Sockets#Sockets.IPAddr) and subtypes, [`TCPSocket`](/stdlib/Sockets#Sockets.TCPSocket), and [`UDPSocket`](/stdlib/Sockets#Sockets.UDPSocket).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L3-L5)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L3-L5)
 
 </div>
 <br>
@@ -29,7 +29,7 @@ connect([host], port::Integer) -> TCPSocket
 Connect to the host `host` on port `port`.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L539-L543)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L539-L543)
 
 </div>
 <br>
@@ -53,7 +53,7 @@ Path length on Unix is limited to somewhere between 92 and 108 bytes (cf. `man u
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/PipeServer.jl#L95-L102)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/PipeServer.jl#L95-L102)
 
 </div>
 <br>
@@ -71,7 +71,7 @@ listen([addr, ]port::Integer; backlog::Integer=BACKLOG_DEFAULT) -> TCPServer
 Listen on port on the address specified by `addr`. By default this listens on `localhost` only. To listen on all interfaces pass `IPv4(0)` or `IPv6(0)` as appropriate. `backlog` determines how many connections can be pending (not having called [`accept`](/stdlib/Sockets#Sockets.accept)) before the server will begin to reject them. The default value of `backlog` is 511.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L612-L621)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L612-L621)
 
 </div>
 <br>
@@ -95,7 +95,7 @@ Path length on Unix is limited to somewhere between 92 and 108 bytes (cf. `man u
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/PipeServer.jl#L69-L76)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/PipeServer.jl#L69-L76)
 
 </div>
 <br>
@@ -124,7 +124,7 @@ ip"127.0.0.1"
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/addrinfo.jl#L124-L139)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/addrinfo.jl#L124-L139)
 
 
 
@@ -136,7 +136,7 @@ getaddrinfo(host::AbstractString) -> IPAddr
 Gets the first available IP address of `host`, which may be either an `IPv4` or `IPv6` address. Uses the operating system&#39;s underlying getaddrinfo implementation, which may do a DNS lookup.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/addrinfo.jl#L151-L157)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/addrinfo.jl#L151-L157)
 
 </div>
 <br>
@@ -176,7 +176,7 @@ ip"fe80::9731:35af:e1c5:6e49"
 See also [`getipaddrs`](/stdlib/Sockets#Sockets.getipaddrs).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/addrinfo.jl#L258-L282)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/addrinfo.jl#L258-L282)
 
 </div>
 <br>
@@ -225,7 +225,7 @@ julia> getipaddrs(IPv6)
 See also [`islinklocaladdr`](/stdlib/Sockets#Sockets.islinklocaladdr).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/addrinfo.jl#L297-L327)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/addrinfo.jl#L297-L327)
 
 </div>
 <br>
@@ -250,7 +250,7 @@ filter(!islinklocaladdr, getipaddrs())
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/addrinfo.jl#L357-L369)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/addrinfo.jl#L357-L369)
 
 </div>
 <br>
@@ -278,7 +278,7 @@ julia> getalladdrinfo("google.com")
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/addrinfo.jl#L52-L65)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/addrinfo.jl#L52-L65)
 
 </div>
 <br>
@@ -296,7 +296,7 @@ DNSError
 The type of exception thrown when an error occurs in DNS lookup. The `host` field indicates the host URL string. The `code` field indicates the error code based on libuv.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/addrinfo.jl#L3-L9)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/addrinfo.jl#L3-L9)
 
 </div>
 <br>
@@ -322,7 +322,7 @@ julia> getnameinfo(IPv4("8.8.8.8"))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/addrinfo.jl#L183-L194)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/addrinfo.jl#L183-L194)
 
 </div>
 <br>
@@ -340,7 +340,7 @@ getsockname(sock::Union{TCPServer, TCPSocket}) -> (IPAddr, UInt16)
 Get the IP address and port that the given socket is bound to.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L793-L797)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L793-L797)
 
 </div>
 <br>
@@ -358,7 +358,7 @@ getpeername(sock::TCPSocket) -> (IPAddr, UInt16)
 Get the IP address and port of the remote endpoint that the given socket is connected to. Valid only for connected TCP sockets.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L801-L806)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L801-L806)
 
 </div>
 <br>
@@ -376,7 +376,7 @@ IPAddr
 Abstract supertype for IP addresses. [`IPv4`](/stdlib/Sockets#Sockets.IPv4) and [`IPv6`](/stdlib/Sockets#Sockets.IPv6) are subtypes of this.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/IPAddr.jl#L3-L7)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/IPAddr.jl#L3-L7)
 
 </div>
 <br>
@@ -402,7 +402,7 @@ ip"192.30.252.154"
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/IPAddr.jl#L31-L41)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/IPAddr.jl#L31-L41)
 
 
 
@@ -422,7 +422,7 @@ ip"127.0.0.1"
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/IPAddr.jl#L52-L62)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/IPAddr.jl#L52-L62)
 
 </div>
 <br>
@@ -448,7 +448,7 @@ ip"::c01e:fc9a"
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/IPAddr.jl#L94-L104)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/IPAddr.jl#L94-L104)
 
 
 
@@ -468,7 +468,7 @@ ip"::1"
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/IPAddr.jl#L117-L127)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/IPAddr.jl#L117-L127)
 
 </div>
 <br>
@@ -497,7 +497,7 @@ ip"2001:db8::2:1"
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/IPAddr.jl#L275-L288)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/IPAddr.jl#L275-L288)
 
 </div>
 <br>
@@ -515,7 +515,7 @@ TCPSocket(; delay=true)
 Open a TCP socket using libuv. If `delay` is true, libuv delays creation of the socket&#39;s file descriptor till the first [`bind`](/stdlib/Sockets#Base.bind) call. `TCPSocket` has various fields to denote the state of the socket as well as its send/receive buffers.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L51-L57)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L51-L57)
 
 </div>
 <br>
@@ -533,7 +533,7 @@ UDPSocket()
 Open a UDP socket using libuv. `UDPSocket` has various fields to denote the state of the socket.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L169-L174)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L169-L174)
 
 </div>
 <br>
@@ -551,7 +551,7 @@ accept(server[, client])
 Accepts a connection on the given server and returns a connection to the client. An uninitialized client stream may be provided, in which case it will be used instead of creating a new stream.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L142-L148)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L142-L148)
 
 </div>
 <br>
@@ -569,7 +569,7 @@ listenany([host::IPAddr,] port_hint; backlog::Integer=BACKLOG_DEFAULT) -> (UInt1
 Create a `TCPServer` on any port, using hint as a starting point. Returns a tuple of the actual port that the server was created on and the server itself. The backlog argument defines the maximum length to which the queue of pending connections for sockfd may grow.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L715-L721)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L715-L721)
 
 </div>
 <br>
@@ -591,7 +591,7 @@ Bind `socket` to the given `host:port`. Note that `0.0.0.0` will listen on all d
   
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L245-L253)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L245-L253)
 
 
 
@@ -648,7 +648,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L237-L288)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L237-L288)
 
 </div>
 <br>
@@ -666,7 +666,7 @@ send(socket::UDPSocket, host::IPAddr, port::Integer, msg)
 Send `msg` over `socket` to `host:port`.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L430-L434)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L430-L434)
 
 </div>
 <br>
@@ -684,7 +684,7 @@ recv(socket::UDPSocket)
 Read a UDP packet from the specified socket, and return the bytes received. This call blocks.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L318-L322)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L318-L322)
 
 </div>
 <br>
@@ -708,7 +708,7 @@ Prior to Julia version 1.3, the first returned value was an address (`IPAddr`). 
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L330-L339)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L330-L339)
 
 </div>
 <br>
@@ -734,7 +734,7 @@ Set UDP socket options.
   
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L286-L296)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L286-L296)
 
 </div>
 <br>
@@ -758,7 +758,7 @@ This function requires Julia 1.3 or later.
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L567-L578)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L567-L578)
 
 </div>
 <br>
@@ -776,7 +776,7 @@ quickack(socket::Union{TCPServer, TCPSocket}, enable::Bool)
 On Linux systems, the TCP_QUICKACK is disabled or enabled on `socket`.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Sockets/src/Sockets.jl#L589-L593)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Sockets/src/Sockets.jl#L589-L593)
 
 </div>
 <br>

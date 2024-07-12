@@ -123,7 +123,7 @@ end
 ```
 
 
-In order to refer to `MyType` across all processes, `DummyModule.jl` needs to be loaded on every process.  Calling `include("DummyModule.jl")` loads it only on a single process.  To load it on every process, use the [`@everywhere`](/stdlib/Distributed#Distributed.@everywhere) macro (starting Julia with `julia -p 2`):
+In order to refer to `MyType` across all processes, `DummyModule.jl` needs to be loaded on every process. Calling `include("DummyModule.jl")` loads it only on a single process. To load it on every process, use the [`@everywhere`](/stdlib/Distributed#Distributed.@everywhere) macro (starting Julia with `julia -p 2`):
 
 ```julia
 julia> @everywhere include("DummyModule.jl")
@@ -133,7 +133,7 @@ loaded
 ```
 
 
-As usual, this does not bring `DummyModule` into scope on any of the process, which requires [`using`](/base/base#using) or [`import`](/base/base#import).  Moreover, when `DummyModule` is brought into scope on one process, it is not on any other:
+As usual, this does not bring `DummyModule` into scope on any of the process, which requires [`using`](/base/base#using) or [`import`](/base/base#import). Moreover, when `DummyModule` is brought into scope on one process, it is not on any other:
 
 ```julia
 julia> using .DummyModule
@@ -796,7 +796,7 @@ julia> u = SharedArray{Float64,3}((500,500,500));
 ```
 
 
-Run the functions once to JIT-compile and [`@time`](/tutorials/profile#@time) them on the second run:
+Run the functions once to JIT-compile and [`@time`](/manual/profile#@time) them on the second run:
 
 ```julia
 julia> @time advection_serial!(q, u);
@@ -821,7 +821,7 @@ The biggest advantage of `advection_shared!` is that it minimizes traffic among 
 
 Like remote references, shared arrays are also dependent on garbage collection on the creating node to release references from all participating workers. Code which creates many short lived shared array objects would benefit from explicitly finalizing these objects as soon as possible. This results in both memory and file handles mapping the shared segment being released sooner.
 
-## ClusterManagers {#ClusterManagers}
+## ClusterManagers
 
 The launching, management and networking of Julia processes into a logical cluster is done via cluster managers. A `ClusterManager` is responsible for
 - launching worker processes in a cluster environment
@@ -1080,11 +1080,11 @@ Outside of Julia parallelism there are plenty of external packages that should b
 A mention must be made of Julia&#39;s GPU programming ecosystem, which includes:
 1. [CUDA.jl](https://github.com/JuliaGPU/CUDA.jl) wraps the various CUDA libraries and supports compiling Julia kernels for Nvidia GPUs.
   
-1. [oneAPI.jl](https://github.com/JuliaGPU/oneAPI.jl) wraps the oneAPI unified programming model, and supports executing Julia kernels on supported accelerators. Currently only Linux is supported.
+2. [oneAPI.jl](https://github.com/JuliaGPU/oneAPI.jl) wraps the oneAPI unified programming model, and supports executing Julia kernels on supported accelerators. Currently only Linux is supported.
   
-1. [AMDGPU.jl](https://github.com/JuliaGPU/AMDGPU.jl) wraps the AMD ROCm libraries and supports compiling Julia kernels for AMD GPUs. Currently only Linux is supported.
+3. [AMDGPU.jl](https://github.com/JuliaGPU/AMDGPU.jl) wraps the AMD ROCm libraries and supports compiling Julia kernels for AMD GPUs. Currently only Linux is supported.
   
-1. High-level libraries like [KernelAbstractions.jl](https://github.com/JuliaGPU/KernelAbstractions.jl), [Tullio.jl](https://github.com/mcabbott/Tullio.jl) and [ArrayFire.jl](https://github.com/JuliaComputing/ArrayFire.jl).
+4. High-level libraries like [KernelAbstractions.jl](https://github.com/JuliaGPU/KernelAbstractions.jl), [Tullio.jl](https://github.com/mcabbott/Tullio.jl) and [ArrayFire.jl](https://github.com/JuliaComputing/ArrayFire.jl).
   
 
 In the following example we will use both `DistributedArrays.jl` and `CUDA.jl` to distribute an array across multiple processes by first casting it through `distribute()` and `CuArray()`.

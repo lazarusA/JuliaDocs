@@ -15,8 +15,8 @@ $ julia
   (_)     | (_) (_)    |
    _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
   | | | | | | |/ _` |  |
-  | | |_| | | | (_| |  |  Version 1.12.0-DEV.459 (2024-05-01)
- _/ |\__'_|_|_|\__'_|  |  la/docs/e162027b05 (fork: 13 commits, 0 days)
+  | | |_| | | | (_| |  |  Version 1.12.0-DEV.651 (2024-07-12)
+ _/ |\__'_|_|_|\__'_|  |  la/docs/3a083e6f56 (fork: 205 commits, 72 days)
 |__/                   |
 
 
@@ -41,7 +41,7 @@ $ julia script.jl
 
 You can pass additional arguments to Julia, and to your program `script.jl`. A detailed list of all the available options can be found under [Command-line Interface](/manual/command-line-interface#cli).
 
-## Resources {#Resources}
+## Resources
 
 A curated list of useful learning resources to help new users get started can be found on the [learning](https://julialang.org/learning/) page of the main Julia website.
 

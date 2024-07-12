@@ -42,7 +42,7 @@ DataType
 
 Note that `fieldnames(DataType)` gives the names for each field of `DataType` itself, and one of these fields is the `types` field observed in the example above.
 
-## Subtypes {#Subtypes}
+## Subtypes
 
 The _direct_ subtypes of any `DataType` may be listed using [`subtypes`](/stdlib/InteractiveUtils#InteractiveUtils.subtypes). For example, the abstract `DataType` [`AbstractFloat`](/base/numbers#Core.AbstractFloat) has four (concrete) subtypes:
 

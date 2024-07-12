@@ -3,7 +3,7 @@
 
 # Logging {#man-logging}
 
-The [`Logging`](/stdlib/Logging#Logging.Logging) module provides a way to record the history and progress of a computation as a log of events.  Events are created by inserting a logging statement into the source code, for example:
+The [`Logging`](/stdlib/Logging#Logging.Logging) module provides a way to record the history and progress of a computation as a log of events. Events are created by inserting a logging statement into the source code, for example:
 
 ```julia
 @warn "Abandon printf debugging, all ye who enter here!"
@@ -12,14 +12,14 @@ The [`Logging`](/stdlib/Logging#Logging.Logging) module provides a way to record
 ```
 
 
-The system provides several advantages over peppering your source code with calls to `println()`.  First, it allows you to control the visibility and presentation of messages without editing the source code.  For example, in contrast to the `@warn` above
+The system provides several advantages over peppering your source code with calls to `println()`. First, it allows you to control the visibility and presentation of messages without editing the source code. For example, in contrast to the `@warn` above
 
 ```julia
 @debug "The sum of some values $(sum(rand(100)))"
 ```
 
 
-will produce no output by default.  Furthermore, it&#39;s very cheap to leave debug statements like this in the source code because the system avoids evaluating the message if it would later be ignored.  In this case `sum(rand(100))` and the associated string processing will never be executed unless debug logging is enabled.
+will produce no output by default. Furthermore, it&#39;s very cheap to leave debug statements like this in the source code because the system avoids evaluating the message if it would later be ignored. In this case `sum(rand(100))` and the associated string processing will never be executed unless debug logging is enabled.
 
 Second, the logging tools allow you to attach arbitrary data to each event as a set of key–value pairs. This allows you to capture local variables and other program state for later analysis. For example, to attach the local array variable `A` and the sum of a vector `v` as the key `s` you can use
 
@@ -67,7 +67,7 @@ The system also generates some standard information for each event:
   
 - A message `id` that is a unique, fixed identifier for the _source code statement_ where the logging macro appears. This identifier is designed to be fairly stable even if the source code of the file changes, as long as the logging statement itself remains the same.
   
-- A `group` for the event, which is set to the base name of the file by default, without extension.  This can be used to group messages into categories more finely than the log level (for example, all deprecation warnings have group `:depwarn`), or into logical groupings across or within modules.
+- A `group` for the event, which is set to the base name of the file by default, without extension. This can be used to group messages into categories more finely than the log level (for example, all deprecation warnings have group `:depwarn`), or into logical groupings across or within modules.
   
 
 Notice that some useful information such as the event time is not included by default. This is because such information can be expensive to extract and is also _dynamically_ available to the current logger. It&#39;s simple to define a [custom logger](/stdlib/Logging#AbstractLogger-interface) to augment event data with the time, backtrace, values of global variables and other useful information as required.
@@ -80,31 +80,31 @@ As you can see in the examples, logging statements make no mention of where log 
 - _Processing_ of log events — that is, display, filtering, aggregation and recording — is the concern of the application author who needs to bring multiple modules together into a cooperating application.
   
 
-### Loggers {#Loggers}
+### Loggers
 
 Processing of events is performed by a _logger_, which is the first piece of user configurable code to see the event. All loggers must be subtypes of [`AbstractLogger`](/stdlib/Logging#Logging.AbstractLogger).
 
-When an event is triggered, the appropriate logger is found by looking for a task-local logger with the global logger as fallback.  The idea here is that the application code knows how log events should be processed and exists somewhere at the top of the call stack. So we should look up through the call stack to discover the logger — that is, the logger should be _dynamically scoped_. (This is a point of contrast with logging frameworks where the logger is _lexically scoped_; provided explicitly by the module author or as a simple global variable. In such a system it&#39;s awkward to control logging while composing functionality from multiple modules.)
+When an event is triggered, the appropriate logger is found by looking for a task-local logger with the global logger as fallback. The idea here is that the application code knows how log events should be processed and exists somewhere at the top of the call stack. So we should look up through the call stack to discover the logger — that is, the logger should be _dynamically scoped_. (This is a point of contrast with logging frameworks where the logger is _lexically scoped_; provided explicitly by the module author or as a simple global variable. In such a system it&#39;s awkward to control logging while composing functionality from multiple modules.)
 
-The global logger may be set with [`global_logger`](/stdlib/Logging#Logging.global_logger), and task-local loggers controlled using [`with_logger`](/stdlib/Logging#Logging.with_logger).  Newly spawned tasks inherit the logger of the parent task.
+The global logger may be set with [`global_logger`](/stdlib/Logging#Logging.global_logger), and task-local loggers controlled using [`with_logger`](/stdlib/Logging#Logging.with_logger). Newly spawned tasks inherit the logger of the parent task.
 
-There are three logger types provided by the library.  [`ConsoleLogger`](/stdlib/Logging#Logging.ConsoleLogger) is the default logger you see when starting the REPL.  It displays events in a readable text format and tries to give simple but user friendly control over formatting and filtering.  [`NullLogger`](/stdlib/Logging#Logging.NullLogger) is a convenient way to drop all messages where necessary; it is the logging equivalent of the [`devnull`](/base/base#Base.devnull) stream.  [`SimpleLogger`](/stdlib/Logging#Logging.SimpleLogger) is a very simplistic text formatting logger, mainly useful for debugging the logging system itself.
+There are three logger types provided by the library.  [`ConsoleLogger`](/stdlib/Logging#Base.CoreLogging.ConsoleLogger) is the default logger you see when starting the REPL. It displays events in a readable text format and tries to give simple but user friendly control over formatting and filtering.  [`NullLogger`](/stdlib/Logging#Logging.NullLogger) is a convenient way to drop all messages where necessary; it is the logging equivalent of the [`devnull`](/base/base#Base.devnull) stream.  [`SimpleLogger`](/stdlib/Logging#Logging.SimpleLogger) is a very simplistic text formatting logger, mainly useful for debugging the logging system itself.
 
 Custom loggers should come with overloads for the functions described in the [reference section](/stdlib/Logging#AbstractLogger-interface).
 
 ### Early filtering and message handling {#Early-filtering-and-message-handling}
 
 When an event occurs, a few steps of early filtering occur to avoid generating messages that will be discarded:
-1. The message log level is checked against a global minimum level (set via [`disable_logging`](/stdlib/Logging#Logging.disable_logging)).  This is a crude but extremely cheap global setting.
+1. The message log level is checked against a global minimum level (set via [`disable_logging`](/stdlib/Logging#Logging.disable_logging)). This is a crude but extremely cheap global setting.
   
-1. The current logger state is looked up and the message level checked against the logger&#39;s cached minimum level, as found by calling [`Logging.min_enabled_level`](/stdlib/Logging#Logging.min_enabled_level). This behavior can be overridden via environment variables (more on this later).
+2. The current logger state is looked up and the message level checked against the logger&#39;s cached minimum level, as found by calling [`Logging.min_enabled_level`](/stdlib/Logging#Logging.min_enabled_level). This behavior can be overridden via environment variables (more on this later).
   
-1. The [`Logging.shouldlog`](/stdlib/Logging#Logging.shouldlog) function is called with the current logger, taking some minimal information (level, module, group, id) which can be computed statically.  Most usefully, `shouldlog` is passed an event `id` which can be used to discard events early based on a cached predicate.
+3. The [`Logging.shouldlog`](/stdlib/Logging#Logging.shouldlog) function is called with the current logger, taking some minimal information (level, module, group, id) which can be computed statically. Most usefully, `shouldlog` is passed an event `id` which can be used to discard events early based on a cached predicate.
   
 
 If all these checks pass, the message and key–value pairs are evaluated in full and passed to the current logger via the [`Logging.handle_message`](/stdlib/Logging#Logging.handle_message) function. `handle_message()` may perform additional filtering as required and display the event to the screen, save it to a file, etc.
 
-Exceptions that occur while generating the log event are captured and logged by default.  This prevents individual broken events from crashing the application, which is helpful when enabling little-used debug events in a production system.  This behavior can be customized per logger type by extending [`Logging.catch_exceptions`](/stdlib/Logging#Logging.catch_exceptions).
+Exceptions that occur while generating the log event are captured and logged by default. This prevents individual broken events from crashing the application, which is helpful when enabling little-used debug events in a production system. This behavior can be customized per logger type by extending [`Logging.catch_exceptions`](/stdlib/Logging#Logging.catch_exceptions).
 
 ## Testing log events {#Testing-log-events}
 
@@ -149,7 +149,7 @@ julia> foo()
 
 Use a comma separator to enable debug for multiple modules: `JULIA_DEBUG=loading,Main`.
 
-## Examples {#Examples}
+## Examples
 
 ### Example: Writing log events to a file {#Example:-Writing-log-events-to-a-file}
 
@@ -189,7 +189,7 @@ julia> close(io)
 
 ### Example: Enable debug-level messages {#Example:-Enable-debug-level-messages}
 
-Here is an example of creating a [`ConsoleLogger`](/stdlib/Logging#Logging.ConsoleLogger) that lets through any messages with log level higher than, or equal, to [`Logging.Debug`](/stdlib/Logging#Logging.Debug).
+Here is an example of creating a [`ConsoleLogger`](/stdlib/Logging#Base.CoreLogging.ConsoleLogger) that lets through any messages with log level higher than, or equal, to [`Logging.Debug`](/stdlib/Logging#Logging.Debug).
 
 ```julia
 julia> using Logging
@@ -207,7 +207,7 @@ julia> global_logger(debuglogger)
 ```
 
 
-## Reference {#Reference}
+## Reference
 
 ### Logging module {#Logging-module}
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
@@ -219,7 +219,7 @@ julia> global_logger(debuglogger)
 Utilities for capturing, filtering and presenting streams of log events. Normally you don&#39;t need to import `Logging` to create log events; for this the standard logging macros such as `@info` are already exported by `Base` and available by default.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L3-L8)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Logging/src/Logging.jl#L3-L8)
 
 </div>
 <br>
@@ -287,7 +287,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L277-L344)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L277-L344)
 
 </div>
 <br>
@@ -315,7 +315,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L110-L124)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L110-L124)
 
 </div>
 <br>
@@ -333,7 +333,7 @@ Debug
 Alias for [`LogLevel(-1000)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L35-L39)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Logging/src/Logging.jl#L33-L37)
 
 </div>
 <br>
@@ -351,7 +351,7 @@ Info
 Alias for [`LogLevel(0)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L41-L45)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Logging/src/Logging.jl#L39-L43)
 
 </div>
 <br>
@@ -369,7 +369,7 @@ Warn
 Alias for [`LogLevel(1000)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L47-L51)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Logging/src/Logging.jl#L45-L49)
 
 </div>
 <br>
@@ -387,7 +387,7 @@ Error
 Alias for [`LogLevel(2000)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L53-L57)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Logging/src/Logging.jl#L51-L55)
 
 </div>
 <br>
@@ -405,7 +405,7 @@ BelowMinLevel
 Alias for [`LogLevel(-1_000_001)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L59-L63)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Logging/src/Logging.jl#L57-L61)
 
 </div>
 <br>
@@ -423,7 +423,7 @@ AboveMaxLevel
 Alias for [`LogLevel(1_000_001)`](/stdlib/Logging#Logging.LogLevel).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/Logging.jl#L65-L69)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Logging/src/Logging.jl#L63-L67)
 
 </div>
 <br>
@@ -449,7 +449,7 @@ Event processing is controlled by overriding functions associated with `Abstract
 A logger controls how log records are filtered and dispatched.  When a log record is generated, the logger is the first piece of user configurable code which gets to inspect the record and decide what to do with it.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L25-L29)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L25-L29)
 
 </div>
 <br>
@@ -467,7 +467,7 @@ handle_message(logger, level, message, _module, group, id, file, line; key1=val1
 Log a message to `logger` at `level`.  The logical location at which the message was generated is given by module `_module` and `group`; the source location by `file` and `line`. `id` is an arbitrary unique value (typically a [`Symbol`](/base/base#Core.Symbol)) to be used as a key to identify the log statement when filtering.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L32-L40)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L32-L40)
 
 </div>
 <br>
@@ -485,7 +485,7 @@ shouldlog(logger, level, _module, group, id)
 Return `true` when `logger` accepts a message at `level`, generated for `_module`, `group` and with unique log identifier `id`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L43-L48)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L43-L48)
 
 </div>
 <br>
@@ -503,7 +503,7 @@ min_enabled_level(logger)
 Return the minimum enabled level for `logger` for early filtering.  That is, the log level below or equal to which all messages are filtered.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L51-L56)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L51-L56)
 
 </div>
 <br>
@@ -525,7 +525,7 @@ By default all exceptions are caught to prevent log message generation from cras
 If you want to use logging as an audit trail you should disable this for your logger type.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L59-L71)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L59-L71)
 
 </div>
 <br>
@@ -550,7 +550,7 @@ Logging.disable_logging(Logging.Info) # Disable debug and info
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L527-L538)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L527-L538)
 
 </div>
 <br>
@@ -579,7 +579,7 @@ global_logger(logger)
 Set the global logger to `logger`, and return the previous global logger.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L595-L604)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L595-L604)
 
 </div>
 <br>
@@ -611,7 +611,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L613-L630)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L613-L630)
 
 </div>
 <br>
@@ -629,7 +629,7 @@ current_logger()
 Return the logger for the current task, or the global logger if none is attached to the task.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L635-L640)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L635-L640)
 
 </div>
 <br>
@@ -649,12 +649,12 @@ NullLogger()
 Logger which disables all messages and produces no output - the logger equivalent of /dev/null.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L94-L99)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L94-L99)
 
 </div>
 <br>
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
-<a id='Logging.ConsoleLogger' href='#Logging.ConsoleLogger'>#</a>&nbsp;<b><u>Logging.ConsoleLogger</u></b> &mdash; <i>Type</i>.
+<a id='Base.CoreLogging.ConsoleLogger' href='#Base.CoreLogging.ConsoleLogger'>#</a>&nbsp;<b><u>Base.CoreLogging.ConsoleLogger</u></b> &mdash; <i>Type</i>.
 
 
 
@@ -670,7 +670,7 @@ Logger with formatting optimized for readability in a text console, for example 
 Log levels less than `min_level` are filtered out.
 
 Message formatting can be controlled by setting keyword arguments:
-- `meta_formatter` is a function which takes the log event metadata `(level, _module, group, id, file, line)` and returns a face name (used in the constructed [`AnnotatedString`](/base/strings#Base.AnnotatedString)), prefix and suffix for the log message.  The default is to prefix with the log level and a suffix containing the module, file and line location.
+- `meta_formatter` is a function which takes the log event metadata `(level, _module, group, id, file, line)` and returns a color (as would be passed to printstyled), prefix and suffix for the log message.  The default is to prefix with the log level and a suffix containing the module, file and line location.
   
 - `show_limited` limits the printing of large data structures to something which can fit on the screen by setting the `:limit` `IOContext` key during formatting.
   
@@ -678,7 +678,7 @@ Message formatting can be controlled by setting keyword arguments:
   
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Logging/src/ConsoleLogger.jl#L3-L24)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/ConsoleLogger.jl#L3-L24)
 
 </div>
 <br>
@@ -696,7 +696,7 @@ SimpleLogger([stream,] min_level=Info)
 Simplistic logger for logging all messages with level greater than or equal to `min_level` to `stream`. If stream is closed then messages with log level greater or equal to `Warn` will be logged to `stderr` and below to `stdout`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/logging.jl#L648-L654)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/logging/logging.jl#L648-L654)
 
 </div>
 <br>

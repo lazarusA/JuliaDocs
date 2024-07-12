@@ -121,9 +121,9 @@ typedef returntype (*functiontype)(argumenttype, ...)
 The macro [`@cfunction`](/base/c#Base.@cfunction) generates the C-compatible function pointer for a call to a Julia function. The arguments to [`@cfunction`](/base/c#Base.@cfunction) are:
 1. A Julia function
   
-1. The function&#39;s return type
+2. The function&#39;s return type
   
-1. A tuple of input types, corresponding to the function signature
+3. A tuple of input types, corresponding to the function signature
   
 
 ::: tip Note
@@ -831,11 +831,11 @@ The arguments to [`ccall`](/base/c#ccall) are:
   OR
   a function pointer (for example, from `dlsym`).
   
-1. The function&#39;s return type
+2. The function&#39;s return type
   
-1. A tuple of input types, corresponding to the function signature. One common mistake is forgetting that a 1-tuple of argument types must be written with a trailing comma.
+3. A tuple of input types, corresponding to the function signature. One common mistake is forgetting that a 1-tuple of argument types must be written with a trailing comma.
   
-1. The actual argument values to be passed to the function, if any; each is a separate parameter.
+4. The actual argument values to be passed to the function, if any; each is a separate parameter.
   
 
 ::: tip Note
@@ -916,7 +916,7 @@ If the pointer of interest is a plain-data array (primitive type or immutable st
 
 Arithmetic on the `Ptr` type in Julia (e.g. using `+`) does not behave the same as C&#39;s pointer arithmetic. Adding an integer to a `Ptr` in Julia always moves the pointer by some number of _bytes_, not elements. This way, the address values obtained from pointer arithmetic do not depend on the element types of pointers.
 
-## Thread-safety {#Thread-safety}
+## Thread-safety
 
 Some C libraries execute their callbacks from a different thread, and since Julia isn&#39;t thread-safe you&#39;ll need to take some extra precautions. In particular, you&#39;ll need to set up a two-layered system: the C callback should only _schedule_ (via Julia&#39;s event loop) the execution of your &quot;real&quot; callback. To do this, create an [`AsyncCondition`](/base/base#Base.AsyncCondition) object and [`wait`](/base/parallel#Base.wait) on it:
 

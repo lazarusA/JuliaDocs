@@ -1,13 +1,13 @@
 
 
 
-# Pkg {#Pkg}
+# Pkg
 
 Pkg is Julia&#39;s builtin package manager, and handles operations such as installing, updating and removing packages.
 
 ::: tip Note
 
-What follows is a very brief introduction to Pkg. For more information on `Project.toml` files, `Manifest.toml` files, package version compatibility (`[compat]`), environments, registries, etc., it is highly recommended to read the full manual, which is available here: [https://pkgdocs.julialang.org](https://pkgdocs.julialang.org). For a tutorial on creating packages, see [Creating Packages](https://docs.julialang.org/en/v1/tutorials/creating-packages/).
+What follows is a very brief introduction to Pkg. For more information on `Project.toml` files, `Manifest.toml` files, package version compatibility (`[compat]`), environments, registries, etc., it is highly recommended to read the full manual, which is available here: [https://pkgdocs.julialang.org](https://pkgdocs.julialang.org).
 
 :::
 

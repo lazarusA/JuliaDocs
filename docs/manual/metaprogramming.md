@@ -1,5 +1,5 @@
 
-# Metaprogramming {#Metaprogramming}
+# Metaprogramming
 
 The strongest legacy of Lisp in the Julia language is its metaprogramming support. Like Lisp, Julia represents its own code as a data structure of the language itself. Since code is represented by objects that can be created and manipulated from within the language, it is possible for a program to transform and generate its own code. This allows sophisticated code generation without extra build steps, and also allows true Lisp-style macros operating at the level of [abstract syntax trees](https://en.wikipedia.org/wiki/Abstract_syntax_tree). In contrast, preprocessor &quot;macro&quot; systems, like that of C and C++, perform textual manipulation and substitution before any actual parsing or interpretation occurs. Because all data types and code in Julia are represented by Julia data structures, powerful [reflection](https://en.wikipedia.org/wiki/Reflection_%28computer_programming%29) capabilities are available to explore the internals of a program and its types just like any other data.
 
@@ -104,7 +104,7 @@ julia> Meta.show_sexpr(ex3)
 ```
 
 
-### Symbols {#Symbols}
+### Symbols
 
 The `:` character has two syntactic purposes in Julia. The first form creates a [`Symbol`](/base/base#Core.Symbol), an [interned string](https://en.wikipedia.org/wiki/String_interning) used as one building-block of expressions, from valid identifiers:
 
@@ -149,7 +149,7 @@ julia> :(::)
 
 ## Expressions and evaluation {#Expressions-and-evaluation}
 
-### Quoting {#Quoting}
+### Quoting
 
 The second syntactic purpose of the `:` character is to create expression objects without using the explicit [`Expr`](/base/base#Core.Expr) constructor. This is referred to as _quoting_. The `:` character, followed by paired parentheses around a single statement of Julia code, produces an `Expr` object based on the enclosed code. Here is an example of the short form used to quote an arithmetic expression:
 
@@ -447,7 +447,7 @@ julia> eval(ex)
 
 Macros provide a mechanism to include generated code in the final body of a program. A macro maps a tuple of arguments to a returned _expression_, and the resulting expression is compiled directly rather than requiring a runtime [`eval`](/base/base#eval) call. Macro arguments may include expressions, literal values, and symbols.
 
-### Basics {#Basics}
+### Basics
 
 Here is an extraordinarily simple macro:
 
@@ -708,7 +708,7 @@ So now instead of getting a plain string in `msg_body`, the macro is receiving a
 
 The `@assert` macro makes great use of splicing into quoted expressions to simplify the manipulation of expressions inside the macro body.
 
-### Hygiene {#Hygiene}
+### Hygiene
 
 An issue that arises in more complex macros is that of [hygiene](https://en.wikipedia.org/wiki/Hygienic_macro). In short, macros must ensure that the variables they introduce in their returned expressions do not accidentally clash with existing variables in the surrounding code they expand into. Conversely, the expressions that are passed into a macro as arguments are often _expected_ to evaluate in the context of the surrounding code, interacting with and modifying the existing variables. Another concern arises from the fact that a macro may be called in a different module from where it was defined. In this case we need to ensure that all global variables are resolved to the correct module. Julia already has a major advantage over languages with textual macro expansion (like C) in that it only needs to consider the returned expression. All the other variables (such as `msg` in `@assert` above) follow the [normal scoping block behavior](/manual/variables-and-scoping#scope-of-variables).
 
@@ -1008,13 +1008,13 @@ Instead of performing some calculation or action, a generated function declarati
 When defining generated functions, there are five main differences to ordinary functions:
 1. You annotate the function declaration with the `@generated` macro. This adds some information to the AST that lets the compiler know that this is a generated function.
   
-1. In the body of the generated function you only have access to the _types_ of the arguments – not their values.
+2. In the body of the generated function you only have access to the _types_ of the arguments – not their values.
   
-1. Instead of calculating something or performing some action, you return a _quoted expression_ which, when evaluated, does what you want.
+3. Instead of calculating something or performing some action, you return a _quoted expression_ which, when evaluated, does what you want.
   
-1. Generated functions are only permitted to call functions that were defined _before_ the definition of the generated function. (Failure to follow this may result in getting `MethodErrors` referring to functions from a future world-age.)
+4. Generated functions are only permitted to call functions that were defined _before_ the definition of the generated function. (Failure to follow this may result in getting `MethodErrors` referring to functions from a future world-age.)
   
-1. Generated functions must not _mutate_ or _observe_ any non-constant global state (including, for example, IO, locks, non-local dictionaries, or using [`hasmethod`](/base/base#Base.hasmethod)). This means they can only read global constants, and cannot have any side effects. In other words, they must be completely pure. Due to an implementation limitation, this also means that they currently cannot define a closure or generator.
+5. Generated functions must not _mutate_ or _observe_ any non-constant global state (including, for example, IO, locks, non-local dictionaries, or using [`hasmethod`](/base/base#Base.hasmethod)). This means they can only read global constants, and cannot have any side effects. In other words, they must be completely pure. Due to an implementation limitation, this also means that they currently cannot define a closure or generator.
   
 
 It&#39;s easiest to illustrate this with an example. We can declare a generated function `foo` as
@@ -1170,15 +1170,15 @@ Note that the set of operations that should not be attempted in a generated func
 Some operations that should not be attempted include:
 1. Caching of native pointers.
   
-1. Interacting with the contents or methods of `Core.Compiler` in any way.
+2. Interacting with the contents or methods of `Core.Compiler` in any way.
   
-1. Observing any mutable state.
+3. Observing any mutable state.
   - Inference on the generated function may be run at _any_ time, including while your code is attempting to observe or mutate this state.
     
   
-1. Taking any locks: C code you call out to may use locks internally, (for example, it is not problematic to call `malloc`, even though most implementations require locks internally) but don&#39;t attempt to hold or acquire any while executing Julia code.
+4. Taking any locks: C code you call out to may use locks internally, (for example, it is not problematic to call `malloc`, even though most implementations require locks internally) but don&#39;t attempt to hold or acquire any while executing Julia code.
   
-1. Calling any function that is defined after the body of the generated function. This condition is relaxed for incrementally-loaded precompiled modules to allow calling any function in the module.
+5. Calling any function that is defined after the body of the generated function. This condition is relaxed for incrementally-loaded precompiled modules to allow calling any function in the module.
   
 
 Alright, now that we have a better understanding of how generated functions work, let&#39;s use them to build some more advanced (and valid) functionality...

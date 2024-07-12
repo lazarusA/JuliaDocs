@@ -56,7 +56,7 @@ Here the zero-argument constructor method calls the single-argument constructor 
 While outer constructor methods succeed in addressing the problem of providing additional convenience methods for constructing objects, they fail to address the other two use cases mentioned in the introduction of this chapter: enforcing invariants, and allowing construction of self-referential objects. For these problems, one needs _inner_ constructor methods. An inner constructor method is like an outer constructor method, except for two differences:
 1. It is declared inside the block of a type declaration, rather than outside of it like normal methods.
   
-1. It has access to a special locally existent function called [`new`](/base/base#new) that creates objects of the block&#39;s type.
+2. It has access to a special locally existent function called [`new`](/base/base#new) that creates objects of the block&#39;s type.
   
 
 For example, suppose one wants to declare a type that holds a pair of real numbers, subject to the constraint that the first number is not greater than the second one. One could declare it like this:

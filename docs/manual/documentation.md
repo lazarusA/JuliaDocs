@@ -66,13 +66,13 @@ As in the example above, we recommend following some simple conventions when wri
 1. Always show the signature of a function at the top of the documentation, with a four-space indent so that it is printed as Julia code.
   This can be identical to the signature present in the Julia code (like `mean(x::AbstractArray)`), or a simplified form. Optional arguments should be represented with their default values (i.e. `f(x, y=1)`) when possible, following the actual Julia syntax. Optional arguments which do not have a default value should be put in brackets (i.e. `f(x[, y])` and `f(x[, y[, z]])`). An alternative solution is to use several lines: one without optional arguments, the other(s) with them. This solution can also be used to document several related methods of a given function. When a function accepts many keyword arguments, only include a `<keyword arguments>` placeholder in the signature (i.e. `f(x; <keyword arguments>)`), and give the complete list under an `# Arguments` section (see point 4 below).
   
-1. Include a single one-line sentence describing what the function does or what the object represents after the simplified signature block. If needed, provide more details in a second paragraph, after a blank line.
+2. Include a single one-line sentence describing what the function does or what the object represents after the simplified signature block. If needed, provide more details in a second paragraph, after a blank line.
   The one-line sentence should use the imperative form (&quot;Do this&quot;, &quot;Return that&quot;) instead of the third person (do not write &quot;Returns the length...&quot;) when documenting functions. It should end with a period. If the meaning of a function cannot be summarized easily, splitting it into separate composable parts could be beneficial (this should not be taken as an absolute requirement for every single case though).
   
-1. Do not repeat yourself.
+3. Do not repeat yourself.
   Since the function name is given by the signature, there is no need to start the documentation with &quot;The function `bar`...&quot;: go straight to the point. Similarly, if the signature specifies the types of the arguments, mentioning them in the description is redundant.
   
-1. Only provide an argument list when really necessary.
+4. Only provide an argument list when really necessary.
   For simple functions, it is often clearer to mention the role of the arguments directly in the description of the function&#39;s purpose. An argument list would only repeat information already provided elsewhere. However, providing an argument list can be a good idea for complex functions with many arguments (in particular keyword arguments). In that case, insert it after the general description of the function, under an `# Arguments` header, with one `-` bullet for each argument. The list should mention the types and default values (if any) of the arguments:
   
   ```julia
@@ -86,7 +86,7 @@ As in the example above, we recommend following some simple conventions when wri
   ```
   
   
-1. Provide hints to related functions.
+5. Provide hints to related functions.
   Sometimes there are functions of related functionality. To increase discoverability please provide a short list of these in a `See also` paragraph.
   
   ```
@@ -94,7 +94,7 @@ As in the example above, we recommend following some simple conventions when wri
   ```
   
   
-1. Include any code examples in an `# Examples` section.
+6. Include any code examples in an `# Examples` section.
   Examples should, whenever possible, be written as _doctests_. A _doctest_ is a fenced code block (see [Code blocks](/stdlib/Markdown#Code-blocks)) starting with ````jldoctest` and contains any number of `julia>` prompts together with inputs and expected outputs that mimic the Julia REPL.
   
   ::: tip Note
@@ -142,10 +142,10 @@ As in the example above, we recommend following some simple conventions when wri
   
   :::
   
-1. Use backticks to identify code and equations.
+7. Use backticks to identify code and equations.
   Julia identifiers and code excerpts should always appear between backticks ``` to enable highlighting. Equations in the LaTeX syntax can be inserted between double backticks ````. Use Unicode characters rather than their LaTeX escape sequence, i.e. ```α = 1``` rather than ```\\alpha = 1```.
   
-1. Place the starting and ending `"""` characters on lines by themselves.
+8. Place the starting and ending `"""` characters on lines by themselves.
   That is, write:
   
   ```julia
@@ -168,12 +168,12 @@ As in the example above, we recommend following some simple conventions when wri
   
   This makes it clearer where docstrings start and end.
   
-1. Respect the line length limit used in the surrounding code.
+9. Respect the line length limit used in the surrounding code.
   Docstrings are edited using the same tools as code. Therefore, the same conventions should apply. It is recommended that lines are at most 92 characters wide.
   
-1. Provide information allowing custom types to implement the function in an `# Implementation` section. These implementation details are intended for developers rather than users, explaining e.g. which functions should be overridden and which functions automatically use appropriate fallbacks. Such details are best kept separate from the main description of the function&#39;s behavior.
+10. Provide information allowing custom types to implement the function in an `# Implementation` section. These implementation details are intended for developers rather than users, explaining e.g. which functions should be overridden and which functions automatically use appropriate fallbacks. Such details are best kept separate from the main description of the function&#39;s behavior.
   
-1. For long docstrings, consider splitting the documentation with an `# Extended help` header. The typical help-mode will show only the material above the header; you can access the full help by adding a &#39;?&#39; at the beginning of the expression (i.e., &quot;??foo&quot; rather than &quot;?foo&quot;).
+11. For long docstrings, consider splitting the documentation with an `# Extended help` header. The typical help-mode will show only the material above the header; you can access the full help by adding a &#39;?&#39; at the beginning of the expression (i.e., &quot;??foo&quot; rather than &quot;?foo&quot;).
   
 
 ## Functions &amp; Methods {#Functions-and-Methods}
@@ -356,7 +356,7 @@ f(x, y = 1) = x + y
 
 Adds docstring `"..."` to two `Method`s, namely `f(::Any)` and `f(::Any, ::Any)`.
 
-### Macros {#Macros}
+### Macros
 
 ```julia
 "..."
@@ -377,7 +377,7 @@ macro m2 end
 
 Adds docstring `"..."` to the macros named `@m1` and `@m2`.
 
-### Types {#Types}
+### Types
 
 ```
 "..."
@@ -429,7 +429,7 @@ end
 
 Adds docstring `"..."` to type `T`, `"x"` to field `T.x`, `"y"` to field `T.y`, and `"Inner constructor"` to the inner constructor `T()`. Also applicable to `mutable struct` types.
 
-### Modules {#Modules}
+### Modules
 
 ```julia
 "..."
@@ -445,6 +445,18 @@ end
 
 
 Adds docstring `"..."` to the `Module` `M`. Adding the docstring above the `Module` is the preferred syntax, however both are equivalent.
+
+The module docstring is evaluated _inside_ the scope of the module, allowing access to all the symbols defined in and imported into the module:
+
+```julia
+"The magic number is $(MAGIC)."
+module DocStringEval
+const MAGIC = 42
+end
+```
+
+
+Documenting a `baremodule` by placing a docstring above the expression automatically imports `@doc` into the module. These imports must be done manually when the module expression is not documented:
 
 ```julia
 "..."
@@ -462,8 +474,6 @@ f(x) = x
 end
 ```
 
-
-Documenting a `baremodule` by placing a docstring above the expression automatically imports `@doc` into the module. These imports must be done manually when the module expression is not documented.
 
 ### Global Variables {#Global-Variables}
 
@@ -616,7 +626,7 @@ julia> "Docstring" @macroception
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/Docs.jl#L435-L496)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/Docs.jl#L435-L496)
 
 </div>
 <br>

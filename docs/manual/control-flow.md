@@ -228,7 +228,7 @@ no
 
 ## Short-Circuit Evaluation {#Short-Circuit-Evaluation}
 
-The `&&` and `||` operators in Julia correspond to logical “and” and “or” operations, respectively, and are typically used for this purpose.  However, they have an additional property of _short-circuit_ evaluation: they don&#39;t necessarily evaluate their second argument, as explained below.  (There are also bitwise `&` and `|` operators that can be used as logical “and” and “or” _without_ short-circuit behavior, but beware that `&` and `|` have higher precedence than `&&` and `||` for evaluation order.)
+The `&&` and `||` operators in Julia correspond to logical “and” and “or” operations, respectively, and are typically used for this purpose. However, they have an additional property of _short-circuit_ evaluation: they don&#39;t necessarily evaluate their second argument, as explained below.  (There are also bitwise `&` and `|` operators that can be used as logical “and” and “or” _without_ short-circuit behavior, but beware that `&` and `|` have higher precedence than `&&` and `||` for evaluation order.)
 
 Short-circuit evaluation is quite similar to conditional evaluation. The behavior is found in most imperative programming languages having the `&&` and `||` boolean operators: in a series of boolean expressions connected by these operators, only the minimum number of expressions are evaluated as are necessary to determine the final boolean value of the entire chain. Some languages (like Python) refer to them as `and` (`&&`) and `or` (`||`). Explicitly, this means that:
 - In the expression `a && b`, the subexpression `b` is only evaluated if `a` evaluates to `true`.
@@ -642,7 +642,7 @@ However, sometimes it makes sense to keep the uppercase first letter, for instan
 
 :::
 
-### Errors {#Errors}
+### Errors
 
 The [`error`](/base/base#Base.error) function is used to produce an [`ErrorException`](/base/base#Core.ErrorException) that interrupts the normal flow of control.
 

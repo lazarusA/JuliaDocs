@@ -1,7 +1,7 @@
 
 # Unicode Input {#Unicode-Input}
 
-The following table lists Unicode characters that can be entered via tab completion of LaTeX-like abbreviations in the Julia REPL (and in various other editing environments).  You can also get information on how to type a symbol by entering it in the REPL help, i.e. by typing `?` and then entering the symbol in the REPL (e.g., by copy-paste from somewhere you saw the symbol).
+The following table lists Unicode characters that can be entered via tab completion of LaTeX-like abbreviations in the Julia REPL (and in various other editing environments). You can also get information on how to type a symbol by entering it in the REPL help, i.e. by typing `?` and then entering the symbol in the REPL (e.g., by copy-paste from somewhere you saw the symbol).
 
 ::: warning Warning
 
@@ -122,6 +122,8 @@ This table may appear to contain missing characters in the second column, or eve
 | U+002E1           |      ˡ       | `\^l`                                            | Modifier Letter Small L                                                                                  |
 | U+002E2           |      ˢ       | `\^s`                                            | Modifier Letter Small S                                                                                  |
 | U+002E3           |      ˣ       | `\^x`                                            | Modifier Letter Small X                                                                                  |
+| U+002F1           |      ˱       | `\_<`                                            | Modifier Letter Low Left Arrowhead                                                                       |
+| U+002F2           |      ˲       | `\_>`                                            | Modifier Letter Low Right Arrowhead                                                                      |
 | U+00300           |      ̀       | `\grave`                                         | Combining Grave Accent / Non-Spacing Grave                                                               |
 | U+00301           |      ́       | `\acute`                                         | Combining Acute Accent / Non-Spacing Acute                                                               |
 | U+00302           |      ̂       | `\hat`                                           | Combining Circumflex Accent / Non-Spacing Circumflex                                                     |
@@ -1578,6 +1580,39 @@ This table may appear to contain missing characters in the second column, or eve
 | U+0A71B           |      ꜛ       | `\^uparrow`                                      | Modifier Letter Raised Up Arrow                                                                          |
 | U+0A71C           |      ꜜ       | `\^downarrow`                                    | Modifier Letter Raised Down Arrow                                                                        |
 | U+0A71D           |      ꜝ       | `\^!`                                            | Modifier Letter Raised Exclamation Mark                                                                  |
+| U+1D106           |      𝄆       | `\leftrepeatsign`                                | Musical Symbol Left Repeat Sign                                                                          |
+| U+1D107           |      𝄇       | `\rightrepeatsign`                               | Musical Symbol Right Repeat Sign                                                                         |
+| U+1D109           |      𝄉       | `\dalsegno`                                      | Musical Symbol Dal Segno                                                                                 |
+| U+1D10A           |      𝄊       | `\dacapo`                                        | Musical Symbol Da Capo                                                                                   |
+| U+1D10B           |      𝄋       | `\segno`                                         | Musical Symbol Segno                                                                                     |
+| U+1D10C           |      𝄌       | `\coda`                                          | Musical Symbol Coda                                                                                      |
+| U+1D11E           |      𝄞       | `\clefg`                                         | Musical Symbol G Clef                                                                                    |
+| U+1D11F           |      𝄟       | `\clefg8va`                                      | Musical Symbol G Clef Ottava Alta                                                                        |
+| U+1D120           |      𝄠       | `\clefg8vb`                                      | Musical Symbol G Clef Ottava Bassa                                                                       |
+| U+1D121           |      𝄡       | `\clefc`                                         | Musical Symbol C Clef                                                                                    |
+| U+1D122           |      𝄢       | `\cleff`                                         | Musical Symbol F Clef                                                                                    |
+| U+1D123           |      𝄣       | `\cleff8va`                                      | Musical Symbol F Clef Ottava Alta                                                                        |
+| U+1D124           |      𝄤       | `\cleff8vb`                                      | Musical Symbol F Clef Ottava Bassa                                                                       |
+| U+1D12A           |      𝄪       | `\sharpsharp`                                    | Musical Symbol Double Sharp                                                                              |
+| U+1D12B           |      𝄫       | `\flatflat`                                      | Musical Symbol Double Flat                                                                               |
+| U+1D13A           |      𝄺       | `\restmulti`                                     | Musical Symbol Multi Rest                                                                                |
+| U+1D13B           |      𝄻       | `\restwhole`                                     | Musical Symbol Whole Rest                                                                                |
+| U+1D13C           |      𝄼       | `\resthalf`                                      | Musical Symbol Half Rest                                                                                 |
+| U+1D13D           |      𝄽       | `\restquarter`                                   | Musical Symbol Quarter Rest                                                                              |
+| U+1D13E           |      𝄾       | `\rest8th`                                       | Musical Symbol Eighth Rest                                                                               |
+| U+1D13F           |      𝄿       | `\rest16th`                                      | Musical Symbol Sixteenth Rest                                                                            |
+| U+1D140           |      𝅀       | `\rest32th`                                      | Musical Symbol Thirty-Second Rest                                                                        |
+| U+1D141           |      𝅁       | `\rest64th`                                      | Musical Symbol Sixty-Fourth Rest                                                                         |
+| U+1D142           |      𝅂       | `\rest128th`                                     | Musical Symbol One Hundred Twenty-Eighth Rest                                                            |
+| U+1D15C           |      𝅜       | `\notedoublewhole`                               | Musical Symbol Breve                                                                                     |
+| U+1D15D           |      𝅝       | `\notewhole`                                     | Musical Symbol Whole Note                                                                                |
+| U+1D15E           |      𝅗𝅥       | `\notehalf`                                      | Musical Symbol Half Note                                                                                 |
+| U+1D15F           |      𝅘𝅥       | `\notequarter`                                   | Musical Symbol Quarter Note                                                                              |
+| U+1D160           |      𝅘𝅥𝅮       | `\note8th`                                       | Musical Symbol Eighth Note                                                                               |
+| U+1D161           |      𝅘𝅥𝅯       | `\note16th`                                      | Musical Symbol Sixteenth Note                                                                            |
+| U+1D162           |      𝅘𝅥𝅰       | `\note32th`                                      | Musical Symbol Thirty-Second Note                                                                        |
+| U+1D163           |      𝅘𝅥𝅱       | `\note64th`                                      | Musical Symbol Sixty-Fourth Note                                                                         |
+| U+1D164           |      𝅘𝅥𝅲       | `\note128th`                                     | Musical Symbol One Hundred Twenty-Eighth Note                                                            |
 | U+1D400           |      𝐀       | `\bfA`                                           | Mathematical Bold Capital A                                                                              |
 | U+1D401           |      𝐁       | `\bfB`                                           | Mathematical Bold Capital B                                                                              |
 | U+1D402           |      𝐂       | `\bfC`                                           | Mathematical Bold Capital C                                                                              |

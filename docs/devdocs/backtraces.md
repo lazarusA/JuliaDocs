@@ -1,9 +1,9 @@
 
 # Reporting and analyzing crashes (segfaults) {#Reporting-and-analyzing-crashes-(segfaults)}
 
-So you managed to break Julia.  Congratulations!  Collected here are some general procedures you can undergo for common symptoms encountered when something goes awry.  Including the information from these debugging steps can greatly help the maintainers when tracking down a segfault or trying to figure out why your script is running slower than expected.
+So you managed to break Julia. Congratulations!  Collected here are some general procedures you can undergo for common symptoms encountered when something goes awry. Including the information from these debugging steps can greatly help the maintainers when tracking down a segfault or trying to figure out why your script is running slower than expected.
 
-If you&#39;ve been directed to this page, find the symptom that best matches what you&#39;re experiencing and follow the instructions to generate the debugging information requested.  Table of symptoms:
+If you&#39;ve been directed to this page, find the symptom that best matches what you&#39;re experiencing and follow the instructions to generate the debugging information requested. Table of symptoms:
 - [Segfaults during bootstrap (`sysimg.jl`)](/devdocs/backtraces#Segfaults-during-bootstrap-(sysimg.jl))
   
 - [Segfaults when running a script](/devdocs/backtraces#Segfaults-when-running-a-script)
@@ -21,10 +21,10 @@ No matter the error, we will always need to know what version of Julia you are r
 julia> using InteractiveUtils
 
 julia> versioninfo()
-Julia Version 1.12.0-DEV.459
-Commit e162027b05 (2024-05-01 16:23 UTC)
+Julia Version 1.12.0-DEV.651
+Commit 3a083e6f56 (2024-07-12 09:58 UTC)
 Platform Info:
-  OS: macOS (arm64-apple-darwin23.4.0)
+  OS: macOS (arm64-apple-darwin23.5.0)
   CPU: 8 × Apple M1
   WORD_SIZE: 64
   LLVM: libLLVM-17.0.6 (ORCJIT, apple-m1)
@@ -36,7 +36,7 @@ Environment:
 
 ## Segfaults during bootstrap (`sysimg.jl`) {#Segfaults-during-bootstrap-(sysimg.jl)}
 
-Segfaults toward the end of the `make` process of building Julia are a common symptom of something going wrong while Julia is preparsing the corpus of code in the `base/` folder.  Many factors can contribute toward this process dying unexpectedly, however it is as often as not due to an error in the C-code portion of Julia, and as such must typically be debugged with a debug build inside of `gdb`.  Explicitly:
+Segfaults toward the end of the `make` process of building Julia are a common symptom of something going wrong while Julia is preparsing the corpus of code in the `base/` folder. Many factors can contribute toward this process dying unexpectedly, however it is as often as not due to an error in the C-code portion of Julia, and as such must typically be debugged with a debug build inside of `gdb`. Explicitly:
 
 Create a debug build of Julia:
 
@@ -46,7 +46,7 @@ $ make debug
 ```
 
 
-Note that this process will likely fail with the same error as a normal `make` incantation, however this will create a debug executable that will offer `gdb` the debugging symbols needed to get accurate backtraces.  Next, manually run the bootstrap process inside of `gdb`:
+Note that this process will likely fail with the same error as a normal `make` incantation, however this will create a debug executable that will offer `gdb` the debugging symbols needed to get accurate backtraces. Next, manually run the bootstrap process inside of `gdb`:
 
 ```
 $ cd base/
@@ -54,11 +54,11 @@ $ gdb -x ../contrib/debug_bootstrap.gdb
 ```
 
 
-This will start `gdb`, attempt to run the bootstrap process using the debug build of Julia, and print out a backtrace if (when) it segfaults.  You may need to hit `<enter>` a few times to get the full backtrace.  Create a [gist](https://gist.github.com) with the backtrace, the [version info](/devdocs/backtraces#dev-version-info), and any other pertinent information you can think of and open a new [issue](https://github.com/JuliaLang/julia/issues?q=is%3Aopen) on Github with a link to the gist.
+This will start `gdb`, attempt to run the bootstrap process using the debug build of Julia, and print out a backtrace if (when) it segfaults. You may need to hit `<enter>` a few times to get the full backtrace. Create a [gist](https://gist.github.com) with the backtrace, the [version info](/devdocs/backtraces#dev-version-info), and any other pertinent information you can think of and open a new [issue](https://github.com/JuliaLang/julia/issues?q=is%3Aopen) on Github with a link to the gist.
 
 ## Segfaults when running a script {#Segfaults-when-running-a-script}
 
-The procedure is very similar to [Segfaults during bootstrap (`sysimg.jl`)](/devdocs/backtraces#Segfaults-during-bootstrap-(sysimg.jl)).  Create a debug build of Julia, and run your script inside of a debugged Julia process:
+The procedure is very similar to [Segfaults during bootstrap (`sysimg.jl`)](/devdocs/backtraces#Segfaults-during-bootstrap-(sysimg.jl)). Create a debug build of Julia, and run your script inside of a debugged Julia process:
 
 ```
 $ cd <julia_root>
@@ -67,7 +67,7 @@ $ gdb --args usr/bin/julia-debug <path_to_your_script>
 ```
 
 
-Note that `gdb` will sit there, waiting for instructions.  Type `r` to run the process, and `bt` to generate a backtrace once it segfaults:
+Note that `gdb` will sit there, waiting for instructions. Type `r` to run the process, and `bt` to generate a backtrace once it segfaults:
 
 ```
 (gdb) r
@@ -125,7 +125,7 @@ julia --bug-report=rr-local
 
 Note that this is only works on Linux. The blog post on [Time Travelling Bug Reporting](https://julialang.org/blog/2020/05/rr/) has many more details.
 
-## Glossary {#Glossary}
+## Glossary
 
 A few terms have been used as shorthand in this guide:
 - `<julia_root>` refers to the root directory of the Julia source tree; e.g. it should contain folders such as `base`, `deps`, `src`, `test`, etc.....

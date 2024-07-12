@@ -4,13 +4,13 @@
 The following strategies are used to ensure that the code is dead-lock free (generally by addressing the 4th Coffman condition: circular wait).
 > 1. structure code such that only one lock will need to be acquired at a time
 >   
-> 1. always acquire shared locks in the same order, as given by the table below
+> 2. always acquire shared locks in the same order, as given by the table below
 >   
-> 1. avoid constructs that expect to need unrestricted recursion
+> 3. avoid constructs that expect to need unrestricted recursion
 >   
 > 
 
-## Locks {#Locks}
+## Locks
 
 Below are all of the locks that exist in the system and the mechanisms for using them that avoid the potential for deadlocks (no Ostrich algorithm allowed here):
 

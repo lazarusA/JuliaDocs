@@ -7,7 +7,7 @@ On Julia 1.10 or higher, you might see the following message:
 ![](img/precompilation_hang.png)
 
 
-This may repeat. If it continues to repeat with no hints that it will resolve itself, you may have a &quot;precompilation hang&quot; that requires fixing. Even if it&#39;s transient, you might prefer to resolve it so that users will not be bothered by this warning.  This page walks you through how to analyze and fix such issues.
+This may repeat. If it continues to repeat with no hints that it will resolve itself, you may have a &quot;precompilation hang&quot; that requires fixing. Even if it&#39;s transient, you might prefer to resolve it so that users will not be bothered by this warning. This page walks you through how to analyze and fix such issues.
 
 If you follow the advice and hit `Ctrl-C`, you might see
 
@@ -39,9 +39,9 @@ However, there are cases that may not be that straightforward. Usually the best 
 To manually diagnose:
 1. `Pkg.develop("Test1")`
   
-1. Comment out all the code `include`d or defined in `Test1`, _except_ the `using/import` statements.
+2. Comment out all the code `include`d or defined in `Test1`, _except_ the `using/import` statements.
   
-1. Try `using Test2` (or even `using Test1` assuming that hangs too) again
+3. Try `using Test2` (or even `using Test1` assuming that hangs too) again
   
 
 Now we arrive at a fork in the road: either
@@ -56,7 +56,7 @@ Use a binary search to identify the problematic dependency: start by commenting 
 
 Once you&#39;ve identified a suspect (here we&#39;ll call it `ThePackageYouThinkIsCausingTheProblem`), first try precompiling that package. If it also hangs during precompilation, continue chasing the problem backwards.
 
-However, most likely `ThePackageYouThinkIsCausingTheProblem` will precompile fine. This suggests it&#39;s in the function `ThePackageYouThinkIsCausingTheProblem.__init__`, which does not run during precompilation of `ThePackageYouThinkIsCausingTheProblem` but _does_ in any package that loads `ThePackageYouThinkIsCausingTheProblem`.  To test this theory, set up a minimal working example (MWE), something like
+However, most likely `ThePackageYouThinkIsCausingTheProblem` will precompile fine. This suggests it&#39;s in the function `ThePackageYouThinkIsCausingTheProblem.__init__`, which does not run during precompilation of `ThePackageYouThinkIsCausingTheProblem` but _does_ in any package that loads `ThePackageYouThinkIsCausingTheProblem`. To test this theory, set up a minimal working example (MWE), something like
 
 ```julia
 (@v1.10) pkg> generate MWE

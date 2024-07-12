@@ -46,7 +46,7 @@ which works since all possible matching methods would belong to the same method 
 
 Since every object is callable, nothing special is needed to create a generic function. Therefore `jl_new_generic_function` simply creates a new singleton (0 size) subtype of `Function` and returns its instance. A function can have a mnemonic &quot;display name&quot; which is used in debug info and when printing objects. For example the name of `Base.sin` is `sin`. By convention, the name of the created _type_ is the same as the function name, with a `#` prepended. So `typeof(sin)` is `Base.#sin`.
 
-## Closures {#Closures}
+## Closures
 
 A closure is simply a callable object with field names corresponding to captured variables. For example, the following code:
 
@@ -72,11 +72,11 @@ end
 ```
 
 
-## Constructors {#Constructors}
+## Constructors
 
 A constructor call is just a call to a type. The method table for `Type` contains all constructor definitions. All subtypes of `Type` (`Type`, `UnionAll`, `Union`, and `DataType`) currently share a method table via special arrangement.
 
-## Builtins {#Builtins}
+## Builtins
 
 The &quot;builtin&quot; functions, defined in the `Core` module, are:
 

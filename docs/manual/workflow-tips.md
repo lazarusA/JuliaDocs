@@ -79,7 +79,7 @@ Whether you&#39;re at the REPL or in IJulia, you can typically improve your deve
     In step 2 below, edit `MyPkg/src/MyPkg.jl` to change the source code, and create any test file of your choosing.
     
   
-1. Develop your package
+2. Develop your package
   _Before_ loading any code, make sure you&#39;re running Revise: say `using Revise` or follow its documentation on configuring it to run automatically.
   Then navigate to the directory containing your test file (here assumed to be `"runtests.jl"`) and do the following:
   
@@ -89,5 +89,5 @@ Whether you&#39;re at the REPL or in IJulia, you can typically improve your deve
   julia> include("runtests.jl")
   ```
   
-  You can iteratively modify the code in MyPkg in your editor and re-run the tests with `include("runtests.jl")`.  You generally should not need to restart your Julia session to see the changes take effect (subject to a few [limitations](https://timholy.github.io/Revise.jl/stable/limitations/)).
+  You can iteratively modify the code in MyPkg in your editor and re-run the tests with `include("runtests.jl")`. You generally should not need to restart your Julia session to see the changes take effect (subject to a few [limitations](https://timholy.github.io/Revise.jl/stable/limitations/)).
   

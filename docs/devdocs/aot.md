@@ -3,14 +3,14 @@
 
 This document describes the design and structure of the ahead-of-time (AOT) compilation system in Julia. This system is used when generating system images and package images. Much of the implementation described here is located in `aotcompile.cpp`, `staticdata.c`, and `processor.cpp`
 
-## Introduction {#Introduction}
+## Introduction
 
 Though Julia normally compiles code just-in-time (JIT), it is possible to compile code ahead of time and save the resulting code to a file. This can be useful for a number of reasons:
 1. To reduce the time it takes to start a Julia process.
   
-1. To reduce the time spent in the JIT compiler instead of executing code (time to first execution, TTFX).
+2. To reduce the time spent in the JIT compiler instead of executing code (time to first execution, TTFX).
   
-1. To reduce the amount of memory used by the JIT compiler.
+3. To reduce the amount of memory used by the JIT compiler.
   
 
 ## High-Level Overview {#High-Level-Overview}

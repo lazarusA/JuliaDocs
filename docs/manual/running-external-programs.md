@@ -77,6 +77,19 @@ julia> `echo "foo bar"`[2]
 ```
 
 
+You can also pass a `IOBuffer`, and later read from it:
+
+```julia
+julia> io = PipeBuffer(); # PipeBuffer is a type of IOBuffer
+
+julia> run(`echo world`, devnull, io, stderr);
+
+julia> readlines(io)
+1-element Vector{String}:
+ "world"
+```
+
+
 ## Interpolation {#command-interpolation}
 
 Suppose you want to do something a bit more complicated and use the name of a file in the variable `file` as an argument to a command. You can use `$` for interpolation much as you would in a string literal (see [Strings](/devdocs/ast#Strings)):
@@ -172,7 +185,7 @@ julia> `rm -rf $["foo","bar","baz","qux"].$["aux","log","pdf"]`
 ```
 
 
-## Quoting {#Quoting}
+## Quoting
 
 Inevitably, one wants to write commands that aren&#39;t quite so simple, and it becomes necessary to use quotes. Here&#39;s a simple example of a Perl one-liner at a shell prompt:
 
@@ -221,7 +234,7 @@ julia> run(B);
 
 The results are identical, and Julia&#39;s interpolation behavior mimics the shell&#39;s with some improvements due to the fact that Julia supports first-class iterable objects while most shells use strings split on spaces for this, which introduces ambiguities. When trying to port shell commands to Julia, try cut and pasting first. Since Julia shows commands to you before running them, you can easily and safely just examine its interpretation without doing any damage.
 
-## Pipelines {#Pipelines}
+## Pipelines
 
 Shell metacharacters, such as `|`, `&`, and `>`, need to be quoted (or escaped) inside of Julia&#39;s backticks:
 

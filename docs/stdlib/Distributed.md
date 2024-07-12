@@ -9,7 +9,7 @@
 Tools for distributed parallel processing.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/Distributed.jl#L3-L5)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/Distributed.jl#L3-L5)
 
 </div>
 <br>
@@ -61,7 +61,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L403-L442)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L403-L442)
 
 
 
@@ -142,7 +142,7 @@ Environment variables:
 If the master process fails to establish a connection with a newly launched worker within 60.0 seconds, the worker treats it as a fatal situation and terminates. This timeout can be controlled via environment variable `JULIA_WORKER_TIMEOUT`. The value of `JULIA_WORKER_TIMEOUT` on the master process specifies the number of seconds a newly launched worker waits for connection establishment.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/managers.jl#L51-L155)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/managers.jl#L51-L155)
 
 
 
@@ -174,7 +174,7 @@ The inheriting of the package environment and the `env` keyword argument were ad
 :::
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/managers.jl#L445-L466)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/managers.jl#L445-L466)
 
 </div>
 <br>
@@ -205,7 +205,7 @@ julia> workers()
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L852-L867)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L852-L867)
 
 </div>
 <br>
@@ -236,7 +236,7 @@ julia> nworkers()
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L883-L899)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L883-L899)
 
 </div>
 <br>
@@ -267,7 +267,7 @@ julia> procs()
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L905-L920)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L905-L920)
 
 </div>
 <br>
@@ -285,7 +285,7 @@ procs(pid::Integer)
 Return a list of all process identifiers on the same physical node. Specifically all workers bound to the same ip-address as `pid` are returned.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L947-L952)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L947-L952)
 
 </div>
 <br>
@@ -315,7 +315,7 @@ julia> workers()
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L967-L981)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L967-L981)
 
 </div>
 <br>
@@ -359,7 +359,7 @@ julia> workers()
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L997-L1027)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L997-L1027)
 
 </div>
 <br>
@@ -377,7 +377,7 @@ interrupt(pids::Integer...)
 Interrupt the current executing task on the specified workers. This is equivalent to pressing Ctrl-C on the local machine. If no arguments are given, all workers are interrupted.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L1204-L1209)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L1204-L1209)
 
 
 
@@ -389,7 +389,7 @@ interrupt(pids::AbstractVector=workers())
 Interrupt the current executing task on the specified workers. This is equivalent to pressing Ctrl-C on the local machine. If no arguments are given, all workers are interrupted.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L1212-L1217)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L1212-L1217)
 
 </div>
 <br>
@@ -418,7 +418,7 @@ julia> remotecall_fetch(() -> myid(), 4)
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L836-L849)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L836-L849)
 
 </div>
 <br>
@@ -485,7 +485,7 @@ pmap(f, c; on_error = e->(isa(e, InexactError) ? NaN : rethrow()), retry_delays 
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/pmap.jl#L32-L98)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/pmap.jl#L32-L98)
 
 </div>
 <br>
@@ -503,7 +503,7 @@ RemoteException(captured)
 Exceptions on remote computations are captured and rethrown locally.  A `RemoteException` wraps the `pid` of the worker and a captured exception. A `CapturedException` captures the remote exception and a serializable form of the call stack when the exception was raised.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/process_messages.jl#L54-L60)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/process_messages.jl#L54-L60)
 
 </div>
 <br>
@@ -521,7 +521,7 @@ ProcessExitedException(worker_id::Int)
 After a client Julia process has exited, further attempts to reference the dead child will throw this exception.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L1077-L1082)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L1077-L1082)
 
 </div>
 <br>
@@ -539,7 +539,7 @@ Future(w::Int, rrid::RRID, v::Union{Some, Nothing}=nothing)
 A `Future` is a placeholder for a single computation of unknown termination status and time. For multiple potential computations, see `RemoteChannel`. See `remoteref_id` for identifying an `AbstractRemoteRef`.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L17-L24)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L17-L24)
 
 </div>
 <br>
@@ -568,7 +568,7 @@ For example, `RemoteChannel(()->Channel{Int}(10), pid)`, will return a reference
 The default `pid` is the current process.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L38-L53)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L38-L53)
 
 </div>
 <br>
@@ -586,7 +586,7 @@ fetch(x::Future)
 Wait for and get the value of a [`Future`](/stdlib/Future#Future). The fetched value is cached locally. Further calls to `fetch` on the same reference return the cached value. If the remote value is an exception, throws a [`RemoteException`](/stdlib/Distributed#Distributed.RemoteException) which captures the remote exception and backtrace.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L595-L601)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L595-L601)
 
 </div>
 <br>
@@ -604,7 +604,7 @@ fetch(c::RemoteChannel)
 Wait for and get a value from a [`RemoteChannel`](/stdlib/Distributed#Distributed.RemoteChannel). Exceptions raised are the same as for a [`Future`](/stdlib/Future#Future). Does not remove the item fetched.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L650-L655)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L650-L655)
 
 
 
@@ -616,7 +616,7 @@ fetch(x::Any)
 Return `x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L520-L524)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L520-L524)
 
 </div>
 <br>
@@ -634,7 +634,7 @@ remotecall(f, id::Integer, args...; kwargs...) -> Future
 Call a function `f` asynchronously on the given arguments on the specified process. Return a [`Future`](/stdlib/Future#Future). Keyword arguments, if any, are passed through to `f`.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L440-L446)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L440-L446)
 
 </div>
 <br>
@@ -654,7 +654,7 @@ Perform a faster `wait(remotecall(...))` in one message on the `Worker` specifie
 See also [`wait`](/base/parallel#Base.wait) and [`remotecall`](/stdlib/Distributed#Distributed.remotecall-Tuple{Any,%20Integer,%20Vararg{Any}}).
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L511-L518)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L511-L518)
 
 </div>
 <br>
@@ -690,7 +690,7 @@ sqrt was called with a negative real argument but will only return a complex res
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L468-L491)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L468-L491)
 
 </div>
 <br>
@@ -716,7 +716,7 @@ Any exceptions thrown by `f` are printed to [`stderr`](/base/io-network#Base.std
 Keyword arguments, if any, are passed through to `f`.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L537-L556)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L537-L556)
 
 </div>
 <br>
@@ -734,7 +734,7 @@ put!(rr::RemoteChannel, args...)
 Store a set of values to the [`RemoteChannel`](/stdlib/Distributed#Distributed.RemoteChannel). If the channel is full, blocks until space is available. Return the first argument.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L715-L721)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L715-L721)
 
 </div>
 <br>
@@ -752,7 +752,7 @@ put!(rr::Future, v)
 Store a value to a [`Future`](/stdlib/Future#Future) `rr`. `Future`s are write-once remote references. A `put!` on an already set `Future` throws an `Exception`. All asynchronous remote calls return `Future`s and set the value to the return value of the call upon completion.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L660-L668)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L660-L668)
 
 </div>
 <br>
@@ -770,7 +770,7 @@ take!(rr::RemoteChannel, args...)
 Fetch value(s) from a [`RemoteChannel`](/stdlib/Distributed#Distributed.RemoteChannel) `rr`, removing the value(s) in the process.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L755-L760)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L755-L760)
 
 </div>
 <br>
@@ -788,7 +788,7 @@ isready(rr::RemoteChannel, args...)
 Determine whether a [`RemoteChannel`](/stdlib/Distributed#Distributed.RemoteChannel) has a value stored to it. Note that this function can cause race conditions, since by the time you receive its result it may no longer be true. However, it can be safely used on a [`Future`](/stdlib/Future#Future) since they are assigned only once.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L224-L231)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L224-L231)
 
 </div>
 <br>
@@ -816,7 +816,7 @@ isready(f)  # will not block
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L196-L211)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L196-L211)
 
 </div>
 <br>
@@ -852,7 +852,7 @@ The default implementations of the above (on a `AbstractWorkerPool`) require fie
 where `channel` contains free worker pids and `workers` is the set of all workers associated with this pool.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/workerpool.jl#L3-L18)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/workerpool.jl#L3-L18)
 
 </div>
 <br>
@@ -883,7 +883,7 @@ WorkerPool(Channel{Int64}(sz_max:9223372036854775807,sz_curr:2), Set([4, 2, 3]),
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/workerpool.jl#L35-L50)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/workerpool.jl#L35-L50)
 
 </div>
 <br>
@@ -918,7 +918,7 @@ end
 The above would transfer `foo` only once to each worker.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/workerpool.jl#L306-L332)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/workerpool.jl#L306-L332)
 
 </div>
 <br>
@@ -946,7 +946,7 @@ WorkerPool(Channel{Int64}(sz_max:9223372036854775807,sz_curr:3), Set([4, 2, 3]),
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/workerpool.jl#L244-L258)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/workerpool.jl#L244-L258)
 
 </div>
 <br>
@@ -966,7 +966,7 @@ Clears global bindings in modules by initializing them to `nothing`. `syms` shou
 An exception is raised if a global constant is requested to be cleared.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/clusterserialize.jl#L234-L243)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/clusterserialize.jl#L235-L244)
 
 
 
@@ -978,7 +978,7 @@ clear!(pool::CachingPool) -> pool
 Removes all cached functions from all participating workers.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/workerpool.jl#L341-L345)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/workerpool.jl#L341-L345)
 
 </div>
 <br>
@@ -996,7 +996,7 @@ remote([p::AbstractWorkerPool], f) -> Function
 Return an anonymous function that executes function `f` on an available worker (drawn from [`WorkerPool`](/stdlib/Distributed#Distributed.WorkerPool) `p` if provided) using [`remotecall_fetch`](/stdlib/Distributed#Distributed.remotecall_fetch-Tuple{Any,%20Integer,%20Vararg{Any}}).
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/workerpool.jl#L281-L286)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/workerpool.jl#L281-L286)
 
 </div>
 <br>
@@ -1030,7 +1030,7 @@ Future(2, 1, 6, nothing)
 In this example, the task ran on pid 2, called from pid 1.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/workerpool.jl#L169-L186)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/workerpool.jl#L169-L186)
 
 </div>
 <br>
@@ -1065,7 +1065,7 @@ julia> fetch(f)
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/workerpool.jl#L190-L210)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/workerpool.jl#L190-L210)
 
 </div>
 <br>
@@ -1097,7 +1097,7 @@ julia> remotecall_fetch(maximum, wp, A)
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/workerpool.jl#L214-L231)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/workerpool.jl#L214-L231)
 
 </div>
 <br>
@@ -1115,7 +1115,7 @@ remote_do(f, pool::AbstractWorkerPool, args...; kwargs...) -> nothing
 [`WorkerPool`](/stdlib/Distributed#Distributed.WorkerPool) variant of `remote_do(f, pid, ....)`. Wait for and take a free worker from `pool` and perform a `remote_do` on it.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/workerpool.jl#L234-L239)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/workerpool.jl#L234-L239)
 
 </div>
 <br>
@@ -1158,7 +1158,7 @@ As of Julia 1.3 this macro is deprecated. Use `@spawnat :any` instead.
 :::
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/macros.jl#L15-L41)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/macros.jl#L15-L41)
 
 </div>
 <br>
@@ -1201,7 +1201,7 @@ The `:any` argument is available as of Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/macros.jl#L54-L81)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/macros.jl#L54-L81)
 
 </div>
 <br>
@@ -1238,7 +1238,7 @@ julia> @fetch myid()
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/macros.jl#L99-L121)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/macros.jl#L99-L121)
 
 </div>
 <br>
@@ -1269,7 +1269,7 @@ julia> @fetchfrom 4 myid()
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/macros.jl#L127-L143)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/macros.jl#L127-L143)
 
 </div>
 <br>
@@ -1305,7 +1305,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/macros.jl#L309-L329)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/macros.jl#L309-L329)
 
 </div>
 <br>
@@ -1349,7 +1349,7 @@ Similar to calling `remotecall_eval(Main, procs, expr)`, but with two extra feat
 
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/macros.jl#L165-L191)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/macros.jl#L165-L191)
 
 </div>
 <br>
@@ -1377,7 +1377,7 @@ Taken together,  `whence` and `id` uniquely identify a reference across all work
 `remoteref_id` is a low-level API which returns a `RRID` object that wraps `whence` and `id` values of a remote reference.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L142-L162)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L142-L162)
 
 </div>
 <br>
@@ -1395,7 +1395,7 @@ channel_from_id(id) -> c
 A low-level API which returns the backing `AbstractChannel` for an `id` returned by [`remoteref_id`](/stdlib/Distributed#Distributed.remoteref_id). The call is valid only on the node where the backing channel exists.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/remotecall.jl#L165-L171)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/remotecall.jl#L165-L171)
 
 </div>
 <br>
@@ -1413,7 +1413,7 @@ worker_id_from_socket(s) -> pid
 A low-level API which, given a `IO` connection or a `Worker`, returns the `pid` of the worker it is connected to. This is useful when writing custom [`serialize`](/stdlib/Serialization#Serialization.serialize) methods for a type, which optimizes the data written out depending on the receiving process id.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L1108-L1115)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L1108-L1115)
 
 </div>
 <br>
@@ -1431,7 +1431,7 @@ cluster_cookie() -> cookie
 Return the cluster cookie.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L752-L756)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L752-L756)
 
 </div>
 <br>
@@ -1449,7 +1449,7 @@ cluster_cookie(cookie) -> cookie
 Set the passed cookie as the cluster cookie, then returns it.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L759-L763)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L759-L763)
 
 </div>
 <br>
@@ -1471,7 +1471,7 @@ ClusterManager
 Supertype for cluster managers, which control workers processes as a cluster. Cluster managers implement how workers can be added, removed and communicated with. `SSHManager` and `LocalManager` are subtypes of this.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L3-L9)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L3-L9)
 
 </div>
 <br>
@@ -1535,7 +1535,7 @@ Some fields are used by both `LocalManager`s and `SSHManager`s:
   
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L12-L45)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L12-L45)
 
 </div>
 <br>
@@ -1553,7 +1553,7 @@ launch(manager::ClusterManager, params::Dict, launched::Array, launch_ntfy::Cond
 Implemented by cluster managers. For every Julia worker launched by this function, it should append a `WorkerConfig` entry to `launched` and notify `launch_ntfy`. The function MUST exit once all workers, requested by `manager` have been launched. `params` is a dictionary of all keyword arguments [`addprocs`](/stdlib/Distributed#Distributed.addprocs) was called with.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/managers.jl#L531-L538)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/managers.jl#L531-L538)
 
 </div>
 <br>
@@ -1577,7 +1577,7 @@ Implemented by cluster managers. It is called on the master process, during a wo
   
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/managers.jl#L541-L551)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/managers.jl#L541-L551)
 
 </div>
 <br>
@@ -1595,7 +1595,7 @@ kill(manager::ClusterManager, pid::Int, config::WorkerConfig)
 Implemented by cluster managers. It is called on the master process, by [`rmprocs`](/stdlib/Distributed#Distributed.rmprocs). It should cause the remote worker specified by `pid` to exit. `kill(manager::ClusterManager.....)` executes a remote `exit()` on `pid`.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/managers.jl#L721-L729)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/managers.jl#L721-L729)
 
 </div>
 <br>
@@ -1613,7 +1613,7 @@ connect(manager::ClusterManager, pid::Int, config::WorkerConfig) -> (instrm::IO,
 Implemented by cluster managers using custom transports. It should establish a logical connection to worker with id `pid`, specified by `config` and return a pair of `IO` objects. Messages from `pid` to current process will be read off `instrm`, while messages to be sent to `pid` will be written to `outstrm`. The custom transport implementation must ensure that messages are delivered and received completely and in order. `connect(manager::ClusterManager.....)` sets up TCP/IP socket connections in-between workers.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/managers.jl#L561-L571)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/managers.jl#L561-L571)
 
 </div>
 <br>
@@ -1631,7 +1631,7 @@ init_worker(cookie::AbstractString, manager::ClusterManager=DefaultClusterManage
 Called by cluster managers implementing custom transports. It initializes a newly launched process as a worker. Command line argument `--worker[=<cookie>]` has the effect of initializing a process as a worker using TCP/IP sockets for transport. `cookie` is a [`cluster_cookie`](/stdlib/Distributed#Distributed.cluster_cookie-Tuple{}).
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L364-L371)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L364-L371)
 
 </div>
 <br>
@@ -1655,7 +1655,7 @@ The function reads the cookie from stdin if required, and  listens on a free por
 It does not return.
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L215-L230)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L215-L230)
 
 </div>
 <br>
@@ -1675,7 +1675,7 @@ Called by cluster managers using custom transports. It should be called when the
 See also [`cluster_cookie`](/stdlib/Distributed#Distributed.cluster_cookie-Tuple{}).
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/process_messages.jl#L136-L149)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/process_messages.jl#L136-L149)
 
 </div>
 <br>
@@ -1693,7 +1693,7 @@ default_addprocs_params(mgr::ClusterManager) -> Dict{Symbol, Any}
 Implemented by cluster managers. The default keyword parameters passed when calling `addprocs(mgr)`. The minimal set of options is available by calling `default_addprocs_params()`
 
 
-[source](https://github.com/JuliaLang/Distributed.jl/blob/6a07d9853ab7686df7440a47d1b585c6c9f3be35/src/cluster.jl#L526-L532)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Distributed-6c7cdb5860fa5cb9ca191ce9c52a3d25a9ab3781/src/cluster.jl#L526-L532)
 
 </div>
 <br>

@@ -423,7 +423,7 @@ Per-field atomics requires at least Julia 1.7.
 
 When using multi-threading we have to be careful when using functions that are not [pure](https://en.wikipedia.org/wiki/Pure_function) as we might get a wrong answer. For instance functions that have a [name ending with `!`](/manual/style-guide#bang-convention) by convention modify their arguments and thus are not pure.
 
-## @threadcall {#@threadcall}
+## @threadcall
 
 External libraries, such as those called via [`ccall`](/base/c#ccall), pose a problem for Julia&#39;s task-based I/O mechanism. If a C library performs a blocking operation, that prevents the Julia scheduler from executing any other tasks until the call returns. (Exceptions are calls into custom C code that call back into Julia, which may then yield, or C code that calls `jl_yield()`, the C equivalent of [`yield`](/base/parallel#Base.yield).)
 
@@ -433,7 +433,7 @@ It is very important that the called function does not call back into Julia, as 
 
 `@threadcall` may be removed/changed in future versions of Julia.
 
-## Caveats {#Caveats}
+## Caveats
 
 At this time, most operations in the Julia runtime and standard libraries can be used in a thread-safe manner, if the user code is data-race free. However, in some areas work on stabilizing thread support is ongoing. Multi-threaded programming has many inherent difficulties, and if a program using threads exhibits unusual or undesirable behavior (e.g. crashes or mysterious results), thread interactions should typically be suspected first.
 
@@ -468,7 +468,7 @@ Task migration was introduced in Julia 1.7. Before this tasks always remained on
 Because finalizers can interrupt any code, they must be very careful in how they interact with any global state. Unfortunately, the main reason that finalizers are used is to update global state (a pure function is generally rather pointless as a finalizer). This leads us to a bit of a conundrum. There are a few approaches to dealing with this problem:
 1. When single-threaded, code could call the internal `jl_gc_enable_finalizers` C function to prevent finalizers from being scheduled inside a critical region. Internally, this is used inside some functions (such as our C locks) to prevent recursion when doing certain operations (incremental package loading, codegen, etc.). The combination of a lock and this flag can be used to make finalizers safe.
   
-1. A second strategy, employed by Base in a couple places, is to explicitly delay a finalizer until it may be able to acquire its lock non-recursively. The following example demonstrates how this strategy could be applied to `Distributed.finalize_ref`:
+2. A second strategy, employed by Base in a couple places, is to explicitly delay a finalizer until it may be able to acquire its lock non-recursively. The following example demonstrates how this strategy could be applied to `Distributed.finalize_ref`:
   
   ```julia
   function finalize_ref(r::AbstractRemoteRef)
@@ -492,5 +492,5 @@ Because finalizers can interrupt any code, they must be very careful in how they
   ```
   
   
-1. A related third strategy is to use a yield-free queue. We don&#39;t currently have a lock-free queue implemented in Base, but `Base.IntrusiveLinkedListSynchronized{T}` is suitable. This can frequently be a good strategy to use for code with event loops. For example, this strategy is employed by `Gtk.jl` to manage lifetime ref-counting. In this approach, we don&#39;t do any explicit work inside the `finalizer`, and instead add it to a queue to run at a safer time. In fact, Julia&#39;s task scheduler already uses this, so defining the finalizer as `x -> @spawn do_cleanup(x)` is one example of this approach. Note however that this doesn&#39;t control which thread `do_cleanup` runs on, so `do_cleanup` would still need to acquire a lock. That doesn&#39;t need to be true if you implement your own queue, as you can explicitly only drain that queue from your thread.
+3. A related third strategy is to use a yield-free queue. We don&#39;t currently have a lock-free queue implemented in Base, but `Base.IntrusiveLinkedListSynchronized{T}` is suitable. This can frequently be a good strategy to use for code with event loops. For example, this strategy is employed by `Gtk.jl` to manage lifetime ref-counting. In this approach, we don&#39;t do any explicit work inside the `finalizer`, and instead add it to a queue to run at a safer time. In fact, Julia&#39;s task scheduler already uses this, so defining the finalizer as `x -> @spawn do_cleanup(x)` is one example of this approach. Note however that this doesn&#39;t control which thread `do_cleanup` runs on, so `do_cleanup` would still need to acquire a lock. That doesn&#39;t need to be true if you implement your own queue, as you can explicitly only drain that queue from your thread.
   

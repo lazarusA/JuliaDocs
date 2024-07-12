@@ -92,7 +92,7 @@ One of Julia&#39;s goals is to provide an effective language for data analysis a
   - In Julia, `[1, 2, 3, 4][[true, false, true, false]]` produces `[1, 3]`.
     
   
-- Like many languages, Julia does not always allow operations on vectors of different lengths, unlike R where the vectors only need to share a common index range.  For example, `c(1, 2, 3, 4) + c(1, 2)` is valid R but the equivalent `[1, 2, 3, 4] + [1, 2]` will throw an error in Julia.
+- Like many languages, Julia does not always allow operations on vectors of different lengths, unlike R where the vectors only need to share a common index range. For example, `c(1, 2, 3, 4) + c(1, 2)` is valid R but the equivalent `[1, 2, 3, 4] + [1, 2]` will throw an error in Julia.
   
 - Julia allows an optional trailing comma when that comma does not change the meaning of code. This can cause confusion among R users when indexing into arrays. For example, `x[1,]` in R would return the first row of a matrix; in Julia, however, the comma is ignored, so `x[1,] == x[1]`, and will return the first element. To extract a row, be sure to use `:`, as in `x[1,:]`.
   
@@ -116,7 +116,7 @@ One of Julia&#39;s goals is to provide an effective language for data analysis a
   
 - Julia does not provide `nrow` and `ncol`. Instead, use `size(M, 1)` for `nrow(M)` and `size(M, 2)` for `ncol(M)`.
   
-- Julia is careful to distinguish scalars, vectors and matrices.  In R, `1` and `c(1)` are the same. In Julia, they cannot be used interchangeably.
+- Julia is careful to distinguish scalars, vectors and matrices. In R, `1` and `c(1)` are the same. In Julia, they cannot be used interchangeably.
   
 - Julia&#39;s [`diag`](/stdlib/LinearAlgebra#LinearAlgebra.diag) and [`diagm`](/stdlib/LinearAlgebra#LinearAlgebra.diagm) are not like R&#39;s.
   
@@ -142,9 +142,9 @@ One of Julia&#39;s goals is to provide an effective language for data analysis a
   
 - The `:` operator has a different precedence in R and Julia. In particular, in Julia arithmetic operators have higher precedence than the `:` operator, whereas the reverse is true in R. For example, `1:n-1` in Julia is equivalent to `1:(n-1)` in R.
   
-- Julia&#39;s [`max`](/base/math#Base.max) and [`min`](/base/math#Base.min) are the equivalent of `pmax` and `pmin` respectively in R, but both arguments need to have the same dimensions.  While [`maximum`](/base/collections#Base.maximum) and [`minimum`](/base/collections#Base.minimum) replace `max` and `min` in R, there are important differences.
+- Julia&#39;s [`max`](/base/math#Base.max) and [`min`](/base/math#Base.min) are the equivalent of `pmax` and `pmin` respectively in R, but both arguments need to have the same dimensions. While [`maximum`](/base/collections#Base.maximum) and [`minimum`](/base/collections#Base.minimum) replace `max` and `min` in R, there are important differences.
   
-- Julia&#39;s [`sum`](/base/collections#Base.sum), [`prod`](/base/collections#Base.prod), [`maximum`](/base/collections#Base.maximum), and [`minimum`](/base/collections#Base.minimum) are different from their counterparts in R. They all accept an optional keyword argument `dims`, which indicates the dimensions, over which the operation is carried out.  For instance, let `A = [1 2; 3 4]` in Julia and `B <- rbind(c(1,2),c(3,4))` be the same matrix in R.  Then `sum(A)` gives the same result as `sum(B)`, but `sum(A, dims=1)` is a row vector containing the sum over each column and `sum(A, dims=2)` is a column vector containing the sum over each row. This contrasts to the behavior of R, where separate `colSums(B)` and `rowSums(B)` functions provide these functionalities. If the `dims` keyword argument is a vector, then it specifies all the dimensions over which the sum is performed, while retaining the dimensions of the summed array, e.g. `sum(A, dims=(1,2)) == hcat(10)`. It should be noted that there is no error checking regarding the second argument.
+- Julia&#39;s [`sum`](/base/collections#Base.sum), [`prod`](/base/collections#Base.prod), [`maximum`](/base/collections#Base.maximum), and [`minimum`](/base/collections#Base.minimum) are different from their counterparts in R. They all accept an optional keyword argument `dims`, which indicates the dimensions, over which the operation is carried out. For instance, let `A = [1 2; 3 4]` in Julia and `B <- rbind(c(1,2),c(3,4))` be the same matrix in R. Then `sum(A)` gives the same result as `sum(B)`, but `sum(A, dims=1)` is a row vector containing the sum over each column and `sum(A, dims=2)` is a column vector containing the sum over each row. This contrasts to the behavior of R, where separate `colSums(B)` and `rowSums(B)` functions provide these functionalities. If the `dims` keyword argument is a vector, then it specifies all the dimensions over which the sum is performed, while retaining the dimensions of the summed array, e.g. `sum(A, dims=(1,2)) == hcat(10)`. It should be noted that there is no error checking regarding the second argument.
   
 - Julia has several functions that can mutate their arguments. For example, it has both [`sort`](/base/sort#Base.sort) and [`sort!`](/base/sort#Base.sort!).
   
@@ -184,7 +184,7 @@ One of Julia&#39;s goals is to provide an effective language for data analysis a
   
 - Julia&#39;s range indexing has the format of `x[start:step:stop]`, whereas Python&#39;s format is `x[start:(stop+1):step]`. Hence, `x[0:10:2]` in Python is equivalent to `x[1:2:10]` in Julia. Similarly, `x[::-1]` in Python, which refers to the reversed array, is equivalent to `x[end:-1:1]` in Julia.
   
-- In Julia, ranges can be constructed independently as `start:step:stop`, the same syntax it uses in array-indexing.  The `range` function is also supported.
+- In Julia, ranges can be constructed independently as `start:step:stop`, the same syntax it uses in array-indexing. The `range` function is also supported.
   
 - In Julia, indexing a matrix with arrays like `X[[1,2], [1,3]]` refers to a sub-matrix that contains the intersections of the first and second rows with the first and third columns. In Python, `X[[1,2], [1,3]]` refers to a vector that contains the values of cell `[1,1]` and `[2,3]` in the matrix. `X[[1,2], [1,3]]` in Julia is equivalent with `X[np.ix_([0,1],[0,2])]` in Python. `X[[0,1], [0,2]]` in Python is equivalent with `X[[CartesianIndex(1,1), CartesianIndex(2,3)]]` in Julia.
   
@@ -240,7 +240,7 @@ One of Julia&#39;s goals is to provide an effective language for data analysis a
   
 - In Julia, parsing is explicit. Python&#39;s `float("3.7")` would be `parse(Float64, "3.7")` in Julia.
   
-- In Python, the majority of values can be used in logical contexts (e.g. `if "a":` means the following block is executed, and `if "":` means it is not). In Julia, you need explicit conversion to `Bool` (e.g. `if "a"` throws an exception). If you want to test for a non-empty string in Julia, you would explicitly write `if !isempty("")`.  Perhaps surprisingly, in Python `if "False"` and `bool("False")` both evaluate to `True` (because `"False"` is a non-empty string); in Julia, `parse(Bool, "false")` returns `false`.
+- In Python, the majority of values can be used in logical contexts (e.g. `if "a":` means the following block is executed, and `if "":` means it is not). In Julia, you need explicit conversion to `Bool` (e.g. `if "a"` throws an exception). If you want to test for a non-empty string in Julia, you would explicitly write `if !isempty("")`. Perhaps surprisingly, in Python `if "False"` and `bool("False")` both evaluate to `True` (because `"False"` is a non-empty string); in Julia, `parse(Bool, "false")` returns `false`.
   
 - In Julia, a new local scope is introduced by most code blocks, including loops and `try` — `catch` — `finally`. Note that comprehensions (list, generator, etc.) introduce a new local scope both in Python and Julia, whereas `if` blocks do not introduce a new local scope in both languages.
   
@@ -260,7 +260,7 @@ One of Julia&#39;s goals is to provide an effective language for data analysis a
   
 - In Julia, literal numbers without a decimal point (such as `42`) create signed integers, of type `Int`, but literals too large to fit in the machine word size will automatically be promoted to a larger size type, such as `Int64` (if `Int` is `Int32`), `Int128`, or the arbitrarily large `BigInt` type. There are no numeric literal suffixes, such as `L`, `LL`, `U`, `UL`, `ULL` to indicate unsigned and/or signed vs. unsigned. Decimal literals are always signed, and hexadecimal literals (which start with `0x` like C/C++), are unsigned, unless when they encode more than 128 bits, in which case they are of type `BigInt`. Hexadecimal literals also, unlike C/C++/Java and unlike decimal literals in Julia, have a type based on the _length_ of the literal, including leading 0s. For example, `0x0` and `0x00` have type [`UInt8`](/base/numbers#Core.UInt8), `0x000` and `0x0000` have type [`UInt16`](/base/numbers#Core.UInt16), then literals with 5 to 8 hex digits have type `UInt32`, 9 to 16 hex digits type `UInt64`, 17 to 32 hex digits type `UInt128`, and more that 32 hex digits type `BigInt`. This needs to be taken into account when defining hexadecimal masks, for example `~0xf == 0xf0` is very different from `~0x000f == 0xfff0`. 64 bit `Float64` and 32 bit [`Float32`](/base/numbers#Core.Float32) bit literals are expressed as `1.0` and `1.0f0` respectively. Floating point literals are rounded (and not promoted to the `BigFloat` type) if they can not be exactly represented.  Floating point literals are closer in behavior to C/C++. Octal (prefixed with `0o`) and binary (prefixed with `0b`) literals are also treated as unsigned (or `BigInt` for more than 128 bits).
   
-- In Julia, the division operator [`/`](/base/math#Base.:/) returns a floating point number when both operands are of integer type.  To perform integer division, use [`div`](/base/math#Base.div) or [`÷`](/base/math#Base.div).
+- In Julia, the division operator [`/`](/base/math#Base.:/) returns a floating point number when both operands are of integer type. To perform integer division, use [`div`](/base/math#Base.div) or [`÷`](/base/math#Base.div).
   
 - Indexing an `Array` with floating point types is generally an error in Julia. The Julia equivalent of the C expression `a[i / 2]` is `a[i ÷ 2 + 1]`, where `i` is of integer type.
   
@@ -270,11 +270,11 @@ One of Julia&#39;s goals is to provide an effective language for data analysis a
   
 - `#=` indicates the start of a multiline comment, and `=#` ends it.
   
-- Functions in Julia return values from their last expression(s) or the `return` keyword.  Multiple values can be returned from functions and assigned as tuples, e.g. `(a, b) = myfunction()` or `a, b = myfunction()`, instead of having to pass pointers to values as one would have to do in C/C++ (i.e. `a = myfunction(&b)`.
+- Functions in Julia return values from their last expression(s) or the `return` keyword. Multiple values can be returned from functions and assigned as tuples, e.g. `(a, b) = myfunction()` or `a, b = myfunction()`, instead of having to pass pointers to values as one would have to do in C/C++ (i.e. `a = myfunction(&b)`.
   
 - Julia does not require the use of semicolons to end statements. The results of expressions are not automatically printed (except at the interactive prompt, i.e. the REPL), and lines of code do not need to end with semicolons. [`println`](/base/io-network#Base.println) or [`@printf`](/stdlib/Printf#Printf.@printf) can be used to print specific output. In the REPL, `;` can be used to suppress output. `;` also has a different meaning within `[ ]`, something to watch out for. `;` can be used to separate expressions on a single line, but are not strictly necessary in many cases, and are more an aid to readability.
   
-- In Julia, the operator [`⊻`](/base/math#Base.xor) ([`xor`](/base/math#Base.xor)) performs the bitwise XOR operation, i.e. [`^`](/base/math#Base.:^-Tuple{Number,%20Number}) in C/C++.  Also, the bitwise operators do not have the same precedence as C/C++, so parenthesis may be required.
+- In Julia, the operator [`⊻`](/base/math#Base.xor) ([`xor`](/base/math#Base.xor)) performs the bitwise XOR operation, i.e. [`^`](/base/math#Base.:^-Tuple{Number,%20Number}) in C/C++. Also, the bitwise operators do not have the same precedence as C/C++, so parenthesis may be required.
   
 - Julia&#39;s [`^`](/base/math#Base.:^-Tuple{Number,%20Number}) is exponentiation (pow), not bitwise XOR as in C/C++ (use [`⊻`](/base/math#Base.xor), or [`xor`](/base/math#Base.xor), in Julia)
   
@@ -302,7 +302,7 @@ One of Julia&#39;s goals is to provide an effective language for data analysis a
 ### Julia ⇔ C/C++: Namespaces {#Julia-C/C:-Namespaces}
 - C/C++ `namespace`s correspond roughly to Julia `module`s.
   
-- There are no private globals or fields in Julia.  Everything is publicly accessible through fully qualified paths (or relative paths, if desired).
+- There are no private globals or fields in Julia. Everything is publicly accessible through fully qualified paths (or relative paths, if desired).
   
 - `using MyNamespace::myfun` (C++) corresponds roughly to `import MyModule: myfun` (Julia).
   

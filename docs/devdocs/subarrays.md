@@ -1,7 +1,7 @@
 
-# SubArrays {#SubArrays}
+# SubArrays
 
-Julia&#39;s `SubArray` type is a container encoding a &quot;view&quot; of a parent [`AbstractArray`](/base/arrays#Core.AbstractArray).  This page documents some of the design principles and implementation of `SubArray`s.
+Julia&#39;s `SubArray` type is a container encoding a &quot;view&quot; of a parent [`AbstractArray`](/base/arrays#Core.AbstractArray). This page documents some of the design principles and implementation of `SubArray`s.
 
 One of the major design goals is to ensure high performance for views of both [`IndexLinear`](/base/arrays#Base.IndexLinear) and [`IndexCartesian`](/base/arrays#Base.IndexCartesian) arrays. Furthermore, views of `IndexLinear` arrays should themselves be `IndexLinear` to the extent that it is possible.
 
@@ -50,7 +50,7 @@ end
 ```
 
 
-`SubArray` has 5 type parameters.  The first two are the standard element type and dimensionality.  The next is the type of the parent `AbstractArray`.  The most heavily-used is the fourth parameter, a `Tuple` of the types of the indices for each dimension. The final one, `L`, is only provided as a convenience for dispatch; it&#39;s a boolean that represents whether the index types support fast linear indexing. More on that later.
+`SubArray` has 5 type parameters. The first two are the standard element type and dimensionality.  The next is the type of the parent `AbstractArray`. The most heavily-used is the fourth parameter, a `Tuple` of the types of the indices for each dimension. The final one, `L`, is only provided as a convenience for dispatch; it&#39;s a boolean that represents whether the index types support fast linear indexing. More on that later.
 
 If in our example above `A` is a `Array{Float64, 3}`, our `S1` case above would be a `SubArray{Float64,2,Array{Float64,3},Tuple{Base.Slice{Base.OneTo{Int64}},Int64,UnitRange{Int64}},false}`. Note in particular the tuple parameter, which stores the types of the indices used to create `S1`. Likewise,
 
@@ -64,7 +64,7 @@ Storing these values allows index replacement, and having the types encoded as p
 
 ### Index translation {#Index-translation}
 
-Performing index translation requires that you do different things for different concrete `SubArray` types.  For example, for `S1`, one needs to apply the `i,j` indices to the first and third dimensions of the parent array, whereas for `S2` one needs to apply them to the second and third.  The simplest approach to indexing would be to do the type-analysis at runtime:
+Performing index translation requires that you do different things for different concrete `SubArray` types. For example, for `S1`, one needs to apply the `i,j` indices to the first and third dimensions of the parent array, whereas for `S2` one needs to apply them to the second and third. The simplest approach to indexing would be to do the type-analysis at runtime:
 
 ```julia
 parentindices = Vector{Any}()
@@ -135,7 +135,7 @@ julia> diff(A[2:2:4,:][:])
 ```
 
 
-A view constructed as `view(A, 2:2:4, :)` happens to have uniform stride, and therefore linear indexing indeed could be performed efficiently.  However, success in this case depends on the size of the array: if the first dimension instead were odd,
+A view constructed as `view(A, 2:2:4, :)` happens to have uniform stride, and therefore linear indexing indeed could be performed efficiently. However, success in this case depends on the size of the array: if the first dimension instead were odd,
 
 ```julia
 julia> A = reshape(1:5*2, 5, 2)
@@ -159,7 +159,7 @@ then `A[2:2:4,:]` does not have uniform stride, so we cannot guarantee efficient
 ### A few details {#A-few-details}
 - Note that the `Base.reindex` function is agnostic to the types of the input indices; it simply determines how and where the stored indices should be reindexed. It not only supports integer indices, but it supports non-scalar indexing, too. This means that views of views don&#39;t need two levels of indirection; they can simply re-compute the indices into the original parent array!
   
-- Hopefully by now it&#39;s fairly clear that supporting slices means that the dimensionality, given by the parameter `N`, is not necessarily equal to the dimensionality of the parent array or the length of the `indices` tuple.  Neither do user-supplied indices necessarily line up with entries in the `indices` tuple (e.g., the second user-supplied index might correspond to the third dimension of the parent array, and the third element in the `indices` tuple).
+- Hopefully by now it&#39;s fairly clear that supporting slices means that the dimensionality, given by the parameter `N`, is not necessarily equal to the dimensionality of the parent array or the length of the `indices` tuple. Neither do user-supplied indices necessarily line up with entries in the `indices` tuple (e.g., the second user-supplied index might correspond to the third dimension of the parent array, and the third element in the `indices` tuple).
   What might be less obvious is that the dimensionality of the stored parent array must be equal to the number of effective indices in the `indices` tuple. Some examples:
   
   ```julia

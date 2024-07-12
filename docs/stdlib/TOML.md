@@ -1,7 +1,7 @@
 
 
 
-# TOML {#TOML}
+# TOML
 
 TOML.jl is a Julia standard library for parsing and writing [TOML v1.0](https://toml.io/en/) files.
 
@@ -121,7 +121,7 @@ foo = [5, "bar"]
 ```
 
 
-## References {#References}
+## References
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='TOML.parse' href='#TOML.parse'>#</a>&nbsp;<b><u>TOML.parse</u></b> &mdash; <i>Function</i>.
 
@@ -139,7 +139,7 @@ Parse the string  or stream `x`, and return the resulting table (dictionary). Th
 See also [`TOML.tryparse`](/stdlib/TOML#TOML.tryparse).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/TOML/src/TOML.jl#L67-L75)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/TOML/src/TOML.jl#L67-L75)
 
 </div>
 <br>
@@ -160,7 +160,7 @@ Parse file `f` and return the resulting table (dictionary). Throw a [`ParserErro
 See also [`TOML.tryparsefile`](/stdlib/TOML#TOML.tryparsefile).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/TOML/src/TOML.jl#L39-L47)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/TOML/src/TOML.jl#L39-L47)
 
 </div>
 <br>
@@ -181,7 +181,7 @@ Parse the string or stream `x`, and return the resulting table (dictionary). Ret
 See also [`TOML.parse`](/stdlib/TOML#TOML.parse).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/TOML/src/TOML.jl#L83-L91)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/TOML/src/TOML.jl#L83-L91)
 
 </div>
 <br>
@@ -202,7 +202,7 @@ Parse file `f` and return the resulting table (dictionary). Return a [`ParserErr
 See also [`TOML.parsefile`](/stdlib/TOML#TOML.parsefile).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/TOML/src/TOML.jl#L53-L61)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/TOML/src/TOML.jl#L53-L61)
 
 </div>
 <br>
@@ -222,7 +222,7 @@ Write `data` as TOML syntax to the stream `io`. If the keyword argument `sorted`
 The following data types are supported: `AbstractDict`, `AbstractVector`, `AbstractString`, `Integer`, `AbstractFloat`, `Bool`, `Dates.DateTime`, `Dates.Time`, `Dates.Date`. Note that the integers and floats need to be convertible to `Float64` and `Int64` respectively. For other data types, pass the function `to_toml` that takes the data types and returns a value of a supported type.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/TOML/src/TOML.jl#L112-L124)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/TOML/src/TOML.jl#L112-L124)
 
 </div>
 <br>
@@ -240,7 +240,7 @@ Parser()
 Constructor for a TOML `Parser`.  Note that in most cases one does not need to explicitly create a `Parser` but instead one directly use use [`TOML.parsefile`](/stdlib/TOML#TOML.parsefile) or [`TOML.parse`](/stdlib/TOML#TOML.parse).  Using an explicit parser will however reuse some internal data structures which can be beneficial for performance if a larger number of small files are parsed.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/TOML/src/TOML.jl#L28-L36)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/TOML/src/TOML.jl#L28-L36)
 
 </div>
 <br>
@@ -264,7 +264,7 @@ Type that is returned from [`tryparse`](/stdlib/TOML#TOML.tryparse) and [`trypar
   
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/TOML/src/TOML.jl#L99-L108)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/TOML/src/TOML.jl#L99-L108)
 
 </div>
 <br>

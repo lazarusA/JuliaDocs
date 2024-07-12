@@ -1,5 +1,5 @@
 
-# Downloads {#Downloads}
+# Downloads
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='Downloads.download' href='#Downloads.download'>#</a>&nbsp;<b><u>Downloads.download</u></b> &mdash; <i>Function</i>.
 

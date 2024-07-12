@@ -1,5 +1,5 @@
 
-# Interfaces {#Interfaces}
+# Interfaces
 
 A lot of the power and extensibility in Julia comes from a collection of informal interfaces.  By extending a few specific methods to work for a custom type, objects of that type not only receive those functionalities, but they are also able to be used in other methods that are written to generically build upon those behaviors.
 
@@ -86,7 +86,7 @@ julia> sum(Squares(100))
 ```
 
 
-There are a few more methods we can extend to give Julia more information about this iterable collection.  We know that the elements in a `Squares` sequence will always be `Int`. By extending the [`eltype`](/base/collections#Base.eltype) method, we can give that information to Julia and help it make more specialized code in the more complicated methods. We also know the number of elements in our sequence, so we can extend [`length`](/base/collections#Base.length), too:
+There are a few more methods we can extend to give Julia more information about this iterable collection. We know that the elements in a `Squares` sequence will always be `Int`. By extending the [`eltype`](/base/collections#Base.eltype) method, we can give that information to Julia and help it make more specialized code in the more complicated methods. We also know the number of elements in our sequence, so we can extend [`length`](/base/collections#Base.length), too:
 
 ```julia
 julia> Base.eltype(::Type{Squares}) = Int # Note that this is defined for the type
@@ -119,7 +119,7 @@ julia> sum(Squares(1803))
 
 This is a very common pattern throughout Julia Base: a small set of required methods define an informal interface that enable many fancier behaviors. In some cases, types will want to additionally specialize those extra behaviors when they know a more efficient algorithm can be used in their specific case.
 
-It is also often useful to allow iteration over a collection in _reverse order_ by iterating over [`Iterators.reverse(iterator)`](/base/iterators#Base.Iterators.reverse).  To actually support reverse-order iteration, however, an iterator type `T` needs to implement `iterate` for `Iterators.Reverse{T}`. (Given `r::Iterators.Reverse{T}`, the underling iterator of type `T` is `r.itr`.) In our `Squares` example, we would implement `Iterators.Reverse{Squares}` methods:
+It is also often useful to allow iteration over a collection in _reverse order_ by iterating over [`Iterators.reverse(iterator)`](/base/iterators#Base.Iterators.reverse). To actually support reverse-order iteration, however, an iterator type `T` needs to implement `iterate` for `Iterators.Reverse{T}`. (Given `r::Iterators.Reverse{T}`, the underling iterator of type `T` is `r.itr`.) In our `Squares` example, we would implement `Iterators.Reverse{Squares}` methods:
 
 ```julia
 julia> Base.iterate(rS::Iterators.Reverse{Squares}, state=rS.itr.count) = state < 1 ? nothing : (state*state, state-1)
@@ -133,7 +133,7 @@ julia> collect(Iterators.reverse(Squares(4)))
 ```
 
 
-## Indexing {#Indexing}
+## Indexing
 
 | Methods to implement | Brief description                                             |
 |:-------------------- |:------------------------------------------------------------- |
@@ -143,7 +143,7 @@ julia> collect(Iterators.reverse(Squares(4)))
 | `lastindex(X)`       | The last index, used in `X[end]`                              |
 
 
-For the `Squares` iterable above, we can easily compute the `i`th element of the sequence by squaring it.  We can expose this as an indexing expression `S[i]`. To opt into this behavior, `Squares` simply needs to define [`getindex`](/base/collections#Base.getindex):
+For the `Squares` iterable above, we can easily compute the `i`th element of the sequence by squaring it. We can expose this as an indexing expression `S[i]`. To opt into this behavior, `Squares` simply needs to define [`getindex`](/base/collections#Base.getindex):
 
 ```julia
 julia> function Base.getindex(S::Squares, i::Int)
@@ -212,11 +212,11 @@ While this is starting to support more of the [indexing operations supported by 
 | `similar(T::Union{Type,Function}, inds)` | `T(Base.to_shape(inds))`               | Return an array similar to `T` with the specified indices `inds` (see below)                                                                                     |
 
 
-If a type is defined as a subtype of `AbstractArray`, it inherits a very large set of rich behaviors including iteration and multidimensional indexing built on top of single-element access.  See the [arrays manual page](/manual/arrays#man-multi-dim-arrays) and the [Julia Base section](/base/arrays#lib-arrays) for more supported methods.
+If a type is defined as a subtype of `AbstractArray`, it inherits a very large set of rich behaviors including iteration and multidimensional indexing built on top of single-element access. See the [arrays manual page](/manual/arrays#man-multi-dim-arrays) and the [Julia Base section](/base/arrays#lib-arrays) for more supported methods.
 
-A key part in defining an `AbstractArray` subtype is [`IndexStyle`](/base/arrays#Base.IndexStyle). Since indexing is such an important part of an array and often occurs in hot loops, it&#39;s important to make both indexing and indexed assignment as efficient as possible.  Array data structures are typically defined in one of two ways: either it most efficiently accesses its elements using just one index (linear indexing) or it intrinsically accesses the elements with indices specified for every dimension.  These two modalities are identified by Julia as `IndexLinear()` and `IndexCartesian()`.  Converting a linear index to multiple indexing subscripts is typically very expensive, so this provides a traits-based mechanism to enable efficient generic code for all array types.
+A key part in defining an `AbstractArray` subtype is [`IndexStyle`](/base/arrays#Base.IndexStyle). Since indexing is such an important part of an array and often occurs in hot loops, it&#39;s important to make both indexing and indexed assignment as efficient as possible. Array data structures are typically defined in one of two ways: either it most efficiently accesses its elements using just one index (linear indexing) or it intrinsically accesses the elements with indices specified for every dimension.  These two modalities are identified by Julia as `IndexLinear()` and `IndexCartesian()`.  Converting a linear index to multiple indexing subscripts is typically very expensive, so this provides a traits-based mechanism to enable efficient generic code for all array types.
 
-This distinction determines which scalar indexing methods the type must define. `IndexLinear()` arrays are simple: just define `getindex(A::ArrayType, i::Int)`.  When the array is subsequently indexed with a multidimensional set of indices, the fallback `getindex(A::AbstractArray, I...)` efficiently converts the indices into one linear index and then calls the above method. `IndexCartesian()` arrays, on the other hand, require methods to be defined for each supported dimensionality with `ndims(A)` `Int` indices. For example, [`SparseMatrixCSC`](/stdlib/SparseArrays#SparseArrays.SparseMatrixCSC) from the `SparseArrays` standard library module, only supports two dimensions, so it just defines `getindex(A::SparseMatrixCSC, i::Int, j::Int)`. The same holds for [`setindex!`](/base/collections#Base.setindex!).
+This distinction determines which scalar indexing methods the type must define. `IndexLinear()` arrays are simple: just define `getindex(A::ArrayType, i::Int)`. When the array is subsequently indexed with a multidimensional set of indices, the fallback `getindex(A::AbstractArray, I...)` efficiently converts the indices into one linear index and then calls the above method. `IndexCartesian()` arrays, on the other hand, require methods to be defined for each supported dimensionality with `ndims(A)` `Int` indices. For example, [`SparseMatrixCSC`](/stdlib/SparseArrays#SparseArrays.SparseMatrixCSC) from the `SparseArrays` standard library module, only supports two dimensions, so it just defines `getindex(A::SparseMatrixCSC, i::Int, j::Int)`. The same holds for [`setindex!`](/base/collections#Base.setindex!).
 
 Returning to the sequence of squares from above, we could instead define it as a subtype of an `AbstractArray{Int, 1}`:
 
@@ -357,7 +357,7 @@ If you are defining an array type that allows non-traditional indexing (indices 
 | `stride(A, i::Int)`                      | `strides(A)[i]`        | Return the distance in memory (in number of elements) between adjacent elements in dimension k.                                                                                     |
 
 
-A strided array is a subtype of `AbstractArray` whose entries are stored in memory with fixed strides. Provided the element type of the array is compatible with BLAS, a strided array can utilize BLAS and LAPACK routines for more efficient linear algebra routines.  A typical example of a user-defined strided array is one that wraps a standard `Array` with additional structure.
+A strided array is a subtype of `AbstractArray` whose entries are stored in memory with fixed strides. Provided the element type of the array is compatible with BLAS, a strided array can utilize BLAS and LAPACK routines for more efficient linear algebra routines. A typical example of a user-defined strided array is one that wraps a standard `Array` with additional structure.
 
 Warning: do not implement these methods if the underlying storage is not actually strided, as it may lead to incorrect results or segmentation faults.
 
@@ -408,7 +408,7 @@ Base.broadcastable(o::MyType) = Ref(o)
 ```
 
 
-that returns the argument wrapped in a 0-dimensional [`Ref`](/base/c#Core.Ref) container.   For example, such a wrapper method is defined for types themselves, functions, special singletons like [`missing`](/manual/missing#missing) and [`nothing`](/base/constants#Core.nothing), and dates.
+that returns the argument wrapped in a 0-dimensional [`Ref`](/base/c#Core.Ref) container. For example, such a wrapper method is defined for types themselves, functions, special singletons like [`missing`](/manual/missing#missing) and [`nothing`](/base/constants#Core.nothing), and dates.
 
 Custom array-like types can specialize `Base.broadcastable` to define their shape, but they should follow the convention that `collect(Base.broadcastable(x)) == collect(x)`. A notable exception is `AbstractString`; strings are special-cased to behave as scalars for the purposes of broadcast even though they are iterable collections of their characters (see [Strings](/devdocs/ast#Strings) for more).
 
@@ -453,7 +453,7 @@ similar(bc::Broadcasted{DefaultArrayStyle{N}}, ::Type{ElType}) where {N,ElType} 
 ```
 
 
-However, if needed you can specialize on any or all of these arguments. The final argument `bc` is a lazy representation of a (potentially fused) broadcast operation, a `Broadcasted` object.  For these purposes, the most important fields of the wrapper are `f` and `args`, describing the function and argument list, respectively.  Note that the argument list can — and often does — include other nested `Broadcasted` wrappers.
+However, if needed you can specialize on any or all of these arguments. The final argument `bc` is a lazy representation of a (potentially fused) broadcast operation, a `Broadcasted` object. For these purposes, the most important fields of the wrapper are `f` and `args`, describing the function and argument list, respectively. Note that the argument list can — and often does — include other nested `Broadcasted` wrappers.
 
 For a complete example, let&#39;s say you have created a type, `ArrayAndChar`, that stores an array and a single character:
 

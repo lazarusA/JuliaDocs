@@ -7,12 +7,12 @@ This chapter covers the technical details of package loading. To install package
 
 :::
 
-## Definitions {#Definitions}
+## Definitions
 
 Julia has two mechanisms for loading code:
 1. **Code inclusion:** e.g. `include("source.jl")`. Inclusion allows you to split a single program across multiple source files. The expression `include("source.jl")` causes the contents of the file `source.jl` to be evaluated in the global scope of the module where the `include` call occurs. If `include("source.jl")` is called multiple times, `source.jl` is evaluated multiple times. The included path, `source.jl`, is interpreted relative to the file where the `include` call occurs. This makes it simple to relocate a subtree of source files. In the REPL, included paths are interpreted relative to the current working directory, [`pwd()`](/base/file#Base.Filesystem.pwd).
   
-1. **Package loading:** e.g. `import X` or `using X`. The import mechanism allows you to load a package—i.e. an independent, reusable collection of Julia code, wrapped in a module—and makes the resulting module available by the name `X` inside of the importing module. If the same `X` package is imported multiple times in the same Julia session, it is only loaded the first time—on subsequent imports, the importing module gets a reference to the same module. Note though, that `import X` can load different packages in different contexts: `X` can refer to one package named `X` in the main project but potentially to different packages also named `X` in each dependency. More on this below.
+2. **Package loading:** e.g. `import X` or `using X`. The import mechanism allows you to load a package—i.e. an independent, reusable collection of Julia code, wrapped in a module—and makes the resulting module available by the name `X` inside of the importing module. If the same `X` package is imported multiple times in the same Julia session, it is only loaded the first time—on subsequent imports, the importing module gets a reference to the same module. Note though, that `import X` can load different packages in different contexts: `X` can refer to one package named `X` in the main project but potentially to different packages also named `X` in each dependency. More on this below.
   
 
 Code inclusion is quite straightforward and simple: it evaluates the given source file in the context of the caller. Package loading is built on top of code inclusion and serves a [different purpose](/manual/modules#modules). The rest of this chapter focuses on the behavior and mechanics of package loading.
@@ -31,12 +31,12 @@ One consequence of federation is that there cannot be a central authority for pa
 
 Since the decentralized naming problem is somewhat abstract, it may help to walk through a concrete scenario to understand the issue. Suppose you&#39;re developing an application called `App`, which uses two packages: `Pub` and  `Priv`. `Priv` is a private package that you created, whereas `Pub` is a public package that you use but don&#39;t control. When you created `Priv`, there was no public package by the name `Priv`. Subsequently, however, an unrelated package also named `Priv` has been published and become popular. In fact, the `Pub` package has started to use it. Therefore, when you next upgrade `Pub` to get the latest bug fixes and features, `App` will end up depending on two different packages named `Priv`—through no action of yours other than upgrading. `App` has a direct dependency on your private `Priv` package, and an indirect dependency, through `Pub`, on the new public `Priv` package. Since these two `Priv` packages are different but are both required for `App` to continue working correctly, the expression `import Priv` must refer to different `Priv` packages depending on whether it occurs in `App`&#39;s code or in `Pub`&#39;s code. To handle this, Julia&#39;s package loading mechanism distinguishes the two `Priv` packages by their UUID and picks the correct one based on its context (the module that called `import`). How this distinction works is determined by environments, as explained in the following sections.
 
-## Environments {#Environments}
+## Environments
 
 An _environment_ determines what `import X` and `using X` mean in various code contexts and what files these statements cause to be loaded. Julia understands two kinds of environments:
 1. **A project environment** is a directory with a project file and an optional manifest file, and forms an _explicit environment_. The project file determines what the names and identities of the direct dependencies of a project are. The manifest file, if present, gives a complete dependency graph, including all direct and indirect dependencies, exact versions of each dependency, and sufficient information to locate and load the correct version.
   
-1. **A package directory** is a directory containing the source trees of a set of packages as subdirectories, and forms an _implicit environment_. If `X` is a subdirectory of a package directory and `X/src/X.jl` exists, then the package `X` is available in the package directory environment and `X/src/X.jl` is the source file by which it is loaded.
+2. **A package directory** is a directory containing the source trees of a set of packages as subdirectories, and forms an _implicit environment_. If `X` is a subdirectory of a package directory and `X/src/X.jl` exists, then the package `X` is available in the package directory environment and `X/src/X.jl` is the source file by which it is loaded.
   
 
 These can be intermixed to create **a stacked environment**: an ordered set of project environments and package directories, overlaid to make a single composite environment. The precedence and visibility rules then combine to determine which packages are available and where they get loaded from. Julia&#39;s load path forms a stacked environment, for example.
@@ -178,13 +178,13 @@ What happens if `import Zebra` is evaluated in the main `App` code base? Since `
   - Otherwise, `uuid` is mapped to `src/X.jl` relative to the directory containing the project file.
     
   
-1. 1. If the above is not the case and the project file has a corresponding manifest file and the manifest contains a stanza matching `uuid` then:
+2. 1. If the above is not the case and the project file has a corresponding manifest file and the manifest contains a stanza matching `uuid` then:
     - If it has a `path` entry, use that path (relative to the directory containing the manifest file).
       
     - If it has a `git-tree-sha1` entry, compute a deterministic hash function of `uuid` and `git-tree-sha1`—call it `slug`—and look for a directory named `packages/X/$slug` in each directory in the Julia `DEPOT_PATH` global array. Use the first such directory that exists.
       
     
-  1. If this is a directory then `uuid` is mapped to `src/X.jl` unless the matching manifest stanza has an `entryfile` entry in which case this is used. In both cases, these are relative to the directory in 2.1.
+  2. If this is a directory then `uuid` is mapped to `src/X.jl` unless the matching manifest stanza has an `entryfile` entry in which case this is used. In both cases, these are relative to the directory in 2.1.
     
   
 
@@ -195,7 +195,7 @@ In the example manifest file above, to find the path of the first `Priv` package
 If, on the other hand, Julia was loading the _other_ `Priv` package—the one with UUID `2d15fe94-a1f7-436c-a4d8-07a9a496e01c`—it finds its stanza in the manifest, see that it does _not_ have a `path` entry, but that it does have a `git-tree-sha1` entry. It then computes the `slug` for this UUID/SHA-1 pair, which is `HDkrT` (the exact details of this computation aren&#39;t important, but it is consistent and deterministic). This means that the path to this `Priv` package will be `packages/Priv/HDkrT/src/Priv.jl` in one of the package depots. Suppose the contents of `DEPOT_PATH` is `["/home/me/.julia", "/usr/local/julia"]`, then Julia will look at the following paths to see if they exist:
 1. `/home/me/.julia/packages/Priv/HDkrT`
   
-1. `/usr/local/julia/packages/Priv/HDkrT`
+2. `/usr/local/julia/packages/Priv/HDkrT`
   
 
 Julia uses the first of these that exists to try to load the public `Priv` package from the file `packages/Priv/HDKrT/src/Priv.jl` in the depot where it was found.
@@ -227,9 +227,9 @@ paths = Dict(
 This example map includes three different kinds of package locations (the first and third are part of the default load path):
 1. The private `Priv` package is &quot;[vendored](https://stackoverflow.com/a/35109534)&quot; inside the `App` repository.
   
-1. The public `Priv` and `Zebra` packages are in the system depot, where packages installed and managed by the system administrator live. These are available to all users on the system.
+2. The public `Priv` and `Zebra` packages are in the system depot, where packages installed and managed by the system administrator live. These are available to all users on the system.
   
-1. The `Pub` package is in the user depot, where packages installed by the user live. These are only available to the user who installed them.
+3. The `Pub` package is in the user depot, where packages installed by the user live. These are only available to the user who installed them.
   
 
 ### Package directories {#Package-directories}
@@ -251,9 +251,9 @@ Which dependencies a package in a package directory can import depends on whethe
 **The roots map** is determined by examining the contents of the package directory to generate a list of all packages that exist. Additionally, a UUID will be assigned to each entry as follows: For a given package found inside the folder `X`...
 1. If `X/Project.toml` exists and has a `uuid` entry, then `uuid` is that value.
   
-1. If `X/Project.toml` exists and but does _not_ have a top-level UUID entry, `uuid` is a dummy UUID generated by hashing the canonical (real) path to `X/Project.toml`.
+2. If `X/Project.toml` exists and but does _not_ have a top-level UUID entry, `uuid` is a dummy UUID generated by hashing the canonical (real) path to `X/Project.toml`.
   
-1. Otherwise (if `Project.toml` does not exist), then `uuid` is the all-zero [nil UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier#Nil_UUID).
+3. Otherwise (if `Project.toml` does not exist), then `uuid` is the all-zero [nil UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier#Nil_UUID).
   
 
 **The dependency graph** of a project directory is determined by the presence and contents of project files in the subdirectory of each package. The rules are:
@@ -332,9 +332,9 @@ graph = Dict(
 A few general rules to note:
 1. A package without a project file can depend on any top-level dependency, and since every package in a package directory is available at the top-level, it can import all packages in the environment.
   
-1. A package with a project file cannot depend on one without a project file since packages with project files can only load packages in `graph` and packages without project files do not appear in `graph`.
+2. A package with a project file cannot depend on one without a project file since packages with project files can only load packages in `graph` and packages without project files do not appear in `graph`.
   
-1. A package with a project file but no explicit UUID can only be depended on by packages without project files since dummy UUIDs assigned to these packages are strictly internal.
+3. A package with a project file but no explicit UUID can only be depended on by packages without project files since dummy UUIDs assigned to these packages are strictly internal.
   
 
 Observe the following specific instances of these rules in our example:
@@ -385,7 +385,7 @@ paths = reduce(merge, reverse([paths₁, paths₂, …]))
 The subscripted `rootsᵢ`, `graphᵢ` and `pathsᵢ` variables correspond to the subscripted environments, `envᵢ`, contained in `stack`. The `reverse` is present because `merge` favors the last argument rather than first when there are collisions between keys in its argument dictionaries. There are a couple of noteworthy features of this design:
 1. The _primary environment_—i.e. the first environment in a stack—is faithfully embedded in a stacked environment. The full dependency graph of the first environment in a stack is guaranteed to be included intact in the stacked environment including the same versions of all dependencies.
   
-1. Packages in non-primary environments can end up using incompatible versions of their dependencies even if their own environments are entirely compatible. This can happen when one of their dependencies is shadowed by a version in an earlier environment in the stack (either by graph or path, or both).
+2. Packages in non-primary environments can end up using incompatible versions of their dependencies even if their own environments are entirely compatible. This can happen when one of their dependencies is shadowed by a version in an earlier environment in the stack (either by graph or path, or both).
   
 
 Since the primary environment is typically the environment of a project you&#39;re working on, while environments later in the stack contain additional tools, this is the right trade-off: it&#39;s better to break your development tools but keep the project working. When such incompatibilities occur, you&#39;ll typically want to upgrade your dev tools to versions that are compatible with the main project.
@@ -461,6 +461,6 @@ Preferences that are accessed during compilation are automatically marked as com
 
 Preferences can be set with depot-wide defaults; if package Foo is installed within your global environment and it has preferences set, these preferences will apply as long as your global environment is part of your `LOAD_PATH`. Preferences in environments higher up in the environment stack get overridden by the more proximal entries in the load path, ending with the currently active project. This allows depot-wide preference defaults to exist, with active projects able to merge or even completely overwrite these inherited preferences. See the docstring for `Preferences.set_preferences!()` for the full details of how to set preferences to allow or disallow merging.
 
-## Conclusion {#Conclusion}
+## Conclusion
 
 Federated package management and precise software reproducibility are difficult but worthy goals in a package system. In combination, these goals lead to a more complex package loading mechanism than most dynamic languages have, but it also yields scalability and reproducibility that is more commonly associated with static languages. Typically, Julia users should be able to use the built-in package manager to manage their projects without needing a precise understanding of these interactions. A call to `Pkg.add("X")` will add to the appropriate project and manifest files, selected via `Pkg.activate("Y")`, so that a future call to `import X` will load `X` without further thought.

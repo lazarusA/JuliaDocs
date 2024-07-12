@@ -9,7 +9,7 @@ Julia has a system for promoting arguments of mathematical operators to a common
 
 In a sense, Julia falls into the &quot;no automatic promotion&quot; category: mathematical operators are just functions with special syntax, and the arguments of functions are never automatically converted. However, one may observe that applying mathematical operations to a wide variety of mixed argument types is just an extreme case of polymorphic multiple dispatch – something which Julia&#39;s dispatch and type systems are particularly well-suited to handle. &quot;Automatic&quot; promotion of mathematical operands simply emerges as a special application: Julia comes with pre-defined catch-all dispatch rules for mathematical operators, invoked when no specific implementation exists for some combination of operand types. These catch-all rules first promote all operands to a common type using user-definable promotion rules, and then invoke a specialized implementation of the operator in question for the resulting values, now of the same type. User-defined types can easily participate in this promotion system by defining methods for conversion to and from other types, and providing a handful of promotion rules defining what types they should promote to when mixed with other types.
 
-## Conversion {#Conversion}
+## Conversion
 
 The standard way to obtain a value of a certain type `T` is to call the type&#39;s constructor, `T(x)`. However, there are cases where it&#39;s convenient to convert a value from one type to another without the programmer asking for it explicitly. One example is assigning a value into an array: if `A` is a `Vector{Float64}`, the expression `A[1] = 2` should work by automatically converting the `2` from `Int` to `Float64`, and storing the result in the array. This is done via the [`convert`](/base/base#Base.convert) function.
 
@@ -123,7 +123,7 @@ convert(::Type{T}, x::T) where {T<:Number} = x
 
 Similar definitions exist for `AbstractString`, [`AbstractArray`](/base/arrays#Core.AbstractArray), and [`AbstractDict`](/base/collections#Base.AbstractDict).
 
-## Promotion {#Promotion}
+## Promotion
 
 Promotion refers to converting values of mixed types to a single common type. Although it is not strictly necessary, it is generally implied that the common type to which the values are converted can faithfully represent all of the original values. In this sense, the term &quot;promotion&quot; is appropriate since the values are converted to a &quot;greater&quot; type – i.e. one which can represent all of the input values in a single common type. It is important, however, not to confuse this with object-oriented (structural) super-typing, or Julia&#39;s notion of abstract super-types: promotion has nothing to do with the type hierarchy, and everything to do with converting between alternate representations. For instance, although every [`Int32`](/base/numbers#Core.Int32) value can also be represented as a [`Float64`](/base/numbers#Core.Float64) value, `Int32` is not a subtype of `Float64`.
 

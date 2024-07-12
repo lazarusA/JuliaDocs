@@ -5,7 +5,7 @@ There are many ways to install Julia. The following sections highlight the recom
 
 The current installation recommendation is a solution based on Juliaup. If you installed Julia previously with a method that is _not_ based on Juliaup and want to switch your system to an installation that is based on Juliaup, we recommend that you uninstall all previous Julia versions, ensure that you remove anything Julia related from your `PATH` variable and then install Julia with one of the methods described below.
 
-## Windows {#Windows}
+## Windows
 
 On Windows Julia can be installed directly from the Windows store [here](https://www.microsoft.com/store/apps/9NJNWW8PVKMN). One can also install exactly the same version by executing
 

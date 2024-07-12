@@ -21,7 +21,7 @@ The following [arithmetic operators](https://en.wikipedia.org/wiki/Arithmetic#Ar
 | `x % y`    | remainder      | equivalent to `rem(x, y)`              |
 
 
-A numeric literal placed directly before an identifier or parentheses, e.g. `2x` or `2(x + y)`, is treated as a multiplication, except with higher precedence than other binary operations.  See [Numeric Literal Coefficients](/manual/integers-and-floating-point-numbers#man-numeric-literal-coefficients) for details.
+A numeric literal placed directly before an identifier or parentheses, e.g. `2x` or `2(x + y)`, is treated as a multiplication, except with higher precedence than other binary operations. See [Numeric Literal Coefficients](/manual/integers-and-floating-point-numbers#man-numeric-literal-coefficients) for details.
 
 Julia&#39;s promotion system makes arithmetic operations on mixtures of argument types &quot;just work&quot; naturally and automatically. See [Conversion and Promotion](/manual/conversion-and-promotion#conversion-and-promotion) for details of the promotion system.
 
@@ -169,7 +169,7 @@ Int64
 
 ## Vectorized &quot;dot&quot; operators {#man-dot-operators}
 
-For _every_ binary operation like `^`, there is a corresponding &quot;dot&quot; operation `.^` that is _automatically_ defined to perform `^` element-by-element on arrays. For example, `[1, 2, 3] ^ 3` is not defined, since there is no standard mathematical meaning to &quot;cubing&quot; a (non-square) array, but `[1, 2, 3] .^ 3` is defined as computing the elementwise (or &quot;vectorized&quot;) result `[1^3, 2^3, 3^3]`.  Similarly for unary operators like `!` or `√`, there is a corresponding `.√` that applies the operator elementwise.
+For _every_ binary operation like `^`, there is a corresponding &quot;dot&quot; operation `.^` that is _automatically_ defined to perform `^` element-by-element on arrays. For example, `[1, 2, 3] ^ 3` is not defined, since there is no standard mathematical meaning to &quot;cubing&quot; a (non-square) array, but `[1, 2, 3] .^ 3` is defined as computing the elementwise (or &quot;vectorized&quot;) result `[1^3, 2^3, 3^3]`. Similarly for unary operators like `!` or `√`, there is a corresponding `.√` that applies the operator elementwise.
 
 ```julia
 julia> [1, 2, 3] .^ 3
@@ -314,7 +314,7 @@ false
 
 Mixed-type comparisons between signed integers, unsigned integers, and floats can be tricky. A great deal of care has been taken to ensure that Julia does them correctly.
 
-For other types, `isequal` defaults to calling [`==`](/base/math#Base.:==), so if you want to define equality for your own types then you only need to add a [`==`](/base/math#Base.:==) method.  If you define your own equality function, you should probably define a corresponding [`hash`](/base/base#Base.hash) method to ensure that `isequal(x,y)` implies `hash(x) == hash(y)`.
+For other types, `isequal` defaults to calling [`==`](/base/math#Base.:==), so if you want to define equality for your own types then you only need to add a [`==`](/base/math#Base.:==) method. If you define your own equality function, you should probably define a corresponding [`hash`](/base/base#Base.hash) method to ensure that `isequal(x,y)` implies `hash(x) == hash(y)`.
 
 ### Chaining comparisons {#Chaining-comparisons}
 

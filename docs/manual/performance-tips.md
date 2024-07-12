@@ -24,7 +24,7 @@ const DEFAULT_VAL = 0
 ```
 
 
-If a global is known to always be of the same type, [the type should be annotated](/manual/variables-and-scoping#man-typed-globals).
+If a non-constant global is known to always be of the same type, [the type should be annotated](/manual/variables-and-scoping#man-typed-globals); `const` globals need not be annotated because their type is inferred from their initialization value.
 
 Uses of untyped globals can be optimized by annotating their types at the point of use:
 
@@ -65,9 +65,9 @@ julia> global x = 1.0
 
 so all the performance issues discussed previously apply.
 
-### Measure performance with [`@time`](/tutorials/profile#@time) and pay attention to memory allocation {#Measure-performance-with-[@time](@ref)-and-pay-attention-to-memory-allocation}
+### Measure performance with [`@time`](/manual/profile#@time) and pay attention to memory allocation {#Measure-performance-with-[@time](@ref)-and-pay-attention-to-memory-allocation}
 
-A useful tool for measuring performance is the [`@time`](/tutorials/profile#@time) macro. We here repeat the example with the global variable above, but this time with the type annotation removed:
+A useful tool for measuring performance is the [`@time`](/manual/profile#@time) macro. We here repeat the example with the global variable above, but this time with the type annotation removed:
 
 ```julia
 julia> x = rand(1000);
@@ -90,9 +90,9 @@ julia> @time sum_global()
 ```
 
 
-On the first call (`@time sum_global()`) the function gets compiled. (If you&#39;ve not yet used [`@time`](/tutorials/profile#@time) in this session, it will also compile functions needed for timing.)  You should not take the results of this run seriously. For the second run, note that in addition to reporting the time, it also indicated that a significant amount of memory was allocated. We are here just computing a sum over all elements in a vector of 64-bit floats so there should be no need to allocate (heap) memory.
+On the first call (`@time sum_global()`) the function gets compiled. (If you&#39;ve not yet used [`@time`](/manual/profile#@time) in this session, it will also compile functions needed for timing.)  You should not take the results of this run seriously. For the second run, note that in addition to reporting the time, it also indicated that a significant amount of memory was allocated. We are here just computing a sum over all elements in a vector of 64-bit floats so there should be no need to allocate (heap) memory.
 
-We should clarify that what `@time` reports is specifically _heap_ allocations, which are typically needed for either mutable objects or for creating/growing variable-sized containers (such as `Array` or `Dict`, strings, or &quot;type-unstable&quot; objects whose type is only known at runtime).  Allocating (or deallocating) such blocks of memory may require an expensive function call to libc (e.g. via `malloc` in C), and they must be tracked for garbage collection.  In contrast, immutable values like numbers (except bignums), tuples, and immutable `struct`s can be stored much more cheaply, e.g. in stack or CPU-register memory, so one doesn’t typically worry about the performance cost of &quot;allocating&quot; them.
+We should clarify that what `@time` reports is specifically _heap_ allocations, which are typically needed for either mutable objects or for creating/growing variable-sized containers (such as `Array` or `Dict`, strings, or &quot;type-unstable&quot; objects whose type is only known at runtime). Allocating (or deallocating) such blocks of memory may require an expensive function call to libc (e.g. via `malloc` in C), and they must be tracked for garbage collection. In contrast, immutable values like numbers (except bignums), tuples, and immutable `struct`s can be stored much more cheaply, e.g. in stack or CPU-register memory, so one doesn’t typically worry about the performance cost of &quot;allocating&quot; them.
 
 Unexpected memory allocation is almost always a sign of some problem with your code, usually a problem with type-stability or creating many small temporary arrays. Consequently, in addition to the allocation itself, it&#39;s very likely that the code generated for your function is far from optimal. Take such indications seriously and follow the advice below.
 
@@ -172,11 +172,11 @@ It should however be noted that the compiler is quite efficient at optimizing aw
 ### Tools {#tools}
 
 Julia and its package ecosystem includes tools that may help you diagnose problems and improve the performance of your code:
-- [Profiling](/tutorials/profile#Profiling) allows you to measure the performance of your running code and identify lines that serve as bottlenecks. For complex projects, the [ProfileView](https://github.com/timholy/ProfileView.jl) package can help you visualize your profiling results.
+- [Profiling](/manual/profile#Profiling) allows you to measure the performance of your running code and identify lines that serve as bottlenecks. For complex projects, the [ProfileView](https://github.com/timholy/ProfileView.jl) package can help you visualize your profiling results.
   
 - The [JET](https://github.com/aviatesk/JET.jl) package can help you find common performance problems in your code.
   
-- Unexpectedly-large memory allocations–as reported by [`@time`](/tutorials/profile#@time), [`@allocated`](/base/base#Base.@allocated), or the profiler (through calls to the garbage-collection routines)–hint that there might be issues with your code. If you don&#39;t see another reason for the allocations, suspect a type problem.  You can also start Julia with the `--track-allocation=user` option and examine the resulting `*.mem` files to see information about where those allocations occur. See [Memory allocation analysis](/tutorials/profile#Memory-allocation-analysis).
+- Unexpectedly-large memory allocations–as reported by [`@time`](/manual/profile#@time), [`@allocated`](/base/base#Base.@allocated), or the profiler (through calls to the garbage-collection routines)–hint that there might be issues with your code. If you don&#39;t see another reason for the allocations, suspect a type problem.  You can also start Julia with the `--track-allocation=user` option and examine the resulting `*.mem` files to see information about where those allocations occur. See [Memory allocation analysis](/manual/profile#Memory-allocation-analysis).
   
 - `@code_warntype` generates a representation of your code that can be helpful in finding expressions that result in type uncertainty. See [`@code_warntype`](/stdlib/InteractiveUtils#InteractiveUtils.@code_warntype) below.
   
@@ -769,7 +769,7 @@ This style of code presents performance challenges for the language. The parser,
 
 The discussion in the preceding paragraph referred to the &quot;parser&quot;, that is, the phase of compilation that takes place when the module containing `abmult` is first loaded, as opposed to the later phase when it is first invoked. The parser does not &quot;know&quot; that `Int` is a fixed type, or that the statement `r = -r` transforms an `Int` to another `Int`. The magic of type inference takes place in the later phase of compilation.
 
-Thus, the parser does not know that `r` has a fixed type (`Int`). Nor that `r` does not change value once the inner function is created (so that the box is unneeded).  Therefore, the parser emits code for box that holds an object with an abstract type such as `Any`, which requires run-time type dispatch for each occurrence of `r`.  This can be verified by applying `@code_warntype` to the above function.  Both the boxing and the run-time type dispatch can cause loss of performance.
+Thus, the parser does not know that `r` has a fixed type (`Int`). Nor that `r` does not change value once the inner function is created (so that the box is unneeded). Therefore, the parser emits code for box that holds an object with an abstract type such as `Any`, which requires run-time type dispatch for each occurrence of `r`. This can be verified by applying `@code_warntype` to the above function. Both the boxing and the run-time type dispatch can cause loss of performance.
 
 If captured variables are used in a performance-critical section of the code, then the following tips help ensure that their use is performant. First, if it is known that a captured variable does not change its type, then this can be declared explicitly with a type annotation (on the variable, not the right-hand side):
 
@@ -994,7 +994,7 @@ Notice both the 3× speedup and the decreased memory allocation of the `fview` v
 
 If your application involves many small (`< 100` element) arrays of fixed sizes (i.e. the size is known prior to execution), then you might want to consider using the [StaticArrays.jl package](https://github.com/JuliaArrays/StaticArrays.jl). This package allows you to represent such arrays in a way that avoids unnecessary heap allocations and allows the compiler to specialize code for the _size_ of the array, e.g. by completely unrolling vector operations (eliminating the loops) and storing elements in CPU registers.
 
-For example, if you are doing computations with 2d geometries, you might have many computations with 2-component vectors.  By using the `SVector` type from StaticArrays.jl, you can use convenient vector notation and operations like `norm(3v - w)` on vectors `v` and `w`, while allowing the compiler to unroll the code to a minimal computation equivalent to `@inbounds hypot(3v[1]-w[1], 3v[2]-w[2])`.
+For example, if you are doing computations with 2d geometries, you might have many computations with 2-component vectors. By using the `SVector` type from StaticArrays.jl, you can use convenient vector notation and operations like `norm(3v - w)` on vectors `v` and `w`, while allowing the compiler to unroll the code to a minimal computation equivalent to `@inbounds hypot(3v[1]-w[1], 3v[2]-w[2])`.
 
 ### More dots: Fuse vectorized operations {#More-dots:-Fuse-vectorized-operations}
 
@@ -1192,9 +1192,9 @@ As an alternative to OpenBLAS, there exist several other backends that can help 
 
 These are external packages, so we will not discuss them in detail here. Please refer to their respective documentations (especially because they have different behaviors than OpenBLAS with respect to multithreading).
 
-## Miscellaneous {#Miscellaneous}
+## Miscellaneous
 
-### Tweaks {#Tweaks}
+### Tweaks
 
 These are some minor points that might help in tight inner loops.
 - Avoid unnecessary arrays. For example, instead of [`sum([x,y,z])`](/base/collections#Base.sum) use `x+y+z`.
@@ -1215,7 +1215,7 @@ Sometimes you can enable better optimization by promising certain program proper
   
 - Use [`@fastmath`](/base/math#Base.FastMath.@fastmath) to allow floating point optimizations that are correct for real numbers, but lead to differences for IEEE numbers. Be careful when doing this, as this may change numerical results. This corresponds to the `-ffast-math` option of clang.
   
-- Write [`@simd`](/base/base#Base.SimdLoop.@simd) in front of `for` loops to promise that the iterations are independent and may be reordered.  Note that in many cases, Julia can automatically vectorize code without the `@simd` macro; it is only beneficial in cases where such a transformation would otherwise be illegal, including cases like allowing floating-point re-associativity and ignoring dependent memory accesses (`@simd ivdep`). Again, be very careful when asserting `@simd` as erroneously annotating a loop with dependent iterations may result in unexpected results. In particular, note that `setindex!` on some `AbstractArray` subtypes is inherently dependent upon iteration order. **This feature is experimental** and could change or disappear in future versions of Julia.
+- Write [`@simd`](/base/base#Base.SimdLoop.@simd) in front of `for` loops to promise that the iterations are independent and may be reordered. Note that in many cases, Julia can automatically vectorize code without the `@simd` macro; it is only beneficial in cases where such a transformation would otherwise be illegal, including cases like allowing floating-point re-associativity and ignoring dependent memory accesses (`@simd ivdep`). Again, be very careful when asserting `@simd` as erroneously annotating a loop with dependent iterations may result in unexpected results. In particular, note that `setindex!` on some `AbstractArray` subtypes is inherently dependent upon iteration order. **This feature is experimental** and could change or disappear in future versions of Julia.
   
 
 The common idiom of using 1:n to index into an AbstractArray is not safe if the Array uses unconventional indexing, and may cause a segmentation fault if bounds checking is turned off. Use `LinearIndices(x)` or `eachindex(x)` instead (see also [Arrays with custom indices](/devdocs/offset-arrays#man-custom-indices)).

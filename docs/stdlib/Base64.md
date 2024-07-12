@@ -1,7 +1,7 @@
 
 
 
-# Base64 {#Base64}
+# Base64
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='Base64.Base64' href='#Base64.Base64'>#</a>&nbsp;<b><u>Base64.Base64</u></b> &mdash; <i>Module</i>.
 
@@ -16,7 +16,7 @@ Base64
 Functionality for [base64 encoding and decoding](https://en.wikipedia.org/wiki/Base64), a method to represent binary data using text, common on the web.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Base64/src/Base64.jl#L3-L8)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Base64/src/Base64.jl#L3-L8)
 
 </div>
 <br>
@@ -54,7 +54,7 @@ julia> String(base64decode(str))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Base64/src/encode.jl#L8-L33)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Base64/src/encode.jl#L8-L33)
 
 </div>
 <br>
@@ -77,7 +77,7 @@ The optional keyword argument `context` can be set to `:key=>value` pair or an `
 See also [`base64decode`](/stdlib/Base64#Base64.base64decode).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Base64/src/encode.jl#L188-L204)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Base64/src/encode.jl#L188-L204)
 
 </div>
 <br>
@@ -112,7 +112,7 @@ julia> String(read(iob64_decode))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Base64/src/decode.jl#L14-L34)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Base64/src/decode.jl#L14-L34)
 
 </div>
 <br>
@@ -149,7 +149,7 @@ julia> String(b)
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Base64/src/decode.jl#L190-L212)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Base64/src/decode.jl#L190-L212)
 
 </div>
 <br>
@@ -169,7 +169,7 @@ Return an `AbstractString` containing the representation of `x` in the requested
 The optional keyword argument `context` can be set to `:key=>value` pair or an `IO` or [`IOContext`](/base/io-network#Base.IOContext) object whose attributes are used for the I/O stream passed to [`show`](/base/io-network#Base.show-Tuple{IO,%20Any}).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Base64/src/Base64.jl#L33-L43)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Base64/src/Base64.jl#L33-L43)
 
 </div>
 <br>

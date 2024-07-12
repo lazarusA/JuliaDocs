@@ -43,7 +43,7 @@ The code for lowering Julia AST to LLVM IR or interpreting it directly is in dir
 
 Some of the `.cpp` files form a group that compile to a single object.
 
-The difference between an intrinsic and a builtin is that a builtin is a first class function that can be used like any other Julia function.  An intrinsic can operate only on unboxed data, and therefore its arguments must be statically typed.
+The difference between an intrinsic and a builtin is that a builtin is a first class function that can be used like any other Julia function. An intrinsic can operate only on unboxed data, and therefore its arguments must be statically typed.
 
 ### Alias Analysis {#LLVM-Alias-Analysis}
 
@@ -198,14 +198,14 @@ Improving LLVM code generation usually involves either changing Julia lowering t
 If you are planning to improve a pass, be sure to read the [LLVM developer policy](https://llvm.org/docs/DeveloperPolicy.html). The best strategy is to create a code example in a form where you can use LLVM&#39;s `opt` tool to study it and the pass of interest in isolation.
 1. Create an example Julia code of interest.
   
-1. Use `JULIA_LLVM_ARGS=-print-after-all` to dump the IR.
+2. Use `JULIA_LLVM_ARGS=-print-after-all` to dump the IR.
   
-1. Pick out the IR at the point just before the pass of interest runs.
+3. Pick out the IR at the point just before the pass of interest runs.
   
-1. Strip the debug metadata and fix up the TBAA metadata by hand.
+4. Strip the debug metadata and fix up the TBAA metadata by hand.
   
 
-The last step is labor intensive.  Suggestions on a better way would be appreciated.
+The last step is labor intensive. Suggestions on a better way would be appreciated.
 
 ## The jlcall calling convention {#The-jlcall-calling-convention}
 
@@ -243,7 +243,7 @@ However, in order to be able to do late GC root placement, we need to be able to
 
 Minimize the number of needed GC roots/stores to them subject to the constraint that at every safepoint, any live GC-tracked pointer (i.e. for which there is a path after this point that contains a use of this pointer) is in some GC slot.
 
-### Representation {#Representation}
+### Representation
 
 The primary difficulty is thus choosing an IR representation that allows us to identify GC-tracked pointers and their uses, even after the program has been run through the optimizer. Our design makes use of three LLVM features to achieve this:
 - Custom address spaces
@@ -263,7 +263,7 @@ Custom address spaces allow us to tag every point with an integer that needs to 
 - Pointers loaded from tracked object (currently 13): This is used by arrays, which themselves contain a pointer to the managed data. This data area is owned by the array, but is not a GC-tracked object by itself. The compiler guarantees that as long as this pointer is live, the object that this pointer was loaded from will keep being live.
   
 
-### Invariants {#Invariants}
+### Invariants
 
 The GC root placement pass makes use of several invariants, which need to be observed by the frontend and are preserved by the optimizer.
 

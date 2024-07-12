@@ -6,7 +6,7 @@ Strings are finite sequences of characters. Of course, the real trouble comes wh
 There are a few noteworthy high-level features about Julia&#39;s strings:
 - The built-in concrete type used for strings (and string literals) in Julia is [`String`](/base/strings#Core.String-Tuple{AbstractString}). This supports the full range of [Unicode](https://en.wikipedia.org/wiki/Unicode) characters via the [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoding. (A [`transcode`](/base/strings#Base.transcode) function is provided to convert to/from other Unicode encodings.)
   
-- All string types are subtypes of the abstract type `AbstractString`, and external packages define additional `AbstractString` subtypes (e.g. for other encodings).  If you define a function expecting a string argument, you should declare the type as `AbstractString` in order to accept any string type.
+- All string types are subtypes of the abstract type `AbstractString`, and external packages define additional `AbstractString` subtypes (e.g. for other encodings). If you define a function expecting a string argument, you should declare the type as `AbstractString` in order to accept any string type.
   
 - Like C and Java, but unlike most dynamic languages, Julia has a first-class type for representing a single character, called [`AbstractChar`](/base/strings#Core.AbstractChar). The built-in [`Char`](/base/strings#Core.Char) subtype of `AbstractChar` is a 32-bit primitive type that can represent any Unicode character (and which is based on the UTF-8 encoding).
   
@@ -206,7 +206,7 @@ julia> str[6:6]
 
 The former is a single character value of type `Char`, while the latter is a string value that happens to contain only a single character. In Julia these are very different things.
 
-Range indexing makes a copy of the selected part of the original string. Alternatively, it is possible to create a view into a string using the type [`SubString`](/base/strings#Base.SubString). More simply, using the [`@views`](/base/arrays#Base.@views) macro on a block of code converts all string slices into substrings.  For example:
+Range indexing makes a copy of the selected part of the original string. Alternatively, it is possible to create a view into a string using the type [`SubString`](/base/strings#Base.SubString). More simply, using the [`@views`](/base/arrays#Base.@views) macro on a block of code converts all string slices into substrings. For example:
 
 ```julia
 julia> str = "long string"
@@ -345,7 +345,7 @@ julia> collect(eachindex(s))
 ```
 
 
-To access the raw code units (bytes for UTF-8) of the encoding, you can use the [`codeunit(s,i)`](/base/strings#Base.codeunit) function, where the index `i` runs consecutively from `1` to [`ncodeunits(s)`](/base/strings#Base.ncodeunits-Tuple{AbstractString}).  The [`codeunits(s)`](/base/strings#Base.codeunits) function returns an `AbstractVector{UInt8}` wrapper that lets you access these raw codeunits (bytes) as an array.
+To access the raw code units (bytes for UTF-8) of the encoding, you can use the [`codeunit(s,i)`](/base/strings#Base.codeunit) function, where the index `i` runs consecutively from `1` to [`ncodeunits(s)`](/base/strings#Base.ncodeunits-Tuple{AbstractString}). The [`codeunits(s)`](/base/strings#Base.codeunits) function returns an `AbstractVector{UInt8}` wrapper that lets you access these raw codeunits (bytes) as an array.
 
 Strings in Julia can contain invalid UTF-8 code unit sequences. This convention allows to treat any byte sequence as a `String`. In such situations a rule is that when parsing a sequence of code units from left to right characters are formed by the longest sequence of 8-bit code units that matches the start of one of the following bit patterns (each `x` can be `0` or `1`):
 - `0xxxxxxx`;
@@ -863,11 +863,11 @@ i   Do case-insensitive pattern matching.
     that would cross the Unicode rules/non-Unicode rules boundary
     (ords 255/256) will not succeed.
 
-m   Treat string as multiple lines.  That is, change "^" and "$"
+m   Treat string as multiple lines. That is, change "^" and "$"
     from matching the start or end of the string to matching the
     start or end of any line anywhere within the string.
 
-s   Treat string as single line.  That is, change "." to match any
+s   Treat string as single line. That is, change "." to match any
     character whatsoever, even a newline, which normally it would
     not match.
 
@@ -918,7 +918,7 @@ ERROR: syntax: invalid escape sequence
 
 Triple-quoted regex strings, of the form `r"""..."""`, are also supported (and may be convenient for regular expressions containing quotation marks or newlines).
 
-The `Regex()` constructor may be used to create a valid regex string programmatically.  This permits using the contents of string variables and other string operations when constructing the regex string. Any of the regex codes above can be used within the single string argument to `Regex()`. Here are some examples:
+The `Regex()` constructor may be used to create a valid regex string programmatically. This permits using the contents of string variables and other string operations when constructing the regex string. Any of the regex codes above can be used within the single string argument to `Regex()`. Here are some examples:
 
 ```julia
 julia> using Dates

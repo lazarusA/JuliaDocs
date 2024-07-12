@@ -71,7 +71,7 @@ If the julia program needs to access symbols from the main executable, it may be
 
 The script `julia-config.jl` was created to aid in determining what build parameters are required by a program that uses embedded Julia. This script uses the build parameters and system configuration of the particular Julia distribution it is invoked by to export the necessary compiler flags for an embedding program to interact with that distribution. This script is located in the Julia shared data directory.
 
-#### Example {#Example}
+#### Example
 
 ```c
 #include <julia.h>
@@ -488,7 +488,7 @@ for(size_t i=0; i<size1; i++)
 
 Notice that while Julia arrays use 1-based indexing, the C API uses 0-based indexing (for example in calling `jl_array_dim`) in order to read as idiomatic C code.
 
-## Exceptions {#Exceptions}
+## Exceptions
 
 Julia code can throw exceptions. For example, consider:
 
@@ -535,7 +535,7 @@ jl_errorf("argument x = %d is too large", x);
 
 where in this example `x` is assumed to be an integer.
 
-### Thread-safety {#Thread-safety}
+### Thread-safety
 
 In general, the Julia C API is not fully thread-safe. When embedding Julia in a multi-threaded application care needs to be taken not to violate the following restrictions:
 - `jl_init()` may only be called once in the application life-time. The same applies to `jl_atexit_hook()`, and it may only be called after `jl_init()`.

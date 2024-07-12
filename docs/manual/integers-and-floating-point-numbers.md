@@ -35,7 +35,7 @@ The following are Julia&#39;s primitive numeric types:
 
 Additionally, full support for [Complex and Rational Numbers](/manual/complex-and-rational-numbers#Complex-and-Rational-Numbers) is built on top of these primitive numeric types. All numeric types interoperate naturally without explicit casting, thanks to a flexible, user-extensible [type promotion system](/manual/conversion-and-promotion#conversion-and-promotion).
 
-## Integers {#Integers}
+## Integers
 
 Literal integers are represented in the standard manner:
 
@@ -576,7 +576,7 @@ BigInt
 ```
 
 
-The default precision (in number of bits of the significand) and rounding mode of [`BigFloat`](/base/numbers#Base.MPFR.BigFloat) operations can be changed globally by calling [`setprecision`](/base/numbers#Base.MPFR.setprecision) and [`setrounding`](/base/numbers#Base.Rounding.setrounding-Tuple{Type,%20Any}), and all further calculations will take these changes in account.  Alternatively, the precision or the rounding can be changed only within the execution of a particular block of code by using the same functions with a `do` block:
+The default precision (in number of bits of the significand) and rounding mode of [`BigFloat`](/base/numbers#Base.MPFR.BigFloat) operations can be changed globally by calling [`setprecision`](/base/numbers#Base.MPFR.setprecision) and [`setrounding`](/base/numbers#Base.Rounding.setrounding-Tuple{Type,%20Any}), and all further calculations will take these changes in account. Alternatively, the precision or the rounding can be changed only within the execution of a particular block of code by using the same functions with a `do` block:
 
 ```julia
 julia> setrounding(BigFloat, RoundUp) do
@@ -638,7 +638,7 @@ julia> 2(x-1)^2 - 3(x-1) + 1
 
 ::: tip Note
 
-The precedence of numeric literal coefficients used for implicit multiplication is higher than other binary operators such as multiplication (`*`), and division (`/`, `\`, and `//`).  This means, for example, that `1 / 2im` equals `-0.5im` and `6 // 2(2 + 1)` equals `1 // 1`.
+The precedence of numeric literal coefficients used for implicit multiplication is higher than other binary operators such as multiplication (`*`), and division (`/`, `\`, and `//`). This means, for example, that `1 / 2im` equals `-0.5im` and `6 // 2(2 + 1)` equals `1 // 1`.
 
 :::
 

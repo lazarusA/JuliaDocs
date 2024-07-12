@@ -384,7 +384,7 @@ julia> map(tuple, (1/(i+j) for i=1:2, j=1:2), [1 3; 2 4])
 ```
 
 
-Generators are implemented via inner functions. Just like inner functions used elsewhere in the language, variables from the enclosing scope can be &quot;captured&quot; in the inner function.  For example, `sum(p[i] - q[i] for i=1:n)` captures the three variables `p`, `q` and `n` from the enclosing scope. Captured variables can present performance challenges; see [performance tips](/manual/performance-tips#man-performance-captured).
+Generators are implemented via inner functions. Just like inner functions used elsewhere in the language, variables from the enclosing scope can be &quot;captured&quot; in the inner function. For example, `sum(p[i] - q[i] for i=1:n)` captures the three variables `p`, `q` and `n` from the enclosing scope. Captured variables can present performance challenges; see [performance tips](/manual/performance-tips#man-performance-captured).
 
 Ranges in generators and comprehensions can depend on previous ranges by writing multiple `for` keywords:
 
@@ -582,7 +582,7 @@ In the expression `A[I_1, I_2, ..., I_n]`, each `I_k` may be a scalar index, an 
   - [`CartesianIndex{N}`](/base/arrays#Base.IteratorsMD.CartesianIndex)s, which behave like an `N`-tuple of integers spanning multiple dimensions (see below for more details)
     
   
-1. An array of scalar indices. This includes:
+2. An array of scalar indices. This includes:
   - Vectors and multidimensional arrays of integers
     
   - Empty arrays like `[]`, which select no elements e.g. `A[[]]` (not to be confused with `A[]`)
@@ -594,7 +594,7 @@ In the expression `A[I_1, I_2, ..., I_n]`, each `I_k` may be a scalar index, an 
   - Arrays of `CartesianIndex{N}` (see below for more details)
     
   
-1. An object that represents an array of scalar indices and can be converted to such by [`to_indices`](/base/arrays#Base.to_indices). By default this includes:
+3. An object that represents an array of scalar indices and can be converted to such by [`to_indices`](/base/arrays#Base.to_indices). By default this includes:
   - [`Colon()`](/base/arrays#Base.Colon) (`:`), which represents all indices within an entire dimension or across the entire array
     
   - Arrays of booleans, which select elements at their `true` indices (see below for more details)
@@ -655,7 +655,7 @@ julia> A[:, 3:3]
 
 ### Cartesian indices {#Cartesian-indices}
 
-The special `CartesianIndex{N}` object represents a scalar index that behaves like an `N`-tuple of integers spanning multiple dimensions.  For example:
+The special `CartesianIndex{N}` object represents a scalar index that behaves like an `N`-tuple of integers spanning multiple dimensions. For example:
 
 ```julia
 julia> A = reshape(1:32, 4, 4, 2);
@@ -849,7 +849,7 @@ julia> A[2, 1]
 ```
 
 
-## Iteration {#Iteration}
+## Iteration
 
 The recommended ways to iterate over a whole array are
 
@@ -905,9 +905,9 @@ This setting will cause `eachindex` iteration over a `MyArray` to use integers. 
 The following operators are supported for arrays:
 1. Unary arithmetic – `-`, `+`
   
-1. Binary arithmetic – `-`, `+`, `*`, `/`, `\`, `^`
+2. Binary arithmetic – `-`, `+`, `*`, `/`, `\`, `^`
   
-1. Comparison – `==`, `!=`, `≈` ([`isapprox`](/base/math#Base.isapprox)), `≉`
+3. Comparison – `==`, `!=`, `≈` ([`isapprox`](/base/math#Base.isapprox)), `≉`
   
 
 To enable convenient vectorization of mathematical and other operations, Julia [provides the dot syntax](/manual/functions#man-vectorized) `f.(args...)`, e.g. `sin.(x)` or `min.(x, y)`, for elementwise operations over arrays or mixtures of arrays and scalars (a [Broadcasting](/manual/arrays#Broadcasting) operation); these have the additional advantage of &quot;fusing&quot; into a single loop when combined with other dot calls, e.g. `sin.(cos.(x))`.
@@ -918,7 +918,7 @@ Note that comparisons such as `==` operate on whole arrays, giving a single bool
 
 Also notice the difference between `max.(a,b)`, which [`broadcast`](/base/arrays#Base.Broadcast.broadcast)s [`max`](/base/math#Base.max) elementwise over `a` and `b`, and [`maximum(a)`](/base/collections#Base.maximum), which finds the largest value within `a`. The same relationship holds for `min.(a, b)` and `minimum(a)`.
 
-## Broadcasting {#Broadcasting}
+## Broadcasting
 
 It is sometimes useful to perform element-by-element binary operations on arrays of different sizes, such as adding a vector to each column of a matrix. An inefficient way to do this would be to replicate the vector to the size of the matrix:
 
@@ -953,7 +953,7 @@ julia> broadcast(+, a, b)
 
 [Dotted operators](/manual/mathematical-operations#man-dot-operators) such as `.+` and `.*` are equivalent to `broadcast` calls (except that they fuse, as [described above](/manual/arrays#man-array-and-vectorized-operators-and-functions)). There is also a [`broadcast!`](/base/arrays#Base.Broadcast.broadcast!) function to specify an explicit destination (which can also be accessed in a fusing fashion by `.=` assignment). In fact, `f.(args...)` is equivalent to `broadcast(f, args...)`, providing a convenient syntax to broadcast any function ([dot syntax](/manual/functions#man-vectorized)). Nested &quot;dot calls&quot; `f.(...)` (including calls to `.+` etcetera) [automatically fuse](/manual/mathematical-operations#man-dot-operators) into a single `broadcast` call.
 
-Additionally, [`broadcast`](/base/arrays#Base.Broadcast.broadcast) is not limited to arrays (see the function documentation); it also handles scalars, tuples and other collections.  By default, only some argument types are considered scalars, including (but not limited to) `Number`s, `String`s, `Symbol`s, `Type`s, `Function`s and some common singletons like `missing` and `nothing`. All other arguments are iterated over or indexed into elementwise.
+Additionally, [`broadcast`](/base/arrays#Base.Broadcast.broadcast) is not limited to arrays (see the function documentation); it also handles scalars, tuples and other collections. By default, only some argument types are considered scalars, including (but not limited to) `Number`s, `String`s, `Symbol`s, `Type`s, `Function`s and some common singletons like `missing` and `nothing`. All other arguments are iterated over or indexed into elementwise.
 
 ```julia
 julia> convert.(Float32, [1, 2])
@@ -985,7 +985,7 @@ julia> ([1, 2, 3], [4, 5, 6]) .+ tuple([1, 2, 3])
 ```
 
 
-## Implementation {#Implementation}
+## Implementation
 
 The base array type in Julia is the abstract type [`AbstractArray{T,N}`](/base/arrays#Core.AbstractArray). It is parameterized by the number of dimensions `N` and the element type `T`. [`AbstractVector`](/base/arrays#Base.AbstractVector) and [`AbstractMatrix`](/base/arrays#Base.AbstractMatrix) are aliases for the 1-d and 2-d cases. Operations on `AbstractArray` objects are defined using higher level operators and functions, in a way that is independent of the underlying storage. These operations generally work correctly as a fallback for any specific array implementation.
 
@@ -993,7 +993,7 @@ The `AbstractArray` type includes anything vaguely array-like, and implementatio
 
 `DenseArray` is an abstract subtype of `AbstractArray` intended to include all arrays where elements are stored contiguously in column-major order (see [additional notes in Performance Tips](/manual/performance-tips#man-performance-column-major)). The [`Array`](/base/arrays#Core.Array) type is a specific instance of `DenseArray`;  [`Vector`](/base/arrays#Base.Vector) and [`Matrix`](/base/arrays#Base.Matrix) are aliases for the 1-d and 2-d cases. Very few operations are implemented specifically for `Array` beyond those that are required for all `AbstractArray`s; much of the array library is implemented in a generic manner that allows all custom arrays to behave similarly.
 
-`SubArray` is a specialization of `AbstractArray` that performs indexing by sharing memory with the original array rather than by copying it. A `SubArray` is created with the [`view`](/base/arrays#Base.view) function, which is called the same way as [`getindex`](/base/collections#Base.getindex) (with an array and a series of index arguments). The result of [`view`](/base/arrays#Base.view) looks the same as the result of [`getindex`](/base/collections#Base.getindex), except the data is left in place. [`view`](/base/arrays#Base.view) stores the input index vectors in a `SubArray` object, which can later be used to index the original array indirectly.  By putting the [`@views`](/base/arrays#Base.@views) macro in front of an expression or block of code, any `array[...]` slice in that expression will be converted to create a `SubArray` view instead.
+`SubArray` is a specialization of `AbstractArray` that performs indexing by sharing memory with the original array rather than by copying it. A `SubArray` is created with the [`view`](/base/arrays#Base.view) function, which is called the same way as [`getindex`](/base/collections#Base.getindex) (with an array and a series of index arguments). The result of [`view`](/base/arrays#Base.view) looks the same as the result of [`getindex`](/base/collections#Base.getindex), except the data is left in place. [`view`](/base/arrays#Base.view) stores the input index vectors in a `SubArray` object, which can later be used to index the original array indirectly. By putting the [`@views`](/base/arrays#Base.@views) macro in front of an expression or block of code, any `array[...]` slice in that expression will be converted to create a `SubArray` view instead.
 
 [`BitArray`](/base/arrays#Base.BitArray)s are space-efficient &quot;packed&quot; boolean arrays, which store one bit per boolean value. They can be used similarly to `Array{Bool}` arrays (which store one byte per boolean value), and can be converted to/from the latter via `Array(bitarray)` and `BitArray(array)`, respectively.
 

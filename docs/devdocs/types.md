@@ -1,7 +1,7 @@
 
 # More about types {#More-about-types}
 
-If you&#39;ve used Julia for a while, you understand the fundamental role that types play.  Here we try to get under the hood, focusing particularly on [Parametric Types](/manual/types#Parametric-Types).
+If you&#39;ve used Julia for a while, you understand the fundamental role that types play. Here we try to get under the hood, focusing particularly on [Parametric Types](/manual/types#Parametric-Types).
 
 ## Types and sets (and `Any` and `Union{}`/`Bottom`) {#Types-and-sets-(and-Any-and-Union{}/Bottom)}
 
@@ -43,7 +43,7 @@ Tuple{Integer, Real}
 ```
 
 
-While these operations may seem abstract, they lie at the heart of Julia.  For example, method dispatch is implemented by stepping through the items in a method list until reaching one for which the type of the argument tuple is a subtype of the method signature. For this algorithm to work, it&#39;s important that methods be sorted by their specificity, and that the search begins with the most specific methods. Consequently, Julia also implements a partial order on types; this is achieved by functionality that is similar to `<:`, but with differences that will be discussed below.
+While these operations may seem abstract, they lie at the heart of Julia. For example, method dispatch is implemented by stepping through the items in a method list until reaching one for which the type of the argument tuple is a subtype of the method signature. For this algorithm to work, it&#39;s important that methods be sorted by their specificity, and that the search begins with the most specific methods. Consequently, Julia also implements a partial order on types; this is achieved by functionality that is similar to `<:`, but with differences that will be discussed below.
 
 ## UnionAll types {#UnionAll-types}
 
@@ -118,7 +118,7 @@ A type with free variables is, in some sense, not really a type at all. Consider
 
 For this reason, the function `jl_has_free_typevars` in the C API is very important. Types for which it returns true will not give meaningful answers in subtyping and other type functions.
 
-## TypeNames {#TypeNames}
+## TypeNames
 
 The following two [`Array`](/base/arrays#Core.Array) types are functionally equivalent, yet print differently:
 
@@ -190,7 +190,7 @@ Ptr{Cvoid} @0x00007fcc7de64850
 
 The `wrapper` field of [`Array`](/base/arrays#Core.Array) points to itself, but for `Array{TV,NV}` it points back to the original definition of the type.
 
-What about the other fields? `hash` assigns an integer to each type.  To examine the `cache` field, it&#39;s helpful to pick a type that is less heavily used than Array. Let&#39;s first create our own type:
+What about the other fields? `hash` assigns an integer to each type. To examine the `cache` field, it&#39;s helpful to pick a type that is less heavily used than Array. Let&#39;s first create our own type:
 
 ```julia
 julia> struct MyType{T,N} end
@@ -207,7 +207,7 @@ When you instantiate a parametric type, each concrete type gets saved in a type 
 
 ## Tuple types {#Tuple-types}
 
-Tuple types constitute an interesting special case.  For dispatch to work on declarations like `x::Tuple`, the type has to be able to accommodate any tuple.  Let&#39;s check the parameters:
+Tuple types constitute an interesting special case. For dispatch to work on declarations like `x::Tuple`, the type has to be able to accommodate any tuple. Let&#39;s check the parameters:
 
 ```julia
 julia> Tuple
@@ -378,7 +378,7 @@ julia> function mysubtype(a,b)
 ```
 
 
-and then set a breakpoint in `jl_breakpoint`.  Once this breakpoint gets triggered, you can set breakpoints in other functions.
+and then set a breakpoint in `jl_breakpoint`. Once this breakpoint gets triggered, you can set breakpoints in other functions.
 
 As a warm-up, try the following:
 

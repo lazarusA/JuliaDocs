@@ -26,7 +26,7 @@ WITH_DTRACE=1
 
 to enable USDT probes.
 
-### Verifying {#Verifying}
+### Verifying
 
 ```
 > readelf -n usr/lib/libjulia-internal.so.1
@@ -89,55 +89,55 @@ Whereas the probe itself is a noop sled that will be patched to a trampoline to 
 ### GC probes {#GC-probes}
 1. `julia:gc__begin`: GC begins running on one thread and triggers stop-the-world.
   
-1. `julia:gc__stop_the_world`: All threads have reached a safepoint and GC runs.
+2. `julia:gc__stop_the_world`: All threads have reached a safepoint and GC runs.
   
-1. `julia:gc__mark__begin`: Beginning the mark phase
+3. `julia:gc__mark__begin`: Beginning the mark phase
   
-1. `julia:gc__mark_end(scanned_bytes, perm_scanned)`: Mark phase ended
+4. `julia:gc__mark_end(scanned_bytes, perm_scanned)`: Mark phase ended
   
-1. `julia:gc__sweep_begin(full)`: Starting sweep
+5. `julia:gc__sweep_begin(full)`: Starting sweep
   
-1. `julia:gc__sweep_end`: Sweep phase finished
+6. `julia:gc__sweep_end`: Sweep phase finished
   
-1. `julia:gc__end`: GC is finished, other threads continue work
+7. `julia:gc__end`: GC is finished, other threads continue work
   
-1. `julia:gc__finalizer`: Initial GC thread has finished running finalizers
+8. `julia:gc__finalizer`: Initial GC thread has finished running finalizers
   
 
 ### Task runtime probes {#Task-runtime-probes}
 1. `julia:rt__run__task(task)`: Switching to task `task` on current thread.
   
-1. `julia:rt__pause__task(task)`: Switching from task `task` on current thread.
+2. `julia:rt__pause__task(task)`: Switching from task `task` on current thread.
   
-1. `julia:rt__new__task(parent, child)`: Task `parent` created task `child` on current thread.
+3. `julia:rt__new__task(parent, child)`: Task `parent` created task `child` on current thread.
   
-1. `julia:rt__start__task(task)`: Task `task` started for the first time with a new stack.
+4. `julia:rt__start__task(task)`: Task `task` started for the first time with a new stack.
   
-1. `julia:rt__finish__task(task)`: Task `task` finished and will no longer execute.
+5. `julia:rt__finish__task(task)`: Task `task` finished and will no longer execute.
   
-1. `julia:rt__start__process__events(task)`: Task `task` started processing libuv events.
+6. `julia:rt__start__process__events(task)`: Task `task` started processing libuv events.
   
-1. `julia:rt__finish__process__events(task)`: Task `task` finished processing libuv events.
+7. `julia:rt__finish__process__events(task)`: Task `task` finished processing libuv events.
   
 
 ### Task queue probes {#Task-queue-probes}
 1. `julia:rt__taskq__insert(ptls, task)`: Thread `ptls` attempted to insert `task` into a PARTR multiq.
   
-1. `julia:rt__taskq__get(ptls, task)`: Thread `ptls` popped `task` from a PARTR multiq.
+2. `julia:rt__taskq__get(ptls, task)`: Thread `ptls` popped `task` from a PARTR multiq.
   
 
 ### Thread sleep/wake probes {#Thread-sleep/wake-probes}
 1. `julia:rt__sleep__check__wake(ptls, old_state)`: Thread (PTLS `ptls`) waking up, previously in state `old_state`.
   
-1. `julia:rt__sleep__check__wakeup(ptls)`: Thread (PTLS `ptls`) woke itself up.
+2. `julia:rt__sleep__check__wakeup(ptls)`: Thread (PTLS `ptls`) woke itself up.
   
-1. `julia:rt__sleep__check__sleep(ptls)`: Thread (PTLS `ptls`) is attempting to sleep.
+3. `julia:rt__sleep__check__sleep(ptls)`: Thread (PTLS `ptls`) is attempting to sleep.
   
-1. `julia:rt__sleep__check__taskq__wake(ptls)`: Thread (PTLS `ptls`) fails to sleep due to tasks in PARTR multiq.
+4. `julia:rt__sleep__check__taskq__wake(ptls)`: Thread (PTLS `ptls`) fails to sleep due to tasks in PARTR multiq.
   
-1. `julia:rt__sleep__check__task__wake(ptls)`: Thread (PTLS `ptls`) fails to sleep due to tasks in Base workqueue.
+5. `julia:rt__sleep__check__task__wake(ptls)`: Thread (PTLS `ptls`) fails to sleep due to tasks in Base workqueue.
   
-1. `julia:rt__sleep__check__uv__wake(ptls)`: Thread (PTLS `ptls`) fails to sleep due to libuv wakeup.
+6. `julia:rt__sleep__check__uv__wake(ptls)`: Thread (PTLS `ptls`) fails to sleep due to libuv wakeup.
   
 
 ## Probe usage examples {#Probe-usage-examples}

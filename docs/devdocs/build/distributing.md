@@ -1,7 +1,7 @@
 
 # Binary distributions {#Binary-distributions}
 
-These notes are for those wishing to compile a binary distribution of Julia for distribution on various platforms.  We love users spreading Julia as far and wide as they can, trying it out on as wide an array of operating systems and hardware configurations as possible.  As each platform has specific gotchas and processes that must be followed in order to create a portable, working Julia distribution, we have separated most of the notes by OS.
+These notes are for those wishing to compile a binary distribution of Julia for distribution on various platforms. We love users spreading Julia as far and wide as they can, trying it out on as wide an array of operating systems and hardware configurations as possible. As each platform has specific gotchas and processes that must be followed in order to create a portable, working Julia distribution, we have separated most of the notes by OS.
 
 Note that while the code for Julia is [MIT-licensed, with a few exceptions](https://github.com/JuliaLang/julia/blob/master/LICENSE.md), the distribution created by the techniques described herein will be GPL licensed, as various dependent libraries such as `SuiteSparse` are GPL licensed. We do hope to have a non-GPL distribution of Julia in the future.
 
@@ -38,21 +38,21 @@ We therefore recommend that you pass the `MARCH` variable when calling `make`, s
 
 The full list of CPU targets supported by LLVM can be obtained by running `llc -mattr=help`.
 
-## Linux {#Linux}
+## Linux
 
 On Linux, `make binary-dist` creates a tarball that contains a fully functional Julia installation. If you wish to create a distribution package such as a `.deb`, or `.rpm`, some extra effort is needed. See the [julia-debian](https://github.com/staticfloat/julia-debian) repository for an example of what metadata is needed for creating `.deb` packages for Debian and Ubuntu-based systems. See the [Fedora package](https://src.fedoraproject.org/rpms/julia) for RPM-based distributions. Although we have not yet experimented with it, [Alien](https://wiki.debian.org/Alien) could be used to generate Julia packages for various Linux distributions.
 
 Julia supports overriding standard installation directories via `prefix` and other environment variables you can pass when calling `make` and `make install`. See Make.inc for their list. `DESTDIR` can also be used to force the installation into a temporary directory.
 
-By default, Julia loads `$prefix/etc/julia/startup.jl` as an installation-wide initialization file. This file can be used by distribution managers to set up custom paths or initialization code. For Linux distribution packages, if `$prefix` is set to `/usr`, there is no `/usr/etc` to look into. This requires the path to Julia&#39;s private `etc` directory to be changed.  This can be done via the `sysconfdir` make variable when building.  Simply pass `sysconfdir=/etc` to `make` when building and Julia will first check `/etc/julia/startup.jl` before trying `$prefix/etc/julia/startup.jl`.
+By default, Julia loads `$prefix/etc/julia/startup.jl` as an installation-wide initialization file. This file can be used by distribution managers to set up custom paths or initialization code. For Linux distribution packages, if `$prefix` is set to `/usr`, there is no `/usr/etc` to look into. This requires the path to Julia&#39;s private `etc` directory to be changed. This can be done via the `sysconfdir` make variable when building. Simply pass `sysconfdir=/etc` to `make` when building and Julia will first check `/etc/julia/startup.jl` before trying `$prefix/etc/julia/startup.jl`.
 
 ## OS X {#OS-X}
 
-To create a binary distribution on OSX, build Julia first, then cd to `contrib/mac/app`, and run `make` with the same makevars that were used with `make` when building Julia proper.  This will then create a `.dmg` file in the `contrib/mac/app` directory holding a completely self-contained Julia.app.
+To create a binary distribution on OSX, build Julia first, then cd to `contrib/mac/app`, and run `make` with the same makevars that were used with `make` when building Julia proper. This will then create a `.dmg` file in the `contrib/mac/app` directory holding a completely self-contained Julia.app.
 
-Alternatively, Julia may be built as a framework by invoking `make` with the `darwinframework` target and `DARWIN_FRAMEWORK=1` set.  For example, `make DARWIN_FRAMEWORK=1 darwinframework`.
+Alternatively, Julia may be built as a framework by invoking `make` with the `darwinframework` target and `DARWIN_FRAMEWORK=1` set. For example, `make DARWIN_FRAMEWORK=1 darwinframework`.
 
-## Windows {#Windows}
+## Windows
 
 Instructions for reating a Julia distribution on Windows are described in the [build devdocs for Windows](https://github.com/JuliaLang/julia/blob/master/doc/src/devdocs/build/windows.md).
 
@@ -279,7 +279,7 @@ gpg -u julia --armor --detach-sig julia-x.y.z-linux-<arch>.tar.gz
 
 This will produce a corresponding .asc file for each tarball. And that&#39;s it!
 
-### macOS {#macOS}
+### macOS
 
 Code signing should happen automatically on the macOS buildbots. However, it&#39;s important to verify that it was successful. On a system or virtual machine running macOS, download the .dmg file that was built on the buildbots. For the sake of example, say that the .dmg file is called `julia-x.y.z-osx.dmg`. Run
 

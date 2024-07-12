@@ -67,7 +67,7 @@ end
 ```
 
 
-The statement `x[1] = 42` _mutates_ the object `x`, and hence this change _will_ be visible in the array passed by the caller for this argument.   On the other hand, the assignment `y = 7 + y` changes the _binding_ (&quot;name&quot;) `y` to refer to a new value `7 + y`, rather than mutating the _original_ object referred to by `y`, and hence does _not_ change the corresponding argument passed by the caller.   This can be seen if we call `f(x, y)`:
+The statement `x[1] = 42` _mutates_ the object `x`, and hence this change _will_ be visible in the array passed by the caller for this argument. On the other hand, the assignment `y = 7 + y` changes the _binding_ (&quot;name&quot;) `y` to refer to a new value `7 + y`, rather than mutating the _original_ object referred to by `y`, and hence does _not_ change the corresponding argument passed by the caller. This can be seen if we call `f(x, y)`:
 
 ```julia
 julia> a = [4, 5, 6]
@@ -112,15 +112,15 @@ fib(n::Integer) = n ≤ 2 ? one(n) : fib(n-1) + fib(n-2)
 
 and the `::Integer` specification means that it will only be callable when `n` is a subtype of the [abstract](/manual/types#man-abstract-types) `Integer` type.
 
-Argument-type declarations **normally have no impact on performance**: regardless of what argument types (if any) are declared, Julia compiles a specialized version of the function for the actual argument types passed by the caller.   For example, calling `fib(1)` will trigger the compilation of specialized version of `fib` optimized specifically for `Int` arguments, which is then re-used if `fib(7)` or `fib(15)` are called.  (There are rare exceptions when an argument-type declaration can trigger additional compiler specializations; see: [Be aware of when Julia avoids specializing](/manual/performance-tips#Be-aware-of-when-Julia-avoids-specializing).)  The most common reasons to declare argument types in Julia are, instead:
-- **Dispatch:** As explained in [Methods](/manual/methods#Methods), you can have different versions (&quot;methods&quot;) of a function for different argument types, in which case the argument types are used to determine which implementation is called for which arguments.  For example, you might implement a completely different algorithm `fib(x::Number) = ...` that works for any `Number` type by using [Binet&#39;s formula](https://en.wikipedia.org/wiki/Fibonacci_number#Binet%27s_formula) to extend it to non-integer values.
+Argument-type declarations **normally have no impact on performance**: regardless of what argument types (if any) are declared, Julia compiles a specialized version of the function for the actual argument types passed by the caller. For example, calling `fib(1)` will trigger the compilation of specialized version of `fib` optimized specifically for `Int` arguments, which is then re-used if `fib(7)` or `fib(15)` are called.  (There are rare exceptions when an argument-type declaration can trigger additional compiler specializations; see: [Be aware of when Julia avoids specializing](/manual/performance-tips#Be-aware-of-when-Julia-avoids-specializing).)  The most common reasons to declare argument types in Julia are, instead:
+- **Dispatch:** As explained in [Methods](/manual/methods#Methods), you can have different versions (&quot;methods&quot;) of a function for different argument types, in which case the argument types are used to determine which implementation is called for which arguments. For example, you might implement a completely different algorithm `fib(x::Number) = ...` that works for any `Number` type by using [Binet&#39;s formula](https://en.wikipedia.org/wiki/Fibonacci_number#Binet%27s_formula) to extend it to non-integer values.
   
-- **Correctness:** Type declarations can be useful if your function only returns correct results for certain argument types.  For example, if we omitted argument types and wrote `fib(n) = n ≤ 2 ? one(n) : fib(n-1) + fib(n-2)`, then `fib(1.5)` would silently give us the nonsensical answer `1.0`.
+- **Correctness:** Type declarations can be useful if your function only returns correct results for certain argument types. For example, if we omitted argument types and wrote `fib(n) = n ≤ 2 ? one(n) : fib(n-1) + fib(n-2)`, then `fib(1.5)` would silently give us the nonsensical answer `1.0`.
   
 - **Clarity:** Type declarations can serve as a form of documentation about the expected arguments.
   
 
-However, it is a **common mistake to overly restrict the argument types**, which can unnecessarily limit the applicability of the function and prevent it from being re-used in circumstances you did not anticipate.    For example, the `fib(n::Integer)` function above works equally well for `Int` arguments (machine integers) and `BigInt` arbitrary-precision integers (see [BigFloats and BigInts](/base/numbers#BigFloats-and-BigInts)), which is especially useful because Fibonacci numbers grow exponentially rapidly and will quickly overflow any fixed-precision type like `Int` (see [Overflow behavior](/manual/integers-and-floating-point-numbers#Overflow-behavior)).  If we had declared our function as `fib(n::Int)`, however, the application to `BigInt` would have been prevented for no reason.   In general, you should use the most general applicable abstract types for arguments, and **when in doubt, omit the argument types**.  You can always add argument-type specifications later if they become necessary, and you don&#39;t sacrifice performance or functionality by omitting them.
+However, it is a **common mistake to overly restrict the argument types**, which can unnecessarily limit the applicability of the function and prevent it from being re-used in circumstances you did not anticipate. For example, the `fib(n::Integer)` function above works equally well for `Int` arguments (machine integers) and `BigInt` arbitrary-precision integers (see [BigFloats and BigInts](/base/numbers#BigFloats-and-BigInts)), which is especially useful because Fibonacci numbers grow exponentially rapidly and will quickly overflow any fixed-precision type like `Int` (see [Overflow behavior](/manual/integers-and-floating-point-numbers#Overflow-behavior)). If we had declared our function as `fib(n::Int)`, however, the application to `BigInt` would have been prevented for no reason. In general, you should use the most general applicable abstract types for arguments, and **when in doubt, omit the argument types**. You can always add argument-type specifications later if they become necessary, and you don&#39;t sacrifice performance or functionality by omitting them.
 
 ## The `return` Keyword {#The-return-Keyword}
 
@@ -195,7 +195,7 @@ Int8
 
 This function will always return an `Int8` regardless of the types of `x` and `y`. See [Type Declarations](/manual/types#Type-Declarations) for more on return types.
 
-Return type declarations are **rarely used** in Julia: in general, you should instead write &quot;type-stable&quot; functions in which Julia&#39;s compiler can automatically infer the return type.  For more information, see the [Performance Tips](/manual/performance-tips#man-performance-tips) chapter.
+Return type declarations are **rarely used** in Julia: in general, you should instead write &quot;type-stable&quot; functions in which Julia&#39;s compiler can automatically infer the return type. For more information, see the [Performance Tips](/manual/performance-tips#man-performance-tips) chapter.
 
 ### Returning nothing {#Returning-nothing}
 
@@ -302,7 +302,7 @@ Argument-type declarations for anonymous functions work as for named functions, 
 
 A zero-argument anonymous function can be written as `()->2+2`. The idea of a function with no arguments may seem strange, but is useful in cases where a result cannot (or should not) be precomputed. For example, Julia has a zero-argument [`time`](/base/base#Base.Libc.time-Tuple{}) function that returns the current time in seconds, and thus `seconds = ()->round(Int, time())` is an anonymous function that returns this time rounded to the nearest integer assigned to the variable `seconds`. Each time this anonymous function is called as `seconds()` the current time will be calculated and returned.
 
-## Tuples {#Tuples}
+## Tuples
 
 Julia has a built-in data structure called a _tuple_ that is closely related to function arguments and return values. A tuple is a fixed-length container that can hold any values, but cannot be modified (it is _immutable_). Tuples are constructed with commas and parentheses, and can be accessed via indexing:
 
@@ -1001,7 +1001,7 @@ julia> f.(A, B)
 ```
 
 
-Keyword arguments are not broadcasted over, but are simply passed through to each call of the function.  For example, `round.(x, digits=3)` is equivalent to `broadcast(x -> round(x, digits=3), x)`.
+Keyword arguments are not broadcasted over, but are simply passed through to each call of the function. For example, `round.(x, digits=3)` is equivalent to `broadcast(x -> round(x, digits=3), x)`.
 
 Moreover, _nested_ `f.(args...)` calls are _fused_ into a single `broadcast` loop. For example, `sin.(cos.(X))` is equivalent to `broadcast(x -> sin(cos(x)), X)`, similar to `[sin(cos(x)) for x in X]`: there is only a single loop over `X`, and a single array is allocated for the result. [In contrast, `sin(cos(X))` in a typical &quot;vectorized&quot; language would first allocate one temporary array for `tmp=cos(X)`, and then compute `sin(tmp)` in a separate loop, allocating a second array.] This loop fusion is not a compiler optimization that may or may not occur, it is a _syntactic guarantee_ whenever nested `f.(args...)` calls are encountered. Technically, the fusion stops as soon as a &quot;non-dot&quot; function call is encountered; for example, in `sin.(sort(cos.(X)))` the `sin` and `cos` loops cannot be merged because of the intervening `sort` function.
 

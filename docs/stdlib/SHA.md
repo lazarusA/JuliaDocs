@@ -1,5 +1,5 @@
 
-# SHA {#SHA}
+# SHA
 
 
 

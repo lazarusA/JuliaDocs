@@ -1,5 +1,5 @@
 
-# Linux {#Linux}
+# Linux
 - GCC version 4.7 or later is required to build Julia.
   
 - To use external shared libraries not in the system library search path, set `USE_SYSTEM_XXX=1` and `LDFLAGS=-Wl,-rpath,/path/to/dir/contains/libXXX.so` in `Make.user`.

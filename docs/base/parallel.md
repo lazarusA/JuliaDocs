@@ -1,5 +1,5 @@
 
-# Tasks {#Tasks}
+# Tasks
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='Core.Task' href='#Core.Task'>#</a>&nbsp;<b><u>Core.Task</u></b> &mdash; <i>Type</i>.
 
@@ -31,7 +31,7 @@ julia> b = Task(a);
 In this example, `b` is a runnable `Task` that hasn&#39;t started yet.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/basedocs.jl#L1764-L1785)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1779-L1800)
 
 </div>
 <br>
@@ -68,7 +68,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L111-L133)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L111-L133)
 
 </div>
 <br>
@@ -100,7 +100,7 @@ Interpolating values via `$` is available as of Julia 1.4.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L652-L671)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L652-L671)
 
 </div>
 <br>
@@ -176,7 +176,7 @@ julia> asyncmap(batch_func, 1:5; ntasks=2, batch_size=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/asyncmap.jl#L5-L73)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/asyncmap.jl#L5-L73)
 
 </div>
 <br>
@@ -200,7 +200,7 @@ Behavior can be unexpected when any mutated argument shares memory with any othe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/asyncmap.jl#L392-L399)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/asyncmap.jl#L392-L399)
 
 </div>
 <br>
@@ -218,7 +218,7 @@ current_task()
 Get the currently running [`Task`](/base/parallel#Core.Task).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L139-L143)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L139-L143)
 
 </div>
 <br>
@@ -255,7 +255,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L197-L218)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L197-L218)
 
 </div>
 <br>
@@ -285,7 +285,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L221-L235)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L221-L235)
 
 </div>
 <br>
@@ -328,7 +328,7 @@ This function requires at least Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L238-L262)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L238-L262)
 
 </div>
 <br>
@@ -346,7 +346,7 @@ task_local_storage(key)
 Look up the value of a key in the current task&#39;s task-local storage.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L281-L285)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L281-L285)
 
 </div>
 <br>
@@ -364,7 +364,7 @@ task_local_storage(key, value)
 Assign a value to a key in the current task&#39;s task-local storage.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L288-L292)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L288-L292)
 
 </div>
 <br>
@@ -382,12 +382,12 @@ task_local_storage(body, key, value)
 Call the function `body` with a modified task-local storage, in which `value` is assigned to `key`; the previous value of `key`, or lack thereof, is restored afterwards. Useful for emulating dynamic scoping.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L295-L301)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L295-L301)
 
 </div>
 <br>
 
-## Scheduling {#Scheduling}
+## Scheduling
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='Base.yield' href='#Base.yield'>#</a>&nbsp;<b><u>Base.yield</u></b> &mdash; <i>Function</i>.
 
@@ -402,7 +402,7 @@ yield()
 Switch to the scheduler to allow another scheduled task to run. A task that calls this function is still runnable, and will be restarted immediately if there are no other runnable tasks.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L1029-L1035)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L1029-L1035)
 
 
 
@@ -416,7 +416,7 @@ A fast, unfair-scheduling version of `schedule(t, arg); yield()` which immediate
 Throws a `ConcurrencyViolationError` if `t` is the currently running task.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L1049-L1056)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L1049-L1056)
 
 </div>
 <br>
@@ -434,7 +434,7 @@ yieldto(t::Task, arg = nothing)
 Switch to the given task. The first time a task is switched to, the task&#39;s function is called with no arguments. On subsequent switches, `arg` is returned from the task&#39;s last call to `yieldto`. This is a low-level call that only switches tasks, not considering states or scheduling in any way. Its use is discouraged.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L1067-L1074)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L1067-L1074)
 
 </div>
 <br>
@@ -452,7 +452,7 @@ sleep(seconds)
 Block the current task for a specified number of seconds. The minimum sleep time is 1 millisecond or input of `0.001`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/asyncevent.jl#L257-L262)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/asyncevent.jl#L257-L262)
 
 </div>
 <br>
@@ -500,7 +500,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L980-L1013)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L980-L1013)
 
 </div>
 <br>
@@ -530,7 +530,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L724-L736)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L724-L736)
 
 </div>
 <br>
@@ -563,7 +563,7 @@ Thread-id 1, task 2
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L618-L638)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L618-L638)
 
 </div>
 <br>
@@ -595,7 +595,7 @@ If no argument is passed, the task blocks for an undefined period. A task can on
 Often `wait` is called within a `while` loop to ensure a waited-for condition is met before proceeding.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/condition.jl#L103-L123)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/condition.jl#L103-L123)
 
 </div>
 <br>
@@ -623,7 +623,7 @@ This may scale poorly compared to writing code that uses multiple individual tas
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L380-L396)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L380-L396)
 
 </div>
 <br>
@@ -647,7 +647,7 @@ If `failfast` is `true`, the function will return when at least one of the given
 The return value consists of two task vectors. The first one consists of completed tasks, and the other consists of uncompleted tasks.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L399-L413)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L399-L413)
 
 </div>
 <br>
@@ -665,7 +665,7 @@ fetch(t::Task)
 Wait for a [`Task`](/base/parallel#Core.Task) to finish, then return its result value. If the task fails with an exception, a [`TaskFailedException`](/base/base#Base.TaskFailedException) (which wraps the failed task) is thrown.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L527-L533)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L527-L533)
 
 </div>
 <br>
@@ -683,7 +683,7 @@ fetch(x::Any)
 Return `x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/task.jl#L520-L524)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L520-L524)
 
 </div>
 <br>
@@ -718,7 +718,7 @@ julia> timedwait(()->istaskdone(t), 6.5)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/asyncevent.jl#L327-L348)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/asyncevent.jl#L327-L348)
 
 </div>
 <br>
@@ -738,7 +738,7 @@ Create an edge-triggered event source that tasks can wait for. Tasks that call [
 This object is NOT thread-safe. See [`Threads.Condition`](/base/parallel#Base.Threads.Condition) for a thread-safe version.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/condition.jl#L182-L194)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/condition.jl#L182-L194)
 
 </div>
 <br>
@@ -776,7 +776,7 @@ This functionality requires at least Julia 1.2.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L355-L378)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L355-L378)
 
 </div>
 <br>
@@ -810,7 +810,7 @@ The `autoreset` functionality and memory ordering guarantee requires at least Ju
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L481-L499)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L481-L499)
 
 </div>
 <br>
@@ -830,7 +830,7 @@ Wake up tasks waiting for a condition, passing them `val`. If `all` is `true` (t
 Return the count of tasks woken up. Return 0 if no tasks are waiting on `condition`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/condition.jl#L148-L156)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/condition.jl#L148-L156)
 
 </div>
 <br>
@@ -848,7 +848,7 @@ reset(::Event)
 Reset an [`Event`](/base/parallel#Base.Event) back into an un-set state. Then any future calls to `wait` will block until [`notify`](/base/parallel#Base.notify) is called again.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L544-L549)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L544-L549)
 
 </div>
 <br>
@@ -868,7 +868,7 @@ Create a counting semaphore that allows at most `sem_size` acquires to be in use
 This provides a acquire &amp; release memory ordering on acquire/release calls.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L393-L401)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L393-L401)
 
 </div>
 <br>
@@ -886,7 +886,7 @@ acquire(s::Semaphore)
 Wait for one of the `sem_size` permits to be available, blocking until one can be acquired.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L409-L414)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L409-L414)
 
 
 
@@ -918,7 +918,7 @@ This method requires at least Julia 1.8.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L428-L451)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L428-L451)
 
 </div>
 <br>
@@ -936,7 +936,7 @@ release(s::Semaphore)
 Return one permit to the pool, possibly allowing another task to acquire it and resume execution.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L461-L467)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L461-L467)
 
 </div>
 <br>
@@ -954,7 +954,7 @@ AbstractLock
 Abstract supertype describing types that implement the synchronization primitives: [`lock`](/base/parallel#Base.lock), [`trylock`](/base/parallel#Base.trylock), [`unlock`](/base/parallel#Base.unlock), and [`islocked`](/base/parallel#Base.islocked).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/condition.jl#L11-L17)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/condition.jl#L11-L17)
 
 </div>
 <br>
@@ -974,7 +974,7 @@ Acquire the `lock` when it becomes available. If the lock is already locked by a
 Each `lock` must be matched by an [`unlock`](/base/parallel#Base.unlock).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L137-L145)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L137-L145)
 
 
 
@@ -996,7 +996,7 @@ Using a [`Channel`](/base/parallel#Base.Channel) as the second argument requires
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L214-L228)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L214-L228)
 
 
 
@@ -1011,7 +1011,7 @@ Requires at least Julia 1.11.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L330-L342)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L330-L342)
 
 </div>
 <br>
@@ -1031,7 +1031,7 @@ Releases ownership of the `lock`.
 If this is a recursive lock which has been acquired before, decrement an internal counter and return immediately.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L167-L174)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L167-L174)
 
 </div>
 <br>
@@ -1053,7 +1053,7 @@ Each successful `trylock` must be matched by an [`unlock`](/base/parallel#Base.u
 Function `trylock` combined with [`islocked`](/base/parallel#Base.islocked) can be used for writing the test-and-test-and-set or exponential backoff algorithms _if it is supported by the `typeof(lock)`_ (read its documentation).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L97-L110)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L97-L110)
 
 </div>
 <br>
@@ -1097,7 +1097,7 @@ A lock implementation is advised to define `islocked` with the following propert
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L54-L88)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L54-L88)
 
 </div>
 <br>
@@ -1131,7 +1131,7 @@ end
 If [`!islocked(lck::ReentrantLock)`](/base/parallel#Base.islocked) holds, [`trylock(lck)`](/base/parallel#Base.trylock) succeeds unless there are other tasks attempting to hold the lock &quot;at the same time.&quot;
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L6-L32)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L6-L32)
 
 </div>
 <br>
@@ -1167,7 +1167,7 @@ This is similar to using [`lock`](/base/parallel#Base.lock) with a `do` block, b
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L249-L267)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L249-L267)
 
 </div>
 <br>
@@ -1202,12 +1202,12 @@ julia> lock(summary, locked_list)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/lock.jl#L297-L321)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/lock.jl#L297-L321)
 
 </div>
 <br>
 
-## Channels {#Channels}
+## Channels
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='Base.AbstractChannel' href='#Base.AbstractChannel'>#</a>&nbsp;<b><u>Base.AbstractChannel</u></b> &mdash; <i>Type</i>.
 
@@ -1222,7 +1222,7 @@ AbstractChannel{T}
 Representation of a channel passing objects of type `T`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L3-L7)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L3-L7)
 
 </div>
 <br>
@@ -1256,7 +1256,7 @@ The default constructor `Channel()` and default `size=0` were added in Julia 1.3
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L13-L31)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L13-L31)
 
 </div>
 <br>
@@ -1351,7 +1351,7 @@ julia> String(collect(chnl))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L61-L139)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L61-L139)
 
 </div>
 <br>
@@ -1377,7 +1377,7 @@ For unbuffered channels, blocks until a [`take!`](/base/io-network#Base.take!-Tu
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L344-L354)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L344-L354)
 
 </div>
 <br>
@@ -1423,7 +1423,7 @@ julia> take!(c)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L457-L486)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L457-L486)
 
 </div>
 <br>
@@ -1470,7 +1470,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L562-L600)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L562-L600)
 
 </div>
 <br>
@@ -1524,7 +1524,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L516-L554)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L516-L554)
 
 </div>
 <br>
@@ -1562,7 +1562,7 @@ julia> collect(c)  # item is not removed
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L417-L440)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L417-L440)
 
 </div>
 <br>
@@ -1584,7 +1584,7 @@ Close a channel. An exception (optionally given by `excp`), is thrown by:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L192-L199)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L192-L199)
 
 </div>
 <br>
@@ -1647,14 +1647,14 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/channels.jl#L237-L288)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/channels.jl#L237-L288)
 
 </div>
 <br>
 
 ## Low-level synchronization using `schedule` and `wait` {#low-level-schedule-wait}
 
-The easiest correct use of [`schedule`](/base/parallel#Base.schedule) is on a `Task` that is not started (scheduled) yet.  However, it is possible to use [`schedule`](/base/parallel#Base.schedule) and [`wait`](/base/parallel#Base.wait) as a very low-level building block for constructing synchronization interfaces.  A crucial pre-condition of calling `schedule(task)` is that the caller must &quot;own&quot; the `task`; i.e., it must know that the call to `wait` in the given `task` is happening at the locations known to the code calling `schedule(task)`.  One strategy for ensuring such pre-condition is to use atomics, as demonstrated in the following example:
+The easiest correct use of [`schedule`](/base/parallel#Base.schedule) is on a `Task` that is not started (scheduled) yet. However, it is possible to use [`schedule`](/base/parallel#Base.schedule) and [`wait`](/base/parallel#Base.wait) as a very low-level building block for constructing synchronization interfaces. A crucial pre-condition of calling `schedule(task)` is that the caller must &quot;own&quot; the `task`; i.e., it must know that the call to `wait` in the given `task` is happening at the locations known to the code calling `schedule(task)`. One strategy for ensuring such pre-condition is to use atomics, as demonstrated in the following example:
 
 ```julia
 @enum OWEState begin
@@ -1698,8 +1698,8 @@ function Base.wait(ev::OneWayEvent)
     state, ok = @atomicreplace(ev.state, OWE_EMPTY => OWE_WAITING)
     if ok
         # OWE_EMPTY -> OWE_WAITING transition means that the notifier task is guaranteed to
-        # invoke OWE_WAITING -> OWE_NOTIFYING transition.  The waiter task must call
-        # `wait()` immediately.  In particular, it MUST NOT invoke any function that may
+        # invoke OWE_WAITING -> OWE_NOTIFYING transition. The waiter task must call
+        # `wait()` immediately. In particular, it MUST NOT invoke any function that may
         # yield to the scheduler at this point in code.
         wait()
     else
@@ -1726,6 +1726,6 @@ done
 ```
 
 
-`OneWayEvent` lets one task to `wait` for another task&#39;s `notify`.  It is a limited communication interface since `wait` can only be used once from a single task (note the non-atomic assignment of `ev.task`)
+`OneWayEvent` lets one task to `wait` for another task&#39;s `notify`. It is a limited communication interface since `wait` can only be used once from a single task (note the non-atomic assignment of `ev.task`)
 
-In this example, `notify(ev::OneWayEvent)` is allowed to call `schedule(ev.task)` if and only if _it_ modifies the state from `OWE_WAITING` to `OWE_NOTIFYING`.  This lets us know that the task executing `wait(ev::OneWayEvent)` is now in the `ok` branch and that there cannot be other tasks that tries to `schedule(ev.task)` since their `@atomicreplace(ev.state, state => OWE_NOTIFYING)` will fail.
+In this example, `notify(ev::OneWayEvent)` is allowed to call `schedule(ev.task)` if and only if _it_ modifies the state from `OWE_WAITING` to `OWE_NOTIFYING`. This lets us know that the task executing `wait(ev::OneWayEvent)` is now in the `ok` branch and that there cannot be other tasks that tries to `schedule(ev.task)` since their `@atomicreplace(ev.state, state => OWE_NOTIFYING)` will fail.

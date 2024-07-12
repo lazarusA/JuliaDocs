@@ -73,13 +73,13 @@ Thread 2 Task 0x0000000116960010 Total snapshots: 572. Utilization: 0%
 ```
 
 
-### Customization {#Customization}
+### Customization
 
 The duration of the profiling can be adjusted via [`Profile.set_peek_duration`](/stdlib/Profile#Profile.set_peek_duration)
 
 The profile report is broken down by thread and task. Pass a no-arg function to `Profile.peek_report[]` to override this. i.e. `Profile.peek_report[] = () -> Profile.print()` to remove any grouping. This could also be overridden by an external profile data consumer.
 
-## Reference {#Reference}
+## Reference
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='Profile.@profile' href='#Profile.@profile'>#</a>&nbsp;<b><u>Profile.@profile</u></b> &mdash; <i>Macro</i>.
 
@@ -94,7 +94,7 @@ The profile report is broken down by thread and task. Pass a no-arg function to 
 `@profile <expression>` runs your expression while taking periodic backtraces. These are appended to an internal buffer of backtraces.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L47-L52)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L47-L52)
 
 </div>
 <br>
@@ -114,7 +114,7 @@ clear()
 Clear any existing backtraces from the internal buffer.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L158-L162)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L158-L162)
 
 </div>
 <br>
@@ -168,7 +168,7 @@ Profiling on windows is limited to the main thread. Other threads have not been 
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L194-L241)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L194-L241)
 
 
 
@@ -182,7 +182,7 @@ Prints profiling results to `io`. This variant is used to examine results export
 See `Profile.print([io], data)` for an explanation of the valid keyword arguments.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L334-L342)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L334-L342)
 
 </div>
 <br>
@@ -200,7 +200,7 @@ init(; n::Integer, delay::Real)
 Configure the `delay` between backtraces (measured in seconds), and the number `n` of instruction pointers that may be stored per thread. Each instruction pointer corresponds to a single line of code; backtraces generally consist of a long list of instruction pointers. Note that 6 spaces for instruction pointers per backtrace are used to store metadata and two NULL end markers. Current settings can be obtained by calling this function with no arguments, and each can be set independently using keywords or in the order `(n, delay)`.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L93-L101)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L93-L101)
 
 </div>
 <br>
@@ -218,7 +218,7 @@ fetch(;include_meta = true) -> data
 Return a copy of the buffer of profile backtraces. Note that the values in `data` have meaning only on this machine in the current session, because it depends on the exact memory addresses used in JIT-compiling. This function is primarily for internal use; [`retrieve`](/stdlib/Profile#Profile.retrieve) may be a better choice for most users. By default metadata such as threadid and taskid is included. Set `include_meta` to `false` to strip metadata.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L623-L631)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L623-L631)
 
 </div>
 <br>
@@ -236,7 +236,7 @@ retrieve(; kwargs...) -> data, lidict
 &quot;Exports&quot; profiling results in a portable format, returning the set of all backtraces (`data`) and a dictionary that maps the (session-specific) instruction pointers in `data` to `LineInfo` values that store the file name, function name, and line number. This function allows you to save profiling results for future analysis.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L413-L420)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L413-L420)
 
 </div>
 <br>
@@ -254,7 +254,7 @@ callers(funcname, [data, lidict], [filename=<filename>], [linerange=<start:stop>
 Given a previous profiling run, determine who called a particular function. Supplying the filename (and optionally, range of line numbers over which the function is defined) allows you to disambiguate an overloaded method. The returned value is a vector containing a count of the number of calls and line information about the caller. One can optionally supply backtrace `data` obtained from [`retrieve`](/stdlib/Profile#Profile.retrieve); otherwise, the current internal profile buffer is used.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L543-L552)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L543-L552)
 
 </div>
 <br>
@@ -272,7 +272,7 @@ clear_malloc_data()
 Clears any stored memory allocation data when running julia with `--track-allocation`. Execute the command(s) you want to test (to force JIT-compilation), then call [`clear_malloc_data`](/stdlib/Profile#Profile.clear_malloc_data). Then execute your command(s) again, quit Julia, and examine the resulting `*.mem` files.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L584-L591)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L584-L591)
 
 </div>
 <br>
@@ -290,7 +290,7 @@ get_peek_duration()
 Get the duration in seconds of the profile &quot;peek&quot; that is triggered via `SIGINFO` or `SIGUSR1`, depending on platform.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L74-L78)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L74-L78)
 
 </div>
 <br>
@@ -308,7 +308,7 @@ set_peek_duration(t::Float64)
 Set the duration in seconds of the profile &quot;peek&quot; that is triggered via `SIGINFO` or `SIGUSR1`, depending on platform.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L80-L84)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L80-L84)
 
 </div>
 <br>
@@ -357,7 +357,7 @@ The allocation profiler was added in Julia 1.8.
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Allocs.jl#L39-L71)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Allocs.jl#L39-L71)
 
 </div>
 <br>
@@ -377,7 +377,7 @@ Profile.Allocs.clear()
 Clear all previously profiled allocation information from memory.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Allocs.jl#L109-L113)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Allocs.jl#L109-L113)
 
 </div>
 <br>
@@ -397,7 +397,7 @@ Prints profiling results to `io` (by default, `stdout`). If you do not supply a 
 See `Profile.print` for an explanation of the valid keyword arguments.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Allocs.jl#L234-L242)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Allocs.jl#L234-L242)
 
 </div>
 <br>
@@ -415,7 +415,7 @@ Profile.Allocs.fetch()
 Retrieve the recorded allocations, and decode them into Julia objects which can be analyzed.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Allocs.jl#L119-L124)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Allocs.jl#L119-L124)
 
 </div>
 <br>
@@ -433,7 +433,7 @@ Profile.Allocs.start(sample_rate::Real)
 Begin recording allocations with the given sample rate A sample rate of 1.0 will record everything; 0.0 will record nothing.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Allocs.jl#L90-L95)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Allocs.jl#L90-L95)
 
 </div>
 <br>
@@ -451,7 +451,7 @@ Profile.Allocs.stop()
 Stop recording allocations.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Allocs.jl#L100-L104)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Allocs.jl#L100-L104)
 
 </div>
 <br>
@@ -478,7 +478,7 @@ If `streaming` is true, we will stream the snapshot data out into four files, us
 NOTE: We strongly recommend setting streaming=true for performance reasons. Reconstructing the snapshot from the parts requires holding the entire snapshot in memory, so if the snapshot is large, you can run out of memory while processing it. Streaming allows you to reconstruct the snapshot offline, after your workload is done running. If you do attempt to collect a snapshot with streaming=false (the default, for backwards-compatibility) and your process is killed, note that this will always save the parts in the same directory as your provided filepath, so you can still reconstruct the snapshot after the fact, via `assemble_snapshot()`.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Profile/src/Profile.jl#L1252-L1279)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Profile/src/Profile.jl#L1252-L1279)
 
 </div>
 <br>

@@ -24,31 +24,31 @@ Each chunk of code typically makes a trip through many steps with potentially un
 The 10,000 foot view of the whole process is as follows:
 1. The user starts `julia`.
   
-1. The C function `main()` from `cli/loader_exe.c` gets called. This function processes the command line arguments, filling in the `jl_options` struct and setting the variable `ARGS`. It then initializes Julia (by calling [`julia_init` in `init.c`](https://github.com/JuliaLang/julia/blob/master/src/init.c), which may load a previously compiled [sysimg](/devdocs/eval#dev-sysimg)). Finally, it passes off control to Julia by calling [`Base._start()`](https://github.com/JuliaLang/julia/blob/master/base/client.jl).
+2. The C function `main()` from `cli/loader_exe.c` gets called. This function processes the command line arguments, filling in the `jl_options` struct and setting the variable `ARGS`. It then initializes Julia (by calling [`julia_init` in `init.c`](https://github.com/JuliaLang/julia/blob/master/src/init.c), which may load a previously compiled [sysimg](/devdocs/eval#dev-sysimg)). Finally, it passes off control to Julia by calling [`Base._start()`](https://github.com/JuliaLang/julia/blob/master/base/client.jl).
   
-1. When `_start()` takes over control, the subsequent sequence of commands depends on the command line arguments given. For example, if a filename was supplied, it will proceed to execute that file. Otherwise, it will start an interactive REPL.
+3. When `_start()` takes over control, the subsequent sequence of commands depends on the command line arguments given. For example, if a filename was supplied, it will proceed to execute that file. Otherwise, it will start an interactive REPL.
   
-1. Skipping the details about how the REPL interacts with the user, let&#39;s just say the program ends up with a block of code that it wants to run.
+4. Skipping the details about how the REPL interacts with the user, let&#39;s just say the program ends up with a block of code that it wants to run.
   
-1. If the block of code to run is in a file, [`jl_load(char *filename)`](https://github.com/JuliaLang/julia/blob/master/src/toplevel.c) gets invoked to load the file and [parse](/devdocs/eval#dev-parsing) it. Each fragment of code is then passed to `eval` to execute.
+5. If the block of code to run is in a file, [`jl_load(char *filename)`](https://github.com/JuliaLang/julia/blob/master/src/toplevel.c) gets invoked to load the file and [parse](/devdocs/eval#dev-parsing) it. Each fragment of code is then passed to `eval` to execute.
   
-1. Each fragment of code (or AST), is handed off to [`eval()`](/base/base#eval) to turn into results.
+6. Each fragment of code (or AST), is handed off to [`eval()`](/base/base#eval) to turn into results.
   
-1. [`eval()`](/base/base#eval) takes each code fragment and tries to run it in [`jl_toplevel_eval_flex()`](https://github.com/JuliaLang/julia/blob/master/src/toplevel.c).
+7. [`eval()`](/base/base#eval) takes each code fragment and tries to run it in [`jl_toplevel_eval_flex()`](https://github.com/JuliaLang/julia/blob/master/src/toplevel.c).
   
-1. `jl_toplevel_eval_flex()` decides whether the code is a &quot;toplevel&quot; action (such as `using` or `module`), which would be invalid inside a function. If so, it passes off the code to the toplevel interpreter.
+8. `jl_toplevel_eval_flex()` decides whether the code is a &quot;toplevel&quot; action (such as `using` or `module`), which would be invalid inside a function. If so, it passes off the code to the toplevel interpreter.
   
-1. `jl_toplevel_eval_flex()` then [expands](/devdocs/eval#dev-macro-expansion) the code to eliminate any macros and to &quot;lower&quot; the AST to make it simpler to execute.
+9. `jl_toplevel_eval_flex()` then [expands](/devdocs/eval#dev-macro-expansion) the code to eliminate any macros and to &quot;lower&quot; the AST to make it simpler to execute.
   
-1. `jl_toplevel_eval_flex()` then uses some simple heuristics to decide whether to JIT compile the  AST or to interpret it directly.
+10. `jl_toplevel_eval_flex()` then uses some simple heuristics to decide whether to JIT compile the  AST or to interpret it directly.
   
-1. The bulk of the work to interpret code is handled by [`eval` in `interpreter.c`](https://github.com/JuliaLang/julia/blob/master/src/interpreter.c).
+11. The bulk of the work to interpret code is handled by [`eval` in `interpreter.c`](https://github.com/JuliaLang/julia/blob/master/src/interpreter.c).
   
-1. If instead, the code is compiled, the bulk of the work is handled by `codegen.cpp`. Whenever a  Julia function is called for the first time with a given set of argument types, [type inference](/devdocs/eval#dev-type-inference)  will be run on that function. This information is used by the [codegen](/devdocs/eval#dev-codegen) step to generate  faster code.
+12. If instead, the code is compiled, the bulk of the work is handled by `codegen.cpp`. Whenever a  Julia function is called for the first time with a given set of argument types, [type inference](/devdocs/eval#dev-type-inference)  will be run on that function. This information is used by the [codegen](/devdocs/eval#dev-codegen) step to generate  faster code.
   
-1. Eventually, the user quits the REPL, or the end of the program is reached, and the `_start()`  method returns.
+13. Eventually, the user quits the REPL, or the end of the program is reached, and the `_start()`  method returns.
   
-1. Just before exiting, `main()` calls [`jl_atexit_hook(exit_code)`](https://github.com/JuliaLang/julia/blob/master/src/init.c).  This calls `Base._atexit()` (which calls any functions registered to [`atexit()`](/base/base#Base.atexit) inside  Julia). Then it calls [`jl_gc_run_all_finalizers()`](https://github.com/JuliaLang/julia/blob/master/src/gc.c).  Finally, it gracefully cleans up all `libuv` handles and waits for them to flush and close.
+14. Just before exiting, `main()` calls [`jl_atexit_hook(exit_code)`](https://github.com/JuliaLang/julia/blob/master/src/init.c).  This calls `Base._atexit()` (which calls any functions registered to [`atexit()`](/base/base#Base.atexit) inside  Julia). Then it calls [`jl_gc_run_all_finalizers()`](https://github.com/JuliaLang/julia/blob/master/src/gc.c).  Finally, it gracefully cleans up all `libuv` handles and waits for them to flush and close.
   
 
 ## Parsing {#dev-parsing}

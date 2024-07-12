@@ -1,5 +1,5 @@
 
-# Methods {#Methods}
+# Methods
 
 Recall from [Functions](/manual/functions#man-functions) that a function is an object that maps a tuple of arguments to a return value, or throws an exception if no appropriate value can be returned. It is common for the same conceptual function or operation to be implemented quite differently for different types of arguments: adding two integers is very different from adding two floating-point numbers, both of which are distinct from adding an integer to a floating-point number. Despite their implementation differences, these operations all fall under the general concept of &quot;addition&quot;. Accordingly, in Julia, these behaviors all belong to a single object: the `+` function.
 
@@ -559,7 +559,7 @@ eltype(::Type{<:AbstractArray{T}}) where {T} = T
 ```
 
 
-using so-called triangular dispatch.  Note that `UnionAll` types, for example `eltype(AbstractArray{T} where T <: Integer)`, do not match the above method. The implementation of `eltype` in `Base` adds a fallback method to `Any` for such cases.
+using so-called triangular dispatch. Note that `UnionAll` types, for example `eltype(AbstractArray{T} where T <: Integer)`, do not match the above method. The implementation of `eltype` in `Base` adds a fallback method to `Any` for such cases.
 
 One common mistake is to try and get the element-type by using introspection:
 
@@ -638,7 +638,7 @@ For example, trying to dispatch on the element-type of an array will often run i
 
 A natural extension to the iterated dispatch above is to add a layer to method selection that allows to dispatch on sets of types which are independent from the sets defined by the type hierarchy. We could construct such a set by writing out a `Union` of the types in question, but then this set would not be extensible as `Union`-types cannot be altered after creation. However, such an extensible set can be programmed with a design pattern often referred to as a [&quot;Holy-trait&quot;](https://github.com/JuliaLang/julia/issues/2345#issuecomment-54537633).
 
-This pattern is implemented by defining a generic function which computes a different singleton value (or type) for each trait-set to which the function arguments may belong to.  If this function is pure there is no impact on performance compared to normal dispatch.
+This pattern is implemented by defining a generic function which computes a different singleton value (or type) for each trait-set to which the function arguments may belong to. If this function is pure there is no impact on performance compared to normal dispatch.
 
 The example in the previous section glossed over the implementation details of [`map`](/base/collections#Base.map) and [`promote`](/base/base#Base.promote), which both operate in terms of these traits. When iterating over a matrix, such as in the implementation of `map`, one important question is what order to use to traverse the data. When `AbstractArray` subtypes implement the [`Base.IndexStyle`](/base/arrays#Base.IndexStyle) trait, other functions such as `map` can dispatch on this information to pick the best algorithm (see [Abstract Array Interface](/manual/interfaces#man-interface-array)). This means that each subtype does not need to implement a custom version of `map`, since the generic definitions + trait classes will enable the system to select the fastest version. Here is a toy implementation of `map` illustrating the trait-based dispatch:
 
@@ -662,9 +662,9 @@ For implementing primitive operations, such as addition, we use the [`promote_ty
 For more complex functions on matrices, it may be necessary to compute the expected return type for a more complex sequence of operations. This is often performed by the following steps:
 1. Write a small function `op` that expresses the set of operations performed by the kernel of the algorithm.
   
-1. Compute the element type `R` of the result matrix as `promote_op(op, argument_types...)`, where `argument_types` is computed from `eltype` applied to each input array.
+2. Compute the element type `R` of the result matrix as `promote_op(op, argument_types...)`, where `argument_types` is computed from `eltype` applied to each input array.
   
-1. Build the output matrix as `similar(R, dims)`, where `dims` are the desired dimensions of the output array.
+3. Build the output matrix as `similar(R, dims)`, where `dims` are the desired dimensions of the output array.
   
 
 For a more specific example, a generic square-matrix multiply pseudo-code might look like:
@@ -730,7 +730,7 @@ matmul(a, b) = matmul(promote(a, b)...)
 
 ## Parametrically-constrained Varargs methods {#Parametrically-constrained-Varargs-methods}
 
-Function parameters can also be used to constrain the number of arguments that may be supplied to a &quot;varargs&quot; function ([Varargs Functions](/manual/functions#Varargs-Functions)).  The notation `Vararg{T,N}` is used to indicate such a constraint.  For example:
+Function parameters can also be used to constrain the number of arguments that may be supplied to a &quot;varargs&quot; function ([Varargs Functions](/manual/functions#Varargs-Functions)). The notation `Vararg{T,N}` is used to indicate such a constraint. For example:
 
 ```julia
 julia> bar(a,b,x::Vararg{Any,2}) = (a,b,x)
@@ -853,7 +853,7 @@ function emptyfunc end
 
 ## Method design and the avoidance of ambiguities {#man-method-design-ambiguities}
 
-Julia&#39;s method polymorphism is one of its most powerful features, yet exploiting this power can pose design challenges.  In particular, in more complex method hierarchies it is not uncommon for [ambiguities](/manual/methods#man-ambiguities) to arise.
+Julia&#39;s method polymorphism is one of its most powerful features, yet exploiting this power can pose design challenges. In particular, in more complex method hierarchies it is not uncommon for [ambiguities](/manual/methods#man-ambiguities) to arise.
 
 Above, it was pointed out that one can resolve ambiguities like
 
@@ -968,7 +968,7 @@ generates ambiguities for anyone who defines a method
 
 The best approach is to avoid defining _either_ of these methods: instead, rely on a generic method `-(A::AbstractArray, b)` and make sure this method is implemented with generic calls (like `similar` and `-`) that do the right thing for each container type and element type _separately_. This is just a more complex variant of the advice to [orthogonalize](/manual/methods#man-methods-orthogonalize) your methods.
 
-When this approach is not possible, it may be worth starting a discussion with other developers about resolving the ambiguity; just because one method was defined first does not necessarily mean that it can&#39;t be modified or eliminated.  As a last resort, one developer can define the &quot;band-aid&quot; method
+When this approach is not possible, it may be worth starting a discussion with other developers about resolving the ambiguity; just because one method was defined first does not necessarily mean that it can&#39;t be modified or eliminated. As a last resort, one developer can define the &quot;band-aid&quot; method
 
 ```julia
 -(A::MyArrayType{T}, b::Date) where {T<:Date} = ...

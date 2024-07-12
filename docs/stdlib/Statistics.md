@@ -1,5 +1,5 @@
 
-# Statistics {#Statistics}
+# Statistics
 
 The Statistics standard library module contains basic statistics functionality.
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>

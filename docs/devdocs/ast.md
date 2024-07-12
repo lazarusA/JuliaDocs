@@ -9,7 +9,7 @@ First we will focus on the AST, since it is needed to write macros.
 
 Front end ASTs consist almost entirely of [`Expr`](/base/base#Core.Expr)s and atoms (e.g. symbols, numbers). There is generally a different expression head for each visually distinct syntactic form. Examples will be given in s-expression syntax. Each parenthesized list corresponds to an Expr, where the first element is the head. For example `(call f x)` corresponds to `Expr(:call, :f, :x)` in Julia.
 
-### Calls {#Calls}
+### Calls
 
 | Input            | AST                                |
 |:---------------- |:---------------------------------- |
@@ -30,7 +30,7 @@ end
 
 parses as `(do (call f x) (-> (tuple a b) (block body)))`.
 
-### Operators {#Operators}
+### Operators
 
 Most uses of operators are just function calls, so they are parsed with the head `call`. However some operators are special forms (not necessarily function calls), and in those cases the operator itself is the expression head. In julia-parser.scm these are referred to as &quot;syntactic operators&quot;. Some operators (`+` and `*`) use N-ary parsing; chained calls are parsed as a single N-argument call. Finally, chains of comparisons have their own special expression structure.
 
@@ -72,7 +72,7 @@ Most uses of operators are just function calls, so they are parsed with the head
 | `(a; b; c)`              | `(block a b c)`                                 |
 
 
-### Macros {#Macros}
+### Macros
 
 | Input         | AST                                          |
 |:------------- |:-------------------------------------------- |
@@ -81,7 +81,7 @@ Most uses of operators are just function calls, so they are parsed with the head
 | `@Base.m x y` | `(macrocall (. Base (quote @m)) (line) x y)` |
 
 
-### Strings {#Strings}
+### Strings
 
 | Input      | AST                                 |
 |:---------- |:----------------------------------- |
@@ -117,7 +117,7 @@ parses as `(macrocall (|.| Core '@doc) (line) "some docs" (= (call f x) (block x
 
 `using` has the same representation as `import`, but with expression head `:using` instead of `:import`.
 
-### Numbers {#Numbers}
+### Numbers
 
 Julia supports more number types than many scheme implementations, so not all numbers are represented directly as scheme numbers in the AST.
 
@@ -330,7 +330,7 @@ These symbols appear in the `head` field of [`Expr`](/base/base#Core.Expr)s in l
   Declares a (global) variable as constant.
   
 - `new`
-  Allocates a new struct-like object. First argument is the type. The [`new`](/base/base#new) pseudo-function is lowered to this, and the type is always inserted by the compiler.  This is very much an internal-only feature, and does no checking. Evaluating arbitrary `new` expressions can easily segfault.
+  Allocates a new struct-like object. First argument is the type. The [`new`](/base/base#new) pseudo-function is lowered to this, and the type is always inserted by the compiler. This is very much an internal-only feature, and does no checking. Evaluating arbitrary `new` expressions can easily segfault.
   
 - `splatnew`
   Similar to `new`, except field values are passed as a single tuple. Works similarly to `splat(new)` if `new` were a first-class function, hence the name.
@@ -342,7 +342,7 @@ These symbols appear in the `head` field of [`Expr`](/base/base#Core.Expr)s in l
   Yields the caught exception inside a `catch` block, as returned by `jl_current_exception(ct)`.
   
 - `enter`
-  Enters an exception handler (`setjmp`). `args[1]` is the label of the catch block to jump to on error.  Yields a token which is consumed by `pop_exception`.
+  Enters an exception handler (`setjmp`). `args[1]` is the label of the catch block to jump to on error. Yields a token which is consumed by `pop_exception`.
   
 - `leave`
   Pop exception handlers. `args[1]` is the number of handlers to pop.
@@ -451,7 +451,7 @@ A unique&#39;d container describing the shared metadata for a single method.
   The world age that &quot;owns&quot; this Method.
   
 
-### MethodInstance {#MethodInstance}
+### MethodInstance
 
 A unique&#39;d container describing a single callable signature for a Method. See especially [Proper maintenance and care of multi-threading locks](/devdocs/locks#Proper-maintenance-and-care-of-multi-threading-locks) for important details on how to modify these fields safely.
 - `specTypes`
@@ -463,9 +463,6 @@ A unique&#39;d container describing a single callable signature for a Method. Se
 - `sparam_vals`
   The values of the static parameters in `specTypes`. For the `MethodInstance` at `Method.unspecialized`, this is the empty `SimpleVector`. But for a runtime `MethodInstance` from the `MethodTable` cache, this will always be defined and indexable.
   
-- `uninferred`
-  The uncompressed source code for a toplevel thunk. Additionally, for a generated function, this is one of many places that the source code might be found.
-  
 - `backedges`
   We store the reverse-list of cache dependencies for efficient tracking of incremental reanalysis/recompilation work that may be needed after a new method definitions. This works by keeping a list of the other `MethodInstance` that have been inferred or optimized to contain a possible call to this `MethodInstance`. Those optimization results might be stored somewhere in the `cache`, or it might have been the result of something we didn&#39;t want to cache, such as constant propagation. Thus we merge all of those backedges to various cache entries here (there&#39;s almost always only the one applicable cache entry with a sentinel value for max_world anyways).
   
@@ -473,7 +470,7 @@ A unique&#39;d container describing a single callable signature for a Method. Se
   Cache of `CodeInstance` objects that share this template instantiation.
   
 
-### CodeInstance {#CodeInstance}
+### CodeInstance
 - `def`
   The `MethodInstance` that this cache entry is derived from.
   
@@ -506,7 +503,7 @@ A unique&#39;d container describing a single callable signature for a Method. Se
   The range of world ages for which this method instance is valid to be called. If max_world is the special token value `-1`, the value is not yet known. It may continue to be used until we encounter a backedge that requires us to reconsider.
   
 
-### CodeInfo {#CodeInfo}
+### CodeInfo
 
 A (usually temporary) container for holding lowered source code.
 - `code`
@@ -633,9 +630,9 @@ end
   A vector of indices, with 3 values for each statement in the IR plus one for the starting point of the block, that describe the stacktrace from that point:
   1. the integer index into the `linetable.codelocs` field, giving the original location associated with each statement (including its syntactic edges), or zero indicating no change to the line number from the previously executed statement (which is not necessarily syntactic or lexical prior), or the line number itself if the `linetable` field is `nothing`.
     
-  1. the integer index into `edges`, giving the `DebugInfo` inlined there, or zero if there are no edges.
+  2. the integer index into `edges`, giving the `DebugInfo` inlined there, or zero if there are no edges.
     
-  1. (if entry 2 is non-zero) the integer index into `edges[].codelocs`, to interpret recursively for each function in the inlining stack, or zero indicating to use `edges[].firstline` as the line number.
+  3. (if entry 2 is non-zero) the integer index into `edges[].codelocs`, to interpret recursively for each function in the inlining stack, or zero indicating to use `edges[].firstline` as the line number.
     
   Special codes include:
   - `(zero, zero, *)`: no change to the line number or edges from the previous statement (you may choose to interpret this either syntactically or lexically). The inlining depth also might have changed, though most callers should ignore that.

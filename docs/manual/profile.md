@@ -1,5 +1,5 @@
 
-# Profiling {#Profiling}
+# Profiling
 
 The `Profile` module provides tools to help developers improve the performance of their code. When used, it takes measurements on running code, and produces output that helps you understand how much time is spent on individual line(s). The most common usage is to identify &quot;bottlenecks&quot; as targets for optimization.
 
@@ -233,7 +233,7 @@ end
 ```
 
 
-## Configuration {#Configuration}
+## Configuration
 
 [`@profile`](/stdlib/Profile#Profile.@profile) just accumulates backtraces, and the analysis happens when you call [`Profile.print()`](/stdlib/Profile#Profile.print). For a long-running computation, it&#39;s entirely possible that the pre-allocated buffer for storing backtraces will be filled. If that happens, the backtraces stop but your computation continues. As a consequence, you may miss some important profiling data (you will get a warning when that happens).
 
@@ -255,11 +255,11 @@ One of the most common techniques to improve performance is to reduce memory all
 
 ### `@time` {#@time}
 
-The total amount of allocation can be measured with [`@time`](/tutorials/profile#@time), [`@allocated`](/base/base#Base.@allocated) and [`@allocations`](/base/base#Base.@allocations), and specific lines triggering allocation can often be inferred from profiling via the cost of garbage collection that these lines incur. However, sometimes it is more efficient to directly measure the amount of memory allocated by each line of code.
+The total amount of allocation can be measured with [`@time`](/manual/profile#@time), [`@allocated`](/base/base#Base.@allocated) and [`@allocations`](/base/base#Base.@allocations), and specific lines triggering allocation can often be inferred from profiling via the cost of garbage collection that these lines incur. However, sometimes it is more efficient to directly measure the amount of memory allocated by each line of code.
 
 ### GC Logging {#GC-Logging}
 
-While [`@time`](/tutorials/profile#@time) logs high-level stats about memory usage and garbage collection over the course of evaluating an expression, it can be useful to log each garbage collection event, to get an intuitive sense of how often the garbage collector is running, how long it&#39;s running each time, and how much garbage it collects each time. This can be enabled with [`GC.enable_logging(true)`](/base/base#Base.GC.enable_logging), which causes Julia to log to stderr every time a garbage collection happens.
+While [`@time`](/manual/profile#@time) logs high-level stats about memory usage and garbage collection over the course of evaluating an expression, it can be useful to log each garbage collection event, to get an intuitive sense of how often the garbage collector is running, how long it&#39;s running each time, and how much garbage it collects each time. This can be enabled with [`GC.enable_logging(true)`](/base/base#Base.GC.enable_logging), which causes Julia to log to stderr every time a garbage collection happens.
 
 ### Allocation Profiler {#allocation-profiler}
 
@@ -360,7 +360,7 @@ In interpreting the results, there are a few important details. Under the `user`
 
 ::: tip Note
 
-`--track-allocation` changes code generation to log the allocations, and so the allocations may be different than what happens without the option. We recommend using the [allocation profiler](/tutorials/profile#allocation-profiler) instead.
+`--track-allocation` changes code generation to log the allocations, and so the allocations may be different than what happens without the option. We recommend using the [allocation profiler](/manual/profile#allocation-profiler) instead.
 
 :::
 

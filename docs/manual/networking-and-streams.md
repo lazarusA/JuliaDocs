@@ -355,7 +355,7 @@ Finished connection to github.com
 ```
 
 
-## Multicast {#Multicast}
+## Multicast
 
 Julia supports [multicast](https://datatracker.ietf.org/doc/html/rfc1112) over IPv4 and IPv6 using the User Datagram Protocol ([UDP](https://datatracker.ietf.org/doc/html/rfc768)) as transport.
 

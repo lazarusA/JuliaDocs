@@ -46,7 +46,7 @@ Random
 Support for generating random numbers. Provides [`rand`](/stdlib/Random#Base.rand), [`randn`](/stdlib/Random#Base.randn), [`AbstractRNG`](/stdlib/Random#Random.AbstractRNG), [`Xoshiro`](/stdlib/Random#Random.Xoshiro), [`MersenneTwister`](/stdlib/Random#Random.MersenneTwister), and [`RandomDevice`](/stdlib/Random#Random.RandomDevice).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Random.jl#L3-L8)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Random.jl#L3-L8)
 
 </div>
 <br>
@@ -133,7 +133,7 @@ The complexity of `rand(rng, s::Union{AbstractDict,AbstractSet})` is linear in t
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Random.jl#L308-L381)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Random.jl#L308-L381)
 
 </div>
 <br>
@@ -164,7 +164,7 @@ julia> rand!(Xoshiro(123), zeros(5))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Random.jl#L384-L403)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Random.jl#L384-L403)
 
 </div>
 <br>
@@ -200,7 +200,7 @@ julia> bitrand(Xoshiro(123), 10)
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/misc.jl#L13-L33)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/misc.jl#L13-L33)
 
 </div>
 <br>
@@ -259,7 +259,7 @@ julia> randn(rng, ComplexF32, (2, 3))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/normal.jl#L12-L63)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/normal.jl#L12-L63)
 
 </div>
 <br>
@@ -290,7 +290,7 @@ julia> randn!(Xoshiro(123), zeros(5))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/normal.jl#L181-L197)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/normal.jl#L181-L197)
 
 </div>
 <br>
@@ -324,7 +324,7 @@ julia> randexp(rng, 3, 3)
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/normal.jl#L130-L152)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/normal.jl#L130-L152)
 
 </div>
 <br>
@@ -355,7 +355,7 @@ julia> randexp!(Xoshiro(123), zeros(5))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/normal.jl#L200-L216)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/normal.jl#L200-L216)
 
 </div>
 <br>
@@ -393,7 +393,7 @@ julia> randstring("ACGT")
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/misc.jl#L43-L67)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/misc.jl#L43-L67)
 
 </div>
 <br>
@@ -423,7 +423,7 @@ julia> randsubseq(Xoshiro(123), 1:8, 0.3)
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/misc.jl#L160-L175)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/misc.jl#L160-L175)
 
 </div>
 <br>
@@ -458,7 +458,7 @@ julia> S
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/misc.jl#L134-L154)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/misc.jl#L134-L154)
 
 </div>
 <br>
@@ -496,7 +496,7 @@ julia> randperm(Xoshiro(123), 4)
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/misc.jl#L271-L295)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/misc.jl#L271-L295)
 
 </div>
 <br>
@@ -526,7 +526,7 @@ julia> randperm!(Xoshiro(123), Vector{Int}(undef, 4))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/misc.jl#L299-L316)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/misc.jl#L299-L316)
 
 </div>
 <br>
@@ -568,7 +568,7 @@ julia> randcycle(Xoshiro(123), 6)
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/misc.jl#L340-L368)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/misc.jl#L340-L368)
 
 </div>
 <br>
@@ -604,7 +604,7 @@ julia> randcycle!(Xoshiro(123), Vector{Int}(undef, 6))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/misc.jl#L372-L396)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/misc.jl#L372-L396)
 
 </div>
 <br>
@@ -640,7 +640,7 @@ julia> shuffle(Xoshiro(123), Vector(1:10))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/misc.jl#L240-L263)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/misc.jl#L240-L263)
 
 </div>
 <br>
@@ -676,7 +676,7 @@ julia> shuffle!(Xoshiro(123), Vector(1:10))
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/misc.jl#L186-L207)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/misc.jl#L186-L207)
 
 </div>
 <br>
@@ -712,7 +712,7 @@ This function was introduced in Julia 1.3.
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/RNGs.jl#L378-L398)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/RNGs.jl#L378-L398)
 
 </div>
 <br>
@@ -770,7 +770,7 @@ true
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Random.jl#L406-L455)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Random.jl#L406-L455)
 
 </div>
 <br>
@@ -788,7 +788,7 @@ AbstractRNG
 Supertype for random number generators such as [`MersenneTwister`](/stdlib/Random#Random.MersenneTwister) and [`RandomDevice`](/stdlib/Random#Random.RandomDevice).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Random.jl#L34-L38)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Random.jl#L34-L38)
 
 </div>
 <br>
@@ -818,7 +818,7 @@ Seeding `TaskLocalRNG()` with a negative integer seed requires at least Julia 1.
 :::
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Xoshiro.jl#L184-L206)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Xoshiro.jl#L184-L206)
 
 </div>
 <br>
@@ -873,7 +873,7 @@ true
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Xoshiro.jl#L6-L51)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Xoshiro.jl#L6-L51)
 
 </div>
 <br>
@@ -918,7 +918,7 @@ true
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/RNGs.jl#L79-L110)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/RNGs.jl#L79-L110)
 
 </div>
 <br>
@@ -936,7 +936,7 @@ RandomDevice()
 Create a `RandomDevice` RNG object. Two such objects will always generate different streams of random numbers. The entropy is obtained from the operating system.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/RNGs.jl#L6-L12)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/RNGs.jl#L6-L12)
 
 </div>
 <br>
@@ -946,7 +946,7 @@ Create a `RandomDevice` RNG object. Two such objects will always generate differ
 There are two mostly orthogonal ways to extend `Random` functionalities:
 1. generating random values of custom types
   
-1. creating new generators
+2. creating new generators
   
 
 The API for 1) is quite functional, but is relatively recent so it may still have to evolve in subsequent releases of the `Random` module. For example, it&#39;s typically sufficient to implement one `rand` method in order to have all other usual methods work automatically.
@@ -971,9 +971,9 @@ for the particular `sampler` returned by `Sampler(rng, X, repetition)`.
 Samplers can be arbitrary values that implement `rand(rng, sampler)`, but for most applications the following predefined samplers may be sufficient:
 1. `SamplerType{T}()` can be used for implementing samplers that draw from type `T` (e.g. `rand(Int)`). This is the default returned by `Sampler` for _types_.
   
-1. `SamplerTrivial(self)` is a simple wrapper for `self`, which can be accessed with `[]`. This is the recommended sampler when no pre-computed information is needed (e.g. `rand(1:3)`), and is the default returned by `Sampler` for _values_.
+2. `SamplerTrivial(self)` is a simple wrapper for `self`, which can be accessed with `[]`. This is the recommended sampler when no pre-computed information is needed (e.g. `rand(1:3)`), and is the default returned by `Sampler` for _values_.
   
-1. `SamplerSimple(self, data)` also contains the additional `data` field, which can be used to store arbitrary pre-computed values, which should be computed in a _custom method_ of `Sampler`.
+3. `SamplerSimple(self, data)` also contains the additional `data` field, which can be used to store arbitrary pre-computed values, which should be computed in a _custom method_ of `Sampler`.
   
 
 We provide examples for each of these. We assume here that the choice of algorithm is independent of the RNG, so we use `AbstractRNG` in our signatures.
@@ -997,7 +997,7 @@ When `sp = Sampler(rng, x, repetition)`, `rand(rng, sp)` will be used to draw ra
 [`Random.SamplerType`](/stdlib/Random#Random.SamplerType) and [`Random.SamplerTrivial`](/stdlib/Random#Random.SamplerTrivial) are default fallbacks for _types_ and _values_, respectively. [`Random.SamplerSimple`](/stdlib/Random#Random.SamplerSimple) can be used to store pre-computed values without defining extra types for only this purpose.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Random.jl#L124-L138)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Random.jl#L124-L138)
 
 </div>
 <br>
@@ -1015,7 +1015,7 @@ SamplerType{T}()
 A sampler for types, containing no other information. The default fallback for `Sampler` when called with types.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Random.jl#L154-L159)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Random.jl#L154-L159)
 
 </div>
 <br>
@@ -1035,7 +1035,7 @@ Create a sampler that just wraps the given value `x`. This is the default fall-b
 The recommended use case is sampling from values without precomputed data.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Random.jl#L170-L178)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Random.jl#L170-L178)
 
 </div>
 <br>
@@ -1055,7 +1055,7 @@ Create a sampler that wraps the given value `x` and the `data`. The `eltype` of 
 The recommended use case is sampling from values with precomputed data.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Random/src/Random.jl#L191-L198)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Random/src/Random.jl#L191-L198)
 
 </div>
 <br>
@@ -1235,9 +1235,9 @@ Note: `Sampler(rng, x)` is simply a shorthand for `Sampler(rng, x, Val(Inf))`, a
 The API is not clearly defined yet, but as a rule of thumb:
 1. any `rand` method producing &quot;basic&quot; types (`isbitstype` integer and floating types in `Base`) should be defined for this specific RNG, if they are needed;
   
-1. other documented `rand` methods accepting an `AbstractRNG` should work out of the box, (provided the methods from 1) what are relied on are implemented), but can of course be specialized for this RNG if there is room for optimization;
+2. other documented `rand` methods accepting an `AbstractRNG` should work out of the box, (provided the methods from 1) what are relied on are implemented), but can of course be specialized for this RNG if there is room for optimization;
   
-1. `copy` for pseudo-RNGs should return an independent copy that generates the exact same random sequence as the original from that point when called in the same way. When this is not feasible (e.g. hardware-based RNGs), `copy` must not be implemented.
+3. `copy` for pseudo-RNGs should return an independent copy that generates the exact same random sequence as the original from that point when called in the same way. When this is not feasible (e.g. hardware-based RNGs), `copy` must not be implemented.
   
 
 Concerning 1), a `rand` method may happen to work automatically, but it&#39;s not officially supported and may break without warnings in a subsequent release.
@@ -1245,7 +1245,7 @@ Concerning 1), a `rand` method may happen to work automatically, but it&#39;s no
 To define a new `rand` method for an hypothetical `MyRNG` generator, and a value specification `s` (e.g. `s == Int`, or `s == 1:10`) of type `S==typeof(s)` or `S==Type{s}` if `s` is a type, the same two methods as we saw before must be defined:
 1. `Sampler(::Type{MyRNG}, ::S, ::Repetition)`, which returns an object of type say `SamplerS`
   
-1. `rand(rng::MyRNG, sp::SamplerS)`
+2. `rand(rng::MyRNG, sp::SamplerS)`
   
 
 It can happen that `Sampler(rng::AbstractRNG, ::S, ::Repetition)` is already defined in the `Random` module. It would then be possible to skip step 1) in practice (if one wants to specialize generation for this particular RNG type), but the corresponding `SamplerS` type is considered as internal detail, and may be changed without warning.
@@ -1258,7 +1258,7 @@ To implement this specialization for `MyRNG` and for a specification `s`, produc
 
 
 
-# Reproducibility {#Reproducibility}
+# Reproducibility
 
 By using an RNG parameter initialized with a given seed, you can reproduce the same pseudorandom number sequence when running your program multiple times. However, a minor release of Julia (e.g. 1.3 to 1.4) _may change_ the sequence of pseudorandom numbers generated from a specific seed. (Even if the sequence produced by a low-level function like [`rand`](/stdlib/Random#Base.rand) does not change, the output of higher-level functions like [`randsubseq`](/stdlib/Random#Random.randsubseq) may change due to algorithm updates.) Rationale: guaranteeing that pseudorandom streams never change prohibits many algorithmic improvements.
 

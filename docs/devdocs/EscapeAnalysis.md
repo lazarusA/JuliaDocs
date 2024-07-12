@@ -691,7 +691,7 @@ Analyzes escape information in `ir`:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L608-L615)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L608-L615)
 
 </div>
 <br>
@@ -709,7 +709,7 @@ estate::EscapeState
 Extended lattice that maps arguments and SSA values to escape information represented as [`EscapeInfo`](/devdocs/EscapeAnalysis#Core.Compiler.EscapeAnalysis.EscapeInfo). Escape information imposed on SSA IR element `x` can be retrieved by `estate[x]`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L440-L445)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L440-L445)
 
 </div>
 <br>
@@ -774,7 +774,7 @@ There are utility constructors to create common `EscapeInfo`s, e.g.,
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L41-L81)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L41-L81)
 
 </div>
 <br>

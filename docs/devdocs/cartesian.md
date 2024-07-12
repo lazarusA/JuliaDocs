@@ -1,5 +1,5 @@
 
-# Base.Cartesian {#Base.Cartesian}
+# Base.Cartesian
 
 The (non-exported) Cartesian module provides macros that facilitate writing multidimensional algorithms. Most often you can write such algorithms with [straightforward techniques](https://julialang.org/blog/2016/02/iteration); however, there are a few cases where `Base.Cartesian` is still useful or necessary.
 
@@ -27,7 +27,7 @@ end
 ```
 
 
-In general, Cartesian allows you to write generic code that contains repetitive elements, like the nested loops in this example.  Other applications include repeated expressions (e.g., loop unwinding) or creating function calls with variable numbers of arguments without using the &quot;splat&quot; construct (`i...`).
+In general, Cartesian allows you to write generic code that contains repetitive elements, like the nested loops in this example. Other applications include repeated expressions (e.g., loop unwinding) or creating function calls with variable numbers of arguments without using the &quot;splat&quot; construct (`i...`).
 
 ## Basic syntax {#Basic-syntax}
 
@@ -59,7 +59,7 @@ julia> @macroexpand @nref 2 A i
 
 ### Supplying the number of expressions {#Supplying-the-number-of-expressions}
 
-The first argument to both of these macros is the number of expressions, which must be an integer. When you&#39;re writing a function that you intend to work in multiple dimensions, this may not be something you want to hard-code. The recommended approach is to use a `@generated function`.  Here&#39;s an example:
+The first argument to both of these macros is the number of expressions, which must be an integer. When you&#39;re writing a function that you intend to work in multiple dimensions, this may not be something you want to hard-code. The recommended approach is to use a `@generated function`. Here&#39;s an example:
 
 ```julia
 @generated function mysum(A::Array{T,N}) where {T,N}
@@ -78,7 +78,7 @@ Naturally, you can also prepare expressions or perform calculations before the `
 
 ### Anonymous-function expressions as macro arguments {#Anonymous-function-expressions-as-macro-arguments}
 
-Perhaps the single most powerful feature in `Cartesian` is the ability to supply anonymous-function expressions that get evaluated at parsing time.  Let&#39;s consider a simple example:
+Perhaps the single most powerful feature in `Cartesian` is the ability to supply anonymous-function expressions that get evaluated at parsing time. Let&#39;s consider a simple example:
 
 ```julia
 @nexprs 2 j->(i_j = 1)
@@ -93,7 +93,7 @@ i_2 = 1
 ```
 
 
-In each generated statement, an &quot;isolated&quot; `j` (the variable of the anonymous function) gets replaced by values in the range `1:2`. Generally speaking, Cartesian employs a LaTeX-like syntax.  This allows you to do math on the index `j`.  Here&#39;s an example computing the strides of an array:
+In each generated statement, an &quot;isolated&quot; `j` (the variable of the anonymous function) gets replaced by values in the range `1:2`. Generally speaking, Cartesian employs a LaTeX-like syntax. This allows you to do math on the index `j`. Here&#39;s an example computing the strides of an array:
 
 ```julia
 s_1 = 1
@@ -154,7 +154,7 @@ end
 If you want just a post-expression, supply [`nothing`](/base/constants#Core.nothing) for the pre-expression. Using parentheses and semicolons, you can supply multi-statement expressions.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cartesian.jl#L9-L37)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cartesian.jl#L9-L37)
 
 </div>
 <br>
@@ -180,7 +180,7 @@ julia> @macroexpand Base.Cartesian.@nref 3 A i
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cartesian.jl#L72-L83)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cartesian.jl#L72-L83)
 
 </div>
 <br>
@@ -215,7 +215,7 @@ x_3 = y[5]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cartesian.jl#L160-L177)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cartesian.jl#L160-L177)
 
 </div>
 <br>
@@ -246,7 +246,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cartesian.jl#L139-L154)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cartesian.jl#L139-L154)
 
 </div>
 <br>
@@ -278,7 +278,7 @@ func(a, b, c[1], c[2])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cartesian.jl#L89-L103)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cartesian.jl#L89-L103)
 
 </div>
 <br>
@@ -311,7 +311,7 @@ julia> @ncallkw 2 f (; a = 0, b, kw...) x
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cartesian.jl#L111-L130)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cartesian.jl#L111-L130)
 
 </div>
 <br>
@@ -329,7 +329,7 @@ julia> @ncallkw 2 f (; a = 0, b, kw...) x
 Generates an `N`-tuple. `@ntuple 2 i` would generate `(i_1, i_2)`, and `@ntuple 2 k->k+1` would generate `(2,3)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cartesian.jl#L221-L226)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cartesian.jl#L221-L226)
 
 </div>
 <br>
@@ -349,7 +349,7 @@ Check whether all of the expressions generated by the anonymous-function express
 `@nall 3 d->(i_d > 1)` would generate the expression `(i_1 > 1 && i_2 > 1 && i_3 > 1)`. This can be convenient for bounds-checking.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cartesian.jl#L188-L196)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cartesian.jl#L188-L196)
 
 </div>
 <br>
@@ -369,7 +369,7 @@ Check whether any of the expressions generated by the anonymous-function express
 `@nany 3 d->(i_d > 1)` would generate the expression `(i_1 > 1 || i_2 > 1 || i_3 > 1)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cartesian.jl#L205-L212)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cartesian.jl#L205-L212)
 
 </div>
 <br>
@@ -406,7 +406,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/cartesian.jl#L232-L249)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cartesian.jl#L232-L249)
 
 </div>
 <br>

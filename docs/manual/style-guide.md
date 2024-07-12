@@ -3,7 +3,7 @@
 
 The following sections explain a few aspects of idiomatic Julia coding style. None of these rules are absolute; they are only suggestions to help familiarize you with the language and to help you choose among alternative designs.
 
-## Indentation {#Indentation}
+## Indentation
 
 Use 4 spaces per indentation level.
 
@@ -98,7 +98,7 @@ end
 ```
 
 
-Julia Base uses this convention throughout and contains examples of functions with both copying and modifying forms (e.g., [`sort`](/base/sort#Base.sort) and [`sort!`](/base/sort#Base.sort!)), and others which are just modifying (e.g., [`push!`](/base/collections#Base.push!), [`pop!`](/base/collections#Base.pop!), [`splice!`](/base/collections#Base.splice!)).  It is typical for such functions to also return the modified array for convenience.
+Julia Base uses this convention throughout and contains examples of functions with both copying and modifying forms (e.g., [`sort`](/base/sort#Base.sort) and [`sort!`](/base/sort#Base.sort!)), and others which are just modifying (e.g., [`push!`](/base/collections#Base.push!), [`pop!`](/base/collections#Base.pop!), [`splice!`](/base/collections#Base.splice!)). It is typical for such functions to also return the modified array for convenience.
 
 Functions related to IO or making use of random number generators (RNG) are notable exceptions: Since these functions almost invariably must mutate the IO or RNG, functions ending with `!` are used to signify a mutation _other_ than mutating the IO or advancing the RNG state. For example, `rand(x)` mutates the RNG, whereas `rand!(x)` mutates both the RNG and `x`; similarly, `read(io)` mutates `io`, whereas `read!(io, x)` mutates both arguments.
 
@@ -152,23 +152,23 @@ If a function name requires multiple words, consider whether it might represent 
 As a general rule, the Base library uses the following order of arguments to functions, as applicable:
 1. **Function argument**. Putting a function argument first permits the use of [`do`](/base/base#do) blocks for passing multiline anonymous functions.
   
-1. **I/O stream**. Specifying the `IO` object first permits passing the function to functions such as [`sprint`](/base/io-network#Base.sprint), e.g. `sprint(show, x)`.
+2. **I/O stream**. Specifying the `IO` object first permits passing the function to functions such as [`sprint`](/base/io-network#Base.sprint), e.g. `sprint(show, x)`.
   
-1. **Input being mutated**. For example, in [`fill!(x, v)`](/base/arrays#Base.fill!), `x` is the object being mutated and it appears before the value to be inserted into `x`.
+3. **Input being mutated**. For example, in [`fill!(x, v)`](/base/arrays#Base.fill!), `x` is the object being mutated and it appears before the value to be inserted into `x`.
   
-1. **Type**. Passing a type typically means that the output will have the given type. In [`parse(Int, "1")`](/base/numbers#Base.parse), the type comes before the string to parse. There are many such examples where the type appears first, but it&#39;s useful to note that in [`read(io, String)`](/base/io-network#Base.read), the `IO` argument appears before the type, which is in keeping with the order outlined here.
+4. **Type**. Passing a type typically means that the output will have the given type. In [`parse(Int, "1")`](/base/numbers#Base.parse), the type comes before the string to parse. There are many such examples where the type appears first, but it&#39;s useful to note that in [`read(io, String)`](/base/io-network#Base.read), the `IO` argument appears before the type, which is in keeping with the order outlined here.
   
-1. **Input not being mutated**. In `fill!(x, v)`, `v` is _not_ being mutated and it comes after `x`.
+5. **Input not being mutated**. In `fill!(x, v)`, `v` is _not_ being mutated and it comes after `x`.
   
-1. **Key**. For associative collections, this is the key of the key-value pair(s). For other indexed collections, this is the index.
+6. **Key**. For associative collections, this is the key of the key-value pair(s). For other indexed collections, this is the index.
   
-1. **Value**. For associative collections, this is the value of the key-value pair(s). In cases like [`fill!(x, v)`](/base/arrays#Base.fill!), this is `v`.
+7. **Value**. For associative collections, this is the value of the key-value pair(s). In cases like [`fill!(x, v)`](/base/arrays#Base.fill!), this is `v`.
   
-1. **Everything else**. Any other arguments.
+8. **Everything else**. Any other arguments.
   
-1. **Varargs**. This refers to arguments that can be listed indefinitely at the end of a function call. For example, in `Matrix{T}(undef, dims)`, the dimensions can be given as a [`Tuple`](/base/base#Core.Tuple), e.g. `Matrix{T}(undef, (1,2))`, or as [`Vararg`](/base/base#Core.Vararg)s, e.g. `Matrix{T}(undef, 1, 2)`.
+9. **Varargs**. This refers to arguments that can be listed indefinitely at the end of a function call. For example, in `Matrix{T}(undef, dims)`, the dimensions can be given as a [`Tuple`](/base/base#Core.Tuple), e.g. `Matrix{T}(undef, (1,2))`, or as [`Vararg`](/base/base#Core.Vararg)s, e.g. `Matrix{T}(undef, 1, 2)`.
   
-1. **Keyword arguments**. In Julia keyword arguments have to come last anyway in function definitions; they&#39;re listed here for the sake of completeness.
+10. **Keyword arguments**. In Julia keyword arguments have to come last anyway in function definitions; they&#39;re listed here for the sake of completeness.
   
 
 The vast majority of functions will not take every kind of argument listed above; the numbers merely denote the precedence that should be used for any applicable arguments to a function.

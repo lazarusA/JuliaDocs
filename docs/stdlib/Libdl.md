@@ -9,7 +9,7 @@
 The Libdl module in Julia provides specialized and lower-level facilities for dynamic linking with shared libraries. While Julia inherently supports linking to runtime shared libraries through the `ccall` intrinsic, `Libdl` extends this capability by offering additional, more granular control. It enables users to search for shared libraries both in memory and the filesystem, manually load them with specific runtime linker options, and look up library symbols as low-level pointers.
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Libdl/src/Libdl.jl#L2-L7)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Libdl/src/Libdl.jl#L2-L7)
 
 </div>
 <br>
@@ -41,7 +41,7 @@ From Julia 1.6 on, this method replaces paths starting with `@executable_path/` 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L82-L113)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L82-L113)
 
 </div>
 <br>
@@ -59,7 +59,7 @@ dlopen_e(libfile::AbstractString [, flags::Integer])
 Similar to [`dlopen`](/stdlib/Libdl#Base.Libc.Libdl.dlopen), except returns `C_NULL` instead of raising errors. This method is now deprecated in favor of `dlopen(libfile::AbstractString [, flags::Integer]; throw_error=false)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L154-L159)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L154-L159)
 
 </div>
 <br>
@@ -84,7 +84,7 @@ RTLD_NOW
 Enum constant for [`dlopen`](/stdlib/Libdl#Base.Libc.Libdl.dlopen). See your platform man page for details, if applicable.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L33-L45)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L33-L45)
 
 </div>
 <br>
@@ -104,7 +104,7 @@ Look up a symbol from a shared library handle, return callable function pointer 
 If the symbol cannot be found, this method throws an error, unless the keyword argument `throw_error` is set to `false`, in which case this method returns `nothing`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L51-L58)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L51-L58)
 
 </div>
 <br>
@@ -122,7 +122,7 @@ dlsym_e(handle, sym)
 Look up a symbol from a shared library handle, silently return `C_NULL` on lookup failure. This method is now deprecated in favor of `dlsym(handle, sym; throw_error=false)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L72-L77)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L72-L77)
 
 </div>
 <br>
@@ -140,7 +140,7 @@ dlclose(handle)
 Close shared library referenced by handle.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L162-L166)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L162-L166)
 
 
 
@@ -164,7 +164,7 @@ end
 We define a `dlclose()` method that accepts a parameter of type `Nothing`, so that user code does not have to change its behavior for the case that `library_name` was not found.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L171-L186)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L171-L186)
 
 </div>
 <br>
@@ -182,7 +182,7 @@ dlext
 File extension for dynamic libraries (e.g. dll, dylib, so) on the current platform.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L258-L262)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L258-L262)
 
 </div>
 <br>
@@ -200,7 +200,7 @@ dllist()
 Return the paths of dynamic libraries currently loaded in a `Vector{String}`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L289-L293)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L289-L293)
 
 </div>
 <br>
@@ -218,7 +218,7 @@ dlpath(handle::Ptr{Cvoid})
 Given a library `handle` from `dlopen`, return the full path.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L220-L224)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L220-L224)
 
 
 
@@ -237,7 +237,7 @@ julia> dlpath("libjulia")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L232-L241)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L232-L241)
 
 </div>
 <br>
@@ -255,7 +255,7 @@ find_library(names [, locations])
 Searches for the first library in `names` in the paths in the `locations` list, `DL_LOAD_PATH`, or system library paths (in that order) which can successfully be dlopen&#39;d. On success, the return value will be one of the names (potentially prefixed by one of the paths in locations). This string can be assigned to a `global const` and used as the library name in future `ccall`&#39;s. On failure, it returns the empty string.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L190-L198)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L190-L198)
 
 </div>
 <br>
@@ -273,7 +273,7 @@ DL_LOAD_PATH
 When calling [`dlopen`](/stdlib/Libdl#Base.Libc.Libdl.dlopen), the paths in this list will be searched first, in order, before searching the system locations for a valid library handle.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/libdl.jl#L14-L19)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libdl.jl#L14-L19)
 
 </div>
 <br>

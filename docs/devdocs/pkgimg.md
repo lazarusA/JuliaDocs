@@ -15,21 +15,21 @@ While the package images present themselves as native shared libraries, they are
 
 :::
 
-## Linking {#Linking}
+## Linking
 
 Since the package images contain native code, we must run a linker over them before we can use them. You can set the environment variable [`JULIA_VERBOSE_LINKING`](/manual/environment-variables#JULIA_VERBOSE_LINKING) to `true` to make the package image linking process verbose.
 
 Furthermore, we cannot assume that the user has a working system linker installed. Therefore, Julia ships with LLD, the LLVM linker, to provide a working out of the box experience. In `base/linking.jl`, we implement a limited interface to be able to link package images on all supported platforms.
 
-### Quirks {#Quirks}
+### Quirks
 
 Despite LLD being a multi-platform linker, it does not provide a consistent interface across platforms. Furthermore, it is meant to be used from `clang` or another compiler driver, we therefore reimplement some of the logic from `llvm-project/clang/lib/Driver/ToolChains`. Thankfully one can use `lld -flavor` to set lld to the right platform
 
-#### Windows {#Windows}
+#### Windows
 
 To avoid having to deal with `link.exe` we use `-flavor gnu`, effectively turning `lld` into a cross-linker from a mingw32 environment. Windows DLLs are required to contain a `_DllMainCRTStartup` function and to minimize our dependence on mingw32 libraries, we inject a stub definition ourselves.
 
-#### MacOS {#MacOS}
+#### MacOS
 
 Dynamic libraries on macOS need to link against `-lSystem`. On recent macOS versions, `-lSystem` is only available for linking when Xcode is available. To that effect we link with `-undefined dynamic_lookup`.
 

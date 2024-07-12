@@ -1,5 +1,5 @@
 
-# Windows {#Windows}
+# Windows
 
 This file describes how to install, or build, and use Julia on Windows.
 
@@ -46,25 +46,25 @@ The recommended way of compiling Julia from source on Windows is by cross compil
   
   replacing `<url>` with a site from [https://cygwin.com/mirrors.html](https://cygwin.com/mirrors.html) or run setup manually first and select a mirror.
   
-1. Select installation location and a mirror to download from.
+2. Select installation location and a mirror to download from.
   
-1. At the _Select Packages_ step, select the following:
+3. At the _Select Packages_ step, select the following:
   1. From the _Devel_ category: `cmake`, `gcc-g++`, `git`, `make`, `patch`
     
-  1. From the _Net_ category: `curl`
+  2. From the _Net_ category: `curl`
     
-  1. From _Interpreters_ (or _Python_) category: `m4`, `python3`
+  3. From _Interpreters_ (or _Python_) category: `m4`, `python3`
     
-  1. From the _Archive_ category: `p7zip`
+  4. From the _Archive_ category: `p7zip`
     
-  1. For 32 bit Julia, and also from the _Devel_ category:  `mingw64-i686-gcc-g++` and `mingw64-i686-gcc-fortran`
+  5. For 32 bit Julia, and also from the _Devel_ category: `mingw64-i686-gcc-g++` and `mingw64-i686-gcc-fortran`
     
-  1. For 64 bit Julia, and also from the _Devel_ category:  `mingw64-x86_64-gcc-g++` and `mingw64-x86_64-gcc-fortran`
+  6. For 64 bit Julia, and also from the _Devel_ category: `mingw64-x86_64-gcc-g++` and `mingw64-x86_64-gcc-fortran`
     
   
-1. Allow Cygwin installation to finish, then start from the installed shortcut _&#39;Cygwin Terminal&#39;_, or _&#39;Cygwin64 Terminal&#39;_, respectively.
+4. Allow Cygwin installation to finish, then start from the installed shortcut _&#39;Cygwin Terminal&#39;_, or _&#39;Cygwin64 Terminal&#39;_, respectively.
   
-1. Build Julia and its dependencies from source:
+5. Build Julia and its dependencies from source:
   1. Get the Julia sources
     
     ```sh
@@ -74,7 +74,7 @@ The recommended way of compiling Julia from source on Windows is by cross compil
     
     Tip: If you get an `error: cannot fork() for fetch-pack: Resource temporarily unavailable` from git, add `alias git="env PATH=/usr/bin git"` to `~/.bashrc` and restart Cygwin.
     
-  1. Set the `XC_HOST` variable in `Make.user` to indicate MinGW-w64 cross compilation
+  2. Set the `XC_HOST` variable in `Make.user` to indicate MinGW-w64 cross compilation
     
     ```sh
     echo 'XC_HOST = i686-w64-mingw32' > Make.user     # for 32 bit Julia
@@ -83,7 +83,7 @@ The recommended way of compiling Julia from source on Windows is by cross compil
     ```
     
     
-  1. Start the build
+  3. Start the build
     
     ```sh
     make -j 4       # Adjust the number of threads (4) to match your build environment.
@@ -92,7 +92,7 @@ The recommended way of compiling Julia from source on Windows is by cross compil
     
     
   
-1. Run Julia using the Julia executables directly
+6. Run Julia using the Julia executables directly
   
   ```sh
   usr/bin/julia.exe
@@ -126,29 +126,29 @@ Note: MSYS2 requires **64 bit** Windows 7 or newer.
 1. Install and configure MSYS2.
   1. Download and run the latest installer for the  [64-bit](https://github.com/msys2/msys2-installer/releases/latest) distribution.  The installer will have a name like `msys2-x86_64-yyyymmdd.exe`.
     
-  1. Open the MSYS2 shell. Update the package database and base packages:
+  2. Open the MSYS2 shell. Update the package database and base packages:
     `pacman -Syu`
     
-  1. Exit and restart MSYS2. Update the rest of the base packages:
+  3. Exit and restart MSYS2. Update the rest of the base packages:
     `pacman -Syu`
     
-  1. Then install tools required to build julia:
+  4. Then install tools required to build julia:
     `pacman -S cmake diffutils git m4 make patch tar p7zip curl python`
     For 64 bit Julia, install the x86_64 version:
     `pacman -S mingw-w64-x86_64-gcc`
     For 32 bit Julia, install the i686 version:
     `pacman -S mingw-w64-i686-gcc`
     
-  1. Configuration of MSYS2 is complete. Now `exit` the MSYS2 shell.
+  5. Configuration of MSYS2 is complete. Now `exit` the MSYS2 shell.
     
   
-1. Build Julia and its dependencies with pre-build dependencies.
+2. Build Julia and its dependencies with pre-build dependencies.
   1. Open a new [**MINGW64/MINGW32 shell**](https://www.msys2.org/docs/environments/#overview).  Currently we can&#39;t use both mingw32 and mingw64,  so if you want to build the x86_64 and i686 versions,  you&#39;ll need to build them in each environment separately.
     
-  1. Clone the Julia sources:
+  2. Clone the Julia sources:
     `git clone https://github.com/JuliaLang/julia.git  cd julia`
     
-  1. Start the build
+  3. Start the build
     `make -j$(nproc)`
     
   
@@ -184,22 +184,22 @@ done
 ```
 
 
-**On Mac**: Install XCode, XCode command line tools, X11 (now [XQuartz](https://www.xquartz.org/)), and [MacPorts](https://www.macports.org/install.php) or [Homebrew](https://brew.sh/).  Then run `port install wine wget mingw-w64`, or `brew install wine wget mingw-w64`, as appropriate.
+**On Mac**: Install XCode, XCode command line tools, X11 (now [XQuartz](https://www.xquartz.org/)), and [MacPorts](https://www.macports.org/install.php) or [Homebrew](https://brew.sh/). Then run `port install wine wget mingw-w64`, or `brew install wine wget mingw-w64`, as appropriate.
 
 **Then run the build:**
 1. `git clone https://github.com/JuliaLang/julia.git julia-win32`
   
-1. `cd julia-win32`
+2. `cd julia-win32`
   
-1. `echo override XC_HOST = i686-w64-mingw32 >> Make.user`
+3. `echo override XC_HOST = i686-w64-mingw32 >> Make.user`
   
-1. `make`
+4. `make`
   
-1. `make win-extras` (Necessary before running `make binary-dist`)
+5. `make win-extras` (Necessary before running `make binary-dist`)
   
-1. `make binary-dist` then `make exe` to create the Windows installer.
+6. `make binary-dist` then `make exe` to create the Windows installer.
   
-1. move the `julia-*.exe` installer to the target machine
+7. move the `julia-*.exe` installer to the target machine
   
 
 If you are building for 64-bit Windows, the steps are essentially the same. Just replace `i686` in `XC_HOST` with `x86_64`. (Note: on Mac, wine only runs in 32-bit mode).
@@ -219,11 +219,11 @@ Compiling using one of the options above creates a basic Julia build, but not so
   
 
 ### GDB not attaching to the right process {#GDB-not-attaching-to-the-right-process}
-- Use the PID from the Windows task manager or `WINPID` from the `ps` command instead of the PID from unix-style command line tools (e.g. `pgrep`).  You may need to add the PID column if it is not shown by default in the Windows task manager.
+- Use the PID from the Windows task manager or `WINPID` from the `ps` command instead of the PID from unix-style command line tools (e.g. `pgrep`). You may need to add the PID column if it is not shown by default in the Windows task manager.
   
 
 ### GDB not showing the right backtrace {#GDB-not-showing-the-right-backtrace}
-- When attaching to the julia process, GDB may not be attaching to the right thread.  Use `info threads` command to show all the threads and `thread <threadno>` to switch threads.
+- When attaching to the julia process, GDB may not be attaching to the right thread. Use `info threads` command to show all the threads and `thread <threadno>` to switch threads.
   
 - Be sure to use a 32 bit version of GDB to debug a 32 bit build of Julia, or a 64 bit version of GDB to debug a 64 bit build of Julia.
   

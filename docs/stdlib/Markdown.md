@@ -9,7 +9,7 @@ This section describes Julia&#39;s markdown syntax, which is enabled by the Mark
 
 Here &quot;inline&quot; refers to elements that can be found within blocks of text, i.e. paragraphs. These include the following elements.
 
-### Bold {#Bold}
+### Bold
 
 Surround words with two asterisks, `**`, to display the enclosed text in boldface.
 
@@ -18,7 +18,7 @@ A paragraph containing a **bold** word.
 ```
 
 
-### Italics {#Italics}
+### Italics
 
 Surround words with one asterisk, `*`, to display the enclosed text in italics.
 
@@ -27,7 +27,7 @@ A paragraph containing an *italicized* word.
 ```
 
 
-### Literals {#Literals}
+### Literals
 
 Surround text that should be displayed exactly as written with single backticks, ``` .
 
@@ -77,7 +77,7 @@ The `\` character should be escaped appropriately if the text is embedded in a J
 
 :::
 
-### Links {#Links}
+### Links
 
 Links to either external or internal targets can be written using the following syntax, where the text enclosed in square brackets, `[ ]`, is the name of the link and the text enclosed in parentheses, `( )`, is the URL.
 
@@ -125,7 +125,7 @@ The text associated with a footnote can be written anywhere within the same page
 
 The following elements can be written either at the &quot;toplevel&quot; of a document or within another &quot;toplevel&quot; element.
 
-### Paragraphs {#Paragraphs}
+### Paragraphs
 
 A paragraph is a block of plain text, possibly containing any number of inline elements defined in the [Inline elements](/stdlib/Markdown#Inline-elements) section above, with one or more blank lines above and below it.
 
@@ -137,7 +137,7 @@ A new line, but still part of the same paragraph.
 ```
 
 
-### Headers {#Headers}
+### Headers
 
 A document can be split up into different sections using headers. Headers use the following syntax:
 
@@ -216,7 +216,7 @@ Here's a quote:
 
 Note that a single space must appear after the `>` character on each line. Quoted blocks may themselves contain other toplevel or inline elements.
 
-### Images {#Images}
+### Images
 
 The syntax for images is similar to the link syntax mentioned above. Prepending a `!` character to a link will display an image from the specified URL rather than a link to it.
 
@@ -225,7 +225,7 @@ The syntax for images is similar to the link syntax mentioned above. Prepending 
 ```
 
 
-### Lists {#Lists}
+### Lists
 
 Unordered lists can be written by prepending each item in a list with either `*`, `+`, or `-`.
 
@@ -294,7 +294,7 @@ f(a) = \frac{1}{2\pi}\int_{0}^{2\pi} (\alpha+R\cos(\theta))d\theta
 ````
 
 
-### Footnotes {#Footnotes}
+### Footnotes
 
 This syntax is paired with the inline syntax for [Footnote references](/stdlib/Markdown#Footnote-references). Make sure to read that section as well.
 
@@ -339,7 +339,7 @@ And text below the line.
 ```
 
 
-### Tables {#Tables}
+### Tables
 
 Basic tables can be written using the syntax described below. Note that markdown tables have limited features and cannot contain nested toplevel elements unlike other elements discussed above – only inline elements are allowed. Tables must always contain a header row with column names. Cells cannot span multiple rows or columns of the table.
 
@@ -359,7 +359,7 @@ A `:` character on either end of a column&#39;s header separator (the row contai
 
 :::
 
-### Admonitions {#Admonitions}
+### Admonitions
 
 Specially formatted blocks, known as admonitions, can be used to highlight particular remarks. They can be defined using the following `!!!` syntax:
 
@@ -399,7 +399,7 @@ Admonitions, like most other toplevel elements, can contain other toplevel eleme
 
 The `md""` macro allows you to embed Markdown strings directly into your Julia code. This macro is designed to simplify the inclusion of Markdown-formatted text within your Julia source files.
 
-### Usage {#Usage}
+### Usage
 
 ```julia
 result = md"This is a **custom** Markdown string with [a link](http://example.com)."
@@ -427,7 +427,7 @@ MD
 `MD` represents a Markdown document. Note that the `MD` constructor should not generally be used directly, since it constructs the internal data structures. Instead, you can construct `MD` objects using the exported macros [`@md_str`](/stdlib/Markdown#Markdown.@md_str) and [`@doc_str`](/stdlib/Markdown#Markdown.@doc_str).
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Markdown/src/parse/parse.jl#L3-L9)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Markdown/src/parse/parse.jl#L3-L9)
 
 </div>
 <br>
@@ -458,7 +458,7 @@ Markdown.MD
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Markdown/src/Markdown.jl#L47-L62)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Markdown/src/Markdown.jl#L71-L86)
 
 </div>
 <br>
@@ -490,7 +490,7 @@ Markdown.MD
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Markdown/src/Markdown.jl#L74-L92)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Markdown/src/Markdown.jl#L98-L116)
 
 </div>
 <br>
@@ -518,7 +518,7 @@ julia> html(md"hello _world_")
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Markdown/src/render/html.jl#L185-L199)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Markdown/src/render/html.jl#L191-L205)
 
 </div>
 <br>
@@ -546,7 +546,7 @@ julia> latex(md"hello _world_")
 
 
 
-[source](https://github.com/lazarusA/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/stdlib/Markdown/src/render/latex.jl#L170-L183)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Markdown/src/render/latex.jl#L173-L186)
 
 </div>
 <br>

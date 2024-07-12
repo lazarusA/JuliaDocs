@@ -18,7 +18,7 @@ A return value of `nothing` is not displayed by the REPL and similar interactive
 See also: [`isnothing`](/base/base#Base.isnothing), [`something`](/base/base#Base.something), [`missing`](/manual/missing#missing).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/docs/basedocs.jl#L1518-L1527)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1533-L1542)
 
 </div>
 <br>
@@ -36,7 +36,7 @@ PROGRAM_FILE
 A string containing the script name passed to Julia from the command line. Note that the script name remains unchanged from within included files. Alternatively see [`@__FILE__`](/base/base#Base.@__FILE__).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/initdefs.jl#L5-L11)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/initdefs.jl#L5-L11)
 
 </div>
 <br>
@@ -54,7 +54,7 @@ ARGS
 An array of the command line arguments passed to Julia, as strings.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/initdefs.jl#L14-L18)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/initdefs.jl#L14-L18)
 
 </div>
 <br>
@@ -72,7 +72,7 @@ C_NULL
 The C null pointer constant, sometimes used when calling external code.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/pointer.jl#L13-L17)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L13-L17)
 
 </div>
 <br>
@@ -90,7 +90,7 @@ VERSION
 A [`VersionNumber`](/base/base#Base.VersionNumber) object describing which version of Julia is in use. See also [Version Number Literals](/manual/strings#man-version-number-literals).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/version.jl#L243-L248)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/version.jl#L242-L247)
 
 </div>
 <br>
@@ -108,9 +108,9 @@ DEPOT_PATH
 A stack of &quot;depot&quot; locations where the package manager, as well as Julia&#39;s code loading mechanisms, look for package registries, installed packages, named environments, repo clones, cached compiled package images, and configuration files. By default it includes:
 1. `~/.julia` where `~` is the user home as appropriate on the system;
   
-1. an architecture-specific shared system directory, e.g. `/usr/local/share/julia`;
+2. an architecture-specific shared system directory, e.g. `/usr/local/share/julia`;
   
-1. an architecture-independent shared system directory, e.g. `/usr/share/julia`.
+3. an architecture-independent shared system directory, e.g. `/usr/share/julia`.
   
 
 So `DEPOT_PATH` might be:
@@ -157,7 +157,7 @@ Packages that want to store content should use the `scratchspaces` subdirectory 
 See also [`JULIA_DEPOT_PATH`](/manual/environment-variables#JULIA_DEPOT_PATH), and [Code Loading](/manual/code-loading#code-loading).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/initdefs.jl#L44-L94)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/initdefs.jl#L44-L94)
 
 </div>
 <br>
@@ -185,7 +185,7 @@ The fully expanded value of `LOAD_PATH` that is searched for projects and packag
 See also [`JULIA_LOAD_PATH`](/manual/environment-variables#JULIA_LOAD_PATH), [`JULIA_PROJECT`](/manual/environment-variables#JULIA_PROJECT), [`JULIA_DEPOT_PATH`](/manual/environment-variables#JULIA_DEPOT_PATH), and [Code Loading](/manual/code-loading#code-loading).
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/initdefs.jl#L156-L190)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/initdefs.jl#L156-L190)
 
 </div>
 <br>
@@ -203,7 +203,7 @@ Sys.BINDIR::String
 A string containing the full path to the directory containing the `julia` executable.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sysinfo.jl#L43-L47)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L43-L47)
 
 </div>
 <br>
@@ -223,7 +223,7 @@ The number of logical CPU cores available in the system, i.e. the number of thre
 See Hwloc.jl or CpuId.jl for extended information, including number of physical cores.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sysinfo.jl#L62-L71)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L62-L71)
 
 </div>
 <br>
@@ -241,7 +241,7 @@ Sys.WORD_SIZE::Int
 Standard word size on the current machine, in bits.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sysinfo.jl#L96-L100)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L96-L100)
 
 </div>
 <br>
@@ -259,7 +259,7 @@ Sys.KERNEL::Symbol
 A symbol representing the name of the operating system, as returned by `uname` of the build configuration.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sysinfo.jl#L82-L86)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L82-L86)
 
 </div>
 <br>
@@ -277,7 +277,7 @@ Sys.ARCH::Symbol
 A symbol representing the architecture of the build configuration.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sysinfo.jl#L74-L78)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L74-L78)
 
 </div>
 <br>
@@ -295,7 +295,7 @@ Sys.MACHINE::String
 A string containing the build triple.
 
 
-[source](https://github.com/JuliaLang/julia/blob/e162027b054e012a31046f06b22c4befb65eac54/base/sysinfo.jl#L89-L93)
+[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L89-L93)
 
 </div>
 <br>

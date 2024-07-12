@@ -4,11 +4,13 @@
 # Julia v1.12 Release Notes {#Julia-v1.12-Release-Notes}
 
 ## New language features {#New-language-features}
+- A new keyword argument `usings::Bool` has been added to `names`. By using this, we can now find all the names available in module `A` by `names(A; all=true, imported=true, usings=true)`. ([#54609](https://github.com/JuliaLang/julia/issues/54609))
+  
 
 ## Language changes {#Language-changes}
 - When methods are replaced with exactly equivalent ones, the old method is no longer deleted implicitly simultaneously, although the new method does take priority and become more specific than the old method. Thus if the new method is deleted later, the old method will resume operating. This can be useful to mocking frameworks (such as in SparseArrays, Pluto, and Mocking, among others), as they do not need to explicitly restore the old method. While inference and compilation still must be repeated with this, it also may pave the way for inference to be able to intelligently re-use the old results, once the new method is deleted. ([#53415](https://github.com/JuliaLang/julia/issues/53415))
   
-- Macro expansion will no longer eargerly recurse into into `Expr(:toplevel)` expressions returned from macros. Instead, macro expansion of `:toplevel` expressions will be delayed until evaluation time. This allows a later expression within a given `:toplevel` expression to make use of macros defined earlier in the same `:toplevel` expression. ([#53515](https://github.com/JuliaLang/julia/issues/53515))
+- Macro expansion will no longer eagerly recurse into into `Expr(:toplevel)` expressions returned from macros. Instead, macro expansion of `:toplevel` expressions will be delayed until evaluation time. This allows a later expression within a given `:toplevel` expression to make use of macros defined earlier in the same `:toplevel` expression. ([#53515](https://github.com/JuliaLang/julia/issues/53515))
   
 
 ## Compiler/Runtime improvements {#Compiler/Runtime-improvements}
@@ -18,6 +20,10 @@
 ## Command-line option changes {#Command-line-option-changes}
 - The `-m/--module` flag can be passed to run the `main` function inside a package with a set of arguments. This `main` function should be declared using `@main` to indicate that it is an entry point.
   
+- Enabling or disabling color text in Julia can now be controlled with the
+  
+
+[`NO_COLOR`](https://no-color.org/) or [`FORCE_COLOR`](https://force-color.org/) environment variables. ([#53742](https://github.com/JuliaLang/julia/issues/53742)).
 
 ## Multi-threading changes {#Multi-threading-changes}
 
@@ -61,43 +67,47 @@
 - `gcdx(0, 0)` now returns `(0, 0, 0)` instead of `(0, 1, 0)` ([#40989](https://github.com/JuliaLang/julia/issues/40989)).
   
 
-#### StyledStrings {#StyledStrings}
+#### StyledStrings
 
-#### JuliaSyntaxHighlighting {#JuliaSyntaxHighlighting}
+#### JuliaSyntaxHighlighting
 
 #### Package Manager {#Package-Manager}
 
-#### LinearAlgebra {#LinearAlgebra}
+#### LinearAlgebra
 - `rank` can now take a `QRPivoted` matrix to allow rank estimation via QR factorization ([#54283](https://github.com/JuliaLang/julia/issues/54283)).
   
+- Added keyword argument `alg` to `eigen`, `eigen!`, `eigvals` and `eigvals!` for self-adjoint matrix types (i.e., the type union `RealHermSymComplexHerm`) that allows one to switch between different eigendecomposition algorithms ([#49355](https://github.com/JuliaLang/julia/issues/49355)).
+  
 
-#### Logging {#Logging}
+#### Logging
 
-#### Printf {#Printf}
+#### Printf
 
-#### Profile {#Profile}
+#### Profile
 
-#### Random {#Random}
+#### Random
 
-#### REPL {#REPL}
+#### REPL
+- Using the new `usings=true` feature of the `names()` function, REPL completions can now complete names that have been explicitly `using`-ed. ([#54610](https://github.com/JuliaLang/julia/issues/54610))
+  
 
-#### SuiteSparse {#SuiteSparse}
+#### SuiteSparse
 
-#### SparseArrays {#SparseArrays}
+#### SparseArrays
 
-#### Test {#Test}
+#### Test
 
-#### Dates {#Dates}
+#### Dates
 
-#### Statistics {#Statistics}
+#### Statistics
 
-#### Distributed {#Distributed}
+#### Distributed
 
-#### Unicode {#Unicode}
+#### Unicode
 
-#### DelimitedFiles {#DelimitedFiles}
+#### DelimitedFiles
 
-#### InteractiveUtils {#InteractiveUtils}
+#### InteractiveUtils
 
 ## Deprecated or removed {#Deprecated-or-removed}
 

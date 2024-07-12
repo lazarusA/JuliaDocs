@@ -35,7 +35,7 @@ void jl_safe_printf(const char *str, ...);
 
 Julia&#39;s `__init__()` function (in `base/sysimg.jl`) calls `reinit_stdio()` (in `base/stream.jl`) to create Julia objects for [`Base.stdin`](/base/io-network#Base.stdin), [`Base.stdout`](/base/io-network#Base.stdout) and [`Base.stderr`](/base/io-network#Base.stderr).
 
-`reinit_stdio()` uses [`ccall`](/base/c#ccall) to retrieve pointers to `JL_STD*` and calls `jl_uv_handle_type()` to inspect the type of each stream.  It then creates a Julia `Base.IOStream`, `Base.TTY` or `Base.PipeEndpoint` object to represent each stream, e.g.:
+`reinit_stdio()` uses [`ccall`](/base/c#ccall) to retrieve pointers to `JL_STD*` and calls `jl_uv_handle_type()` to inspect the type of each stream. It then creates a Julia `Base.IOStream`, `Base.TTY` or `Base.PipeEndpoint` object to represent each stream, e.g.:
 
 ```
 $ julia -e 'println(typeof((stdin, stdout, stderr)))'
@@ -61,7 +61,7 @@ stream.jl: function write(s::IO, p::Ptr, nb::Integer)
 
 ## printf() during initialization {#printf()-during-initialization}
 
-The libuv streams relied upon by `jl_printf()` etc., are not available until midway through initialization of the runtime (see `init.c`, `init_stdio()`).  Error messages or warnings that need to be printed before this are routed to the standard C library `fwrite()` function by the following mechanism:
+The libuv streams relied upon by `jl_printf()` etc., are not available until midway through initialization of the runtime (see `init.c`, `init_stdio()`). Error messages or warnings that need to be printed before this are routed to the standard C library `fwrite()` function by the following mechanism:
 
 In `sys.c`, the `JL_STD*` stream pointers are statically initialized to integer constants: `STD*_FILENO (0, 1 and 2)`. In `jl_uv.c` the `jl_uv_puts()` function checks its `uv_stream_t* stream` argument and calls `fwrite()` if stream is set to `STDOUT_FILENO` or `STDERR_FILENO`.
 

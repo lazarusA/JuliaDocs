@@ -1,7 +1,7 @@
 
 # Arrays with custom indices {#man-custom-indices}
 
-Conventionally, Julia&#39;s arrays are indexed starting at 1, whereas some other languages start numbering at 0, and yet others (e.g., Fortran) allow you to specify arbitrary starting indices.  While there is much merit in picking a standard (i.e., 1 for Julia), there are some algorithms which simplify considerably if you can index outside the range `1:size(A,d)` (and not just `0:size(A,d)-1`, either). To facilitate such computations, Julia supports arrays with arbitrary indices.
+Conventionally, Julia&#39;s arrays are indexed starting at 1, whereas some other languages start numbering at 0, and yet others (e.g., Fortran) allow you to specify arbitrary starting indices. While there is much merit in picking a standard (i.e., 1 for Julia), there are some algorithms which simplify considerably if you can index outside the range `1:size(A,d)` (and not just `0:size(A,d)-1`, either). To facilitate such computations, Julia supports arrays with arbitrary indices.
 
 The purpose of this page is to address the question, &quot;what do I have to do to support such arrays in my own code?&quot;  First, let&#39;s address the simplest case: if you know that your code will never need to handle arrays with unconventional indexing, hopefully the answer is &quot;nothing.&quot; Old code, on conventional arrays, should function essentially without alteration as long as it was using the exported interfaces of Julia. If you find it more convenient to just force your users to supply traditional arrays where indexing starts at one, you can add
 
@@ -44,7 +44,7 @@ This code implicitly assumes that vectors are indexed from 1; if `dest` starts a
 
 ### Using `axes` for bounds checks and loop iteration {#Using-axes-for-bounds-checks-and-loop-iteration}
 
-`axes(A)` (reminiscent of `size(A)`) returns a tuple of `AbstractUnitRange{<:Integer}` objects, specifying the range of valid indices along each dimension of `A`.  When `A` has unconventional indexing, the ranges may not start at 1.  If you just want the range for a particular dimension `d`, there is `axes(A, d)`.
+`axes(A)` (reminiscent of `size(A)`) returns a tuple of `AbstractUnitRange{<:Integer}` objects, specifying the range of valid indices along each dimension of `A`. When `A` has unconventional indexing, the ranges may not start at 1. If you just want the range for a particular dimension `d`, there is `axes(A, d)`.
 
 Base implements a custom range type, `OneTo`, where `OneTo(n)` means the same thing as `1:n` but in a form that guarantees (via the type system) that the lower index is 1. For any new [`AbstractArray`](/base/arrays#Core.AbstractArray) type, this is the default returned by `axes`, and it indicates that this array type uses &quot;conventional&quot; 1-based indexing.
 
@@ -75,7 +75,7 @@ end
 
 Storage is often allocated with `Array{Int}(undef, dims)` or `similar(A, args...)`. When the result needs to match the indices of some other array, this may not always suffice. The generic replacement for such patterns is to use `similar(storagetype, shape)`.  `storagetype` indicates the kind of underlying &quot;conventional&quot; behavior you&#39;d like, e.g., `Array{Int}` or `BitArray` or even `dims->zeros(Float32, dims)` (which would allocate an all-zeros array). `shape` is a tuple of [`Integer`](/base/numbers#Core.Integer) or `AbstractUnitRange` values, specifying the indices that you want the result to use. Note that a convenient way of producing an all-zeros array that matches the indices of A is simply `zeros(A)`.
 
-Let&#39;s walk through a couple of explicit examples. First, if `A` has conventional indices, then `similar(Array{Int}, axes(A))` would end up calling `Array{Int}(undef, size(A))`, and thus return an array.  If `A` is an `AbstractArray` type with unconventional indexing, then `similar(Array{Int}, axes(A))` should return something that &quot;behaves like&quot; an `Array{Int}` but with a shape (including indices) that matches `A`.  (The most obvious implementation is to allocate an `Array{Int}(undef, size(A))` and then &quot;wrap&quot; it in a type that shifts the indices.)
+Let&#39;s walk through a couple of explicit examples. First, if `A` has conventional indices, then `similar(Array{Int}, axes(A))` would end up calling `Array{Int}(undef, size(A))`, and thus return an array. If `A` is an `AbstractArray` type with unconventional indexing, then `similar(Array{Int}, axes(A))` should return something that &quot;behaves like&quot; an `Array{Int}` but with a shape (including indices) that matches `A`.  (The most obvious implementation is to allocate an `Array{Int}(undef, size(A))` and then &quot;wrap&quot; it in a type that shifts the indices.)
 
 Note also that `similar(Array{Int}, (axes(A, 2),))` would allocate an `AbstractVector{Int}` (i.e., 1-dimensional array) that matches the indices of the columns of `A`.
 
@@ -85,7 +85,7 @@ Most of the methods you&#39;ll need to define are standard for any `AbstractArra
 
 ### Custom `AbstractUnitRange` types {#Custom-AbstractUnitRange-types}
 
-If you&#39;re writing a non-1 indexed array type, you will want to specialize `axes` so it returns a `UnitRange`, or (perhaps better) a custom `AbstractUnitRange`.  The advantage of a custom type is that it &quot;signals&quot; the allocation type for functions like `similar`. If we&#39;re writing an array type for which indexing will start at 0, we likely want to begin by creating a new `AbstractUnitRange`, `ZeroRange`, where `ZeroRange(n)` is equivalent to `0:n-1`.
+If you&#39;re writing a non-1 indexed array type, you will want to specialize `axes` so it returns a `UnitRange`, or (perhaps better) a custom `AbstractUnitRange`. The advantage of a custom type is that it &quot;signals&quot; the allocation type for functions like `similar`. If we&#39;re writing an array type for which indexing will start at 0, we likely want to begin by creating a new `AbstractUnitRange`, `ZeroRange`, where `ZeroRange(n)` is equivalent to `0:n-1`.
 
 In general, you should probably _not_ export `ZeroRange` from your package: there may be other packages that implement their own `ZeroRange`, and having multiple distinct `ZeroRange` types is (perhaps counterintuitively) an advantage: `ModuleA.ZeroRange` indicates that `similar` should create a `ModuleA.ZeroArray`, whereas `ModuleB.ZeroRange` indicates a `ModuleB.ZeroArray` type.  This design allows peaceful coexistence among many different custom array types.
 
@@ -109,7 +109,7 @@ axes(A::AbstractArray{T,N}, d) where {T,N} = d <= N ? axes(A)[d] : OneTo(1)
 ```
 
 
-may not be what you want: you may need to specialize it to return something other than `OneTo(1)` when `d > ndims(A)`.  Likewise, in `Base` there is a dedicated function `axes1` which is equivalent to `axes(A, 1)` but which avoids checking (at runtime) whether `ndims(A) > 0`. (This is purely a performance optimization.)  It is defined as:
+may not be what you want: you may need to specialize it to return something other than `OneTo(1)` when `d > ndims(A)`. Likewise, in `Base` there is a dedicated function `axes1` which is equivalent to `axes(A, 1)` but which avoids checking (at runtime) whether `ndims(A) > 0`. (This is purely a performance optimization.)  It is defined as:
 
 ```julia
 axes1(A::AbstractArray{T,0}) where {T} = OneTo(1)

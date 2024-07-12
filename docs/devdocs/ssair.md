@@ -4,9 +4,9 @@
 Julia uses a static single assignment intermediate representation ([SSA IR](https://en.wikipedia.org/wiki/Static_single-assignment_form)) to perform optimization. This IR is different from LLVM IR, and unique to Julia. It allows for Julia specific optimizations.
 1. Basic blocks (regions with no control flow) are explicitly annotated.
   
-1. if/else and loops are turned into `goto` statements.
+2. if/else and loops are turned into `goto` statements.
   
-1. lines with multiple operations are split into multiple lines by introducing variables.
+3. lines with multiple operations are split into multiple lines by introducing variables.
   
 
 For example the following Julia code:
@@ -56,10 +56,10 @@ In this example, we can see all of these changes.
 
 1. The `if` statement is translated into `goto #3 if not %2` which goes to the 3rd basic block if `x>5` isn&#39;t met and otherwise goes to the second basic block.
   
-1. `%2` is an SSA value introduced to represent `x > 5`.
+2. `%2` is an SSA value introduced to represent `x > 5`.
   
 
-## Background {#Background}
+## Background
 
 Beginning in Julia 0.7, parts of the compiler use a new [SSA-form](https://en.wikipedia.org/wiki/Static_single_assignment_form) intermediate representation (IR). Historically, the compiler would directly generate LLVM IR from a lowered form of the Julia AST. This form had most syntactic abstractions removed, but still looked a lot like an abstract syntax tree. Over time, in order to facilitate optimizations, SSA values were introduced to this IR and the IR was linearized (i.e. turned into a form where function arguments could only be SSA values or constants). However, non-SSA values (slots) remained in the IR due to the lack of Phi nodes in the IR (necessary for back-edges and re-merging of conditional control flow). This negated much of the usefulness of SSA form representation when performing middle end optimizations. Some heroic effort was put into making these optimizations work without a complete SSA form representation, but the lack of such a representation ultimately proved prohibitive.
 
