@@ -5,7 +5,7 @@ import footnote from "markdown-it-footnote";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/docs.julialang.org.git/',// TODO: replace this in makedocs!
+  // base: '/docs.julialang.org.git/', // TODO: replace this in makedocs!
   title: 'Programming',
   description: "The Julia Programming Language",
   lastUpdated: true,
