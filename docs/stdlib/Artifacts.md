@@ -34,7 +34,7 @@ This function requires at least Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Artifacts/src/Artifacts.jl#L370-L381)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Artifacts/src/Artifacts.jl#L372-L383)
 
 </div>
 <br>
@@ -59,7 +59,7 @@ This function requires at least Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Artifacts/src/Artifacts.jl#L428-L437)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Artifacts/src/Artifacts.jl#L430-L439)
 
 </div>
 <br>
@@ -83,7 +83,7 @@ This function requires at least Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Artifacts/src/Artifacts.jl#L493-L502)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Artifacts/src/Artifacts.jl#L495-L504)
 
 </div>
 <br>
@@ -122,7 +122,7 @@ Slash-indexing requires at least Julia 1.6.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Artifacts/src/Artifacts.jl#L649-L673)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Artifacts/src/Artifacts.jl#L651-L675)
 
 </div>
 <br>
@@ -146,7 +146,7 @@ This function requires at least Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Artifacts/src/Artifacts.jl#L253-L262)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Artifacts/src/Artifacts.jl#L255-L264)
 
 </div>
 <br>
@@ -170,7 +170,7 @@ This function requires at least Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Artifacts/src/Artifacts.jl#L229-L237)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Artifacts/src/Artifacts.jl#L231-L239)
 
 </div>
 <br>
@@ -191,7 +191,7 @@ select_downloadable_artifacts(artifacts_toml::String;
 Return a dictionary where every entry is an artifact from the given `Artifacts.toml` that should be downloaded for the requested platform.  Lazy artifacts are included if `include_lazy` is set.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Artifacts/src/Artifacts.jl#L471-L480)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Artifacts/src/Artifacts.jl#L473-L482)
 
 </div>
 <br>

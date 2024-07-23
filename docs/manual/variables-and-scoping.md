@@ -20,8 +20,8 @@ If you run into an unexpectedly undefined variable,
 ```julia
 # Print the numbers 1 through 5
 i = 0
-while i < 5  # ERROR: UndefVarError: `i` not defined
-    i += 1
+while i < 5
+    i += 1     # ERROR: UndefVarError: `i` not defined
     println(i)
 end
 ```
@@ -32,8 +32,8 @@ a simple fix is to change all global variable definitions into local definitions
 ```julia
 # Print the numbers 1 through 5
 let i = 0
-    while i < 5  # Now `i` is defined in the inner scope of the while loop
-        i += 1
+    while i < 5
+        i += 1     # Now outer `i` is defined in the inner scope of the while loop
         println(i)
     end
 end

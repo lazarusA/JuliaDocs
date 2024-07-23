@@ -20,7 +20,7 @@ The keyword arguments determine which of read and/or write status should be moni
 The returned value is an object with boolean fields `readable`, `writable`, and `timedout`, giving the result of the polling.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/FileWatching.jl#L709-L720)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/FileWatching.jl#L709-L720)
 
 </div>
 <br>
@@ -44,7 +44,7 @@ The `current` status object may be a `StatStruct`, an `EOFError` (indicating the
 To determine when a file was modified, compare `current isa StatStruct && mtime(prev) != mtime(current)` to detect notification of changes. However, using [`watch_file`](/stdlib/FileWatching#FileWatching.watch_file) for this operation is preferred, since it is more reliable and efficient, although in some situations it may not be available.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/FileWatching.jl#L869-L886)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/FileWatching.jl#L869-L886)
 
 </div>
 <br>
@@ -66,7 +66,7 @@ The returned value is an object with boolean fields `renamed`, `changed`, and `t
 This behavior of this function varies slightly across platforms. See [https://nodejs.org/api/fs.html#fs_caveats](https://nodejs.org/api/fs.html#fs_caveats) for more detailed information.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/FileWatching.jl#L764-L777)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/FileWatching.jl#L764-L777)
 
 </div>
 <br>
@@ -90,7 +90,7 @@ The returned value is an pair where the first field is the name of the changed f
 This behavior of this function varies slightly across platforms. See [https://nodejs.org/api/fs.html#fs_caveats](https://nodejs.org/api/fs.html#fs_caveats) for more detailed information.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/FileWatching.jl#L795-L812)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/FileWatching.jl#L795-L812)
 
 </div>
 <br>
@@ -108,7 +108,7 @@ unwatch_folder(path::AbstractString)
 Stop background tracking of changes for `path`. It is not recommended to do this while another task is waiting for `watch_folder` to return on the same path, as the result may be unpredictable.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/FileWatching.jl#L853-L859)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/FileWatching.jl#L853-L859)
 
 </div>
 <br>
@@ -149,7 +149,7 @@ Optional keyword arguments:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/pidfile.jl#L17-L41)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/pidfile.jl#L17-L41)
 
 </div>
 <br>
@@ -174,7 +174,7 @@ This function requires at least Julia 1.10.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/pidfile.jl#L44-L52)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/pidfile.jl#L44-L52)
 
 </div>
 <br>
@@ -192,7 +192,7 @@ close(lock::LockMonitor)
 Release a pidfile lock.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/pidfile.jl#L319-L323)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/pidfile.jl#L319-L323)
 
 </div>
 <br>
@@ -214,7 +214,7 @@ Create a new a file for read-write advisory-exclusive access. If `wait` is `fals
 For a description of the keyword arguments, see [`mkpidlock`](/stdlib/FileWatching#FileWatching.Pidfile.mkpidlock).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/pidfile.jl#L226-L234)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/pidfile.jl#L226-L234)
 
 </div>
 <br>
@@ -232,7 +232,7 @@ tryopen_exclusive(path::String, mode::Integer = 0o444) :: Union{Void, File}
 Try to create a new file for read-write advisory-exclusive access, return nothing if it already exists.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/pidfile.jl#L207-L212)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/pidfile.jl#L207-L212)
 
 </div>
 <br>
@@ -250,7 +250,7 @@ write_pidfile(io, pid)
 Write our pidfile format to an open IO descriptor.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/pidfile.jl#L133-L137)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/pidfile.jl#L133-L137)
 
 </div>
 <br>
@@ -268,7 +268,7 @@ parse_pidfile(file::Union{IO, String}) => (pid, hostname, age)
 Attempt to parse our pidfile format, replaced an element with (0, &quot;&quot;, 0.0), respectively, for any read that failed.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/pidfile.jl#L142-L147)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/pidfile.jl#L142-L147)
 
 </div>
 <br>
@@ -286,7 +286,7 @@ stale_pidfile(path::String, stale_age::Real, refresh::Real) :: Bool
 Helper function for `open_exclusive` for deciding if a pidfile is stale.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/pidfile.jl#L190-L194)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/pidfile.jl#L190-L194)
 
 </div>
 <br>
@@ -304,7 +304,7 @@ isvalidpid(hostname::String, pid::Cuint) :: Bool
 Attempt to conservatively estimate whether pid is a valid process id.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/pidfile.jl#L172-L176)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/pidfile.jl#L172-L176)
 
 </div>
 <br>
@@ -324,7 +324,7 @@ Update the `mtime` on the lock, to indicate it is still fresh.
 See also the `refresh` keyword in the [`mkpidlock`](/stdlib/FileWatching#FileWatching.Pidfile.mkpidlock) constructor.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/FileWatching/src/pidfile.jl#L124-L130)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/FileWatching/src/pidfile.jl#L124-L130)
 
 </div>
 <br>

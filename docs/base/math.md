@@ -40,7 +40,7 @@ julia> -(0x003)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2965-L2991)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3017-L3043)
 
 </div>
 <br>
@@ -58,7 +58,7 @@ dt::Date + t::Time -> DateTime
 The addition of a `Date` with a `Time` produces a `DateTime`. The hour, minute, second, and millisecond parts of the `Time` are used along with the year, month, and day of the `Date` to create the new `DateTime`. Non-zero microseconds or nanoseconds in the `Time` type will result in an `InexactError` being thrown.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Dates/src/arithmetic.jl#L14-L20)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Dates/src/arithmetic.jl#L14-L20)
 
 
 
@@ -93,7 +93,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2935-L2962)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2987-L3014)
 
 </div>
 <br>
@@ -122,7 +122,7 @@ julia> -(2, 4.5)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2994-L3007)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3046-L3059)
 
 </div>
 <br>
@@ -168,7 +168,7 @@ julia> x = [1, 2]; x'x  # adjoint vector * vector
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3010-L3045)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3062-L3097)
 
 </div>
 <br>
@@ -202,7 +202,7 @@ julia> 4.5/2
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3048-L3067)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3100-L3119)
 
 
 
@@ -234,7 +234,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/LinearAlgebra/src/generic.jl#L1209-L1232)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1207-L1230)
 
 </div>
 <br>
@@ -275,7 +275,7 @@ julia> inv(A) * x
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L648-L674)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L648-L674)
 
 </div>
 <br>
@@ -326,7 +326,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/promotion.jl#L434-L477)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/promotion.jl#L434-L477)
 
 </div>
 <br>
@@ -344,7 +344,7 @@ fma(x, y, z)
 Computes `x*y+z` without rounding the intermediate result `x*y`. On some systems this is significantly more expensive than `x*y+z`. `fma` is used to improve accuracy in certain algorithms. See [`muladd`](/base/math#Base.muladd).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/floatfuncs.jl#L269-L275)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/floatfuncs.jl#L269-L275)
 
 </div>
 <br>
@@ -373,7 +373,7 @@ julia> 3 * 2 + 1
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L1601-L1620)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L1599-L1618)
 
 
 
@@ -403,7 +403,7 @@ julia> muladd(A, B, z)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/LinearAlgebra/src/matmul.jl#L168-L186)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/matmul.jl#L168-L186)
 
 </div>
 <br>
@@ -446,7 +446,7 @@ julia> inv(2//3)
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/number.jl#L228-L254)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/number.jl#L228-L254)
 
 </div>
 <br>
@@ -485,7 +485,7 @@ julia> div.(-5:5, 3)'
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L826-L850)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L826-L850)
 
 </div>
 <br>
@@ -550,7 +550,7 @@ julia> div(-4, 3, RoundFromZero)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/div.jl#L5-L46)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/div.jl#L5-L46)
 
 </div>
 <br>
@@ -596,7 +596,7 @@ julia> 6.0 / big(0.1)
 What is happening here is that the true value of the floating-point number written as `0.1` is slightly larger than the numerical value 1/10 while `6.0` represents the number 6 precisely. Therefore the true value of `6.0 / 0.1` is slightly less than 60. When doing division, this is rounded to precisely `60.0`, but `fld(6.0, 0.1)` always takes the floor of the true value, so the result is `59.0`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/div.jl#L109-L140)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/div.jl#L109-L140)
 
 </div>
 <br>
@@ -628,7 +628,7 @@ julia> cld.(-5:5, 3)'
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/div.jl#L143-L159)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/div.jl#L143-L159)
 
 </div>
 <br>
@@ -665,7 +665,7 @@ This method requires at least Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/range.jl#L1485-L1504)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/range.jl#L1485-L1504)
 
 
 
@@ -710,7 +710,7 @@ julia> mod.(-5:5, 3)'
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/int.jl#L246-L284)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/int.jl#L246-L284)
 
 
 
@@ -741,7 +741,7 @@ BigInt
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/int.jl#L595-L619)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/int.jl#L595-L619)
 
 </div>
 <br>
@@ -779,7 +779,7 @@ julia> rem.(-5:5, 3)'
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L799-L822)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L799-L822)
 
 </div>
 <br>
@@ -836,7 +836,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/div.jl#L51-L95)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/div.jl#L51-L95)
 
 </div>
 <br>
@@ -880,7 +880,7 @@ julia> rem2pi(7pi/4, RoundDown)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L1414-L1444)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L1412-L1442)
 
 </div>
 <br>
@@ -914,7 +914,7 @@ julia> mod2pi(9*pi/4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L1576-L1596)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L1574-L1594)
 
 </div>
 <br>
@@ -945,7 +945,7 @@ julia> divrem(7, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/div.jl#L163-L180)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/div.jl#L163-L180)
 
 </div>
 <br>
@@ -965,7 +965,7 @@ The floored quotient and modulus after division. A convenience wrapper for `divr
 See also: [`fld`](/base/math#Base.fld), [`cld`](/base/math#Base.cld), [`fldmod1`](/base/math#Base.fldmod1).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/div.jl#L268-L275)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/div.jl#L268-L275)
 
 </div>
 <br>
@@ -1001,7 +1001,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L883-L903)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L883-L903)
 
 </div>
 <br>
@@ -1039,7 +1039,7 @@ julia> mod1.([-0.1, 0, 0.1, 1, 2, 2.9, 3, 3.1]', 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L854-L879)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L854-L879)
 
 </div>
 <br>
@@ -1059,7 +1059,7 @@ Return `(fld1(x,y), mod1(x,y))`.
 See also [`fld1`](/base/math#Base.fld1), [`mod1`](/base/math#Base.mod1).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L910-L916)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L910-L916)
 
 </div>
 <br>
@@ -1097,7 +1097,7 @@ ERROR: MethodError: no method matching //(::Float64, ::Int64)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rational.jl#L57-L83)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rational.jl#L57-L83)
 
 </div>
 <br>
@@ -1129,7 +1129,7 @@ BigInt
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rational.jl#L188-L205)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rational.jl#L188-L205)
 
 </div>
 <br>
@@ -1158,7 +1158,7 @@ julia> numerator(4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rational.jl#L282-L295)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rational.jl#L282-L295)
 
 </div>
 <br>
@@ -1187,7 +1187,7 @@ julia> denominator(4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rational.jl#L299-L312)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rational.jl#L299-L312)
 
 </div>
 <br>
@@ -1221,7 +1221,7 @@ julia> bitstring(Int8(12))
 See also [`>>`](/base/math#Base.:>>), [`>>>`](/base/math#Base.:>>>), [`exp2`](/base/math#Base.exp2), [`ldexp`](/base/math#Base.Math.ldexp).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L681-L700)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L681-L700)
 
 
 
@@ -1262,7 +1262,7 @@ julia> B << -1
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bitarray.jl#L1380-L1414)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bitarray.jl#L1380-L1414)
 
 </div>
 <br>
@@ -1305,7 +1305,7 @@ julia> bitstring(Int8(-4))
 See also [`>>>`](/base/math#Base.:>>>), [`<<`](/base/math#Base.:<<).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L716-L745)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L716-L745)
 
 
 
@@ -1346,7 +1346,7 @@ julia> B >> -1
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bitarray.jl#L1342-L1376)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bitarray.jl#L1342-L1376)
 
 </div>
 <br>
@@ -1384,7 +1384,7 @@ julia> bitstring(Int8(60))
 See also [`>>`](/base/math#Base.:>>), [`<<`](/base/math#Base.:<<).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L757-L783)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L757-L783)
 
 
 
@@ -1396,7 +1396,7 @@ See also [`>>`](/base/math#Base.:>>), [`<<`](/base/math#Base.:<<).
 Unsigned right bitshift operator, `B >>> n`. Equivalent to `B >> n`. See [`>>`](/base/math#Base.:>>) for details and examples.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bitarray.jl#L1417-L1422)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bitarray.jl#L1417-L1422)
 
 </div>
 <br>
@@ -1437,7 +1437,7 @@ julia> bitstring(bitrotate(0b01110010, 8))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/int.jl#L561-L586)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/int.jl#L561-L586)
 
 </div>
 <br>
@@ -1474,7 +1474,7 @@ Tuple{Expr, Symbol, UInt8}
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L727-L750)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L727-L750)
 
 </div>
 <br>
@@ -1590,7 +1590,7 @@ The versions with `stop` as a sole keyword argument, or `length` as a sole keywo
 A `UnitRange` is not produced if `step` is provided even if specified as one.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/range.jl#L61-L152)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/range.jl#L61-L152)
 
 </div>
 <br>
@@ -1608,7 +1608,7 @@ Base.OneTo(n)
 Define an `AbstractUnitRange` that behaves like `1:n`, with the added distinction that the lower limit is guaranteed (by the type system) to be 1.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/range.jl#L454-L460)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/range.jl#L454-L460)
 
 </div>
 <br>
@@ -1634,7 +1634,7 @@ The 4th type parameter `L` requires at least Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/range.jl#L487-L502)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/range.jl#L487-L502)
 
 </div>
 <br>
@@ -1687,7 +1687,7 @@ This function requires at least Julia 1.11.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/range.jl#L1509-L1548)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/range.jl#L1509-L1548)
 
 </div>
 <br>
@@ -1750,7 +1750,7 @@ This type requires at least Julia 1.11.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/range.jl#L1553-L1601)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/range.jl#L1553-L1601)
 
 </div>
 <br>
@@ -1780,7 +1780,7 @@ New numeric types should implement this function for two arguments of the new ty
 If some type defines `==`, [`isequal`](/base/base#Base.isequal), and [`isless`](/base/base#Base.isless) then it should also implement [`<`](/base/math#Base.:<) to ensure consistency of comparisons.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L89-L120)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L89-L120)
 
 </div>
 <br>
@@ -1814,7 +1814,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L299-L317)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L299-L317)
 
 
 
@@ -1832,7 +1832,7 @@ This functionality requires at least Julia 1.2.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1209-L1219)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1209-L1219)
 
 </div>
 <br>
@@ -1864,7 +1864,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L348-L364)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L348-L364)
 
 </div>
 <br>
@@ -1902,7 +1902,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L368-L393)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L368-L393)
 
 
 
@@ -1920,7 +1920,7 @@ This functionality requires at least Julia 1.2.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1261-L1271)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1261-L1271)
 
 </div>
 <br>
@@ -1956,7 +1956,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L422-L442)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L422-L442)
 
 
 
@@ -1974,7 +1974,7 @@ This functionality requires at least Julia 1.2.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1235-L1245)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1235-L1245)
 
 </div>
 <br>
@@ -2013,7 +2013,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L396-L419)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L396-L419)
 
 
 
@@ -2031,7 +2031,7 @@ This functionality requires at least Julia 1.2.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1248-L1258)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1248-L1258)
 
 </div>
 <br>
@@ -2067,7 +2067,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L446-L466)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L446-L466)
 
 
 
@@ -2085,7 +2085,7 @@ This functionality requires at least Julia 1.2.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1222-L1232)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1222-L1232)
 
 </div>
 <br>
@@ -2118,7 +2118,7 @@ ERROR: MethodError: no method matching isless(::Complex{Int64}, ::Complex{Int64}
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L474-L492)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L474-L492)
 
 
 
@@ -2130,7 +2130,7 @@ cmp(<, x, y)
 Return -1, 0, or 1 depending on whether `x` is less than, equal to, or greater than `y`, respectively. The first argument specifies a less-than comparison function to use.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L495-L500)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L495-L500)
 
 
 
@@ -2168,7 +2168,7 @@ julia> cmp("b", "β")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/strings/basic.jl#L279-L311)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/strings/basic.jl#L278-L310)
 
 </div>
 <br>
@@ -2202,7 +2202,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/int.jl#L302-L320)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/int.jl#L302-L320)
 
 </div>
 <br>
@@ -2239,7 +2239,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/int.jl#L323-L346)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/int.jl#L323-L346)
 
 </div>
 <br>
@@ -2276,7 +2276,7 @@ missing
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/int.jl#L349-L371)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/int.jl#L349-L371)
 
 </div>
 <br>
@@ -2320,7 +2320,7 @@ julia> [true; true; false] .⊻ [true; false; false]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bool.jl#L41-L72)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bool.jl#L41-L72)
 
 </div>
 <br>
@@ -2364,7 +2364,7 @@ julia> [true; true; false] .⊼ [true; false; false]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bool.jl#L75-L106)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bool.jl#L75-L106)
 
 </div>
 <br>
@@ -2411,7 +2411,7 @@ julia> [true; true; false] .⊽ [true; false; false]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bool.jl#L109-L144)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bool.jl#L109-L144)
 
 </div>
 <br>
@@ -2449,7 +2449,7 @@ julia> .![true false true]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bool.jl#L11-L34)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bool.jl#L11-L34)
 
 
 
@@ -2483,7 +2483,7 @@ Starting with Julia 1.9, `!f` returns a [`ComposedFunction`](/base/base#Base.Com
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1126-L1147)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1126-L1147)
 
 </div>
 <br>
@@ -2516,7 +2516,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1273-L1290)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1287-L1304)
 
 </div>
 <br>
@@ -2547,7 +2547,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1293-L1308)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1307-L1322)
 
 </div>
 <br>
@@ -2607,7 +2607,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/floatfuncs.jl#L159-L219)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/floatfuncs.jl#L159-L219)
 
 
 
@@ -2627,7 +2627,7 @@ This method requires Julia 1.5 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/floatfuncs.jl#L239-L248)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/floatfuncs.jl#L239-L248)
 
 </div>
 <br>
@@ -2673,7 +2673,7 @@ julia> round(exp(im*pi/6), digits=3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L505-L535)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L505-L535)
 
 </div>
 <br>
@@ -2695,7 +2695,7 @@ Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `T(
 See also [`cosd`](/base/math#Base.Math.cosd), [`cospi`](/base/math#Base.Math.cospi), [`sincos`](/base/math#Base.Math.sincos-Tuple{Float64}), [`cis`](/base/math#Base.cis).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L538-L546)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L538-L546)
 
 </div>
 <br>
@@ -2717,7 +2717,7 @@ Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `(T
 See also [`cis`](/base/math#Base.cis), [`sincospi`](/base/math#Base.Math.sincospi), [`sincosd`](/base/math#Base.Math.sincosd).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L167-L176)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L167-L176)
 
 </div>
 <br>
@@ -2739,7 +2739,7 @@ Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `T(
 See also [`tanh`](/base/math#Base.tanh-Tuple{Number}).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L549-L557)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L549-L557)
 
 </div>
 <br>
@@ -2765,7 +2765,7 @@ Matrix arguments require Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1289-L1299)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1289-L1299)
 
 </div>
 <br>
@@ -2791,7 +2791,7 @@ Matrix arguments require Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1289-L1299)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1289-L1299)
 
 </div>
 <br>
@@ -2817,7 +2817,7 @@ Matrix arguments require Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1289-L1299)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1289-L1299)
 
 </div>
 <br>
@@ -2843,7 +2843,7 @@ This function requires at least Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1268-L1278)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1268-L1278)
 
 </div>
 <br>
@@ -2865,7 +2865,7 @@ Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `T(
 See also [`sind`](/base/math#Base.Math.sind), [`cospi`](/base/math#Base.Math.cospi), [`sincospi`](/base/math#Base.Math.sincospi).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L787-L795)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L787-L795)
 
 </div>
 <br>
@@ -2887,7 +2887,7 @@ Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `T(
 See also: [`cispi`](/base/math#Base.cispi), [`sincosd`](/base/math#Base.Math.sincosd), [`cospi`](/base/math#Base.Math.cospi).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L820-L828)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L820-L828)
 
 </div>
 <br>
@@ -2915,7 +2915,7 @@ This function requires at least Julia 1.10.
 See also [`tand`](/base/math#Base.Math.tand), [`sinpi`](/base/math#Base.Math.sinpi), [`cospi`](/base/math#Base.Math.cospi), [`sincospi`](/base/math#Base.Math.sincospi).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L892-L903)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L892-L903)
 
 </div>
 <br>
@@ -2943,7 +2943,7 @@ This function requires Julia 1.6 or later.
 See also: [`cispi`](/base/math#Base.cispi), [`sincosd`](/base/math#Base.Math.sincosd), [`sinpi`](/base/math#Base.Math.sinpi).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L852-L864)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L852-L864)
 
 </div>
 <br>
@@ -2963,7 +2963,7 @@ Compute hyperbolic sine of `x`.
 See also [`sin`](/base/math#Base.sin-Tuple{Number}).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L413-L419)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L413-L419)
 
 </div>
 <br>
@@ -2983,7 +2983,7 @@ Compute hyperbolic cosine of `x`.
 See also [`cos`](/base/math#Base.cos-Tuple{Number}).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L422-L428)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L422-L428)
 
 </div>
 <br>
@@ -3024,7 +3024,7 @@ julia> tan.(im .* (1:3))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L431-L457)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L431-L457)
 
 </div>
 <br>
@@ -3057,7 +3057,7 @@ julia> asind.((0, 1/2, 1))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L560-L577)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L560-L577)
 
 </div>
 <br>
@@ -3077,7 +3077,7 @@ Compute the inverse cosine of `x`, where the output is in radians
 Return a `T(NaN)` if `isnan(x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L580-L586)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L580-L586)
 
 </div>
 <br>
@@ -3116,7 +3116,7 @@ julia> rad2deg(atan(1, -√3))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L460-L488)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L460-L488)
 
 </div>
 <br>
@@ -3140,7 +3140,7 @@ Matrix arguments require Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1310-L1318)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1310-L1318)
 
 </div>
 <br>
@@ -3164,7 +3164,7 @@ Matrix arguments require Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1310-L1318)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1310-L1318)
 
 </div>
 <br>
@@ -3192,7 +3192,7 @@ The one-argument method supports square matrix arguments as of Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1323-L1335)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1323-L1335)
 
 </div>
 <br>
@@ -3212,7 +3212,7 @@ Compute the secant of `x`, where `x` is in radians.
 Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `T(NaN)` if `isnan(x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1147-L1153)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1147-L1153)
 
 </div>
 <br>
@@ -3232,7 +3232,7 @@ Compute the cosecant of `x`, where `x` is in radians.
 Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `T(NaN)` if `isnan(x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1147-L1153)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1147-L1153)
 
 </div>
 <br>
@@ -3252,7 +3252,7 @@ Compute the cotangent of `x`, where `x` is in radians.
 Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `T(NaN)` if `isnan(x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1147-L1153)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1147-L1153)
 
 </div>
 <br>
@@ -3272,7 +3272,7 @@ Compute the secant of `x`, where `x` is in degrees.
 Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `T(NaN)` if `isnan(x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1161-L1167)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1161-L1167)
 
 </div>
 <br>
@@ -3292,7 +3292,7 @@ Compute the cosecant of `x`, where `x` is in degrees.
 Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `T(NaN)` if `isnan(x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1161-L1167)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1161-L1167)
 
 </div>
 <br>
@@ -3312,7 +3312,7 @@ Compute the cotangent of `x`, where `x` is in degrees.
 Throw a [`DomainError`](/base/base#Core.DomainError) if `isinf(x)`, return a `T(NaN)` if `isnan(x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1161-L1167)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1161-L1167)
 
 </div>
 <br>
@@ -3330,7 +3330,7 @@ asec(x::T) where {T <: Number} -> float(T)
 Compute the inverse secant of `x`, where the output is in radians.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1177-L1181)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1177-L1181)
 
 </div>
 <br>
@@ -3348,7 +3348,7 @@ acsc(x::T) where {T <: Number} -> float(T)
 Compute the inverse cosecant of `x`, where the output is in radians.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1177-L1181)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1177-L1181)
 
 </div>
 <br>
@@ -3366,7 +3366,7 @@ acot(x::T) where {T <: Number} -> float(T)
 Compute the inverse cotangent of `x`, where the output is in radians.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1177-L1181)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1177-L1181)
 
 </div>
 <br>
@@ -3390,7 +3390,7 @@ Matrix arguments require Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1310-L1318)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1310-L1318)
 
 </div>
 <br>
@@ -3414,7 +3414,7 @@ Matrix arguments require Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1310-L1318)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1310-L1318)
 
 </div>
 <br>
@@ -3438,7 +3438,7 @@ Matrix arguments require Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1310-L1318)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1310-L1318)
 
 </div>
 <br>
@@ -3458,7 +3458,7 @@ Compute the hyperbolic secant of `x`.
 Return a `T(NaN)` if `isnan(x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1154-L1160)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1154-L1160)
 
 </div>
 <br>
@@ -3478,7 +3478,7 @@ Compute the hyperbolic cosecant of `x`.
 Return a `T(NaN)` if `isnan(x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1154-L1160)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1154-L1160)
 
 </div>
 <br>
@@ -3498,7 +3498,7 @@ Compute the hyperbolic cotangent of `x`.
 Return a `T(NaN)` if `isnan(x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1154-L1160)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1154-L1160)
 
 </div>
 <br>
@@ -3516,7 +3516,7 @@ asinh(x)
 Compute the inverse hyperbolic sine of `x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L491-L495)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L491-L495)
 
 </div>
 <br>
@@ -3534,7 +3534,7 @@ acosh(x)
 Compute the inverse hyperbolic cosine of `x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L589-L593)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L589-L593)
 
 </div>
 <br>
@@ -3552,7 +3552,7 @@ atanh(x)
 Compute the inverse hyperbolic tangent of `x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L596-L600)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L596-L600)
 
 </div>
 <br>
@@ -3570,7 +3570,7 @@ asech(x::T) where {T <: Number} -> float(T)
 Compute the inverse hyperbolic secant of `x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1182-L1186)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1182-L1186)
 
 </div>
 <br>
@@ -3588,7 +3588,7 @@ acsch(x::T) where {T <: Number} -> float(T)
 Compute the inverse hyperbolic cosecant of `x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1182-L1186)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1182-L1186)
 
 </div>
 <br>
@@ -3606,7 +3606,7 @@ acoth(x::T) where {T <: Number} -> float(T)
 Compute the inverse hyperbolic cotangent of `x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1182-L1186)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1182-L1186)
 
 </div>
 <br>
@@ -3628,7 +3628,7 @@ Return a `T(NaN)` if `isnan(x)`.
 See also [`cosc`](/base/math#Base.Math.cosc), its derivative.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1077-L1085)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1077-L1085)
 
 </div>
 <br>
@@ -3650,7 +3650,7 @@ Return a `T(NaN)` if `isnan(x)`.
 See also [`sinc`](/base/math#Base.Math.sinc).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/trig.jl#L1096-L1105)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/trig.jl#L1096-L1105)
 
 </div>
 <br>
@@ -3678,7 +3678,7 @@ julia> deg2rad(90)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L344-L356)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L344-L356)
 
 </div>
 <br>
@@ -3706,7 +3706,7 @@ julia> rad2deg(pi)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L329-L341)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L329-L341)
 
 </div>
 <br>
@@ -3765,7 +3765,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L780-L824)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L780-L824)
 
 </div>
 <br>
@@ -3820,7 +3820,7 @@ julia> log.(exp.(-1:1))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L603-L641)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L603-L641)
 
 </div>
 <br>
@@ -3878,7 +3878,7 @@ julia> log10(1000000)/2
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L365-L405)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L365-L405)
 
 </div>
 <br>
@@ -3922,7 +3922,7 @@ julia> log2.(2.0 .^ (-1:1))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L644-L673)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L644-L673)
 
 </div>
 <br>
@@ -3958,7 +3958,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L676-L697)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L676-L697)
 
 </div>
 <br>
@@ -3994,7 +3994,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L700-L721)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L700-L721)
 
 </div>
 <br>
@@ -4028,7 +4028,7 @@ julia> frexp(0.0), frexp(NaN), frexp(-Inf)  # exponent would give an error
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L1134-L1153)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L1134-L1153)
 
 </div>
 <br>
@@ -4059,7 +4059,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/exp.jl#L332-L347)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/exp.jl#L332-L347)
 
 </div>
 <br>
@@ -4093,7 +4093,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/exp.jl#L349-L367)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/exp.jl#L349-L367)
 
 </div>
 <br>
@@ -4122,7 +4122,7 @@ julia> 10^2
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/exp.jl#L370-L383)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/exp.jl#L370-L383)
 
 </div>
 <br>
@@ -4150,7 +4150,7 @@ julia> ldexp(5.0, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L975-L987)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L975-L987)
 
 </div>
 <br>
@@ -4179,7 +4179,7 @@ julia> modf(-3.5)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L1240-L1254)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L1240-L1254)
 
 </div>
 <br>
@@ -4208,7 +4208,7 @@ julia> exp(1e-16) - 1
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/exp.jl#L488-L501)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/exp.jl#L488-L501)
 
 </div>
 <br>
@@ -4298,7 +4298,7 @@ julia> round(x, digits=1)
 To extend `round` to new numeric types, it is typically sufficient to define `Base.round(x::NewType, r::RoundingMode)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L319-L401)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L319-L401)
 
 </div>
 <br>
@@ -4338,7 +4338,7 @@ Currently supported rounding modes are:
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L26-L47)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L26-L47)
 
 </div>
 <br>
@@ -4356,7 +4356,7 @@ RoundNearest
 The default rounding mode. Rounds to the nearest integer, with ties (fractional values of 0.5) being rounded to the nearest even integer.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L50-L55)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L50-L55)
 
 </div>
 <br>
@@ -4374,7 +4374,7 @@ RoundNearestTiesAway
 Rounds to nearest integer, with ties rounded away from zero (C/C++ [`round`](/base/math#Base.round) behaviour).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L96-L101)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L96-L101)
 
 </div>
 <br>
@@ -4392,7 +4392,7 @@ RoundNearestTiesUp
 Rounds to nearest integer, with ties rounded toward positive infinity (Java/JavaScript [`round`](/base/math#Base.round) behaviour).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L104-L109)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L104-L109)
 
 </div>
 <br>
@@ -4410,7 +4410,7 @@ RoundToZero
 [`round`](/base/math#Base.round) using this rounding mode is an alias for [`trunc`](/base/math#Base.trunc).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L58-L62)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L58-L62)
 
 </div>
 <br>
@@ -4442,7 +4442,7 @@ julia> BigFloat("1.0000000000000001", 5, RoundFromZero)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L79-L93)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L79-L93)
 
 </div>
 <br>
@@ -4460,7 +4460,7 @@ RoundUp
 [`round`](/base/math#Base.round) using this rounding mode is an alias for [`ceil`](/base/math#Base.ceil).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L65-L69)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L65-L69)
 
 </div>
 <br>
@@ -4478,7 +4478,7 @@ RoundDown
 [`round`](/base/math#Base.round) using this rounding mode is an alias for [`floor`](/base/math#Base.floor).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L72-L76)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L72-L76)
 
 </div>
 <br>
@@ -4517,7 +4517,7 @@ julia> round(3.14159 + 4.512im; sigdigits = 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/complex.jl#L1085-L1114)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/complex.jl#L1085-L1114)
 
 </div>
 <br>
@@ -4543,7 +4543,7 @@ Keywords `digits`, `sigdigits` and `base` work as for [`round`](/base/math#Base.
 To support `ceil` for a new type, define `Base.round(x::NewType, ::RoundingMode{:Up})`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L452-L466)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L452-L466)
 
 </div>
 <br>
@@ -4569,7 +4569,7 @@ Keywords `digits`, `sigdigits` and `base` work as for [`round`](/base/math#Base.
 To support `floor` for a new type, define `Base.round(x::NewType, ::RoundingMode{:Down})`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L435-L449)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L435-L449)
 
 </div>
 <br>
@@ -4611,7 +4611,7 @@ julia> trunc(Int, -2.22)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/rounding.jl#L404-L432)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/rounding.jl#L404-L432)
 
 </div>
 <br>
@@ -4640,7 +4640,7 @@ julia> unsafe_trunc(Int, NaN)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/float.jl#L395-L411)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/float.jl#L395-L411)
 
 </div>
 <br>
@@ -4669,7 +4669,7 @@ missing
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L524-L539)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L524-L539)
 
 </div>
 <br>
@@ -4698,7 +4698,7 @@ missing
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L506-L521)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L506-L521)
 
 </div>
 <br>
@@ -4726,7 +4726,7 @@ julia> minmax('c','b')
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L542-L554)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L542-L554)
 
 </div>
 <br>
@@ -4769,7 +4769,7 @@ julia> clamp.([11, 8, 5], 10, 6)  # an example where lo > hi
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L72-L97)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L72-L97)
 
 
 
@@ -4797,7 +4797,7 @@ julia> trunc(Int, 4pi^2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L103-L121)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L103-L121)
 
 
 
@@ -4815,7 +4815,7 @@ This method requires at least Julia 1.6.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L161-L168)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L161-L168)
 
 </div>
 <br>
@@ -4854,7 +4854,7 @@ julia> clamp.((-4:4)', 0, Inf)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L132-L153)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L132-L153)
 
 </div>
 <br>
@@ -4894,7 +4894,7 @@ julia> maximum(abs, [1, -2, 3, -4])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/int.jl#L156-L184)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/int.jl#L156-L184)
 
 </div>
 <br>
@@ -4912,7 +4912,7 @@ Checked
 The Checked module provides arithmetic functions for the built-in signed and unsigned Integer types which throw an error when an overflow occurs. They are named like `checked_sub`, `checked_div`, etc. In addition, `add_with_overflow`, `sub_with_overflow`, `mul_with_overflow` return both the unchecked results and a boolean value denoting the presence of an overflow.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L5-L12)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L5-L12)
 
 </div>
 <br>
@@ -4932,7 +4932,7 @@ Calculates `abs(x)`, checking for overflow errors where applicable. For example,
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L113-L121)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L113-L121)
 
 </div>
 <br>
@@ -4952,7 +4952,7 @@ Calculates `-x`, checking for overflow errors where applicable. For example, sta
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L85-L93)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L85-L93)
 
 </div>
 <br>
@@ -4972,7 +4972,7 @@ Calculates `x+y`, checking for overflow errors where applicable.
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L165-L171)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L165-L171)
 
 </div>
 <br>
@@ -4992,7 +4992,7 @@ Calculates `x-y`, checking for overflow errors where applicable.
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L222-L228)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L222-L228)
 
 </div>
 <br>
@@ -5012,7 +5012,7 @@ Calculates `x*y`, checking for overflow errors where applicable.
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L287-L293)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L287-L293)
 
 </div>
 <br>
@@ -5032,7 +5032,7 @@ Calculates `div(x,y)`, checking for overflow errors where applicable.
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L316-L322)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L316-L322)
 
 </div>
 <br>
@@ -5052,7 +5052,7 @@ Calculates `x%y`, checking for overflow errors where applicable.
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L325-L331)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L325-L331)
 
 </div>
 <br>
@@ -5072,7 +5072,7 @@ Calculates `fld(x,y)`, checking for overflow errors where applicable.
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L334-L340)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L334-L340)
 
 </div>
 <br>
@@ -5092,7 +5092,7 @@ Calculates `mod(x,y)`, checking for overflow errors where applicable.
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L343-L349)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L343-L349)
 
 </div>
 <br>
@@ -5112,7 +5112,7 @@ Calculates `cld(x,y)`, checking for overflow errors where applicable.
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L352-L358)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L352-L358)
 
 </div>
 <br>
@@ -5132,7 +5132,7 @@ Calculates `^(x,y)`, checking for overflow errors where applicable.
 The overflow protection may impose a perceptible performance penalty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L361-L367)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L361-L367)
 
 </div>
 <br>
@@ -5150,7 +5150,7 @@ Base.add_with_overflow(x, y) -> (r, f)
 Calculates `r = x+y`, with the flag `f` indicating whether overflow has occurred.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L135-L139)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L135-L139)
 
 </div>
 <br>
@@ -5168,7 +5168,7 @@ Base.sub_with_overflow(x, y) -> (r, f)
 Calculates `r = x-y`, with the flag `f` indicating whether overflow has occurred.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L197-L201)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L197-L201)
 
 </div>
 <br>
@@ -5186,7 +5186,7 @@ Base.mul_with_overflow(x, y) -> (r, f)
 Calculates `r = x*y`, with the flag `f` indicating whether overflow has occurred.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/checked.jl#L237-L241)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/checked.jl#L237-L241)
 
 </div>
 <br>
@@ -5222,7 +5222,7 @@ julia> sum(abs2, [1+2im, 3+4im])  # LinearAlgebra.norm(x)^2
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/number.jl#L166-L187)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/number.jl#L166-L187)
 
 </div>
 <br>
@@ -5251,7 +5251,7 @@ julia> copysign(-1, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/number.jl#L207-L220)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/number.jl#L207-L220)
 
 </div>
 <br>
@@ -5288,7 +5288,7 @@ julia> sign(0 + im)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/number.jl#L139-L160)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/number.jl#L139-L160)
 
 </div>
 <br>
@@ -5325,7 +5325,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/number.jl#L115-L136)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/number.jl#L115-L136)
 
 </div>
 <br>
@@ -5354,7 +5354,7 @@ julia> flipsign(5, -3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/number.jl#L191-L204)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/number.jl#L191-L204)
 
 </div>
 <br>
@@ -5412,7 +5412,7 @@ julia> .√(1:4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L729-L770)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L729-L770)
 
 </div>
 <br>
@@ -5436,7 +5436,7 @@ julia> isqrt(5)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L1090-L1099)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L1090-L1099)
 
 </div>
 <br>
@@ -5467,7 +5467,7 @@ julia> cbrt(big(-27))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/special/cbrt.jl#L17-L33)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/special/cbrt.jl#L17-L33)
 
 </div>
 <br>
@@ -5495,7 +5495,7 @@ julia> real(1 + 3im)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/complex.jl#L59-L71)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/complex.jl#L59-L71)
 
 
 
@@ -5518,7 +5518,7 @@ Float64
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/complex.jl#L104-L119)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/complex.jl#L104-L119)
 
 
 
@@ -5547,7 +5547,7 @@ julia> real(fill(2 - im))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L149-L170)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L149-L170)
 
 </div>
 <br>
@@ -5575,7 +5575,7 @@ julia> imag(1 + 3im)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/complex.jl#L74-L86)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/complex.jl#L74-L86)
 
 
 
@@ -5604,7 +5604,7 @@ julia> imag(fill(2 - im))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L174-L194)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L174-L194)
 
 </div>
 <br>
@@ -5630,7 +5630,7 @@ julia> reim(1 + 3im)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/complex.jl#L91-L101)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/complex.jl#L91-L101)
 
 
 
@@ -5655,7 +5655,7 @@ julia> reim(fill(2 - im))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L198-L216)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L198-L216)
 
 </div>
 <br>
@@ -5683,7 +5683,7 @@ julia> conj(1 + 3im)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/complex.jl#L272-L284)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/complex.jl#L272-L284)
 
 
 
@@ -5712,7 +5712,7 @@ julia> conj(fill(2 - im))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L124-L145)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L124-L145)
 
 </div>
 <br>
@@ -5751,7 +5751,7 @@ julia> rad2deg(angle(-1 - 1e-20im))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/complex.jl#L623-L647)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/complex.jl#L623-L647)
 
 </div>
 <br>
@@ -5779,7 +5779,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/complex.jl#L570-L582)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/complex.jl#L570-L582)
 
 </div>
 <br>
@@ -5816,7 +5816,7 @@ This function requires Julia 1.6 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/complex.jl#L595-L613)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/complex.jl#L595-L613)
 
 </div>
 <br>
@@ -5864,7 +5864,7 @@ julia> binomial(-5, 3)
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L1146-L1179)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L1146-L1179)
 
 
 
@@ -5890,7 +5890,7 @@ Further generalizations to non-integer `k` are mathematically possible, but invo
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L1210-L1233)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L1210-L1233)
 
 </div>
 <br>
@@ -5930,7 +5930,7 @@ julia> factorial(big(21))
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L1111-L1136)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L1111-L1136)
 
 </div>
 <br>
@@ -5983,7 +5983,7 @@ julia> gcd(0, 0, 10, 15)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L5-L40)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L5-L40)
 
 </div>
 <br>
@@ -6036,7 +6036,7 @@ julia> lcm(1, 3, 5, 7)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L94-L129)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L94-L129)
 
 </div>
 <br>
@@ -6079,7 +6079,7 @@ Bézout coefficients are _not_ uniquely defined. `gcdx` returns the minimal Béz
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L167-L198)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L167-L198)
 
 </div>
 <br>
@@ -6125,7 +6125,7 @@ Support for non-`Integer` arguments was added in Julia 1.6.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L464-L491)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L464-L491)
 
 </div>
 <br>
@@ -6162,7 +6162,7 @@ julia> nextpow(4, 16)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L496-L518)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L496-L518)
 
 </div>
 <br>
@@ -6199,7 +6199,7 @@ julia> prevpow(4, 16)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L540-L562)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L540-L562)
 
 </div>
 <br>
@@ -6234,7 +6234,7 @@ The method that accepts a tuple requires Julia 1.6 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/combinatorics.jl#L320-L337)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/combinatorics.jl#L320-L337)
 
 </div>
 <br>
@@ -6266,7 +6266,7 @@ julia> invmod(5, 6)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L221-L239)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L221-L239)
 
 
 
@@ -6298,7 +6298,7 @@ The `invmod(n)` and `invmod(n, T)` methods require Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L261-L284)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L261-L284)
 
 </div>
 <br>
@@ -6336,7 +6336,7 @@ julia> powermod(5, 3, 19)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L400-L422)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L400-L422)
 
 </div>
 <br>
@@ -6379,7 +6379,7 @@ julia> ndigits(-123)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/intfuncs.jl#L709-L738)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/intfuncs.jl#L709-L738)
 
 </div>
 <br>
@@ -6397,7 +6397,7 @@ Base.add_sum(x, y)
 The reduction operator used in `sum`. The main difference from [`+`](/base/math#Base.:+) is that small integers are promoted to `Int`/`UInt`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reduce.jl#L10-L15)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reduce.jl#L10-L15)
 
 </div>
 <br>
@@ -6431,7 +6431,7 @@ julia> widemul(typemax(Int8), typemax(Int8))  # == 127^2
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/number.jl#L258-L276)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/number.jl#L258-L276)
 
 </div>
 <br>
@@ -6466,7 +6466,7 @@ julia> evalpoly(2, (1, 2, 3))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L171-L191)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L171-L191)
 
 </div>
 <br>
@@ -6500,7 +6500,7 @@ julia> @evalpoly(2, 1, 1, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/math.jl#L284-L305)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L284-L305)
 
 </div>
 <br>
@@ -6531,7 +6531,7 @@ julia> @fastmath(sin(3))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/fastmath.jl#L135-L155)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/fastmath.jl#L135-L155)
 
 </div>
 <br>

@@ -79,7 +79,12 @@ It is common to export names which form part of the API (application programming
 
 Also, some modules don&#39;t export names at all. This is usually done if they use common words, such as `derivative`, in their API, which could easily clash with the export lists of other modules. We will see how to manage name clashes below.
 
-To mark a name as public without exporting it into the namespace of folks who call `using NiceStuff`, one can use `public` instead of `export`. This marks the public name(s) as part of the public API, but does not have any namespace implications. The `public` keyword is only available in Julia 1.11 and above. To maintain compatibility with Julia 1.10 and below, use the `@compat` macro from the [Compat](https://github.com/JuliaLang/Compat.jl) package.
+To mark a name as public without exporting it into the namespace of folks who call `using NiceStuff`, one can use `public` instead of `export`. This marks the public name(s) as part of the public API, but does not have any namespace implications. The `public` keyword is only available in Julia 1.11 and above. To maintain compatibility with Julia 1.10 and below, use the `@compat` macro from the [Compat](https://github.com/JuliaLang/Compat.jl) package, or the version-aware construct
+
+```julia
+VERSION >= v"1.11.0-DEV.469" && eval(Meta.parse("public a, b, c"))
+```
+
 
 ### Standalone `using` and `import` {#Standalone-using-and-import}
 

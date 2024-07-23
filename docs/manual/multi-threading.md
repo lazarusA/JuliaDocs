@@ -278,6 +278,8 @@ Another option is the use of atomic operations on variables shared across tasks/
 
 Although Julia&#39;s threads can communicate through shared memory, it is notoriously difficult to write correct and data-race free multi-threaded code. Julia&#39;s [`Channel`](/base/parallel#Base.Channel)s are thread-safe and may be used to communicate safely. There are also sections below that explain how to use [locks](/manual/multi-threading#man-using-locks) and [atomics](/manual/multi-threading#man-atomic-operations) to avoid data-races.
 
+In certain cases, Julia is able to detect a detect safety violations, in particular in regards to deadlocks or other known-unsafe operations such as yielding to the currently running task. In these cases, a [`ConcurrencyViolationError`](/base/parallel#Core.ConcurrencyViolationError) is thrown.
+
 ### Data-race freedom {#Data-race-freedom}
 
 You are entirely responsible for ensuring that your program is data-race free, and nothing promised here can be assumed if you do not observe that requirement. The observed results may be highly unintuitive.

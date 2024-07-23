@@ -67,27 +67,32 @@ X  4 ──       Base.getfield(%1, :x)::String
 ◌  5 ──       Main.throw(%1)::Union{}
 ◌  └───       unreachable
 ◌  6 ──       $(Expr(:leave, :(%7)))
-◌  7 ──       goto #11
+◌  7 ──       goto #12
 ✓′ 8 ┄─ %16 = φᶜ (%4)::Main.SafeRef{String}
 *′ │    %17 = φᶜ (%5)::Base.RefValue{String}
 ✓  │    %18 = φᶜ (%6)::String
-X  └─── %19 = $(Expr(:the_exception))::Any
-◌  9 ──       nothing::Nothing
-◌  10 ─       (Main.GV = %19)::Any
+X  │    %19 = $(Expr(:the_exception))::Any
+X  │    %20 = Core.get_binding_type(Main, :GV)::Type
+◌  │    %21 = (%19 isa %20)::Bool
+◌  └───       goto #10 if not %21
+◌  9 ──       goto #11
+X  10 ─ %24 = Base.convert(%20, %19)::Any
+X  11 ┄ %25 = φ (#9 => %19, #10 => %24)::Any
+◌  │          (Main.GV = %25)::Any
 ◌  └───       $(Expr(:pop_exception, :(%7)))::Core.Const(nothing)
-✓′ 11 ┄ %23 = φ (#7 => %3, #10 => %16)::Main.SafeRef{String}
-*′ │    %24 = φ (#7 => %2, #10 => %17)::Base.RefValue{String}
-✓  │    %25 = φ (#7 => _5, #10 => %18)::String
-◌  │    %26 = Base.isdefined(%24, :x)::Bool
-◌  └───       goto #13 if not %26
-↑  12 ─ %28 = Base.getfield(%24, :x)::String
-◌  └───       goto #14
-◌  13 ─       Main.throw(%24)::Union{}
+✓′ 12 ┄ %28 = φ (#7 => %3, #11 => %16)::Main.SafeRef{String}
+*′ │    %29 = φ (#7 => %2, #11 => %17)::Base.RefValue{String}
+✓  │    %30 = φ (#7 => _5, #11 => %18)::String
+◌  │    %31 = Base.isdefined(%29, :x)::Bool
+◌  └───       goto #14 if not %31
+↑  13 ─ %33 = Base.getfield(%29, :x)::String
+◌  └───       goto #15
+◌  14 ─       Main.throw(%29)::Union{}
 ◌  └───       unreachable
-↑  14 ─ %32 = Base.getfield(%23, :x)::String
-◌  │    %33 = Core.sizeof(%25)::Int64
-↑′ │    %34 = Core.tuple(%28, %32, %33)::Tuple{String, String, Int64}
-◌  └───       return %34
+↑  15 ─ %37 = Base.getfield(%28, :x)::String
+◌  │    %38 = Core.sizeof(%30)::Int64
+↑′ │    %39 = Core.tuple(%33, %37, %38)::Tuple{String, String, Int64}
+◌  └───       return %39
 ```
 
 
@@ -232,7 +237,7 @@ julia> code_escapes((String,)) do s
        end
 #11(X s::String) in Main at REPL[1]:2
 X  1 ── %1  = Core.getproperty(Memory{Any}, :instance)::Memory{Any}
-X  │    %2  = Core.memoryref(%1)::MemoryRef{Any}
+X  │    %2  = invoke Core.memoryref(%1::Memory{Any})::MemoryRef{Any}
 X  │    %3  = %new(Vector{Any}, %2, (0,))::Vector{Any}
 X  │    %4  = %new(Main.SafeRef{String}, _2)::Main.SafeRef{String}
 X  │    %5  = Base.getfield(%3, :ref)::MemoryRef{Any}
@@ -256,7 +261,7 @@ X  4 ── %22 = Base.getfield(%3, :size)::Tuple{Int64}
 ◌  │    %23 = $(Expr(:boundscheck, true))::Bool
 X  │    %24 = Base.getfield(%22, 1, %23)::Int64
 X  │    %25 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %26 = Base.memoryref(%25, %24, false)::MemoryRef{Any}
+X  │    %26 = Base.memoryrefnew(%25, %24, false)::MemoryRef{Any}
 X  │          Base.memoryrefset!(%26, %4, :not_atomic, false)::Main.SafeRef{String}
 ◌  └───       goto #5
 ◌  5 ── %29 = $(Expr(:boundscheck, true))::Bool
@@ -274,7 +279,7 @@ X  │    %35 = Base.getfield(%33, 1, %34)::Int64
 ✓  │          invoke Base.throw_boundserror(%3::Vector{Any}, %40::Tuple{Int64})::Union{}
 ◌  └───       unreachable
 X  9 ┄─ %43 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %44 = Base.memoryref(%43, 1, false)::MemoryRef{Any}
+X  │    %44 = Base.memoryrefnew(%43, 1, false)::MemoryRef{Any}
 X  │    %45 = Base.memoryrefget(%44, :not_atomic, false)::Any
 ◌  └───       goto #10
 X  10 ─ %47 = Base.getfield(%3, :size)::Tuple{Int64}
@@ -298,7 +303,7 @@ julia> code_escapes((String,String)) do s, t
        end
 #13(X s::String, X t::String) in Main at REPL[1]:2
 X  1 ── %1  = $(Expr(:foreigncall, :(:jl_alloc_genericmemory), Ref{Memory{Any}}, svec(Any, Int64), 0, :(:ccall), Memory{Any}, 2, 2))::Memory{Any}
-X  │    %2  = Core.memoryref(%1)::MemoryRef{Any}
+X  │    %2  = Core.memoryrefnew(%1)::MemoryRef{Any}
 X  │    %3  = %new(Vector{Any}, %2, (2,))::Vector{Any}
 X  │    %4  = %new(Main.SafeRef{String}, _2)::Main.SafeRef{String}
 ◌  │    %5  = $(Expr(:boundscheck, true))::Bool
@@ -316,7 +321,7 @@ X  │    %11 = Base.getfield(%9, 1, %10)::Int64
 ✓  │          invoke Base.throw_boundserror(%3::Vector{Any}, %16::Tuple{Int64})::Union{}
 ◌  └───       unreachable
 X  5 ┄─ %19 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %20 = Base.memoryref(%19, 1, false)::MemoryRef{Any}
+X  │    %20 = Base.memoryrefnew(%19, 1, false)::MemoryRef{Any}
 X  │          Base.memoryrefset!(%20, %4, :not_atomic, false)::Main.SafeRef{String}
 ◌  └───       goto #6
 X  6 ── %23 = %new(Main.SafeRef{String}, _3)::Main.SafeRef{String}
@@ -335,7 +340,7 @@ X  │    %30 = Base.getfield(%28, 1, %29)::Int64
 ✓  │          invoke Base.throw_boundserror(%3::Vector{Any}, %35::Tuple{Int64})::Union{}
 ◌  └───       unreachable
 X  10 ┄ %38 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %39 = Base.memoryref(%38, 2, false)::MemoryRef{Any}
+X  │    %39 = Base.memoryrefnew(%38, 2, false)::MemoryRef{Any}
 X  │          Base.memoryrefset!(%39, %23, :not_atomic, false)::Main.SafeRef{String}
 ◌  └───       goto #11
 ◌  11 ─ %42 = $(Expr(:boundscheck, true))::Bool
@@ -353,7 +358,7 @@ X  │    %48 = Base.getfield(%46, 1, %47)::Int64
 ✓  │          invoke Base.throw_boundserror(%3::Vector{Any}, %53::Tuple{Int64})::Union{}
 ◌  └───       unreachable
 X  15 ┄ %56 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %57 = Base.memoryref(%56, 1, false)::MemoryRef{Any}
+X  │    %57 = Base.memoryrefnew(%56, 1, false)::MemoryRef{Any}
 X  │    %58 = Base.memoryrefget(%57, :not_atomic, false)::Any
 ◌  └───       goto #16
 X  16 ─ %60 = Base.getfield(%3, :size)::Tuple{Int64}
@@ -387,12 +392,12 @@ julia> code_escapes((String,String)) do s, t
        end
 #15(X s::String, X t::String) in Main at REPL[1]:2
 X  1 ── %1  = $(Expr(:foreigncall, :(:jl_alloc_genericmemory), Ref{Memory{Any}}, svec(Any, Int64), 0, :(:ccall), Memory{Any}, 2, 2))::Memory{Any}
-X  │    %2  = Core.memoryref(%1)::MemoryRef{Any}
+X  │    %2  = Core.memoryrefnew(%1)::MemoryRef{Any}
 X  └─── %3  = %new(Vector{Any}, %2, (2,))::Vector{Any}
 ◌  2 ┄─ %4  = φ (#1 => 1, #6 => %14)::Int64
 ◌  │    %5  = φ (#1 => 1, #6 => %15)::Int64
 X  │    %6  = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %7  = Base.memoryref(%6, %4, false)::MemoryRef{Any}
+X  │    %7  = Base.memoryrefnew(%6, %4, false)::MemoryRef{Any}
 ◌  │          Base.memoryrefset!(%7, nothing, :not_atomic, false)::Nothing
 ◌  │    %9  = (%5 === 2)::Bool
 ◌  └───       goto #4 if not %9
@@ -422,7 +427,7 @@ X  │    %28 = Base.getfield(%26, 1, %27)::Int64
 ✓  │          invoke Base.throw_boundserror(%3::Vector{Any}, %33::Tuple{Int64})::Union{}
 ◌  └───       unreachable
 X  12 ┄ %36 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %37 = Base.memoryref(%36, 1, false)::MemoryRef{Any}
+X  │    %37 = Base.memoryrefnew(%36, 1, false)::MemoryRef{Any}
 X  │          Base.memoryrefset!(%37, %21, :not_atomic, false)::Main.SafeRef{String}
 ◌  └───       goto #13
 X  13 ─ %40 = %new(Main.SafeRef{String}, _3)::Main.SafeRef{String}
@@ -441,7 +446,7 @@ X  │    %47 = Base.getfield(%45, 1, %46)::Int64
 ✓  │          invoke Base.throw_boundserror(%3::Vector{Any}, %52::Tuple{Int64})::Union{}
 ◌  └───       unreachable
 X  17 ┄ %55 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %56 = Base.memoryref(%55, 2, false)::MemoryRef{Any}
+X  │    %56 = Base.memoryrefnew(%55, 2, false)::MemoryRef{Any}
 X  │          Base.memoryrefset!(%56, %40, :not_atomic, false)::Main.SafeRef{String}
 ◌  └───       goto #18
 ◌  18 ─ %59 = $(Expr(:boundscheck, true))::Bool
@@ -459,7 +464,7 @@ X  │    %65 = Base.getfield(%63, 1, %64)::Int64
 ✓  │          invoke Base.throw_boundserror(%3::Vector{Any}, %70::Tuple{Int64})::Union{}
 ◌  └───       unreachable
 X  22 ┄ %73 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %74 = Base.memoryref(%73, 1, false)::MemoryRef{Any}
+X  │    %74 = Base.memoryrefnew(%73, 1, false)::MemoryRef{Any}
 X  │    %75 = Base.memoryrefget(%74, :not_atomic, false)::Any
 ◌  └───       goto #23
 X  23 ─ %77 = Base.getfield(%3, :size)::Tuple{Int64}
@@ -481,7 +486,7 @@ julia> code_escapes((String,String)) do s, t
        end
 #17(X s::String, X t::String) in Main at REPL[1]:2
 X  1 ── %1  = Core.getproperty(Memory{Any}, :instance)::Memory{Any}
-X  │    %2  = Core.memoryref(%1)::MemoryRef{Any}
+X  │    %2  = invoke Core.memoryref(%1::Memory{Any})::MemoryRef{Any}
 X  │    %3  = %new(Vector{Any}, %2, (0,))::Vector{Any}
 X  │    %4  = %new(Main.SafeRef{String}, _2)::Main.SafeRef{String}
 X  │    %5  = Base.getfield(%3, :ref)::MemoryRef{Any}
@@ -505,7 +510,7 @@ X  4 ── %22 = Base.getfield(%3, :size)::Tuple{Int64}
 ◌  │    %23 = $(Expr(:boundscheck, true))::Bool
 X  │    %24 = Base.getfield(%22, 1, %23)::Int64
 X  │    %25 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %26 = Base.memoryref(%25, %24, false)::MemoryRef{Any}
+X  │    %26 = Base.memoryrefnew(%25, %24, false)::MemoryRef{Any}
 X  │          Base.memoryrefset!(%26, %4, :not_atomic, false)::Main.SafeRef{String}
 ◌  └───       goto #5
 X  5 ── %29 = %new(Main.SafeRef{String}, _3)::Main.SafeRef{String}
@@ -530,7 +535,7 @@ X  8 ── %47 = Base.getfield(%3, :size)::Tuple{Int64}
 ◌  │    %48 = $(Expr(:boundscheck, true))::Bool
 X  │    %49 = Base.getfield(%47, 1, %48)::Int64
 X  │    %50 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %51 = Base.memoryref(%50, %49, false)::MemoryRef{Any}
+X  │    %51 = Base.memoryrefnew(%50, %49, false)::MemoryRef{Any}
 X  │          Base.memoryrefset!(%51, %29, :not_atomic, false)::Main.SafeRef{String}
 ◌  └───       goto #9
 ◌  9 ── %54 = $(Expr(:boundscheck, true))::Bool
@@ -548,7 +553,7 @@ X  │    %60 = Base.getfield(%58, 1, %59)::Int64
 ✓  │          invoke Base.throw_boundserror(%3::Vector{Any}, %65::Tuple{Int64})::Union{}
 ◌  └───       unreachable
 X  13 ┄ %68 = Base.getfield(%3, :ref)::MemoryRef{Any}
-X  │    %69 = Base.memoryref(%68, 1, false)::MemoryRef{Any}
+X  │    %69 = Base.memoryrefnew(%68, 1, false)::MemoryRef{Any}
 X  │    %70 = Base.memoryrefget(%69, :not_atomic, false)::Any
 ◌  └───       goto #14
 X  14 ─ %72 = Base.getfield(%3, :size)::Tuple{Int64}
@@ -641,20 +646,25 @@ X  4 ──       Base.getfield(%1, :x)::String
 ◌  5 ──       Main.throw(%1)::Union{}
 ◌  └───       unreachable
 ◌  6 ──       $(Expr(:leave, :(%4)))
-◌  7 ──       goto #11
+◌  7 ──       goto #12
 *′ 8 ┄─ %13 = φᶜ (%3)::Base.RefValue{String}
-X  └─── %14 = $(Expr(:the_exception))::Any
-◌  9 ──       nothing::Nothing
-◌  10 ─       (Main.GV = %14)::Any
+X  │    %14 = $(Expr(:the_exception))::Any
+X  │    %15 = Core.get_binding_type(Main, :GV)::Type
+◌  │    %16 = (%14 isa %15)::Bool
+◌  └───       goto #10 if not %16
+◌  9 ──       goto #11
+X  10 ─ %19 = Base.convert(%15, %14)::Any
+X  11 ┄ %20 = φ (#9 => %14, #10 => %19)::Any
+◌  │          (Main.GV = %20)::Any
 ◌  └───       $(Expr(:pop_exception, :(%4)))::Core.Const(nothing)
-*′ 11 ┄ %18 = φ (#7 => %2, #10 => %13)::Base.RefValue{String}
-◌  │    %19 = Base.isdefined(%18, :x)::Bool
-◌  └───       goto #13 if not %19
-↑  12 ─ %21 = Base.getfield(%18, :x)::String
-◌  └───       goto #14
-◌  13 ─       Main.throw(%18)::Union{}
+*′ 12 ┄ %23 = φ (#7 => %2, #11 => %13)::Base.RefValue{String}
+◌  │    %24 = Base.isdefined(%23, :x)::Bool
+◌  └───       goto #14 if not %24
+↑  13 ─ %26 = Base.getfield(%23, :x)::String
+◌  └───       goto #15
+◌  14 ─       Main.throw(%23)::Union{}
 ◌  └───       unreachable
-◌  14 ─       return %21
+◌  15 ─       return %26
 ```
 
 
@@ -691,7 +701,7 @@ Analyzes escape information in `ir`:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L608-L615)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L608-L615)
 
 </div>
 <br>
@@ -709,7 +719,7 @@ estate::EscapeState
 Extended lattice that maps arguments and SSA values to escape information represented as [`EscapeInfo`](/devdocs/EscapeAnalysis#Core.Compiler.EscapeAnalysis.EscapeInfo). Escape information imposed on SSA IR element `x` can be retrieved by `estate[x]`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L440-L445)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L440-L445)
 
 </div>
 <br>
@@ -774,7 +784,7 @@ There are utility constructors to create common `EscapeInfo`s, e.g.,
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L41-L81)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L41-L81)
 
 </div>
 <br>

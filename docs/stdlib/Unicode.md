@@ -13,7 +13,7 @@ The `Unicode` module provides essential functionality for managing Unicode chara
 The `Unicode` module provides essential functionality for managing Unicode characters and strings. It includes validation, category determination, normalization, case transformation, and grapheme segmentation, enabling effective Unicode data handling.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Unicode/src/Unicode.jl#L2-L6)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Unicode/src/Unicode.jl#L2-L6)
 
 </div>
 <br>
@@ -67,7 +67,7 @@ This function was introduced in Julia 1.8.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Unicode/src/Unicode.jl#L11-L49)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Unicode/src/Unicode.jl#L11-L49)
 
 </div>
 <br>
@@ -96,7 +96,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Unicode/src/Unicode.jl#L124-L137)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Unicode/src/Unicode.jl#L124-L137)
 
 </div>
 <br>
@@ -147,7 +147,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Unicode/src/Unicode.jl#L228-L267)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Unicode/src/Unicode.jl#L228-L267)
 
 </div>
 <br>
@@ -217,7 +217,7 @@ The `chartransform` keyword argument requires Julia 1.8.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Unicode/src/Unicode.jl#L55-L119)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Unicode/src/Unicode.jl#L55-L119)
 
 </div>
 <br>
@@ -235,7 +235,7 @@ graphemes(s::AbstractString) -> GraphemeIterator
 Return an iterator over substrings of `s` that correspond to the extended graphemes in the string, as defined by Unicode UAX #29. (Roughly, these are what users would perceive as single characters, even though they may contain more than one codepoint; for example a letter combined with an accent mark is a single grapheme.)
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Unicode/src/Unicode.jl#L140-L147)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Unicode/src/Unicode.jl#L140-L147)
 
 
 
@@ -273,7 +273,7 @@ The `m:n` argument of `graphemes` requires Julia 1.9.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Unicode/src/Unicode.jl#L150-L183)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Unicode/src/Unicode.jl#L150-L183)
 
 </div>
 <br>

@@ -321,7 +321,7 @@ Scoped values were introduced in Julia 1.11. In Julia 1.8+ a compatible implemen
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/scopedvalues.jl#L8-L42)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/scopedvalues.jl#L8-L42)
 
 </div>
 <br>
@@ -375,7 +375,7 @@ julia> with(() -> a[] * b[], a=>3, b=>4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/scopedvalues.jl#L226-L265)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/scopedvalues.jl#L226-L265)
 
 </div>
 <br>
@@ -415,7 +415,7 @@ julia> @with a=>3 begin
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/scopedvalues.jl#L184-L211)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/scopedvalues.jl#L184-L211)
 
 </div>
 <br>
@@ -450,7 +450,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/scopedvalues.jl#L55-L74)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/scopedvalues.jl#L55-L74)
 
 </div>
 <br>
@@ -485,7 +485,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/scopedvalues.jl#L127-L148)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/scopedvalues.jl#L127-L148)
 
 </div>
 <br>

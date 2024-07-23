@@ -85,12 +85,12 @@ The &quot;builtin&quot; functions, defined in the `Core` module, are:
 _call_in_world_total _call_latest _compute_sparams _equiv_typedef _expr
 _primitivetype _setsuper! _structtype _svec_ref _typebody! _typevar applicable
 apply_type compilerbarrier current_scope donotdelete fieldtype finalizer
-get_binding_type getfield getglobal ifelse invoke isa isdefined memoryref
-memoryref_isassigned memoryrefget memoryrefmodify! memoryrefoffset
+get_binding_type getfield getglobal ifelse invoke isa isdefined
+memoryref_isassigned memoryrefget memoryrefmodify! memoryrefnew memoryrefoffset
 memoryrefreplace! memoryrefset! memoryrefsetonce! memoryrefswap! modifyfield!
-modifyglobal! nfields replacefield! replaceglobal! set_binding_type! setfield!
-setfieldonce! setglobal! setglobalonce! sizeof svec swapfield! swapglobal! throw
-tuple typeassert typeof
+modifyglobal! nfields replacefield! replaceglobal! setfield! setfieldonce!
+setglobal! setglobalonce! sizeof svec swapfield! swapglobal! throw tuple
+typeassert typeof
 ```
 
 

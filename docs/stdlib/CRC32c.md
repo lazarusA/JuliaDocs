@@ -22,7 +22,7 @@ There is also a method `crc32c(io, nb, crc)` to checksum `nb` bytes from a strea
 For a `String`, note that the result is specific to the UTF-8 encoding (a different checksum would be obtained from a different Unicode encoding). To checksum an `a::Array` of some other bitstype, you can do `crc32c(reinterpret(UInt8,a))`, but note that the result may be endian-dependent.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/CRC32c/src/CRC32c.jl#L14-L34)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/CRC32c/src/CRC32c.jl#L15-L35)
 
 </div>
 <br>
@@ -40,7 +40,7 @@ crc32c(io::IO, [nb::Integer,] crc::UInt32=0x00000000)
 Read up to `nb` bytes from `io` and return the CRC-32c checksum, optionally mixed with a starting `crc` integer.  If `nb` is not supplied, then `io` will be read until the end of the stream.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/CRC32c/src/CRC32c.jl#L41-L47)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/CRC32c/src/CRC32c.jl#L45-L51)
 
 </div>
 <br>

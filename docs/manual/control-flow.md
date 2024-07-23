@@ -540,6 +540,7 @@ When an unexpected condition occurs, a function may be unable to return a reason
 | [`DomainError`](/base/base#Core.DomainError)                         |
 | [`EOFError`](/base/base#Base.EOFError)                               |
 | [`ErrorException`](/base/base#Core.ErrorException)                   |
+| [`FieldError`](/base/base#Core.FieldError)                           |
 | [`InexactError`](/base/base#Core.InexactError)                       |
 | [`InitError`](/base/base#Core.InitError)                             |
 | [`InterruptException`](/base/base#Core.InterruptException)           |

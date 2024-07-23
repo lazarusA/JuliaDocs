@@ -21,8 +21,8 @@ No matter the error, we will always need to know what version of Julia you are r
 julia> using InteractiveUtils
 
 julia> versioninfo()
-Julia Version 1.12.0-DEV.651
-Commit 3a083e6f56 (2024-07-12 09:58 UTC)
+Julia Version 1.12.0-DEV.1102
+Commit d0ea96fb3b* (2024-07-23 20:54 UTC)
 Platform Info:
   OS: macOS (arm64-apple-darwin23.5.0)
   CPU: 8 × Apple M1

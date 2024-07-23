@@ -353,7 +353,7 @@ As an alternative for very simple cases, it is possible to just create a global 
 ```c
 jl_module_t *mod = jl_main_module;
 jl_sym_t *var = jl_symbol("var");
-jl_binding_t *bp = jl_get_binding_wr(mod, var);
+jl_binding_t *bp = jl_get_binding_wr(mod, var, 1);
 jl_checked_assignment(bp, mod, var, val);
 ```
 

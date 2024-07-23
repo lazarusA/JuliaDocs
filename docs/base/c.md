@@ -56,7 +56,7 @@ const glib = "libglib-2.0"
 The string literal could also be used directly before the function name, if desired `"libglib-2.0".g_uri_escape_string(...`
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L360-L407)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L360-L407)
 
 </div>
 <br>
@@ -80,7 +80,7 @@ Note that the argument type tuple must be a literal tuple, and not a tuple-value
 Each `argvalue` to the `ccall` will be converted to the corresponding `argtype`, by automatic insertion of calls to `unsafe_convert(argtype, cconvert(argtype, argvalue))`. (See also the documentation for [`unsafe_convert`](/base/c#Base.unsafe_convert) and [`cconvert`](/base/c#Base.cconvert) for further details.) In most cases, this simply results in a call to `convert(argtype, argvalue)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1311-L1329)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1325-L1343)
 
 </div>
 <br>
@@ -98,7 +98,7 @@ cglobal((symbol, library) [, type=Cvoid])
 Obtain a pointer to a global variable in a C-exported shared library, specified exactly as in [`ccall`](/base/c#ccall). Returns a `Ptr{Type}`, defaulting to `Ptr{Cvoid}` if no `Type` argument is supplied. The values can be read or written by [`unsafe_load`](/base/c#Base.unsafe_load) or [`unsafe_store!`](/base/c#Base.unsafe_store!), respectively.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L7-L16)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L7-L16)
 
 </div>
 <br>
@@ -133,7 +133,7 @@ Ptr{Cvoid} @0x000000001b82fcd0
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L38-L63)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L38-L63)
 
 </div>
 <br>
@@ -153,7 +153,7 @@ Garbage-collection handle for the return value from `@cfunction` when the first 
 See [`@cfunction`](/base/c#Base.@cfunction).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L19-L28)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L19-L28)
 
 </div>
 <br>
@@ -179,7 +179,7 @@ The `unsafe` prefix on this function indicates that using the result of this fun
 See also [`cconvert`](/base/c#Base.cconvert)
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L34-L54)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/pointer.jl#L34-L54)
 
 </div>
 <br>
@@ -201,7 +201,7 @@ In cases where `x` cannot be safely converted to `T`, unlike [`convert`](/base/b
 Neither `convert` nor `cconvert` should take a Julia object and turn it into a `Ptr`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L649-L662)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L661-L674)
 
 </div>
 <br>
@@ -231,7 +231,7 @@ The `order` argument is available as of Julia 1.10.
 See also: [`atomic`](/base/multi-threading#atomic)
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L133-L152)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/pointer.jl#L133-L152)
 
 </div>
 <br>
@@ -261,7 +261,7 @@ The `order` argument is available as of Julia 1.10.
 See also: [`atomic`](/base/multi-threading#atomic)
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L159-L178)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/pointer.jl#L159-L178)
 
 </div>
 <br>
@@ -297,7 +297,7 @@ This function requires at least Julia 1.10.
 See also: [`modifyproperty!`](/base/base#Base.modifyproperty!), [`atomic`](/base/multi-threading#atomic)
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L186-L208)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/pointer.jl#L186-L208)
 
 </div>
 <br>
@@ -336,7 +336,7 @@ This function requires at least Julia 1.10.
 See also: [`replaceproperty!`](/base/base#Base.replaceproperty!), [`atomic`](/base/multi-threading#atomic)
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L213-L237)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/pointer.jl#L213-L237)
 
 </div>
 <br>
@@ -371,7 +371,7 @@ This function requires at least Julia 1.10.
 See also: [`swapproperty!`](/base/base#Base.swapproperty!), [`atomic`](/base/multi-threading#atomic)
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L247-L267)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/pointer.jl#L247-L267)
 
 </div>
 <br>
@@ -391,7 +391,7 @@ Copy `N` elements from a source pointer to a destination, with no checking. The 
 The `unsafe` prefix on this function indicates that no validation is performed on the pointers `dest` and `src` to ensure that they are valid. Incorrect usage may corrupt or segfault your program, in the same manner as C.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L255-L264)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L255-L264)
 
 </div>
 <br>
@@ -411,7 +411,7 @@ Copy `n` elements from a source array to a destination, starting at the linear i
 The `unsafe` prefix on this function indicates that no validation is performed to ensure that n is inbounds on either array. Incorrect usage may corrupt or segfault your program, in the same manner as C.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L272-L281)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L272-L281)
 
 </div>
 <br>
@@ -442,7 +442,7 @@ The elements `B[ir_dest, jr_dest]` are overwritten. Furthermore, the index range
 See also [`copy_transpose!`](/stdlib/LinearAlgebra#LinearAlgebra.copy_transpose!) and [`copy_adjoint!`](/stdlib/LinearAlgebra#LinearAlgebra.copy_adjoint!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/LinearAlgebra/src/matmul.jl#L733-L752)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/matmul.jl#L750-L769)
 
 
 
@@ -460,7 +460,7 @@ In Julia 1.0 this method only supported a square destination matrix. Julia 1.1. 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/LinearAlgebra/src/uniformscaling.jl#L371-L379)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/uniformscaling.jl#L371-L379)
 
 
 
@@ -472,7 +472,7 @@ copyto!(dest, doffs, src, soffs, n)
 Copy `n` elements from collection `src` starting at the linear index `soffs`, to array `dest` starting at the index `doffs`. Return `dest`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L288-L293)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L288-L293)
 
 
 
@@ -513,7 +513,7 @@ julia> y
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L1029-L1058)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L1029-L1058)
 
 
 
@@ -546,7 +546,7 @@ julia> copyto!(A, Ainds, B, Binds)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/multidimensional.jl#L1169-L1193)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/multidimensional.jl#L1212-L1236)
 
 </div>
 <br>
@@ -568,7 +568,7 @@ This function is &quot;unsafe&quot;. Be careful to ensure that a Julia reference
 Calling [`Ref(array[, index])`](/base/c#Core.Ref) is generally preferable to this function as it guarantees validity.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/strings/cstring.jl#L41-L52)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/strings/cstring.jl#L41-L52)
 
 </div>
 <br>
@@ -588,7 +588,7 @@ Wrap a Julia `Array` object around the data at the address given by `pointer`, w
 This function is labeled &quot;unsafe&quot; because it will crash if `pointer` is not a valid memory address to data of the requested length. Unlike [`unsafe_load`](/base/c#Base.unsafe_load) and [`unsafe_store!`](/base/c#Base.unsafe_store!), the programmer is responsible also for ensuring that the underlying data is not accessed through two arrays of different element type, similar to the strict aliasing rule in C.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L93-L107)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/pointer.jl#L93-L107)
 
 </div>
 <br>
@@ -610,7 +610,7 @@ This function may not be called on immutable objects, since they do not have sta
 See also [`unsafe_pointer_to_objref`](/base/c#Base.unsafe_pointer_to_objref).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L289-L300)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/pointer.jl#L289-L300)
 
 </div>
 <br>
@@ -630,7 +630,7 @@ Convert a `Ptr` to an object reference. Assumes the pointer refers to a valid he
 See also [`pointer_from_objref`](/base/c#Base.pointer_from_objref).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L278-L286)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/pointer.jl#L278-L286)
 
 </div>
 <br>
@@ -658,7 +658,7 @@ end
 This is not needed on worker threads (`Threads.threadid() != 1`) since the `InterruptException` will only be delivered to the master thread. External functions that do not call julia code or julia runtime automatically disable sigint during their execution.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L148-L164)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L148-L164)
 
 </div>
 <br>
@@ -676,7 +676,7 @@ reenable_sigint(f::Function)
 Re-enable Ctrl-C handler during execution of a function. Temporarily reverses the effect of [`disable_sigint`](/base/c#Base.disable_sigint).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L173-L178)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L173-L178)
 
 </div>
 <br>
@@ -702,7 +702,7 @@ Function `exit_on_sigint` requires at least Julia 1.5.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L187-L201)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L187-L201)
 
 </div>
 <br>
@@ -721,7 +721,7 @@ systemerror(sysfunc, iftrue::Bool)
 Raises a `SystemError` for `errno` with the descriptive string `sysfunc` if `iftrue` is `true`
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L178-L183)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L178-L183)
 
 </div>
 <br>
@@ -740,7 +740,7 @@ windowserror(sysfunc, iftrue::Bool)
 Like [`systemerror`](/base/c#Base.systemerror), but for Windows API functions that use [`GetLastError`](/base/libc#Base.Libc.GetLastError) to return an error code instead of setting [`errno`](/base/libc#Base.Libc.errno).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L192-L198)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L192-L198)
 
 </div>
 <br>
@@ -758,7 +758,7 @@ Ptr{T}
 A memory address referring to data of type `T`.  However, there is no guarantee that the memory is actually valid, or that it actually represents data of the specified type.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/pointer.jl#L3-L8)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/pointer.jl#L3-L8)
 
 </div>
 <br>
@@ -832,7 +832,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/refpointer.jl#L3-L78)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/refpointer.jl#L3-L78)
 
 </div>
 <br>
@@ -870,7 +870,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/refvalue.jl#L11-L35)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/refvalue.jl#L11-L35)
 
 </div>
 <br>
@@ -888,7 +888,7 @@ Cchar
 Equivalent to the native `char` c-type.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L86-L90)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L86-L90)
 
 </div>
 <br>
@@ -906,7 +906,7 @@ Cuchar
 Equivalent to the native `unsigned char` c-type ([`UInt8`](/base/numbers#Core.UInt8)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L6-L10)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L6-L10)
 
 </div>
 <br>
@@ -924,7 +924,7 @@ Cshort
 Equivalent to the native `signed short` c-type ([`Int16`](/base/numbers#Core.Int16)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L14-L18)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L14-L18)
 
 </div>
 <br>
@@ -942,7 +942,7 @@ Cstring
 A C-style string composed of the native character type [`Cchar`](/base/c#Base.Cchar)s. `Cstring`s are NUL-terminated. For C-style strings composed of the native wide character type, see [`Cwstring`](/base/c#Base.Cwstring). For more information about string interoperability with C, see the [manual](/manual/calling-c-and-fortran-code#man-bits-types).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/strings/cstring.jl#L18-L27)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/strings/cstring.jl#L18-L27)
 
 </div>
 <br>
@@ -960,7 +960,7 @@ Cushort
 Equivalent to the native `unsigned short` c-type ([`UInt16`](/base/numbers#Core.UInt16)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L22-L26)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L22-L26)
 
 </div>
 <br>
@@ -978,7 +978,7 @@ Cint
 Equivalent to the native `signed int` c-type ([`Int32`](/base/numbers#Core.Int32)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L30-L34)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L30-L34)
 
 </div>
 <br>
@@ -996,7 +996,7 @@ Cuint
 Equivalent to the native `unsigned int` c-type ([`UInt32`](/base/numbers#Core.UInt32)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L38-L42)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L38-L42)
 
 </div>
 <br>
@@ -1014,7 +1014,7 @@ Clong
 Equivalent to the native `signed long` c-type.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L104-L108)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L104-L108)
 
 </div>
 <br>
@@ -1032,7 +1032,7 @@ Culong
 Equivalent to the native `unsigned long` c-type.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L111-L115)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L111-L115)
 
 </div>
 <br>
@@ -1050,7 +1050,7 @@ Clonglong
 Equivalent to the native `signed long long` c-type ([`Int64`](/base/numbers#Core.Int64)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L86-L90)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L86-L90)
 
 </div>
 <br>
@@ -1068,7 +1068,7 @@ Culonglong
 Equivalent to the native `unsigned long long` c-type ([`UInt64`](/base/numbers#Core.UInt64)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L94-L98)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L94-L98)
 
 </div>
 <br>
@@ -1086,7 +1086,7 @@ Cintmax_t
 Equivalent to the native `intmax_t` c-type ([`Int64`](/base/numbers#Core.Int64)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L70-L74)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L70-L74)
 
 </div>
 <br>
@@ -1104,7 +1104,7 @@ Cuintmax_t
 Equivalent to the native `uintmax_t` c-type ([`UInt64`](/base/numbers#Core.UInt64)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L78-L82)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L78-L82)
 
 </div>
 <br>
@@ -1122,7 +1122,7 @@ Csize_t
 Equivalent to the native `size_t` c-type (`UInt`).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L54-L58)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L54-L58)
 
 </div>
 <br>
@@ -1140,7 +1140,7 @@ Cssize_t
 Equivalent to the native `ssize_t` c-type.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L62-L66)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L62-L66)
 
 </div>
 <br>
@@ -1158,7 +1158,7 @@ Cptrdiff_t
 Equivalent to the native `ptrdiff_t` c-type (`Int`).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L46-L50)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L46-L50)
 
 </div>
 <br>
@@ -1176,7 +1176,7 @@ Cwchar_t
 Equivalent to the native `wchar_t` c-type ([`Int32`](/base/numbers#Core.Int32)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/c.jl#L118-L122)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/c.jl#L118-L122)
 
 </div>
 <br>
@@ -1194,7 +1194,7 @@ Cwstring
 A C-style string composed of the native wide character type [`Cwchar_t`](/base/c#Base.Cwchar_t)s. `Cwstring`s are NUL-terminated. For C-style strings composed of the native character type, see [`Cstring`](/base/c#Base.Cstring). For more information about string interoperability with C, see the [manual](/manual/calling-c-and-fortran-code#man-bits-types).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/strings/cstring.jl#L5-L15)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/strings/cstring.jl#L5-L15)
 
 </div>
 <br>
@@ -1212,7 +1212,7 @@ Cfloat
 Equivalent to the native `float` c-type ([`Float32`](/base/numbers#Core.Float32)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L102-L106)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L102-L106)
 
 </div>
 <br>
@@ -1230,7 +1230,7 @@ Cdouble
 Equivalent to the native `double` c-type ([`Float64`](/base/numbers#Core.Float64)).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ctypes.jl#L110-L114)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ctypes.jl#L110-L114)
 
 </div>
 <br>
@@ -1261,10 +1261,10 @@ Note that contrary to `ccall`, the argument types must be specified as a tuple t
 
 [Opaque pointers](https://llvm.org/docs/OpaquePointers.html) (written as `ptr`) are not allowed in the LLVM code.
 
-See [`test/llvmcall.jl`](https://github.com/JuliaLang/julia/blob/v1.12.0-DEV.651/test/llvmcall.jl) for usage examples.
+See [`test/llvmcall.jl`](https://github.com/JuliaLang/julia/blob/v1.12.0-DEV.1102/test/llvmcall.jl) for usage examples.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1332-L1356)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1346-L1370)
 
 </div>
 <br>

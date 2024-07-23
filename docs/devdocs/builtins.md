@@ -5,18 +5,18 @@
 
 The following Builtin function APIs are considered unstable, but provide the basic definitions for what defines the abilities and behaviors of a Julia program. They are typically accessed through a higher level generic API.
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
-<a id='Core.memoryref' href='#Core.memoryref'>#</a>&nbsp;<b><u>Core.memoryref</u></b> &mdash; <i>Function</i>.
+<a id='Core.memoryrefnew' href='#Core.memoryrefnew'>#</a>&nbsp;<b><u>Core.memoryrefnew</u></b> &mdash; <i>Function</i>.
 
 
 
 
 ```julia
-Core.memoryref(::GenericMemory)
-Core.memoryref(::GenericMemoryRef, index::Int, [boundscheck::Bool])
+Core.memoryrefnew(::GenericMemory)
+Core.memoryrefnew(::GenericMemoryRef, index::Int, [boundscheck::Bool])
 ```
 
 
-Return a `GenericMemoryRef` for a `GenericMemory`. See [`MemoryRef`](/base/arrays#Core.MemoryRef).
+Return a `GenericMemoryRef` for a `GenericMemory`. See [`memoryref`](/base/arrays#Core.memoryref).
 
 ::: tip Julia 1.11
 
@@ -25,7 +25,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L25-L33)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L25-L33)
 
 </div>
 <br>
@@ -40,7 +40,7 @@ Core..memoryrefoffset(::GenericMemoryRef)
 ```
 
 
-Return the offset index that was used to construct the `MemoryRef`. See [`Core.memoryref`](/devdocs/builtins#Core.memoryref).
+Return the offset index that was used to construct the `MemoryRef`. See [`memoryref`](/base/arrays#Core.memoryref).
 
 ::: tip Julia 1.11
 
@@ -49,7 +49,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L36-L43)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L36-L43)
 
 </div>
 <br>
@@ -73,7 +73,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L46-L54)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L46-L54)
 
 </div>
 <br>
@@ -97,7 +97,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L57-L65)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L57-L65)
 
 </div>
 <br>
@@ -121,7 +121,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L68-L77)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L68-L77)
 
 </div>
 <br>
@@ -147,7 +147,7 @@ This function requires Julia 1.11 or later.
 See also [`swapproperty!`](/base/base#Base.swapproperty!) and [`Core.memoryrefset!`](/devdocs/builtins#Core.memoryrefset!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L80-L89)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L80-L89)
 
 </div>
 <br>
@@ -173,7 +173,7 @@ This function requires Julia 1.11 or later.
 See also [`modifyproperty!`](/base/base#Base.modifyproperty!) and [`Core.memoryrefset!`](/devdocs/builtins#Core.memoryrefset!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L92-L102)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L92-L102)
 
 </div>
 <br>
@@ -200,7 +200,7 @@ This function requires Julia 1.11 or later.
 See also [`replaceproperty!`](/base/base#Base.replaceproperty!) and [`Core.memoryrefset!`](/devdocs/builtins#Core.memoryrefset!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L105-L115)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L105-L115)
 
 </div>
 <br>
@@ -227,7 +227,7 @@ This function requires Julia 1.11 or later.
 See also [`setpropertyonce!`](/base/base#Base.replaceproperty!) and [`Core.memoryrefset!`](/devdocs/builtins#Core.memoryrefset!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L118-L129)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L118-L129)
 
 </div>
 <br>
@@ -251,7 +251,7 @@ This function requires Julia 1.7 or later.
 See [`unsafe_load`](/base/c#Base.unsafe_load).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L132-L139)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L132-L139)
 
 </div>
 <br>
@@ -275,7 +275,7 @@ This function requires Julia 1.7 or later.
 See [`unsafe_store!`](/base/c#Base.unsafe_store!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L142-L149)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L142-L149)
 
 </div>
 <br>
@@ -299,7 +299,7 @@ This function requires Julia 1.7 or later.
 See [`unsafe_swap!`](/base/c#Base.unsafe_swap!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L152-L159)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L152-L159)
 
 </div>
 <br>
@@ -323,7 +323,7 @@ This function requires Julia 1.7 or later.
 See [`unsafe_modify!`](/base/c#Base.unsafe_modify!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L162-L169)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L162-L169)
 
 </div>
 <br>
@@ -347,7 +347,7 @@ This function requires Julia 1.7 or later.
 See [`unsafe_replace!`](/base/c#Base.unsafe_replace!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L172-L179)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L172-L179)
 
 </div>
 <br>
@@ -371,31 +371,7 @@ This function requires Julia 1.9 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2529-L2536)
-
-</div>
-<br>
-<div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
-<a id='Core.set_binding_type!' href='#Core.set_binding_type!'>#</a>&nbsp;<b><u>Core.set_binding_type!</u></b> &mdash; <i>Function</i>.
-
-
-
-
-```julia
-Core.set_binding_type!(module::Module, name::Symbol, [type::Type])
-```
-
-
-Set the declared type of the binding `name` in the module `module` to `type`. Error if the binding already has a type that is not equivalent to `type`. If the `type` argument is absent, set the binding type to `Any` if unset, but do not error.
-
-::: tip Julia 1.9
-
-This function requires Julia 1.9 or later.
-
-:::
-
-
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2539-L2548)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2593-L2600)
 
 </div>
 <br>
@@ -413,7 +389,7 @@ Core.IntrinsicFunction <: Core.Builtin <: Function
 The `Core.IntrinsicFunction` function define some basic primitives for what defines the abilities and behaviors of a Julia program
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L10-L15)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L10-L15)
 
 </div>
 <br>
@@ -431,7 +407,7 @@ Core.Intrinsics
 The `Core.Intrinsics` module holds the `Core.IntrinsicFunction` objects.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L18-L22)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L18-L22)
 
 </div>
 <br>
@@ -449,7 +425,7 @@ Core.IR
 The `Core.IR` module exports the IR object model.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/intrinsicsdocs.jl#L3-L7)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/intrinsicsdocs.jl#L3-L7)
 
 </div>
 <br>

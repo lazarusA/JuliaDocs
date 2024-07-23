@@ -65,7 +65,7 @@ julia> sum(a) # Sum the remaining elements
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L1386-L1443)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L1386-L1443)
 
 </div>
 <br>
@@ -122,7 +122,7 @@ julia> first(c)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L333-L371)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L333-L371)
 
 </div>
 <br>
@@ -168,7 +168,7 @@ i = 5, val = e, str[i] = 'v'
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L161-L197)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L161-L197)
 
 </div>
 <br>
@@ -199,7 +199,7 @@ julia> collect(Iterators.rest([1,2,3,4], 2))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L634-L649)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L634-L649)
 
 </div>
 <br>
@@ -230,7 +230,7 @@ julia> for v in Iterators.countfrom(5, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L702-L717)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L702-L717)
 
 </div>
 <br>
@@ -273,7 +273,7 @@ julia> collect(Iterators.take(a,3))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L741-L768)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L741-L768)
 
 </div>
 <br>
@@ -315,7 +315,7 @@ julia> collect(Iterators.takewhile(<(3),s))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L856-L881)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L856-L881)
 
 </div>
 <br>
@@ -355,7 +355,7 @@ julia> collect(Iterators.drop(a,4))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L800-L824)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L800-L824)
 
 </div>
 <br>
@@ -398,7 +398,7 @@ julia> collect(Iterators.dropwhile(<(3),s))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L903-L929)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L903-L929)
 
 </div>
 <br>
@@ -444,7 +444,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L953-L983)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L953-L983)
 
 </div>
 <br>
@@ -484,7 +484,7 @@ julia> Iterators.cycle([1 2], 4) |> collect |> println
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L1010-L1035)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L1010-L1035)
 
 </div>
 <br>
@@ -517,7 +517,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L1053-L1072)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L1053-L1072)
 
 </div>
 <br>
@@ -556,7 +556,7 @@ julia> [(x,y) for x in 0:1 for y in 'a':'c']  # collects generators involving It
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L1187-L1212)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L1187-L1212)
 
 </div>
 <br>
@@ -613,7 +613,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L1263-L1301)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L1263-L1301)
 
 </div>
 <br>
@@ -642,7 +642,7 @@ julia> collect(Iterators.partition([1,2,3,4,5], 2))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L1305-L1318)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L1305-L1318)
 
 </div>
 <br>
@@ -677,7 +677,7 @@ julia> collect(Iterators.map(x -> x^2, 1:3))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L45-L62)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L45-L62)
 
 </div>
 <br>
@@ -724,7 +724,7 @@ julia> [x for x in [1, 2, 3, 4, 5] if isodd(x)]  # collects a generator over Ite
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L500-L540)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L500-L540)
 
 </div>
 <br>
@@ -772,7 +772,7 @@ julia> collect(b)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L569-L600)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L569-L600)
 
 </div>
 <br>
@@ -806,7 +806,7 @@ julia> foreach(println, Iterators.reverse(1:5))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L88-L117)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L88-L117)
 
 </div>
 <br>
@@ -853,7 +853,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L1513-L1542)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L1513-L1542)
 
 </div>
 <br>
@@ -896,7 +896,7 @@ julia> collect(rest)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L654-L678)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L654-L678)
 
 </div>
 <br>

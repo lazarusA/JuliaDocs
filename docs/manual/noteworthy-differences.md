@@ -60,6 +60,8 @@ Although MATLAB users may find Julia&#39;s syntax familiar, Julia is not a MATLA
   
 - In MATLAB, an idiomatic way to remove unwanted values is to use logical indexing, like in the expression `x(x>3)` or in the statement `x(x>3) = []` to modify `x` in-place. In contrast, Julia provides the higher order functions [`filter`](/base/collections#Base.filter) and [`filter!`](/base/collections#Base.filter!), allowing users to write `filter(z->z>3, x)` and `filter!(z->z>3, x)` as alternatives to the corresponding transliterations `x[x.>3]` and `x = x[x.>3]`. Using [`filter!`](/base/collections#Base.filter!) reduces the use of temporary arrays.
   
+- Following on from the previous point, to replace values that meet specific criteria, for example a thresholding operation on all elements in a matrix, could be achieved in Matlab as follows `A(A < threshold) = 0`. The Julia equivalent would be `A[A .< threshold] .= 0`.
+  
 - The analogue of extracting (or &quot;dereferencing&quot;) all elements of a cell array, e.g. in `vertcat(A{:})` in MATLAB, is written using the splat operator in Julia, e.g. as `vcat(A...)`.
   
 - In Julia, the `adjoint` function performs conjugate transposition; in MATLAB, `adjoint` provides the &quot;adjugate&quot; or classical adjoint, which is the transpose of the matrix of cofactors.

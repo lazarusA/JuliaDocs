@@ -30,7 +30,7 @@ exit(code=0)
 Stop the program with an exit code. The default exit code is zero, indicating that the program completed successfully. In an interactive session, `exit()` can be called with the keyboard shortcut `^D`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/initdefs.jl#L21-L27)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/initdefs.jl#L21-L27)
 
 </div>
 <br>
@@ -60,7 +60,7 @@ Exit hooks are allowed to call `exit(n)`, in which case Julia will exit with exi
 Note: Once all exit hooks have been called, no more exit hooks can be registered, and any call to `atexit(f)` after all hooks have completed will throw an exception. This situation may occur if you are registering exit hooks from background Tasks that may still be executing concurrently during shutdown.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/initdefs.jl#L405-L429)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/initdefs.jl#L407-L431)
 
 </div>
 <br>
@@ -78,7 +78,7 @@ isinteractive() -> Bool
 Determine whether Julia is running an interactive session.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/initdefs.jl#L35-L39)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/initdefs.jl#L35-L39)
 
 </div>
 <br>
@@ -110,7 +110,7 @@ julia> Base.summarysize(1.0)
 8
 
 julia> Base.summarysize(Ref(rand(100)))
-864
+848
 
 julia> sizeof(Ref(rand(100)))
 8
@@ -118,7 +118,7 @@ julia> sizeof(Ref(rand(100)))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/summarysize.jl#L11-L34)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/summarysize.jl#L14-L37)
 
 </div>
 <br>
@@ -136,7 +136,7 @@ __precompile__(isprecompilable::Bool)
 Specify whether the file calling this function is precompilable, defaulting to `true`. If a module or file is _not_ safely precompilable, it should call `__precompile__(false)` in order to throw an error if Julia attempts to precompile it.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L2105-L2111)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L2124-L2130)
 
 </div>
 <br>
@@ -162,7 +162,7 @@ Julia 1.5 is required for passing the `mapexpr` argument.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L2620-L2637)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L2647-L2664)
 
 </div>
 <br>
@@ -190,7 +190,7 @@ Julia 1.5 is required for passing the `mapexpr` argument.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysimg.jl#L13-L34)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysimg.jl#L13-L34)
 
 </div>
 <br>
@@ -216,7 +216,7 @@ Julia 1.5 is required for passing the `mapexpr` argument.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L2561-L2572)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L2588-L2599)
 
 </div>
 <br>
@@ -227,22 +227,22 @@ Julia 1.5 is required for passing the `mapexpr` argument.
 
 
 ```julia
-include_dependency(path::AbstractString; track_content::Bool=false)
+include_dependency(path::AbstractString; track_content::Bool=true)
 ```
 
 
-In a module, declare that the file, directory, or symbolic link specified by `path` (relative or absolute) is a dependency for precompilation; that is, the module will need to be recompiled if the modification time `mtime` of `path` changes. If `track_content=true` recompilation is triggered when the content of `path` changes (if `path` is a directory the content equals `join(readdir(path))`).
+In a module, declare that the file, directory, or symbolic link specified by `path` (relative or absolute) is a dependency for precompilation; that is, if `track_content=true` the module will need to be recompiled if the content of `path` changes (if `path` is a directory the content equals `join(readdir(path))`). If `track_content=false` recompilation is triggered when the modification time `mtime` of `path` changes.
 
 This is only needed if your module depends on a path that is not used via [`include`](/base/base#Base.include). It has no effect outside of compilation.
 
 ::: tip Julia 1.11
 
-Keyword argument `track_content` requires at least Julia 1.11.
+Keyword argument `track_content` requires at least Julia 1.11. An error is now thrown if `path` is not readable.
 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L2075-L2089)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L2093-L2108)
 
 </div>
 <br>
@@ -272,7 +272,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L145-L165)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L145-L165)
 
 </div>
 <br>
@@ -294,7 +294,7 @@ If `types` is an abstract type, then the method that would be called by `invoke`
 See also: [`parentmodule`](/base/base#Base.parentmodule), [`@which`](/stdlib/InteractiveUtils#InteractiveUtils.@which), and [`@edit`](/stdlib/InteractiveUtils#InteractiveUtils.@edit).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2253-L2261)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2267-L2275)
 
 </div>
 <br>
@@ -322,7 +322,7 @@ At least Julia 1.4 is required for specifying a module.
 See also: [`which`](/base/base#Base.which-Tuple{Any,%20Any}), [`@which`](/stdlib/InteractiveUtils#InteractiveUtils.@which) and [`methodswith`](/stdlib/InteractiveUtils#InteractiveUtils.methodswith).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L1223-L1236)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L1232-L1245)
 
 </div>
 <br>
@@ -355,7 +355,7 @@ x / 2 = 1.5
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/show.jl#L1215-L1232)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/show.jl#L1215-L1232)
 
 </div>
 <br>
@@ -373,7 +373,7 @@ ans
 A variable referring to the last computed value, automatically imported to the interactive prompt.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/client.jl#L500-L504)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/client.jl#L499-L503)
 
 </div>
 <br>
@@ -391,7 +391,7 @@ err
 A variable referring to the last thrown errors, automatically imported to the interactive prompt. The thrown errors are collected in a stack of exceptions.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/client.jl#L507-L512)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/client.jl#L506-L511)
 
 </div>
 <br>
@@ -409,7 +409,7 @@ active_project()
 Return the path of the active `Project.toml` file. See also [`Base.set_active_project`](/base/base#Base.set_active_project).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/initdefs.jl#L329-L333)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/initdefs.jl#L331-L335)
 
 </div>
 <br>
@@ -433,7 +433,7 @@ This function requires at least Julia 1.8.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/initdefs.jl#L358-L365)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/initdefs.jl#L360-L367)
 
 </div>
 <br>
@@ -477,7 +477,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L117-L142)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L117-L142)
 
 </div>
 <br>
@@ -495,7 +495,7 @@ export
 `export` is used within modules to tell Julia which names should be made available to the user. For example: `export foo` makes the name `foo` available when [`using`](/base/base#using) the module. See the [manual section about modules](/manual/modules#modules) for details.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L53-L60)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L53-L60)
 
 </div>
 <br>
@@ -521,7 +521,7 @@ The public keyword was added in Julia 1.11. Prior to this the notion of publicne
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L63-L77)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L63-L77)
 
 </div>
 <br>
@@ -539,7 +539,7 @@ import
 `import Foo` will load the module or package `Foo`. Names from the imported `Foo` module can be accessed with dot syntax (e.g. `Foo.foo` to access the name `foo`). See the [manual section about modules](/manual/modules#modules) for details.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L43-L50)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L43-L50)
 
 </div>
 <br>
@@ -557,7 +557,7 @@ using
 `using Foo` will load the module or package `Foo` and make its [`export`](/base/base#export)ed names available for direct use. Names can also be used via dot syntax (e.g. `Foo.foo` to access the name `foo`), whether they are `export`ed or not. See the [manual section about modules](/manual/modules#modules) for details.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L33-L40)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L33-L40)
 
 </div>
 <br>
@@ -581,7 +581,7 @@ as
 `as` works with `using` only when individual identifiers are brought into scope. For example, `using LinearAlgebra: eigen as eig` or `using LinearAlgebra: eigen as eig, cholesky as chol` works, but `using LinearAlgebra as LA` is invalid syntax, since it is nonsensical to rename _all_ exported names from `LinearAlgebra` to `LA`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L80-L98)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L80-L98)
 
 </div>
 <br>
@@ -624,7 +624,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L168-L196)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L168-L196)
 
 </div>
 <br>
@@ -658,7 +658,7 @@ add(a, b) = a + b
 The use of the [`return`](/base/base#return) keyword is exactly the same as in other languages, but is often optional. A function without an explicit `return` statement will return the last expression in the function body.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L802-L821)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L802-L821)
 
 </div>
 <br>
@@ -699,7 +699,7 @@ Say: hey there friend
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L217-L252)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L217-L252)
 
 </div>
 <br>
@@ -749,7 +749,7 @@ You might expect the second example to behave the same way, but in fact the `ret
 When used in a top-level expression (i.e. outside any function), `return` causes the entire current top-level expression to terminate early.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L850-L890)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L850-L890)
 
 </div>
 <br>
@@ -785,7 +785,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1136-L1158)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1150-L1172)
 
 </div>
 <br>
@@ -812,7 +812,13 @@ end
 
 Usually `begin` will not be necessary, since keywords such as [`function`](/base/base#function) and [`let`](/base/base#let) implicitly begin blocks of code. See also [`;`](/base/base#;).
 
-`begin` may also be used when indexing to represent the first index of a collection or the first index of a dimension of an array.
+`begin` may also be used when indexing to represent the first index of a collection or the first index of a dimension of an array. For example, `a[begin]` is the first element of an array `a`.
+
+::: tip Julia 1.4
+
+Use of `begin` as an index requires Julia 1.4 or later.
+
+:::
 
 **Examples**
 
@@ -830,7 +836,7 @@ julia> A[begin, :]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1359-L1389)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1373-L1407)
 
 </div>
 <br>
@@ -865,7 +871,7 @@ julia> A[end, :]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L992-L1014)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L992-L1014)
 
 </div>
 <br>
@@ -958,7 +964,7 @@ julia> [f() for f in test_do_x()]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L518-L614)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L518-L614)
 
 </div>
 <br>
@@ -997,7 +1003,7 @@ ERROR: TypeError: non-boolean (Int64) used in boolean context
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L893-L921)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L893-L921)
 
 </div>
 <br>
@@ -1029,7 +1035,7 @@ julia> for i in [1, 4, 0]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L946-L965)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L946-L965)
 
 </div>
 <br>
@@ -1064,7 +1070,7 @@ julia> while i < 5
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L968-L989)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L968-L989)
 
 </div>
 <br>
@@ -1101,7 +1107,7 @@ julia> while true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1094-L1115)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1108-L1129)
 
 </div>
 <br>
@@ -1132,7 +1138,7 @@ julia> for i = 1:6
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1118-L1133)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1132-L1147)
 
 </div>
 <br>
@@ -1177,6 +1183,19 @@ The syntax `catch e` (where `e` is any variable) assigns the thrown exception ob
 
 The power of the `try`/`catch` construct lies in the ability to unwind a deeply nested computation immediately to a much higher level in the stack of calling functions.
 
+A `try/catch` block can also have an `else` clause that executes only if no exception occurred:
+
+```julia
+try
+    a_dangerous_operation()
+catch
+    @warn "The operation failed."
+else
+    @info "The operation succeeded."
+end
+```
+
+
 A `try` or `try`/`catch` block can also have a [`finally`](/base/base#finally) clause that executes at the end, regardless of whether an exception occurred.  For example, this can be used to guarantee that an opened file is closed:
 
 ```julia
@@ -1193,8 +1212,14 @@ end
 
 (`finally` can also be used without a `catch` block.)
 
+::: tip Julia 1.8
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1017-L1067)
+Else clauses require at least Julia 1.8.
+
+:::
+
+
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1017-L1081)
 
 </div>
 <br>
@@ -1224,7 +1249,7 @@ end
 When control leaves the [`try`](/base/base#try) block (for example, due to a [`return`](/base/base#return), or just finishing normally), [`close(f)`](/base/io-network#Base.close) will be executed. If the `try` block exits due to an exception, the exception will continue propagating. A `catch` block may be combined with `try` and `finally` as well. In this case the `finally` block will run after `catch` has handled the error.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1070-L1091)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1084-L1105)
 
 </div>
 <br>
@@ -1253,7 +1278,7 @@ end
 Unlike the other means of quoting, `:( ... )`, this form introduces `QuoteNode` elements to the expression tree, which must be considered when directly manipulating the tree. For other purposes, `:( ... )` and `quote .. end` blocks are treated identically.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L617-L633)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L617-L633)
 
 </div>
 <br>
@@ -1289,7 +1314,7 @@ julia> foo(10)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L273-L294)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L273-L294)
 
 </div>
 <br>
@@ -1326,7 +1351,7 @@ julia> z
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L297-L320)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L297-L320)
 
 </div>
 <br>
@@ -1387,7 +1412,7 @@ ERROR: syntax: no outer local variable declaration exists for "for outer"
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L323-L367)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L323-L367)
 
 </div>
 <br>
@@ -1423,7 +1448,7 @@ Note that &quot;constant-ness&quot; does not extend into mutable containers; onl
 In some cases changing the value of a `const` variable gives a warning instead of an error. However, this can produce unpredictable behavior or corrupt the state of your program, and so should be avoided. This feature is intended only for convenience during interactive use.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L770-L799)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L770-L799)
 
 </div>
 <br>
@@ -1473,7 +1498,7 @@ end
 See the manual section on [Composite Types](/manual/types#Composite-Types) for more details, such as how to define constructors.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1392-L1429)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1410-L1447)
 
 </div>
 <br>
@@ -1488,10 +1513,28 @@ mutable struct
 ```
 
 
-`mutable struct` is similar to [`struct`](/base/base#struct), but additionally allows the fields of the type to be set after construction. See the manual section on [Composite Types](/manual/types#Composite-Types) for more information.
+`mutable struct` is similar to [`struct`](/base/base#struct), but additionally allows the fields of the type to be set after construction.
+
+Individual fields of a mutable struct can be marked as `const` to make them immutable:
+
+```julia
+mutable struct Baz
+    a::Int
+    const b::Float64
+end
+```
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1432-L1438)
+::: tip Julia 1.8
+
+The `const` keyword for fields of mutable structs requires at least Julia 1.8.
+
+:::
+
+See the manual section on [Composite Types](/manual/types#Composite-Types) for more information.
+
+
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1450-L1468)
 
 </div>
 <br>
@@ -1542,7 +1585,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/util.jl#L527-L563)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/util.jl#L545-L581)
 
 </div>
 <br>
@@ -1568,7 +1611,7 @@ abstract type Real <: Number end
 [`Number`](/base/numbers#Core.Number) has no supertype, whereas [`Real`](/base/numbers#Core.Real) is an abstract subtype of `Number`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L101-L114)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L101-L114)
 
 </div>
 <br>
@@ -1594,7 +1637,7 @@ primitive type Bool <: Integer 8 end
 The number after the name indicates how many bits of storage the type requires. Currently, only sizes that are multiples of 8 bits are supported. The [`Bool`](/base/numbers#Core.Bool) declaration shows how a primitive type can be optionally declared to be a subtype of some supertype.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L199-L214)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L199-L214)
 
 </div>
 <br>
@@ -1645,7 +1688,7 @@ This form is often found on method signatures.
 Note that in this form, the variables are listed outermost-first. This matches the order in which variables are substituted when a type is &quot;applied&quot; to parameter values using the syntax `T{p1, p2, ...}`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1451-L1484)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1481-L1514)
 
 </div>
 <br>
@@ -1680,7 +1723,7 @@ julia> add(7, 1:100..., 1000:1100...)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1161-L1183)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1175-L1197)
 
 </div>
 <br>
@@ -1771,7 +1814,7 @@ hello
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1186-L1270)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1200-L1284)
 
 </div>
 <br>
@@ -1890,7 +1933,7 @@ julia> filter!(x -> x > 1, a) # in-place & thus more efficient than a = a[a .> 1
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L383-L465)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L383-L465)
 
 </div>
 <br>
@@ -1922,7 +1965,7 @@ y is larger
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L924-L943)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L924-L943)
 
 </div>
 <br>
@@ -1948,7 +1991,7 @@ Main
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3533-L3541)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3585-L3593)
 
 </div>
 <br>
@@ -1966,7 +2009,7 @@ Core
 `Core` is the module that contains all identifiers considered &quot;built in&quot; to the language, i.e. part of the core language and not libraries. Every module implicitly specifies `using Core`, since you can&#39;t do anything without those definitions.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3526-L3530)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3578-L3582)
 
 </div>
 <br>
@@ -1984,7 +2027,7 @@ Base
 The base library of Julia. `Base` is a module that contains basic functionality (the contents of `base/`). All modules implicitly contain `using Base`, since this is needed in the vast majority of cases.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3544-L3548)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3596-L3600)
 
 </div>
 <br>
@@ -2004,7 +2047,7 @@ Base.Broadcast
 Module containing the broadcasting implementation.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L3-L7)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L3-L7)
 
 </div>
 <br>
@@ -2024,7 +2067,7 @@ The `Docs` module provides the [`@doc`](/base/base#Core.@doc) macro which can be
 Please see the manual section on [documentation](/manual/documentation#man-documentation) for more information.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/Docs.jl#L3-L11)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/Docs.jl#L3-L11)
 
 </div>
 <br>
@@ -2037,7 +2080,7 @@ Please see the manual section on [documentation](/manual/documentation#man-docum
 Methods for working with Iterators.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/iterators.jl#L3-L5)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/iterators.jl#L3-L5)
 
 </div>
 <br>
@@ -2050,7 +2093,7 @@ Methods for working with Iterators.
 Interface to libc, the C standard library.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L4-L6)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/libc.jl#L4-L6)
 
 </div>
 <br>
@@ -2063,7 +2106,7 @@ Interface to libc, the C standard library.
 Convenience functions for metaprogramming.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/meta.jl#L3-L5)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/meta.jl#L3-L5)
 
 </div>
 <br>
@@ -2076,7 +2119,7 @@ Convenience functions for metaprogramming.
 Tools for collecting and manipulating stack traces. Mainly used for building errors.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/stacktraces.jl#L3-L5)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/stacktraces.jl#L3-L5)
 
 </div>
 <br>
@@ -2089,7 +2132,7 @@ Tools for collecting and manipulating stack traces. Mainly used for building err
 Provide methods for retrieving information about hardware and the operating system.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L4-L6)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L4-L6)
 
 </div>
 <br>
@@ -2102,7 +2145,7 @@ Provide methods for retrieving information about hardware and the operating syst
 Multithreading support.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/threads.jl#L3-L5)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/threads.jl#L3-L5)
 
 </div>
 <br>
@@ -2120,7 +2163,7 @@ Base.GC
 Module with garbage collection utilities.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/gcutils.jl#L105-L109)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/gcutils.jl#L105-L109)
 
 </div>
 <br>
@@ -2157,7 +2200,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L321-L344)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L321-L344)
 
 </div>
 <br>
@@ -2195,7 +2238,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1983-L2006)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2042-L2065)
 
 </div>
 <br>
@@ -2250,7 +2293,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L123-L174)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L123-L174)
 
 
 
@@ -2264,7 +2307,7 @@ Create a function that compares its argument to `x` using [`isequal`](/base/base
 The returned function is of type `Base.Fix2{typeof(isequal)}`, which can be used to implement specialized methods.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1187-L1195)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1187-L1195)
 
 </div>
 <br>
@@ -2305,7 +2348,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L184-L216)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L184-L216)
 
 </div>
 <br>
@@ -2331,7 +2374,7 @@ This function requires Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L276-L287)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L276-L287)
 
 </div>
 <br>
@@ -2357,7 +2400,7 @@ julia> ifelse(1 > 2, 1, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L760-L773)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L772-L785)
 
 </div>
 <br>
@@ -2385,7 +2428,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3344-L3357)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3396-L3409)
 
 </div>
 <br>
@@ -2420,7 +2463,7 @@ Matrix{Float64} (alias for Array{Float64, 2})
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2604-L2623)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2656-L2675)
 
 </div>
 <br>
@@ -2454,7 +2497,7 @@ julia> Tuple(Real[1, 2, pi])  # takes a collection
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2292-L2310)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2351-L2369)
 
 </div>
 <br>
@@ -2480,7 +2523,7 @@ julia> ntuple(i -> 2*i, 4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ntuple.jl#L5-L16)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ntuple.jl#L5-L16)
 
 
 
@@ -2500,7 +2543,7 @@ julia> ntuple(i -> 2*i, Val(4))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/ntuple.jl#L52-L68)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/ntuple.jl#L52-L68)
 
 </div>
 <br>
@@ -2522,7 +2565,7 @@ If `x === y` then `objectid(x) == objectid(y)`, and usually when `x !== y`, `obj
 See also [`hash`](/base/base#Base.hash), [`IdDict`](/base/collections#Base.IdDict).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L745-L753)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L754-L762)
 
 </div>
 <br>
@@ -2555,7 +2598,7 @@ julia> hash(10, a) # only use the output of another hash function as the second 
 See also: [`objectid`](/base/base#Base.objectid), [`Dict`](/base/collections#Base.Dict), [`Set`](/base/collections#Base.Set).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/hashing.jl#L5-L29)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/hashing.jl#L5-L29)
 
 </div>
 <br>
@@ -2604,7 +2647,7 @@ end
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/gcutils.jl#L45-L83)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/gcutils.jl#L45-L83)
 
 </div>
 <br>
@@ -2622,7 +2665,7 @@ finalize(x)
 Immediately run finalizers registered for object `x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/gcutils.jl#L97-L101)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/gcutils.jl#L97-L101)
 
 </div>
 <br>
@@ -2642,7 +2685,7 @@ Create a shallow copy of `x`: the outer structure is copied, but not all interna
 See also [`copy!`](/base/arrays#Base.copy!), [`copyto!`](/base/c#Base.copyto!), [`deepcopy`](/base/base#Base.deepcopy).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L334-L342)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L334-L342)
 
 </div>
 <br>
@@ -2662,7 +2705,7 @@ Create a deep copy of `x`: everything is copied recursively, resulting in a full
 While it isn&#39;t normally necessary, user-defined types can override the default `deepcopy` behavior by defining a specialized version of the function `deepcopy_internal(x::T, dict::IdDict)` (which shouldn&#39;t otherwise be used), where `T` is the type to be specialized for, and `dict` keeps track of objects copied so far within the recursion. Within the definition, `deepcopy_internal` should be used in place of `deepcopy`, and the `dict` variable should be updated as appropriate before returning.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/deepcopy.jl#L8-L26)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/deepcopy.jl#L8-L26)
 
 </div>
 <br>
@@ -2710,7 +2753,7 @@ One should overload `getproperty` only when necessary, as it can be confusing if
 See also [`getfield`](/base/base#Core.getfield), [`propertynames`](/base/base#Base.propertynames) and [`setproperty!`](/base/base#Base.setproperty!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3360-L3399)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3412-L3451)
 
 </div>
 <br>
@@ -2737,7 +2780,7 @@ The syntax `a.b = c` calls `setproperty!(a, :b, c)`. The syntax `@atomic order a
 See also [`setfield!`](/base/base#Core.setfield!), [`propertynames`](/base/base#Base.propertynames) and [`getproperty`](/base/base#Base.getproperty).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3402-L3416)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3454-L3468)
 
 </div>
 <br>
@@ -2757,7 +2800,7 @@ Perform a compare-and-swap operation on `x.f` from `expected` to `desired`, per 
 See also [`replacefield!`](/base/base#Core.replacefield!) [`setproperty!`](/base/base#Base.setproperty!), [`setpropertyonce!`](/base/base#Base.setpropertyonce!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3447-L3457)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3499-L3509)
 
 </div>
 <br>
@@ -2777,7 +2820,7 @@ The syntax `@atomic a.b, _ = c, a.b` returns `(c, swapproperty!(a, :b, c, :seque
 See also [`swapfield!`](/base/base#Core.swapfield!) and [`setproperty!`](/base/base#Base.setproperty!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3419-L3427)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3471-L3479)
 
 </div>
 <br>
@@ -2799,7 +2842,7 @@ Invocation of `op(getproperty(x, f), v)` must return a value that can be stored 
 See also [`modifyfield!`](/base/base#Core.modifyfield!) and [`setproperty!`](/base/base#Base.setproperty!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3430-L3444)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3482-L3496)
 
 </div>
 <br>
@@ -2825,7 +2868,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3460-L3472)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3512-L3524)
 
 </div>
 <br>
@@ -2847,7 +2890,7 @@ Get a tuple or a vector of the properties (`x.property`) of an object `x`. This 
 See also: [`hasproperty`](/base/base#Base.hasproperty), [`hasfield`](/base/base#Base.hasfield).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2638-L2652)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2652-L2666)
 
 </div>
 <br>
@@ -2873,7 +2916,7 @@ This function requires at least Julia 1.2.
 See also: [`propertynames`](/base/base#Base.propertynames), [`hasfield`](/base/base#Base.hasfield).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2658-L2667)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2672-L2681)
 
 </div>
 <br>
@@ -2909,7 +2952,7 @@ julia> getfield(a, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2313-L2338)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2372-L2397)
 
 </div>
 <br>
@@ -2950,7 +2993,7 @@ ERROR: setfield!: immutable struct of type Rational cannot be changed
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2341-L2371)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2400-L2430)
 
 </div>
 <br>
@@ -2985,7 +3028,7 @@ This function requires Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2389-L2406)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2448-L2465)
 
 </div>
 <br>
@@ -3024,7 +3067,7 @@ This function requires Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2409-L2430)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2468-L2489)
 
 </div>
 <br>
@@ -3056,7 +3099,7 @@ This function requires Julia 1.7 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2374-L2386)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2433-L2445)
 
 </div>
 <br>
@@ -3090,7 +3133,7 @@ This function requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2433-L2448)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2492-L2507)
 
 </div>
 <br>
@@ -3139,7 +3182,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2626-L2664)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2678-L2716)
 
 </div>
 <br>
@@ -3184,7 +3227,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L148-L178)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L148-L178)
 
 </div>
 <br>
@@ -3245,7 +3288,7 @@ true
 See also: [`round`](/base/math#Base.round), [`trunc`](/base/math#Base.trunc), [`oftype`](/base/base#Base.oftype), [`reinterpret`](/base/arrays#Base.reinterpret).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L382-L429)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L394-L441)
 
 </div>
 <br>
@@ -3286,7 +3329,7 @@ Any
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/promotion.jl#L343-L369)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/promotion.jl#L343-L369)
 
 </div>
 <br>
@@ -3319,7 +3362,7 @@ julia> oftype(y, x)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L626-L643)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L638-L655)
 
 </div>
 <br>
@@ -3352,7 +3395,7 @@ julia> widen(1.5f0)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L920-L940)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L920-L940)
 
 </div>
 <br>
@@ -3380,7 +3423,7 @@ julia> identity("Well, what did you expect?")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L559-L571)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L559-L571)
 
 </div>
 <br>
@@ -3419,7 +3462,7 @@ WeakRef(nothing)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/gcutils.jl#L4-L31)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/gcutils.jl#L4-L31)
 
 </div>
 <br>
@@ -3452,7 +3495,7 @@ DenseVector (alias for DenseArray{T, 1} where T)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L68-L83)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L68-L83)
 
 </div>
 <br>
@@ -3487,7 +3530,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1552-L1573)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1582-L1603)
 
 </div>
 <br>
@@ -3524,7 +3567,7 @@ DataType
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1576-L1599)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1606-L1629)
 
 </div>
 <br>
@@ -3585,7 +3628,7 @@ The `<:` keyword also has several syntactic uses which represent the same subtyp
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L5-L58)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L5-L58)
 
 </div>
 <br>
@@ -3603,7 +3646,7 @@ The `<:` keyword also has several syntactic uses which represent the same subtyp
 Supertype operator, equivalent to `T2 <: T1`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L61-L65)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L61-L65)
 
 </div>
 <br>
@@ -3632,7 +3675,7 @@ Number
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/promotion.jl#L5-L19)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/promotion.jl#L5-L19)
 
 </div>
 <br>
@@ -3652,7 +3695,7 @@ Compute a type that contains the intersection of `T` and `S`. Usually this will 
 A special case where exact behavior is guaranteed: when `T <: S`, `typeintersect(S, T) == T == typeintersect(T, S)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L902-L910)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L911-L919)
 
 </div>
 <br>
@@ -3701,7 +3744,7 @@ To overload promotion for your own types you should overload [`promote_rule`](/b
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/promotion.jl#L259-L298)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/promotion.jl#L259-L298)
 
 </div>
 <br>
@@ -3719,7 +3762,7 @@ promote_rule(type1, type2)
 Specifies what type should be used by [`promote`](/base/base#Base.promote) when given values of types `type1` and `type2`. This function should not be called directly, but should have definitions added to it for new types as appropriate.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/promotion.jl#L321-L327)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/promotion.jl#L321-L327)
 
 </div>
 <br>
@@ -3750,7 +3793,7 @@ Float64
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/promotion.jl#L156-L173)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/promotion.jl#L156-L173)
 
 </div>
 <br>
@@ -3768,7 +3811,7 @@ isdispatchtuple(T)
 Determine whether type `T` is a tuple &quot;leaf type&quot;, meaning it could appear as a type signature in dispatch and has no subtypes (or supertypes) which could appear in a call. If `T` is not a type, then return `false`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L759-L766)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L768-L775)
 
 </div>
 <br>
@@ -3813,7 +3856,7 @@ This function requires at least Julia 1.5.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L634-L658)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L643-L667)
 
 </div>
 <br>
@@ -3848,7 +3891,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/deprecated.jl#L343-L359)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/deprecated.jl#L344-L360)
 
 </div>
 <br>
@@ -3872,7 +3915,7 @@ This function requires at least Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L663-L672)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L672-L681)
 
 </div>
 <br>
@@ -3901,7 +3944,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L858-L874)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L867-L883)
 
 </div>
 <br>
@@ -3919,7 +3962,7 @@ isprimitivetype(T) -> Bool
 Determine whether type `T` was declared as a primitive type (i.e. using the `primitive type` syntax). If `T` is not a type, then return `false`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L697-L703)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L706-L712)
 
 </div>
 <br>
@@ -3937,7 +3980,7 @@ Base.issingletontype(T)
 Determine whether type `T` has exactly one possible instance; for example, a struct type with no fields except other singleton values. If `T` is not a concrete type, then return `false`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L893-L899)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L902-L908)
 
 </div>
 <br>
@@ -3955,7 +3998,7 @@ isstructtype(T) -> Bool
 Determine whether type `T` was declared as a struct type (i.e. using the `struct` or `mutable struct` keyword). If `T` is not a type, then return `false`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L682-L688)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L691-L697)
 
 </div>
 <br>
@@ -3987,7 +4030,7 @@ julia> nameof(Foo.S{T} where T)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L292-L309)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L292-L309)
 
 </div>
 <br>
@@ -4018,7 +4061,7 @@ julia> fieldnames(typeof(1+im))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L244-L259)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L244-L259)
 
 </div>
 <br>
@@ -4047,7 +4090,7 @@ julia> fieldname(Rational, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L210-L223)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L210-L223)
 
 </div>
 <br>
@@ -4081,7 +4124,7 @@ String
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L944-L962)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L953-L971)
 
 </div>
 <br>
@@ -4118,7 +4161,7 @@ julia> fieldtypes(Foo)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L1066-L1084)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L1075-L1093)
 
 </div>
 <br>
@@ -4136,7 +4179,7 @@ fieldcount(t::Type)
 Get the number of fields that an instance of the given type would have. An error is thrown if the type is too abstract to determine this.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L1040-L1045)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L1049-L1054)
 
 </div>
 <br>
@@ -4177,7 +4220,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L267-L289)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L267-L289)
 
 </div>
 <br>
@@ -4218,7 +4261,7 @@ julia> nfields(ex)
 In these examples, `a` is a [`Rational`](/base/numbers#Base.Rational), which has two fields. `b` is an `Int`, which is a primitive bitstype with no fields at all. `ex` is an [`ErrorException`](/base/base#Core.ErrorException), which has one field.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1811-L1838)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1870-L1897)
 
 </div>
 <br>
@@ -4236,7 +4279,7 @@ isconst(m::Module, s::Symbol) -> Bool
 Determine whether a global is declared `const` in a given module `m`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L335-L339)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L335-L339)
 
 
 
@@ -4248,7 +4291,7 @@ isconst(t::DataType, s::Union{Int,Symbol}) -> Bool
 Determine whether a field `s` is declared `const` in a given type `t`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L347-L351)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L347-L351)
 
 </div>
 <br>
@@ -4266,7 +4309,7 @@ isfieldatomic(t::DataType, s::Union{Int,Symbol}) -> Bool
 Determine whether a field `s` is declared `@atomic` in a given type `t`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L371-L375)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L371-L375)
 
 </div>
 <br>
@@ -4327,7 +4370,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L714-L757)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L726-L769)
 
 </div>
 <br>
@@ -4370,7 +4413,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L825-L855)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L834-L864)
 
 </div>
 <br>
@@ -4388,7 +4431,7 @@ isbits(x)
 Return `true` if `x` is an instance of an [`isbitstype`](/base/base#Base.isbitstype) type.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L738-L742)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L747-L751)
 
 </div>
 <br>
@@ -4419,7 +4462,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L712-L735)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L721-L744)
 
 </div>
 <br>
@@ -4458,7 +4501,7 @@ julia> structinfo(Base.Filesystem.StatStruct)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L916-L941)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L925-L950)
 
 </div>
 <br>
@@ -4476,7 +4519,7 @@ Base.datatype_alignment(dt::DataType) -> Int
 Memory allocation minimum alignment for instances of this type. Can be called on any `isconcretetype`, although for Memory it will give the alignment of the elements, not the whole object.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L451-L457)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L451-L457)
 
 </div>
 <br>
@@ -4494,7 +4537,7 @@ Base.datatype_haspadding(dt::DataType) -> Bool
 Return whether the fields of instances of this type are packed in memory, with no intervening padding bits (defined as bits whose value does not impact the semantic value of the instance itself). Can be called on any `isconcretetype`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L494-L501)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L494-L501)
 
 </div>
 <br>
@@ -4512,7 +4555,7 @@ Base.datatype_pointerfree(dt::DataType) -> Bool
 Return whether instances of this type can contain references to gc-managed memory. Can be called on any `isconcretetype`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L537-L542)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L548-L553)
 
 </div>
 <br>
@@ -4554,7 +4597,7 @@ julia> nextfloat(-Inf32)  # smallest finite Float32 floating point number
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/int.jl#L750-L774)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/int.jl#L750-L774)
 
 </div>
 <br>
@@ -4594,7 +4637,7 @@ julia> floatmax(Float32)  # largest finite Float32 floating point number
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/int.jl#L777-L801)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/int.jl#L777-L801)
 
 </div>
 <br>
@@ -4626,7 +4669,7 @@ julia> floatmin()
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/float.jl#L1066-L1083)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/float.jl#L1066-L1083)
 
 </div>
 <br>
@@ -4663,7 +4706,7 @@ Inf
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/float.jl#L1086-L1107)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/float.jl#L1086-L1107)
 
 </div>
 <br>
@@ -4685,7 +4728,7 @@ That is, `maxintfloat` returns the smallest positive integer-valued floating-poi
 When an `Integer`-type value is needed, use `Integer(maxintfloat(T))`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/floatfuncs.jl#L19-L29)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/floatfuncs.jl#L19-L29)
 
 
 
@@ -4697,7 +4740,7 @@ maxintfloat(T, S)
 The largest consecutive integer representable in the given floating-point type `T` that also does not exceed the maximum integer representable by the integer type `S`.  Equivalently, it is the minimum of `maxintfloat(T)` and [`typemax(S)`](/base/base#Base.typemax).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/floatfuncs.jl#L35-L41)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/floatfuncs.jl#L35-L41)
 
 </div>
 <br>
@@ -4733,7 +4776,7 @@ julia> 1.0 + eps()/2
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/float.jl#L1113-L1136)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/float.jl#L1113-L1136)
 
 </div>
 <br>
@@ -4787,7 +4830,7 @@ julia> x + prevfloat(eps(x)/2) # rounds down
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/float.jl#L1139-L1182)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/float.jl#L1139-L1182)
 
 </div>
 <br>
@@ -4815,7 +4858,7 @@ julia> instances(Color)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L1089-L1102)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L1098-L1111)
 
 </div>
 <br>
@@ -4835,7 +4878,7 @@ Any::DataType
 `Any` is the union of all types. It has the defining property `isa(x, Any) == true` for any `x`. `Any` therefore describes the entire universe of possible values. For example `Integer` is a subset of `Any` that includes `Int`, `Int8`, and other integer types.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3121-L3127)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3173-L3179)
 
 </div>
 <br>
@@ -4878,7 +4921,7 @@ Unlike most other parametric types, unions are covariant in their parameters. Fo
 The empty union [`Union{}`](/base/base#Union{}) is the bottom type of Julia.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3145-L3175)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3197-L3227)
 
 </div>
 <br>
@@ -4904,7 +4947,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3130-L3142)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3182-L3194)
 
 </div>
 <br>
@@ -4933,7 +4976,7 @@ DataType
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3179-L3193)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3231-L3245)
 
 </div>
 <br>
@@ -4988,7 +5031,7 @@ See the manual section on [Tuple Types](/manual/types#Tuple-Types).
 See also [`Vararg`](/base/base#Core.Vararg), [`NTuple`](/base/base#Core.NTuple), [`ntuple`](/base/base#Base.ntuple), [`tuple`](/base/base#Core.tuple), [`NamedTuple`](/base/base#Core.NamedTuple).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3262-L3307)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3314-L3359)
 
 </div>
 <br>
@@ -5016,7 +5059,7 @@ true
 See also [`ntuple`](/base/base#Base.ntuple).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/tuple.jl#L4-L16)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/tuple.jl#L4-L16)
 
 </div>
 <br>
@@ -5136,7 +5179,7 @@ Use of `getindex` methods with multiple `Symbol`s is available as of Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/namedtuple.jl#L3-L110)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/namedtuple.jl#L3-L110)
 
 </div>
 <br>
@@ -5175,7 +5218,7 @@ This macro is available as of Julia 1.5.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/namedtuple.jl#L472-L498)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/namedtuple.jl#L472-L498)
 
 </div>
 <br>
@@ -5239,7 +5282,7 @@ This macro is available as of Julia 1.10.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/namedtuple.jl#L510-L562)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/namedtuple.jl#L510-L562)
 
 </div>
 <br>
@@ -5271,7 +5314,7 @@ julia> f(Val(true))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L992-L1011)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L1004-L1023)
 
 </div>
 <br>
@@ -5311,7 +5354,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3232-L3259)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3284-L3311)
 
 </div>
 <br>
@@ -5331,7 +5374,7 @@ A type with no fields that is the type of [`nothing`](/base/constants#Core.nothi
 See also: [`isnothing`](/base/base#Base.isnothing), [`Some`](/base/base#Base.Some), [`Missing`](/base/base#Base.Missing).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1524-L1530)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1554-L1560)
 
 </div>
 <br>
@@ -5357,7 +5400,7 @@ This function requires at least Julia 1.1.
 See also [`something`](/base/base#Base.something), [`Base.notnothing`](/base/base#Base.notnothing), [`ismissing`](/base/base#Base.ismissing).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/some.jl#L59-L68)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/some.jl#L59-L68)
 
 </div>
 <br>
@@ -5375,7 +5418,7 @@ notnothing(x)
 Throw an error if `x === nothing`, and return `x` if not.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/some.jl#L51-L55)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/some.jl#L51-L55)
 
 </div>
 <br>
@@ -5395,7 +5438,7 @@ A wrapper type used in `Union{Some{T}, Nothing}` to distinguish between the abse
 Use [`something`](/base/base#Base.something) to access the value wrapped by a `Some` object.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/some.jl#L3-L10)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/some.jl#L3-L10)
 
 </div>
 <br>
@@ -5435,7 +5478,7 @@ ERROR: ArgumentError: No value arguments present
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/some.jl#L72-L98)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/some.jl#L72-L98)
 
 </div>
 <br>
@@ -5486,7 +5529,7 @@ This macro is available as of Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/some.jl#L107-L139)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/some.jl#L107-L139)
 
 </div>
 <br>
@@ -5504,7 +5547,7 @@ Enum{T<:Integer}
 The abstract supertype of all enumerated types defined with [`@enum`](/base/base#Base.Enums.@enum).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/Enums.jl#L10-L14)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/Enums.jl#L10-L14)
 
 </div>
 <br>
@@ -5566,7 +5609,7 @@ julia> Symbol(apple)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/Enums.jl#L95-L143)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/Enums.jl#L95-L143)
 
 </div>
 <br>
@@ -5602,7 +5645,7 @@ Expr
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L699-L724)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L699-L724)
 
 </div>
 <br>
@@ -5641,7 +5684,7 @@ julia> eval(:x)
 Unlike strings, `Symbol`s are &quot;atomic&quot; or &quot;scalar&quot; entities that do not support iteration over characters.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2246-L2273)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2305-L2332)
 
 </div>
 <br>
@@ -5670,7 +5713,7 @@ julia> Symbol("day", 4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2276-L2289)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2335-L2348)
 
 </div>
 <br>
@@ -5697,7 +5740,7 @@ Return a module with the specified name. A `baremodule` corresponds to `Module(:
 An empty module containing no names at all can be created with `Module(:ModuleName, false, false)`. This module will not import `Base` or `Core` and does not contain a reference to itself.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3512-L3523)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3564-L3575)
 
 </div>
 <br>
@@ -5731,7 +5774,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1602-L1618)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1632-L1648)
 
 </div>
 <br>
@@ -5780,7 +5823,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2354-L2389)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2368-L2403)
 
 </div>
 <br>
@@ -5815,7 +5858,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1913-L1932)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1972-L1991)
 
 </div>
 <br>
@@ -5857,7 +5900,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2465-L2498)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2479-L2512)
 
 </div>
 <br>
@@ -5908,7 +5951,7 @@ Integer
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1935-L1980)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1994-L2039)
 
 </div>
 <br>
@@ -5977,7 +6020,7 @@ The additional syntax is supported as of Julia 1.10.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2670-L2715)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2684-L2729)
 
 </div>
 <br>
@@ -6001,7 +6044,7 @@ Prior to Julia 1.9, this function was not exported, and was called as `Base.invo
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L1017-L1029)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L1029-L1041)
 
 </div>
 <br>
@@ -6065,7 +6108,7 @@ The additional `x.f` and `xs[i]` syntax requires Julia 1.10.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2736-L2774)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2750-L2788)
 
 </div>
 <br>
@@ -6083,7 +6126,7 @@ new, or new{A,B,...}
 Special function available to inner constructors which creates a new object of the type. The form new{A,B,...} explicitly specifies values of parameters for parametric types. See the manual section on [Inner Constructor Methods](/manual/constructors#man-inner-constructor-methods) for more information.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1441-L1448)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1471-L1478)
 
 </div>
 <br>
@@ -6115,7 +6158,7 @@ julia> [0 1; 2 3] .|> (x -> x^2) |> sum
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L947-L966)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L947-L966)
 
 </div>
 <br>
@@ -6182,7 +6225,7 @@ julia> ∘(fs...)(3)
 See also [`ComposedFunction`](/base/base#Base.ComposedFunction), [`!f::Function`](/base/math#Base.:!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1005-L1050)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1005-L1050)
 
 </div>
 <br>
@@ -6238,7 +6281,7 @@ ComposedFunction requires at least Julia 1.6. In earlier versions `∘` returns 
 See also [`∘`](/base/base#Base.:∘).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1053-L1083)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1053-L1083)
 
 </div>
 <br>
@@ -6280,7 +6323,7 @@ julia> my_add((1,2,3))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1274-L1300)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1274-L1300)
 
 </div>
 <br>
@@ -6300,7 +6343,7 @@ A type representing a partially-applied version of the two-argument function `f`
 See also [`Fix2`](/base/base#Base.Fix2).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1151-L1159)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1151-L1159)
 
 </div>
 <br>
@@ -6318,7 +6361,7 @@ Fix2(f, x)
 A type representing a partially-applied version of the two-argument function `f`, with the second argument fixed to the value &quot;x&quot;. In other words, `Fix2(f, x)` behaves similarly to `y->f(y, x)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/operators.jl#L1170-L1176)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/operators.jl#L1170-L1176)
 
 </div>
 <br>
@@ -6338,7 +6381,7 @@ Core.eval(m::Module, expr)
 Evaluate an expression in the given module and return the result.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L190-L194)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L190-L194)
 
 </div>
 <br>
@@ -6356,7 +6399,7 @@ eval(expr)
 Evaluate an expression in the global scope of the containing module. Every `Module` (except those defined with `baremodule`) has its own 1-argument definition of `eval`, which evaluates expressions in that module.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysimg.jl#L41-L47)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysimg.jl#L41-L47)
 
 </div>
 <br>
@@ -6374,7 +6417,7 @@ Evaluate an expression in the global scope of the containing module. Every `Modu
 Evaluate an expression with values interpolated into it using `eval`. If two arguments are provided, the first is the module to evaluate in.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L441-L446)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L453-L458)
 
 </div>
 <br>
@@ -6410,7 +6453,7 @@ julia> rm("testfile.jl")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L2661-L2685)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L2688-L2712)
 
 </div>
 <br>
@@ -6428,7 +6471,7 @@ esc(e)
 Only valid in the context of an [`Expr`](/base/base#Core.Expr) returned from a macro. Prevents the macro hygiene pass from turning embedded variables into gensym variables. See the [Macros](/manual/metaprogramming#man-macros) section of the Metaprogramming chapter of the manual for more details and examples.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L776-L782)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L788-L794)
 
 </div>
 <br>
@@ -6460,12 +6503,12 @@ end
 
 ::: warning Warning
 
-Using `@inbounds` may return incorrect results/crashes/corruption for out-of-bounds indices. The user is responsible for checking it manually. Only use `@inbounds` when it is certain from the information locally available that all accesses are in bounds. In particular, using `1:length(A)` instead of `eachindex(A)` in a function like the one above is _not_ safely inbounds because the first index of `A` may not be `1` for all user defined types that subtype `AbstractArray`.
+Using `@inbounds` may return incorrect results/crashes/corruption for out-of-bounds indices. The user is responsible for checking it manually. Only use `@inbounds` when you are certain that all accesses are in bounds (as undefined behavior, e.g. crashes, might occur if this assertion is violated). For example, using `1:length(A)` instead of `eachindex(A)` in a function like the one above is _not_ safely inbounds because the first index of `A` may not be `1` for all user defined types that subtype `AbstractArray`.
 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L833-L860)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L845-L872)
 
 </div>
 <br>
@@ -6521,7 +6564,7 @@ The `@boundscheck` annotation allows you, as a library writer, to opt-in to allo
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L785-L828)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L797-L840)
 
 </div>
 <br>
@@ -6539,7 +6582,7 @@ The `@boundscheck` annotation allows you, as a library writer, to opt-in to allo
 Tells the compiler to inline a function while retaining the caller&#39;s inbounds context.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L857-L861)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L861-L865)
 
 </div>
 <br>
@@ -6648,7 +6691,7 @@ The callsite annotation requires at least Julia 1.8.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L197-L270)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L197-L270)
 
 </div>
 <br>
@@ -6761,7 +6804,7 @@ If the function is trivial (for example returning a constant) it might get inlin
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L275-L347)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L275-L347)
 
 </div>
 <br>
@@ -6835,7 +6878,7 @@ f(A::AbstractArray) = invoke(g, Tuple{AbstractArray}, A)
 ensuring that only one version of native code will be generated for `g`, one that is generic for any `AbstractArray`. However, the specific return type is still inferred for both `g` and `f`, and this is still used in optimizing the callers of `f` and `g`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L49-L119)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L49-L119)
 
 </div>
 <br>
@@ -6853,7 +6896,7 @@ ensuring that only one version of native code will be generated for `g`, one tha
 Reset the specialization hint for an argument back to the default. For details, see [`@nospecialize`](/base/base#Base.@nospecialize).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L131-L136)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L131-L136)
 
 </div>
 <br>
@@ -6893,8 +6936,14 @@ CodeInfo(
 
 In this example, `f` will be inferred for each specific type of `A`, but `g` will only be inferred once with the declared argument type `A::AbstractArray`, meaning that the compiler will not likely see the excessive inference time on it while it can not infer the concrete return type of it. Without the `@nospecializeinfer`, `f([1.0])` would infer the return type of `g` as `Float64`, indicating that inference ran for `g(::Vector{Float64})` despite the prohibition on specialized code generation.
 
+::: tip Julia 1.10
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L819-L852)
+Using `Base.@nospecializeinfer` requires Julia version 1.10.
+
+:::
+
+
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L820-L856)
 
 </div>
 <br>
@@ -6943,7 +6992,7 @@ The usage within a function body requires at least Julia 1.10.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L352-L386)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L352-L386)
 
 </div>
 <br>
@@ -6961,7 +7010,7 @@ gensym([tag])
 Generates a symbol which will not conflict with other variable names (in the same module).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L9-L13)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L9-L13)
 
 </div>
 <br>
@@ -6979,7 +7028,7 @@ Generates a symbol which will not conflict with other variable names (in the sam
 Generates a gensym symbol for a variable. For example, `@gensym x y` is transformed into `x = gensym("x"); y = gensym("y")`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L21-L26)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L21-L26)
 
 </div>
 <br>
@@ -7009,7 +7058,7 @@ This syntax requires at least Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1487-L1507)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1517-L1537)
 
 </div>
 <br>
@@ -7029,7 +7078,7 @@ This syntax requires at least Julia 1.3.
 `@label` and `@goto` cannot create jumps to different top-level statements. Attempts cause an error. To still use `@goto`, enclose the `@label` and `@goto` in a block.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L879-L886)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L891-L898)
 
 </div>
 <br>
@@ -7047,7 +7096,7 @@ This syntax requires at least Julia 1.3.
 Labels a statement with the symbolic label `name`. The label marks the end-point of an unconditional jump with [`@goto name`](/base/base#Base.@goto).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L869-L874)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L881-L886)
 
 </div>
 <br>
@@ -7097,7 +7146,7 @@ The `@simd` does not assert by default that the loop is completely free of loop-
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/simdloop.jl#L90-L126)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/simdloop.jl#L90-L126)
 
 </div>
 <br>
@@ -7115,7 +7164,7 @@ The `@simd` does not assert by default that the loop is completely free of loop-
 Tells the compiler to apply the polyhedral optimizer Polly to a function.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L870-L874)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L874-L878)
 
 </div>
 <br>
@@ -7155,7 +7204,7 @@ julia> bar("baz")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L1044-L1072)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L1048-L1076)
 
 </div>
 <br>
@@ -7314,7 +7363,7 @@ This in particular implies that the method must not return a freshly allocated m
 
 ::: tip Note
 
-The `:consistent`-cy assertion is made world-age wise. More formally, write $fᵢ$ for the evaluation of $f$ in world-age $i$, then we require:
+The `:consistent`-cy assertion is made world-age wise. More formally, write $fᵢ$ for the evaluation of $f$ in world-age $i$, then this setting requires:
 
 $$∀ i, x, y: x ≡ y → fᵢ(x) ≡ fᵢ(y)$$
 
@@ -7567,7 +7616,7 @@ This `setting` is the maximum possible set of effects. It currently implies the 
 Effect names may be prefixed by `!` to indicate that the effect should be removed from an earlier meta effect. For example, `:total !:nothrow` indicates that while the call is generally total, it may however throw.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L407-L735)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L407-L735)
 
 </div>
 <br>
@@ -7630,7 +7679,7 @@ julia> methods(old)
 will define and deprecate a method `old(x::Int)` that mirrors `new(x::Int)` but will not define nor deprecate the method `old(x::Float64)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/deprecated.jl#L125-L173)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/deprecated.jl#L126-L174)
 
 </div>
 <br>
@@ -7652,7 +7701,7 @@ A type with no fields whose singleton instance [`missing`](/manual/missing#missi
 See also: [`skipmissing`](/base/base#Base.skipmissing), [`nonmissingtype`](/base/base#Base.nonmissingtype), [`Nothing`](/base/base#Core.Nothing).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L1126-L1133)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L1144-L1151)
 
 </div>
 <br>
@@ -7672,7 +7721,7 @@ The singleton instance of type [`Missing`](/base/base#Base.Missing) representing
 See also: [`NaN`](/base/numbers#Base.NaN), [`skipmissing`](/base/base#Base.skipmissing), [`nonmissingtype`](/base/base#Base.nonmissingtype).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L1136-L1142)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L1154-L1160)
 
 </div>
 <br>
@@ -7708,7 +7757,7 @@ missing
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/missing.jl#L394-L416)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/missing.jl#L394-L416)
 
 </div>
 <br>
@@ -7752,7 +7801,7 @@ This macro is available as of Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/missing.jl#L424-L449)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/missing.jl#L424-L449)
 
 </div>
 <br>
@@ -7772,7 +7821,7 @@ Indicate whether `x` is [`missing`](/manual/missing#missing).
 See also: [`skipmissing`](/base/base#Base.skipmissing), [`isnothing`](/base/base#Base.isnothing), [`isnan`](/base/numbers#Base.isnan).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L1145-L1151)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L1163-L1169)
 
 </div>
 <br>
@@ -7830,7 +7879,7 @@ julia> collect(skipmissing([1 missing; 2 missing]))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/missing.jl#L182-L230)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/missing.jl#L182-L230)
 
 </div>
 <br>
@@ -7865,7 +7914,7 @@ This function is exported as of Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/missing.jl#L21-L38)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/missing.jl#L21-L38)
 
 </div>
 <br>
@@ -7891,7 +7940,7 @@ If `wait` is false, the process runs asynchronously. You can later wait for it a
 When `wait` is false, the process&#39; I/O streams are directed to `devnull`. When `wait` is true, I/O streams are shared with the parent process. Use [`pipeline`](/base/base#Base.pipeline-Tuple{Any,%20Any,%20Any,%20Vararg{Any}}) to control I/O redirection.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/process.jl#L493-L509)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/process.jl#L493-L509)
 
 </div>
 <br>
@@ -7914,7 +7963,7 @@ run(pipeline(`cat test.txt`, devnull))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1510-L1519)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1540-L1549)
 
 </div>
 <br>
@@ -7932,7 +7981,7 @@ success(command)
 Run a command object, constructed with backticks (see the [Running External Programs](/manual/running-external-programs#Running-External-Programs) section in the manual), and tell whether it was successful (exited with a code of 0). An exception is raised if the process cannot be started.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/process.jl#L562-L568)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/process.jl#L562-L568)
 
 </div>
 <br>
@@ -7950,7 +7999,7 @@ process_running(p::Process)
 Determine whether a process is currently running.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/process.jl#L659-L663)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/process.jl#L659-L663)
 
 </div>
 <br>
@@ -7968,7 +8017,7 @@ process_exited(p::Process)
 Determine whether a process has exited.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/process.jl#L668-L672)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/process.jl#L668-L672)
 
 </div>
 <br>
@@ -7986,7 +8035,7 @@ kill(p::Process, signum=Base.SIGTERM)
 Send a signal to a process. The default is to terminate the process. Returns successfully if the process has already exited, but throws an error if killing the process failed for other reasons (e.g. insufficient permissions).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/process.jl#L614-L621)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/process.jl#L614-L621)
 
 </div>
 <br>
@@ -8004,7 +8053,7 @@ Sys.set_process_title(title::AbstractString)
 Set the process title. No-op on some operating systems.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L387-L391)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L387-L391)
 
 </div>
 <br>
@@ -8022,7 +8071,7 @@ Sys.get_process_title()
 Get the process title. On some systems, will always return an empty string.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L375-L379)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L375-L379)
 
 </div>
 <br>
@@ -8040,7 +8089,7 @@ ignorestatus(command)
 Mark a command object so that running it will not throw an error if the result code is non-zero.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmd.jl#L220-L224)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/cmd.jl#L220-L224)
 
 </div>
 <br>
@@ -8058,7 +8107,7 @@ detach(command)
 Mark a command object so that it will be run in a new process group, allowing it to outlive the julia process, and not have Ctrl-C interrupts passed to it.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmd.jl#L229-L233)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/cmd.jl#L229-L233)
 
 </div>
 <br>
@@ -8107,7 +8156,7 @@ Cmd(`echo "Hello world"`, ignorestatus=true, detach=false)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmd.jl#L43-L86)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/cmd.jl#L43-L86)
 
 </div>
 <br>
@@ -8129,7 +8178,7 @@ The `dir` keyword argument can be used to specify a working directory for the co
 See also [`Cmd`](/base/base#Base.Cmd), [`addenv`](/base/base#Base.addenv), [`ENV`](/base/base#Base.ENV), [`pwd`](/base/file#Base.Filesystem.pwd).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmd.jl#L254-L268)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/cmd.jl#L254-L268)
 
 </div>
 <br>
@@ -8155,7 +8204,7 @@ This function requires Julia 1.6 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmd.jl#L283-L295)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/cmd.jl#L283-L295)
 
 </div>
 <br>
@@ -8179,7 +8228,7 @@ Changing the environment is not thread-safe. For running external commands with 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/env.jl#L246-L258)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/env.jl#L246-L258)
 
 </div>
 <br>
@@ -8208,7 +8257,7 @@ julia> Base.shell_escape("echo", "this", "&&", "that")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/shell.jl#L219-L236)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/shell.jl#L219-L236)
 
 </div>
 <br>
@@ -8238,7 +8287,7 @@ julia> Base.shell_split("git commit -m 'Initial commit'")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/shell.jl#L155-L169)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/shell.jl#L155-L169)
 
 </div>
 <br>
@@ -8269,7 +8318,7 @@ julia> Base.shell_escape_posixly("echo", "this", "&&", "that")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/shell.jl#L280-L297)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/shell.jl#L280-L297)
 
 </div>
 <br>
@@ -8294,7 +8343,7 @@ This function should also work for a POSIX shell, except if the input string con
 See also: [`Base.shell_escape_posixly()`](/base/base#Base.shell_escape_posixly)
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/shell.jl#L301-L322)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/shell.jl#L301-L322)
 
 </div>
 <br>
@@ -8370,7 +8419,7 @@ julia> Base.shell_escape_wincmd("a^\"^o\"^u\"")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/shell.jl#L349-L426)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/shell.jl#L349-L426)
 
 </div>
 <br>
@@ -8395,7 +8444,7 @@ This function implements an inverse for a parser compatible with these rules. It
 See also [`Base.shell_escape_wincmd()`](/base/base#Base.shell_escape_wincmd), [`Base.escape_raw_string()`](/base/strings#Base.escape_raw_string).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/shell.jl#L454-L474)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/shell.jl#L454-L474)
 
 </div>
 <br>
@@ -8439,7 +8488,7 @@ julia> 0b010011
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmd.jl#L325-L353)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/cmd.jl#L325-L353)
 
 </div>
 <br>
@@ -8466,7 +8515,7 @@ run(pipeline("out.txt", `grep xyz`))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmd.jl#L409-L426)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/cmd.jl#L409-L426)
 
 </div>
 <br>
@@ -8492,7 +8541,7 @@ run(pipeline(`update`, stdout="log.txt", append=true))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/cmd.jl#L374-L389)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/cmd.jl#L374-L389)
 
 </div>
 <br>
@@ -8510,7 +8559,7 @@ gethostname() -> String
 Get the local machine&#39;s host name.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L298-L302)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/libc.jl#L298-L302)
 
 </div>
 <br>
@@ -8528,7 +8577,7 @@ getpid() -> Int32
 Get Julia&#39;s process ID.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L289-L293)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/libc.jl#L289-L293)
 
 
 
@@ -8546,7 +8595,7 @@ This function requires at least Julia 1.1.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/process.jl#L637-L644)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/process.jl#L637-L644)
 
 </div>
 <br>
@@ -8564,7 +8613,7 @@ time() -> Float64
 Get the system time in seconds since the epoch, with fairly high (typically, microsecond) resolution.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/libc.jl#L280-L284)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/libc.jl#L280-L284)
 
 </div>
 <br>
@@ -8579,10 +8628,10 @@ time_ns() -> UInt64
 ```
 
 
-Get the time in nanoseconds. The time corresponding to 0 is undefined, and wraps every 5.8 years.
+Get the time in nanoseconds relative to some arbitrary time in the past. The primary use is for measuring the elapsed time between two moments in time.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/Base.jl#L152-L156)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/Base.jl#L152-L157)
 
 </div>
 <br>
@@ -8655,7 +8704,7 @@ julia> for loop in 1:3
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/timing.jl#L251-L309)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/timing.jl#L250-L308)
 
 </div>
 <br>
@@ -8687,7 +8736,7 @@ sleep(1): 1.002164 seconds (4 allocations: 128 bytes)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/timing.jl#L324-L338)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/timing.jl#L324-L338)
 
 </div>
 <br>
@@ -8738,7 +8787,7 @@ pool allocs:       1
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/timing.jl#L345-L381)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/timing.jl#L345-L381)
 
 </div>
 <br>
@@ -8799,7 +8848,7 @@ The `lock_conflicts`, `compile_time`, and `recompile_time` fields were added in 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/timing.jl#L522-L568)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/timing.jl#L523-L569)
 
 </div>
 <br>
@@ -8827,7 +8876,7 @@ julia> @elapsed sleep(0.3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/timing.jl#L396-L413)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/timing.jl#L397-L414)
 
 </div>
 <br>
@@ -8853,7 +8902,7 @@ julia> @allocated rand(10^6)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/timing.jl#L432-L445)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/timing.jl#L433-L446)
 
 </div>
 <br>
@@ -8885,7 +8934,7 @@ This macro was added in Julia 1.9.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/timing.jl#L458-L474)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/timing.jl#L459-L475)
 
 </div>
 <br>
@@ -8924,7 +8973,7 @@ This macro was added in Julia 1.11.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/timing.jl#L485-L508)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/timing.jl#L486-L509)
 
 </div>
 <br>
@@ -8942,7 +8991,7 @@ EnvDict() -> EnvDict
 A singleton of this type provides a hash table interface to environment variables.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/env.jl#L76-L80)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/env.jl#L76-L80)
 
 </div>
 <br>
@@ -8988,7 +9037,7 @@ julia> ENV["JULIA_EDITOR"]
 See also: [`withenv`](/base/base#Base.withenv), [`addenv`](/base/base#Base.addenv).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/env.jl#L83-L114)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/env.jl#L83-L114)
 
 </div>
 <br>
@@ -9006,7 +9055,7 @@ Sys.STDLIB::String
 A string containing the full path to the directory containing the `stdlib` packages.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L50-L54)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L50-L54)
 
 </div>
 <br>
@@ -9024,7 +9073,7 @@ Sys.isunix([os])
 Predicate for testing if the OS provides a Unix-like interface. See documentation in [Handling Operating System Variation](/manual/handling-operating-system-variation#Handling-Operating-System-Variation).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L407-L412)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L407-L412)
 
 </div>
 <br>
@@ -9042,7 +9091,7 @@ Sys.isapple([os])
 Predicate for testing if the OS is a derivative of Apple Macintosh OS X or Darwin. See documentation in [Handling Operating System Variation](/manual/handling-operating-system-variation#Handling-Operating-System-Variation).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L514-L519)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L514-L519)
 
 </div>
 <br>
@@ -9060,7 +9109,7 @@ Sys.islinux([os])
 Predicate for testing if the OS is a derivative of Linux. See documentation in [Handling Operating System Variation](/manual/handling-operating-system-variation#Handling-Operating-System-Variation).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L429-L434)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L429-L434)
 
 </div>
 <br>
@@ -9084,7 +9133,7 @@ The Darwin kernel descends from BSD, which means that `Sys.isbsd()` is `true` on
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L437-L447)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L437-L447)
 
 </div>
 <br>
@@ -9114,7 +9163,7 @@ This function requires at least Julia 1.1.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L450-L461)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L450-L461)
 
 </div>
 <br>
@@ -9144,7 +9193,7 @@ This function requires at least Julia 1.1.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L464-L475)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L464-L475)
 
 </div>
 <br>
@@ -9174,7 +9223,7 @@ This function requires at least Julia 1.1.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L478-L489)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L478-L489)
 
 </div>
 <br>
@@ -9204,7 +9253,7 @@ This function requires at least Julia 1.1.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L492-L503)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L492-L503)
 
 </div>
 <br>
@@ -9222,7 +9271,7 @@ Sys.iswindows([os])
 Predicate for testing if the OS is a derivative of Microsoft Windows NT. See documentation in [Handling Operating System Variation](/manual/handling-operating-system-variation#Handling-Operating-System-Variation).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L506-L511)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L506-L511)
 
 </div>
 <br>
@@ -9240,7 +9289,7 @@ Sys.windows_version()
 Return the version number for the Windows NT Kernel as a `VersionNumber`, i.e. `v"major.minor.build"`, or `v"0.0.0"` if this is not running on Windows.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L546-L551)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L546-L551)
 
 </div>
 <br>
@@ -9258,7 +9307,7 @@ Sys.free_memory()
 Get the total free memory in RAM in bytes.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L351-L355)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L351-L355)
 
 </div>
 <br>
@@ -9276,7 +9325,7 @@ Sys.total_memory()
 Get the total memory in RAM (including that which is currently used) in bytes. This amount may be constrained, e.g., by Linux control groups. For the unconstrained amount, see `Sys.total_physical_memory()`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L358-L364)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L358-L364)
 
 </div>
 <br>
@@ -9294,7 +9343,7 @@ Sys.free_physical_memory()
 Get the free memory of the system in bytes. The entire amount may not be available to the current process; use `Sys.free_memory()` for the actually available amount.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L335-L340)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L335-L340)
 
 </div>
 <br>
@@ -9312,7 +9361,7 @@ Sys.total_physical_memory()
 Get the total memory in RAM (including that which is currently used) in bytes. The entire amount may not be available to the current process; see `Sys.total_memory()`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L343-L348)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L343-L348)
 
 </div>
 <br>
@@ -9330,7 +9379,7 @@ Sys.uptime()
 Gets the current system uptime in seconds.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L312-L316)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L312-L316)
 
 </div>
 <br>
@@ -9354,7 +9403,7 @@ This function requires at least Julia 1.2.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L522-L530)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L522-L530)
 
 </div>
 <br>
@@ -9372,7 +9421,7 @@ Sys.loadavg()
 Get the load average. See: https://en.wikipedia.org/wiki/Load_(computing).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L324-L328)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L324-L328)
 
 </div>
 <br>
@@ -9404,7 +9453,7 @@ Prior to Julia 1.6, this did not correctly interrogate filesystem ACLs on Window
 See also [`ispath`](/base/file#Base.Filesystem.ispath), [`isreadable`](/base/io-network#Base.isreadable), [`iswritable`](/base/io-network#Base.iswritable).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/filesystem.jl#L369-L386)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/filesystem.jl#L369-L386)
 
 </div>
 <br>
@@ -9442,7 +9491,7 @@ This function requires at least Julia 1.11.
 See also [`ispath`](/base/file#Base.Filesystem.ispath), [`isexecutable`](/base/io-network#Base.isexecutable), [`iswritable`](/base/io-network#Base.iswritable).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/filesystem.jl#L395-L413)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/filesystem.jl#L395-L413)
 
 
 
@@ -9472,7 +9521,7 @@ julia> rm("myfile.txt")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/io.jl#L136-L156)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/io.jl#L136-L156)
 
 </div>
 <br>
@@ -9510,7 +9559,7 @@ This function requires at least Julia 1.11.
 See also [`ispath`](/base/file#Base.Filesystem.ispath), [`isexecutable`](/base/io-network#Base.isexecutable), [`isreadable`](/base/io-network#Base.isreadable).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/filesystem.jl#L422-L440)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/filesystem.jl#L422-L440)
 
 
 
@@ -9540,7 +9589,7 @@ julia> rm("myfile.txt")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/io.jl#L159-L179)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/io.jl#L159-L179)
 
 </div>
 <br>
@@ -9573,7 +9622,7 @@ This function requires at least Julia 1.11.
 See also [`homedir`](/base/file#Base.Filesystem.homedir).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/sysinfo.jl#L639-L655)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/sysinfo.jl#L639-L655)
 
 </div>
 <br>
@@ -9599,7 +9648,7 @@ This is useful in cases where a construct would be invalid in some cases, such a
 Suppose we want to parse an expression `expr` that is valid only on macOS. We could solve this problem using `@static` with `@static if Sys.isapple() expr end`. In case we had `expr_apple` for macOS and `expr_others` for the other operating systems, the solution with `@static` would be `@static Sys.isapple() ? expr_apple : expr_others`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/osutils.jl#L3-L23)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/osutils.jl#L3-L23)
 
 </div>
 <br>
@@ -9652,7 +9701,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/version.jl#L8-L45)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/version.jl#L8-L45)
 
 </div>
 <br>
@@ -9681,7 +9730,7 @@ v"2.0.1-rc1"
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/version.jl#L153-L166)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/version.jl#L153-L166)
 
 </div>
 <br>
@@ -9701,7 +9750,7 @@ error(message::AbstractString)
 Raise an `ErrorException` with the given message.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L39-L43)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L39-L43)
 
 
 
@@ -9713,7 +9762,7 @@ error(msg...)
 Raise an `ErrorException` with a message constructed by `string(msg...)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L46-L50)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L46-L50)
 
 </div>
 <br>
@@ -9733,7 +9782,7 @@ Throw an object as an exception.
 See also: [`rethrow`](/base/base#Base.rethrow), [`error`](/base/base#Base.error).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L19-L25)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L19-L25)
 
 </div>
 <br>
@@ -9757,7 +9806,7 @@ The alternative form `rethrow(e)` allows you to associate an alternative excepti
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L56-L69)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L56-L69)
 
 </div>
 <br>
@@ -9775,7 +9824,7 @@ backtrace()
 Get a backtrace object for the current program point.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L113-L117)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L113-L117)
 
 </div>
 <br>
@@ -9793,7 +9842,7 @@ catch_backtrace()
 Get the backtrace of the current exception, for use within `catch` blocks.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L127-L131)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L127-L131)
 
 </div>
 <br>
@@ -9819,7 +9868,7 @@ This function went by the experimental name `catch_stack()` in Julia 1.1–1.6, 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L141-L158)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L141-L158)
 
 </div>
 <br>
@@ -9853,7 +9902,7 @@ julia> @assert isodd(3) "What even are numbers?"
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L206-L228)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L206-L228)
 
 </div>
 <br>
@@ -9925,7 +9974,7 @@ This interface is experimental and subject to change or removal without notice. 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/experimental.jl#L237-L295)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/experimental.jl#L237-L295)
 
 </div>
 <br>
@@ -9955,7 +10004,7 @@ This interface is experimental and subject to change or removal without notice.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/experimental.jl#L304-L315)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/experimental.jl#L304-L315)
 
 </div>
 <br>
@@ -9973,7 +10022,7 @@ ArgumentError(msg)
 The arguments passed to a function are invalid. `msg` is a descriptive error message.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3070-L3075)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3122-L3127)
 
 </div>
 <br>
@@ -10001,7 +10050,7 @@ ERROR: AssertionError: this is not true
 `AssertionError` is usually thrown from [`@assert`](/base/base#Base.@assert).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3086-L3099)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3138-L3151)
 
 </div>
 <br>
@@ -10040,7 +10089,7 @@ ERROR: BoundsError: attempt to access 2×3 Matrix{Float64} at index [9]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1721-L1744)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1779-L1802)
 
 </div>
 <br>
@@ -10058,7 +10107,7 @@ CompositeException
 Wrap a `Vector` of exceptions thrown by a [`Task`](/base/parallel#Core.Task) (e.g. generated from a remote worker over a channel or an asynchronously executing local I/O write or a remote worker under `pmap`) with information about the series of exceptions. For example, if a group of workers are executing several tasks, and multiple workers fail, the resulting `CompositeException` will contain a &quot;bundle&quot; of information from each worker indicating where and why the exception(s) occurred.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L38-L45)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/task.jl#L38-L45)
 
 </div>
 <br>
@@ -10076,7 +10125,7 @@ DimensionMismatch([msg])
 The objects called do not have matching dimensionality. Optional argument `msg` is a descriptive error string.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L5-L10)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L5-L10)
 
 </div>
 <br>
@@ -10107,7 +10156,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2009-L2024)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2068-L2083)
 
 </div>
 <br>
@@ -10137,7 +10186,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1762-L1776)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1820-L1834)
 
 </div>
 <br>
@@ -10155,7 +10204,7 @@ EOFError()
 No more data was available to read from a file or stream.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/io.jl#L5-L9)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/io.jl#L5-L9)
 
 </div>
 <br>
@@ -10183,7 +10232,51 @@ julia> ex.msg
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1628-L1640)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1658-L1670)
+
+</div>
+<br>
+<div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
+<a id='Core.FieldError' href='#Core.FieldError'>#</a>&nbsp;<b><u>Core.FieldError</u></b> &mdash; <i>Type</i>.
+
+
+
+
+```julia
+FieldError(type::DataType, field::Symbol)
+```
+
+
+An operation tried to access invalid `field` of `type`.
+
+::: tip Julia 1.12
+
+Prior to Julia 1.12, invalid field access threw an [`ErrorException`](/base/base#Core.ErrorException)
+
+:::
+
+See [`getfield`](/base/base#Core.getfield)
+
+**Examples**
+
+```julia
+julia> struct AB
+          a::Float32
+          b::Float64
+       end
+
+julia> ab = AB(1, 3)
+AB(1.0f0, 3.0)
+
+julia> ab.c # field `c` doesn't exist
+ERROR: FieldError: type AB has no field c
+Stacktrace:
+[...]
+```
+
+
+
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1673-L1698)
 
 </div>
 <br>
@@ -10211,7 +10304,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1747-L1759)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1805-L1817)
 
 </div>
 <br>
@@ -10238,7 +10331,7 @@ julia -e "include(popfirst!(ARGS))" script.jl
 to let `InterruptException` be thrown by CTRL+C during the execution.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1894-L1910)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1953-L1969)
 
 </div>
 <br>
@@ -10256,7 +10349,7 @@ KeyError(key)
 An indexing operation into an `AbstractDict` (`Dict`) or `Set` like object tried to access or delete a non-existent element.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractdict.jl#L5-L10)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractdict.jl#L5-L10)
 
 </div>
 <br>
@@ -10280,7 +10373,7 @@ LoadErrors are no longer emitted by `@macroexpand`, `@macroexpand1`, and `macroe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3102-L3110)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3154-L3162)
 
 </div>
 <br>
@@ -10298,7 +10391,7 @@ MethodError(f, args)
 A method with the required type signature does not exist in the given generic function. Alternatively, there is no unique most-specific method.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3078-L3083)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3130-L3135)
 
 </div>
 <br>
@@ -10316,7 +10409,7 @@ MissingException(msg)
 Exception thrown when a [`missing`](/manual/missing#missing) value is encountered in a situation where it is not supported. The error message, in the `msg` field may provide more specific details.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/missing.jl#L7-L13)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/missing.jl#L7-L13)
 
 </div>
 <br>
@@ -10334,7 +10427,7 @@ OutOfMemoryError()
 An operation allocated too much memory for either the system or the garbage collector to handle properly.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1713-L1718)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1771-L1776)
 
 </div>
 <br>
@@ -10352,7 +10445,7 @@ ReadOnlyMemoryError()
 An operation tried to write to memory that is read-only.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1621-L1625)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1651-L1655)
 
 </div>
 <br>
@@ -10370,7 +10463,7 @@ OverflowError(msg)
 The result of an expression is too large for the specified type and will cause a wraparound.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1880-L1884)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1939-L1943)
 
 </div>
 <br>
@@ -10388,7 +10481,7 @@ ProcessFailedException
 Indicates problematic exit status of a process. When running commands or pipelines, this is thrown to indicate a nonzero exit code was returned (i.e. that the invoked process failed).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/process.jl#L572-L578)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/process.jl#L572-L578)
 
 </div>
 <br>
@@ -10406,7 +10499,7 @@ TaskFailedException
 This exception is thrown by a [`wait(t)`](/base/parallel#Base.wait) call when task `t` fails. `TaskFailedException` wraps the failed task `t`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/task.jl#L69-L74)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/task.jl#L69-L74)
 
 </div>
 <br>
@@ -10424,7 +10517,7 @@ StackOverflowError()
 The function call grew beyond the size of the call stack. This usually happens when a call recurses infinitely.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1803-L1808)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1862-L1867)
 
 </div>
 <br>
@@ -10442,7 +10535,7 @@ SystemError(prefix::AbstractString, [errno::Int32])
 A system call failed with an error code (in the `errno` global variable).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/io.jl#L12-L16)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/io.jl#L12-L16)
 
 </div>
 <br>
@@ -10460,7 +10553,7 @@ TypeError(func::Symbol, context::AbstractString, expected::Type, got)
 A type assertion failure, or calling an intrinsic function with an incorrect argument type.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1887-L1891)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1946-L1950)
 
 </div>
 <br>
@@ -10494,7 +10587,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1859-L1877)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1918-L1936)
 
 </div>
 <br>
@@ -10530,7 +10623,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1652-L1672)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1710-L1730)
 
 </div>
 <br>
@@ -10561,7 +10654,7 @@ julia> a
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L1841-L1856)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L1900-L1915)
 
 </div>
 <br>
@@ -10579,7 +10672,7 @@ StringIndexError(str, i)
 An error occurred when trying to access `str` at index `i` that is not valid.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/strings/string.jl#L3-L7)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/strings/string.jl#L3-L7)
 
 </div>
 <br>
@@ -10597,7 +10690,7 @@ InitError(mod::Symbol, error)
 An error occurred when running a module&#39;s `__init__` function. The actual error thrown is available in the `.error` field.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3113-L3118)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3165-L3170)
 
 </div>
 <br>
@@ -10632,7 +10725,7 @@ retry(read, check=(s,e)->isa(e, IOError))(io, 128; all=false)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L281-L300)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L281-L300)
 
 </div>
 <br>
@@ -10650,7 +10743,7 @@ ExponentialBackOff(; n=1, first_delay=0.05, max_delay=10.0, factor=5.0, jitter=0
 A [`Float64`](/base/numbers#Core.Float64) iterator of length `n` whose elements exponentially increase at a rate in the interval `factor` * (1 ± `jitter`).  The first element is `first_delay` and all elements are clamped to `max_delay`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/error.jl#L262-L268)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/error.jl#L262-L268)
 
 </div>
 <br>
@@ -10691,7 +10784,7 @@ julia> begin
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/asyncevent.jl#L270-L299)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/asyncevent.jl#L277-L306)
 
 </div>
 <br>
@@ -10723,7 +10816,7 @@ A `Timer` requires yield points to update its state. For instance, `isopen(t::Ti
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/asyncevent.jl#L69-L87)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/asyncevent.jl#L69-L87)
 
 </div>
 <br>
@@ -10743,7 +10836,7 @@ Create a async condition that wakes up tasks waiting for it (by calling [`wait`]
 This provides an implicit acquire &amp; release memory ordering between the sending and waiting threads.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/asyncevent.jl#L5-L15)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/asyncevent.jl#L5-L15)
 
 </div>
 <br>
@@ -10761,7 +10854,7 @@ AsyncCondition(callback::Function)
 Create a async condition that calls the given `callback` function. The `callback` is passed one argument, the async condition object itself.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/asyncevent.jl#L40-L45)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/asyncevent.jl#L40-L45)
 
 </div>
 <br>
@@ -10789,7 +10882,7 @@ julia> nameof(Base.Broadcast)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L367-L377)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L379-L389)
 
 </div>
 <br>
@@ -10820,7 +10913,7 @@ Base
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L5-L20)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L5-L20)
 
 
 
@@ -10848,7 +10941,7 @@ Foo
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L313-L331)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L313-L331)
 
 
 
@@ -10860,7 +10953,7 @@ parentmodule(f::Function) -> Module
 Determine the module containing the (first) definition of a generic function.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2322-L2327)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2336-L2341)
 
 
 
@@ -10872,7 +10965,7 @@ parentmodule(f::Function, types) -> Module
 Determine the module containing the first method of a generic function `f` matching the specified `types`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2330-L2335)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2344-L2349)
 
 
 
@@ -10890,7 +10983,7 @@ Passing a `Method` as an argument requires Julia 1.9 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2344-L2351)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2358-L2365)
 
 </div>
 <br>
@@ -10912,7 +11005,7 @@ Use [`dirname`](/base/file#Base.Filesystem.dirname) to get the directory part an
 See also [`pkgdir`](/base/base#Base.pkgdir-Tuple{Module}).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L474-L484)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L474-L484)
 
 </div>
 <br>
@@ -10949,7 +11042,7 @@ The optional argument `paths` requires at least Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L497-L520)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L497-L520)
 
 </div>
 <br>
@@ -10977,7 +11070,7 @@ This function was introduced in Julia 1.9.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L540-L555)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L540-L555)
 
 </div>
 <br>
@@ -10995,7 +11088,7 @@ moduleroot(m::Module) -> Module
 Find the root module of a given module. This is the first module in the chain of parent modules of `m` which is either a registered root module or which is its own parent module.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L25-L31)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L25-L31)
 
 </div>
 <br>
@@ -11013,7 +11106,7 @@ __module__
 The argument `__module__` is only visible inside the macro, and it provides information (in the form of a `Module` object) about the expansion context of the macro invocation. See the manual section on [Macro invocation](/manual/metaprogramming#Macro-invocation) for more information.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L255-L261)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L255-L261)
 
 </div>
 <br>
@@ -11031,7 +11124,7 @@ __source__
 The argument `__source__` is only visible inside the macro, and it provides information (in the form of a `LineNumberNode` object) about the parser location of the `@` sign from the macro invocation. See the manual section on [Macro invocation](/manual/metaprogramming#Macro-invocation) for more information.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L264-L270)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L264-L270)
 
 </div>
 <br>
@@ -11049,7 +11142,7 @@ The argument `__source__` is only visible inside the macro, and it provides info
 Get the `Module` of the toplevel eval, which is the `Module` code is currently being read from.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L42-L47)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L42-L47)
 
 </div>
 <br>
@@ -11067,7 +11160,7 @@ Get the `Module` of the toplevel eval, which is the `Module` code is currently b
 Expand to a string with the path to the file containing the macrocall, or an empty string if evaluated by `julia -e <expr>`. Return `nothing` if the macro was missing parser source information. Alternatively see [`PROGRAM_FILE`](/base/constants#Base.PROGRAM_FILE).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L3848-L3855)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L3878-L3885)
 
 </div>
 <br>
@@ -11109,7 +11202,7 @@ pwd() = /home/JuliaUser
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L3861-L3890)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L3891-L3920)
 
 </div>
 <br>
@@ -11127,7 +11220,7 @@ pwd() = /home/JuliaUser
 Expand to the line number of the location of the macrocall. Return `0` if the line number could not be determined.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L1182-L1187)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L1200-L1205)
 
 </div>
 <br>
@@ -11156,7 +11249,7 @@ julia> fullname(Main)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L52-L65)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L52-L65)
 
 </div>
 <br>
@@ -11190,7 +11283,7 @@ As a special case, all names defined in `Main` are considered &quot;public&quot;
 See also: [`Base.isexported`](/base/base#Base.isexported), [`Base.ispublic`](/base/base#Base.ispublic), [`Base.@locals`](/base/base#Base.@locals), [`@__MODULE__`](/base/base#Base.@__MODULE__).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L79-L103)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L79-L103)
 
 </div>
 <br>
@@ -11228,7 +11321,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L108-L131)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L108-L131)
 
 </div>
 <br>
@@ -11274,7 +11367,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L134-L162)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L134-L162)
 
 </div>
 <br>
@@ -11292,7 +11385,7 @@ nameof(f::Function) -> Symbol
 Get the name of a generic `Function` as a symbol. For anonymous functions, this is a compiler-generated name. For explicitly-declared subtypes of `Function`, it is the name of the function&#39;s type.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L2300-L2306)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L2314-L2320)
 
 </div>
 <br>
@@ -11310,7 +11403,7 @@ functionloc(f::Function, types)
 Return a tuple `(filename,line)` giving the location of a generic `Function` definition.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/methodshow.jl#L174-L178)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/methodshow.jl#L174-L178)
 
 </div>
 <br>
@@ -11328,7 +11421,7 @@ functionloc(m::Method)
 Return a tuple `(filename,line)` giving the location of a `Method` definition.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/methodshow.jl#L161-L165)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/methodshow.jl#L161-L165)
 
 </div>
 <br>
@@ -11380,7 +11473,7 @@ Dict{Symbol, Any}(:y => 2, :x => 42)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L395-L429)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L395-L429)
 
 </div>
 <br>
@@ -11428,7 +11521,7 @@ julia> getglobal(M, :a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2451-L2488)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2510-L2547)
 
 </div>
 <br>
@@ -11460,11 +11553,16 @@ See also [`setproperty!`](/base/base#Base.setproperty!) and [`getglobal`](/base/
 **Examples**
 
 ```julia
-julia> module M end;
+julia> module M; global a; end;
 
 julia> M.a  # same as `getglobal(M, :a)`
 ERROR: UndefVarError: `a` not defined in `M`
-Suggestion: check for spelling errors or missing imports.
+Suggestion: add an appropriate import or assignment. This global was declared but not assigned.
+Stacktrace:
+ [1] getproperty(x::Module, f::Symbol)
+   @ Base ./Base.jl:42
+ [2] top-level scope
+   @ none:1
 
 julia> setglobal!(M, :a, 1)
 1
@@ -11475,7 +11573,7 @@ julia> M.a
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2492-L2526)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2551-L2590)
 
 </div>
 <br>
@@ -11501,7 +11599,7 @@ This function requires Julia 1.11 or later.
 See also [`modifyproperty!`](/base/base#Base.modifyproperty!) and [`setglobal!`](/base/base#Core.setglobal!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2563-L2573)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2615-L2625)
 
 </div>
 <br>
@@ -11527,7 +11625,7 @@ This function requires Julia 1.11 or later.
 See also [`swapproperty!`](/base/base#Base.swapproperty!) and [`setglobal!`](/base/base#Core.setglobal!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2551-L2560)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2603-L2612)
 
 </div>
 <br>
@@ -11554,7 +11652,7 @@ This function requires Julia 1.11 or later.
 See also [`setpropertyonce!`](/base/base#Base.setpropertyonce!) and [`setglobal!`](/base/base#Core.setglobal!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2590-L2601)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2642-L2653)
 
 </div>
 <br>
@@ -11581,7 +11679,7 @@ This function requires Julia 1.11 or later.
 See also [`replaceproperty!`](/base/base#Base.replaceproperty!) and [`setglobal!`](/base/base#Core.setglobal!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2576-L2587)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2628-L2639)
 
 </div>
 <br>
@@ -11647,7 +11745,7 @@ You can retrieve docs for functions, macros and other objects as follows:
 Placing documentation before a method definition (e.g. `function foo() ...` or `foo() = ...`) will cause that specific method to be documented, as opposed to the whole function. Method docs are concatenated together in the order they were defined to provide docs for the function.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/Docs.jl#L16-L59)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/Docs.jl#L16-L59)
 
 </div>
 <br>
@@ -11680,7 +11778,7 @@ end
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/utils.jl#L11-L28)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/utils.jl#L11-L28)
 
 </div>
 <br>
@@ -11713,7 +11811,7 @@ end
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/utils.jl#L69-L86)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/utils.jl#L69-L86)
 
 </div>
 <br>
@@ -11731,7 +11829,7 @@ Docs.hasdoc(mod::Module, sym::Symbol)::Bool
 Return `true` if `sym` in `mod` has a docstring and `false` otherwise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/Docs.jl#L794-L798)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/Docs.jl#L794-L798)
 
 </div>
 <br>
@@ -11751,7 +11849,7 @@ Return a sorted vector of undocumented symbols in `module` (that is, lacking doc
 See also: [`names`](/base/base#Base.names), [`Docs.hasdoc`](/base/base#Base.Docs.hasdoc), [`Base.ispublic`](/base/base#Base.ispublic).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/Docs.jl#L813-L822)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/Docs.jl#L813-L822)
 
 </div>
 <br>
@@ -11786,7 +11884,7 @@ julia> Base.identify_package(LinearAlgebra, "Pkg") # Pkg is not a dependency of 
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L364-L388)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L364-L388)
 
 </div>
 <br>
@@ -11813,7 +11911,7 @@ julia> Base.locate_package(pkg)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L456-L469)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L456-L469)
 
 </div>
 <br>
@@ -11837,7 +11935,7 @@ When searching for files, `require` first looks for package code in the global a
 For more details regarding code loading, see the manual sections on [modules](/manual/modules#modules) and [parallel computing](/manual/distributed-computing#code-availability).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L2124-L2144)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L2144-L2164)
 
 </div>
 <br>
@@ -11855,7 +11953,7 @@ Base.compilecache(module::PkgId)
 Creates a precompiled cache file for a module and all of its dependencies. This can be used to reduce package load times. Cache files are stored in `DEPOT_PATH[1]/compiled`. See [Module initialization and precompilation](/manual/modules#Module-initialization-and-precompilation) for important notes.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L2899-L2906)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L2926-L2933)
 
 </div>
 <br>
@@ -11881,7 +11979,7 @@ This function requires at least Julia 1.10.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L1740-L1752)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L1738-L1750)
 
 </div>
 <br>
@@ -11899,7 +11997,7 @@ get_extension(parent::Module, extension::Symbol)
 Return the module for `extension` of `parent` or return `nothing` if the extension is not loaded.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L1544-L1548)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L1543-L1547)
 
 </div>
 <br>
@@ -11927,7 +12025,7 @@ Excessive use will likely lead to poor performance.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/gcutils.jl#L119-L132)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/gcutils.jl#L119-L132)
 
 </div>
 <br>
@@ -11951,7 +12049,7 @@ Disabling garbage collection should be used only with caution, as it can cause m
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/gcutils.jl#L136-L145)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/gcutils.jl#L136-L145)
 
 </div>
 <br>
@@ -12007,7 +12105,7 @@ julia> let
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/gcutils.jl#L186-L233)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/gcutils.jl#L186-L233)
 
 </div>
 <br>
@@ -12031,7 +12129,7 @@ This function is available as of Julia 1.4.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/gcutils.jl#L242-L254)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/gcutils.jl#L242-L254)
 
 </div>
 <br>
@@ -12049,7 +12147,7 @@ GC.enable_logging(on::Bool)
 When turned on, print statistics about each GC to stderr.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/gcutils.jl#L257-L261)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/gcutils.jl#L257-L261)
 
 </div>
 <br>
@@ -12067,7 +12165,7 @@ GC.logging_enabled()
 Return whether GC logging has been enabled via [`GC.enable_logging`](/base/base#Base.GC.enable_logging).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/gcutils.jl#L266-L270)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/gcutils.jl#L266-L270)
 
 </div>
 <br>
@@ -12085,7 +12183,7 @@ lower(m, x)
 Takes the expression `x` and returns an equivalent expression in lowered form for executing in module `m`. See also [`code_lowered`](/base/base#Base.code_lowered).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/meta.jl#L154-L160)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/meta.jl#L154-L160)
 
 </div>
 <br>
@@ -12103,7 +12201,7 @@ Takes the expression `x` and returns an equivalent expression in lowered form fo
 Return lowered form of the expression `x` in module `m`. By default `m` is the module in which the macro is called. See also [`lower`](/base/base#Base.Meta.lower).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/meta.jl#L163-L169)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/meta.jl#L163-L169)
 
 </div>
 <br>
@@ -12139,7 +12237,7 @@ julia> Meta.parse("(α, β) = 3, 5", 11, greedy=false)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/meta.jl#L202-L233)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/meta.jl#L202-L233)
 
 </div>
 <br>
@@ -12176,7 +12274,7 @@ julia> Meta.parse("x = ")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/meta.jl#L247-L273)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/meta.jl#L247-L273)
 
 </div>
 <br>
@@ -12194,7 +12292,7 @@ ParseError(msg)
 The expression passed to the [`parse`](/base/base#Base.Meta.parse-Tuple{AbstractString,%20Int64}) function could not be interpreted as a valid Julia expression.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/meta.jl#L180-L185)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/meta.jl#L180-L185)
 
 </div>
 <br>
@@ -12212,7 +12310,7 @@ QuoteNode
 A quoted piece of code, that does not support interpolation. See the [manual section about QuoteNodes](/manual/metaprogramming#man-quote-node) for details.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3551-L3555)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3603-L3607)
 
 </div>
 <br>
@@ -12249,7 +12347,7 @@ julia> macroexpand(M, :(@m2()), recursive=false)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L93-L117)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L93-L117)
 
 </div>
 <br>
@@ -12307,7 +12405,7 @@ The two-argument form requires at least Julia 1.11.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L126-L168)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L126-L168)
 
 </div>
 <br>
@@ -12325,7 +12423,7 @@ The two-argument form requires at least Julia 1.11.
 Non recursive version of [`@macroexpand`](/base/base#Base.@macroexpand).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/expr.jl#L176-L180)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/expr.jl#L176-L180)
 
 </div>
 <br>
@@ -12349,7 +12447,7 @@ The keyword `debuginfo` controls the amount of code metadata present in the outp
 Note that an error will be thrown if `types` are not leaf types when `generated` is `true` and any of the corresponding methods are an `@generated` method.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L1131-L1146)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L1140-L1155)
 
 </div>
 <br>
@@ -12395,7 +12493,7 @@ julia> code_typed(+, (Float64, Float64))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reflection.jl#L1574-L1609)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reflection.jl#L1583-L1618)
 
 </div>
 <br>
@@ -12413,7 +12511,7 @@ precompile(f, argtypes::Tuple{Vararg{Any}})
 Compile the given function `f` for the argument tuple (of types) `argtypes`, but do not execute it.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L3897-L3901)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L3927-L3931)
 
 
 
@@ -12425,7 +12523,7 @@ precompile(f, argtypes::Tuple{Vararg{Any}}, m::Method)
 Precompile a specific method for the given argument types. This may be used to precompile a different method than the one that would ordinarily be chosen by dispatch, thus mimicking `invoke`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/loading.jl#L3919-L3925)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/loading.jl#L3949-L3955)
 
 </div>
 <br>
@@ -12443,7 +12541,7 @@ Base.jit_total_bytes()
 Return the total amount (in bytes) allocated by the just-in-time compiler for e.g. native code and data.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/timing.jl#L108-L113)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/timing.jl#L107-L112)
 
 </div>
 <br>
@@ -12480,7 +12578,7 @@ julia> eval(Meta.quot(:(1+2)))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/meta.jl#L22-L43)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/meta.jl#L22-L43)
 
 </div>
 <br>
@@ -12521,7 +12619,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/meta.jl#L46-L74)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/meta.jl#L46-L74)
 
 </div>
 <br>
@@ -12549,7 +12647,7 @@ julia> Meta.isidentifier(:x), Meta.isidentifier("1x")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/show.jl#L1531-L1550)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/show.jl#L1531-L1550)
 
 </div>
 <br>
@@ -12575,7 +12673,7 @@ julia> Meta.isoperator(:+), Meta.isoperator(:f)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/show.jl#L1565-L1575)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/show.jl#L1565-L1575)
 
 </div>
 <br>
@@ -12601,7 +12699,7 @@ julia> Meta.isunaryoperator(:-), Meta.isunaryoperator(:√), Meta.isunaryoperato
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/show.jl#L1578-L1588)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/show.jl#L1578-L1588)
 
 </div>
 <br>
@@ -12627,7 +12725,7 @@ julia> Meta.isbinaryoperator(:-), Meta.isbinaryoperator(:√), Meta.isbinaryoper
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/show.jl#L1593-L1603)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/show.jl#L1593-L1603)
 
 </div>
 <br>
@@ -12653,7 +12751,7 @@ julia> Meta.show_sexpr(:(f(x, g(y,z))))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/meta.jl#L106-L116)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/meta.jl#L106-L116)
 
 </div>
 <br>

@@ -18,7 +18,7 @@ Supertype for `N`-dimensional arrays (or array-like types) with elements of type
 See also: [`AbstractVector`](/base/arrays#Base.AbstractVector), [`AbstractMatrix`](/base/arrays#Base.AbstractMatrix), [`eltype`](/base/collections#Base.eltype), [`ndims`](/base/arrays#Base.ndims).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L5-L13)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L5-L13)
 
 </div>
 <br>
@@ -36,7 +36,7 @@ AbstractVector{T}
 Supertype for one-dimensional arrays (or array-like types) with elements of type `T`. Alias for [`AbstractArray{T,1}`](/base/arrays#Core.AbstractArray).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L17-L22)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L17-L22)
 
 </div>
 <br>
@@ -54,7 +54,7 @@ AbstractMatrix{T}
 Supertype for two-dimensional arrays (or array-like types) with elements of type `T`. Alias for [`AbstractArray{T,2}`](/base/arrays#Core.AbstractArray).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L25-L30)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L25-L30)
 
 </div>
 <br>
@@ -72,7 +72,7 @@ AbstractVecOrMat{T}
 Union type of [`AbstractVector{T}`](/base/arrays#Base.AbstractVector) and [`AbstractMatrix{T}`](/base/arrays#Base.AbstractMatrix).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L33-L37)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L33-L37)
 
 </div>
 <br>
@@ -90,7 +90,7 @@ Array{T,N} <: AbstractArray{T,N}
 `N`-dimensional dense array with elements of type `T`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L45-L49)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L45-L49)
 
 </div>
 <br>
@@ -132,7 +132,7 @@ julia> similar(B, 2, 4, 1) # use typeof(B), and the given size
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2808-L2840)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2860-L2892)
 
 </div>
 <br>
@@ -166,7 +166,7 @@ julia> Array{Union{Nothing, Int}}(nothing, 2, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2843-L2863)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2895-L2915)
 
 </div>
 <br>
@@ -200,7 +200,7 @@ julia> Array{Union{Missing, Int}}(missing, 2, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2867-L2887)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2919-L2939)
 
 </div>
 <br>
@@ -229,7 +229,7 @@ julia> Array{Float64, 1}(UndefInitializer(), 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2890-L2905)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2942-L2957)
 
 </div>
 <br>
@@ -260,7 +260,7 @@ julia> Array{Float64, 1}(undef, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2908-L2925)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2960-L2977)
 
 </div>
 <br>
@@ -280,7 +280,7 @@ One-dimensional dense array with elements of type `T`, often used to represent a
 See also [`empty`](/base/arrays#Base.empty), [`similar`](/base/arrays#Base.similar) and [`zero`](/base/numbers#Base.zero) for creating vectors.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L52-L59)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L52-L59)
 
 </div>
 <br>
@@ -309,7 +309,7 @@ julia> Vector{Float64}(undef, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2704-L2717)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2756-L2769)
 
 </div>
 <br>
@@ -337,7 +337,7 @@ julia> Vector{Union{Nothing, String}}(nothing, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2720-L2734)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2772-L2786)
 
 </div>
 <br>
@@ -365,7 +365,7 @@ julia> Vector{Union{Missing, String}}(missing, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2737-L2751)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2789-L2803)
 
 </div>
 <br>
@@ -385,7 +385,7 @@ Two-dimensional dense array with elements of type `T`, often used to represent a
 See also [`fill`](/base/arrays#Base.fill), [`zeros`](/base/arrays#Base.zeros), [`undef`](/base/arrays#Core.undef) and [`similar`](/base/arrays#Base.similar) for creating matrices.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L62-L70)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L62-L70)
 
 </div>
 <br>
@@ -418,7 +418,7 @@ julia> similar(ans, Int32, 2, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2754-L2771)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2806-L2823)
 
 </div>
 <br>
@@ -446,7 +446,7 @@ julia> Matrix{Union{Nothing, String}}(nothing, 2, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2774-L2788)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2826-L2840)
 
 </div>
 <br>
@@ -474,7 +474,7 @@ julia> Matrix{Union{Missing, String}}(missing, 2, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2791-L2805)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2843-L2857)
 
 </div>
 <br>
@@ -506,7 +506,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L73-L89)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L73-L89)
 
 </div>
 <br>
@@ -524,7 +524,7 @@ DenseArray{T, N} <: AbstractArray{T,N}
 `N`-dimensional dense array with elements of type `T`. The elements of a dense array are stored contiguously in memory.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L92-L97)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L92-L97)
 
 </div>
 <br>
@@ -542,7 +542,7 @@ DenseVector{T}
 One-dimensional [`DenseArray`](/base/arrays#Core.DenseArray) with elements of type `T`. Alias for `DenseArray{T,1}`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L100-L104)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L100-L104)
 
 </div>
 <br>
@@ -560,7 +560,7 @@ DenseMatrix{T}
 Two-dimensional [`DenseArray`](/base/arrays#Core.DenseArray) with elements of type `T`. Alias for `DenseArray{T,2}`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L107-L111)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L107-L111)
 
 </div>
 <br>
@@ -578,7 +578,7 @@ DenseVecOrMat{T}
 Union type of [`DenseVector{T}`](/base/arrays#Base.DenseVector) and [`DenseMatrix{T}`](/base/arrays#Base.DenseMatrix).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L114-L118)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L114-L118)
 
 </div>
 <br>
@@ -598,7 +598,7 @@ A hard-coded [`Union`](/base/base#Core.Union) of common array types that follow 
 If `A` is a `StridedArray`, then its elements are stored in memory with offsets, which may vary between dimensions but are constant within a dimension. For example, `A` could have stride 2 in dimension 1, and stride 3 in dimension 2. Incrementing `A` along dimension `d` jumps in memory by [`stride(A, d)`] slots. Strided arrays are particularly important and useful because they can sometimes be passed directly as pointers to foreign language libraries like BLAS.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3476-L3488)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3528-L3540)
 
 </div>
 <br>
@@ -616,7 +616,7 @@ StridedVector{T}
 One dimensional [`StridedArray`](/base/arrays#Base.StridedArray) with elements of type `T`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3491-L3495)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3543-L3547)
 
 </div>
 <br>
@@ -634,7 +634,7 @@ StridedMatrix{T}
 Two dimensional [`StridedArray`](/base/arrays#Base.StridedArray) with elements of type `T`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3498-L3502)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3550-L3554)
 
 </div>
 <br>
@@ -652,7 +652,45 @@ StridedVecOrMat{T}
 Union type of [`StridedVector`](/base/arrays#Base.StridedVector) and [`StridedMatrix`](/base/arrays#Base.StridedMatrix) with elements of type `T`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L3505-L3509)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L3557-L3561)
+
+</div>
+<br>
+<div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
+<a id='Core.GenericMemory' href='#Core.GenericMemory'>#</a>&nbsp;<b><u>Core.GenericMemory</u></b> &mdash; <i>Type</i>.
+
+
+
+
+```julia
+GenericMemory{kind::Symbol, T, addrspace=Core.CPU} <: DenseVector{T}
+```
+
+
+Fixed-size [`DenseVector{T}`](/base/arrays#Base.DenseVector).
+
+`kind` can currently be either `:not_atomic` or `:atomic`. For details on what `:atomic` implies, see [`AtomicMemory`](/base/multi-threading#Core.AtomicMemory)
+
+`addrspace` can currently only be set to Core.CPU. It is designed to  to permit extension by other systems such as GPUs, which might define values such as:
+
+```
+module CUDA
+const Generic = bitcast(Core.AddrSpace{CUDA}, 0)
+const Global = bitcast(Core.AddrSpace{CUDA}, 1)
+end
+```
+
+
+The exact semantics of these other addrspaces is defined by the specific backend, but will error if the user is attempting to access these on the CPU.
+
+::: tip Julia 1.11
+
+This type requires Julia 1.11 or later.
+
+:::
+
+
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/genericmemory.jl#L5-L24)
 
 </div>
 <br>
@@ -667,7 +705,7 @@ Memory{T} == GenericMemory{:not_atomic, T, Core.CPU}
 ```
 
 
-One-dimensional dense array with elements of type `T`.
+Fixed-size [`DenseVector{T}`](/base/arrays#Base.DenseVector).
 
 ::: tip Julia 1.11
 
@@ -676,38 +714,38 @@ This type requires Julia 1.11 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/genericmemory.jl#L15-L22)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/genericmemory.jl#L27-L34)
 
 </div>
 <br>
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
-<a id='Core.MemoryRef' href='#Core.MemoryRef'>#</a>&nbsp;<b><u>Core.MemoryRef</u></b> &mdash; <i>Type</i>.
+<a id='Core.memoryref' href='#Core.memoryref'>#</a>&nbsp;<b><u>Core.memoryref</u></b> &mdash; <i>Function</i>.
 
 
 
 
 ```julia
-MemoryRef(memory)
+memoryref(::GenericMemory)
 ```
 
 
-Construct a MemoryRef from a memory object. This does not fail, but the resulting memory may point out-of-bounds if the memory is empty.
+Construct a `GenericMemoryRef` from a memory object. This does not fail, but the resulting memory will point out-of-bounds if and only if the memory is empty.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2685-L2690)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2737-L2742)
 
 
 
 ```julia
-MemoryRef(::Memory, index::Integer)
-MemoryRef(::MemoryRef, index::Integer)
+memoryref(::GenericMemory, index::Integer)
+memoryref(::GenericMemoryRef, index::Integer)
 ```
 
 
-Construct a MemoryRef from a memory object and an offset index (1-based) which can also be negative. This always returns an inbounds object, and will throw an error if that is not possible (because the index would result in a shift out-of-bounds of the underlying memory).
+Construct a `GenericMemoryRef` from a memory object and an offset index (1-based) which can also be negative. This always returns an inbounds object, and will throw an error if that is not possible (because the index would result in a shift out-of-bounds of the underlying memory).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/docs/basedocs.jl#L2693-L2701)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/docs/basedocs.jl#L2745-L2753)
 
 </div>
 <br>
@@ -729,7 +767,7 @@ These should typically be constructed by [`eachslice`](/base/arrays#Base.eachsli
 [`parent(s::Slices)`](/base/arrays#Base.parent) will return the parent array.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/slicearray.jl#L11-L21)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/slicearray.jl#L11-L21)
 
 </div>
 <br>
@@ -749,7 +787,7 @@ A special case of [`Slices`](/base/arrays#Base.Slices) that is a vector of row s
 [`parent`](/base/arrays#Base.parent) can be used to get the underlying matrix.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/slicearray.jl#L207-L214)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/slicearray.jl#L207-L214)
 
 </div>
 <br>
@@ -769,7 +807,7 @@ A special case of [`Slices`](/base/arrays#Base.Slices) that is a vector of colum
 [`parent`](/base/arrays#Base.parent) can be used to get the underlying matrix.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/slicearray.jl#L217-L224)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/slicearray.jl#L217-L224)
 
 </div>
 <br>
@@ -804,7 +842,7 @@ julia> getindex(Int8, 1, 2, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L365-L385)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L365-L385)
 
 </div>
 <br>
@@ -837,7 +875,7 @@ julia> zeros(Int8, 2, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L530-L548)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L530-L548)
 
 </div>
 <br>
@@ -870,7 +908,7 @@ julia> ones(ComplexF64, 2, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L551-L569)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L551-L569)
 
 </div>
 <br>
@@ -898,7 +936,7 @@ Due to its packed storage format, concurrent access to the elements of a `BitArr
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bitarray.jl#L7-L23)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bitarray.jl#L7-L23)
 
 </div>
 <br>
@@ -933,7 +971,7 @@ julia> BitArray(undef, (3, 1))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bitarray.jl#L48-L68)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bitarray.jl#L48-L68)
 
 </div>
 <br>
@@ -975,7 +1013,7 @@ julia> BitArray(x+y == 3 for x = 1:2 for y = 1:3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bitarray.jl#L551-L578)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bitarray.jl#L551-L578)
 
 </div>
 <br>
@@ -1003,7 +1041,7 @@ julia> trues(2,3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bitarray.jl#L409-L421)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bitarray.jl#L409-L421)
 
 </div>
 <br>
@@ -1031,7 +1069,7 @@ julia> falses(2,3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/bitarray.jl#L390-L402)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/bitarray.jl#L390-L402)
 
 </div>
 <br>
@@ -1133,7 +1171,7 @@ julia> A # both A[1] and A[2] are the very same vector
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L426-L521)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L426-L521)
 
 </div>
 <br>
@@ -1178,7 +1216,7 @@ julia> x = 0; f() = (global x += 1; x); fill!(Vector{Int}(undef, 3), f())
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/multidimensional.jl#L1101-L1132)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/multidimensional.jl#L1144-L1175)
 
 </div>
 <br>
@@ -1196,7 +1234,7 @@ empty(x::Tuple)
 Return an empty tuple, `()`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/tuple.jl#L686-L690)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/tuple.jl#L686-L690)
 
 
 
@@ -1221,7 +1259,7 @@ String[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L870-L886)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L870-L886)
 
 
 
@@ -1235,7 +1273,7 @@ Create an empty `AbstractDict` container which can accept indices of type `index
 Custom `AbstractDict` subtypes may choose which specific dictionary type is best suited to return for the given index and value types, by specializing on the three-argument signature. The default is to return an empty `Dict`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractdict.jl#L178-L189)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractdict.jl#L178-L189)
 
 </div>
 <br>
@@ -1255,7 +1293,7 @@ Create an uninitialized mutable array with the given element type, index type, a
 The output matrix has zeros in the same locations as the input, but uninitialized values for the nonzero locations.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/SparseArrays-e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L708-L719)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L708-L719)
 
 
 
@@ -1300,7 +1338,7 @@ julia> similar(falses(10), Float64, 2, 4)
 See also: [`undef`](/base/arrays#Core.undef), [`isassigned`](/base/arrays#Base.isassigned).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L777-L819)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L777-L819)
 
 
 
@@ -1328,7 +1366,7 @@ similar(BitArray, (axes(A, 2),))
 would create a 1-dimensional logical array whose indices match those of the columns of `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L844-L865)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L844-L865)
 
 </div>
 <br>
@@ -1360,7 +1398,7 @@ julia> ndims(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L259-L273)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L259-L273)
 
 </div>
 <br>
@@ -1395,7 +1433,7 @@ julia> size(A, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L20-L41)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L20-L41)
 
 </div>
 <br>
@@ -1425,7 +1463,7 @@ julia> axes(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L80-L95)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L80-L95)
 
 </div>
 <br>
@@ -1469,7 +1507,7 @@ ix[(begin+1):end]  # works for generalized indexes
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L44-L74)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L44-L74)
 
 </div>
 <br>
@@ -1498,7 +1536,7 @@ julia> length([1 2; 3 4])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L301-L314)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L301-L314)
 
 </div>
 <br>
@@ -1534,7 +1572,7 @@ CartesianIndices((2, 2))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L140-L164)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L140-L164)
 
 </div>
 <br>
@@ -1582,7 +1620,7 @@ CartesianIndex(2, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L331-L377)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L331-L377)
 
 </div>
 <br>
@@ -1612,7 +1650,7 @@ Julia&#39;s internal indexing machinery will automatically (and invisibly) recom
 If you define both styles of indexing for your `AbstractArray`, this trait can be used to select the most performant indexing style. Some methods check this trait on their inputs, and dispatch to different algorithms depending on the most efficient access pattern. In particular, [`eachindex`](/base/arrays#Base.eachindex) creates an iterator whose type depends on the setting of this trait.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/indices.jl#L68-L93)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/indices.jl#L68-L93)
 
 </div>
 <br>
@@ -1636,7 +1674,7 @@ A custom array that reports its `IndexStyle` as `IndexLinear` only needs to impl
 See also [`IndexCartesian`](/base/arrays#Base.IndexCartesian).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/indices.jl#L16-L36)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/indices.jl#L16-L36)
 
 </div>
 <br>
@@ -1662,7 +1700,7 @@ It is significantly more expensive to compute Cartesian indices from a linear in
 See also [`IndexLinear`](/base/arrays#Base.IndexLinear).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/indices.jl#L39-L65)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/indices.jl#L39-L65)
 
 </div>
 <br>
@@ -1699,7 +1737,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L98-L119)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L98-L119)
 
 </div>
 <br>
@@ -1732,7 +1770,7 @@ julia> stride(A,3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L576-L593)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L576-L593)
 
 </div>
 <br>
@@ -1762,7 +1800,7 @@ julia> strides(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L559-L573)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L559-L573)
 
 </div>
 <br>
@@ -1849,7 +1887,7 @@ julia> string.(("one","two","three","four"), ": ", 1:4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L734-L809)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L734-L809)
 
 </div>
 <br>
@@ -1893,7 +1931,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L816-L848)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L816-L848)
 
 </div>
 <br>
@@ -1928,7 +1966,50 @@ julia> @. y = x + 3 * sin(x)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L1278-L1302)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L1278-L1302)
+
+</div>
+<br>
+<div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
+<a id='Base.Broadcast.BroadcastFunction' href='#Base.Broadcast.BroadcastFunction'>#</a>&nbsp;<b><u>Base.Broadcast.BroadcastFunction</u></b> &mdash; <i>Type</i>.
+
+
+
+
+```julia
+BroadcastFunction{F} <: Function
+```
+
+
+Represents the &quot;dotted&quot; version of an operator, which broadcasts the operator over its arguments, so `BroadcastFunction(op)` is functionally equivalent to `(x...) -> (op).(x...)`.
+
+Can be created by just passing an operator preceded by a dot to a higher-order function.
+
+**Examples**
+
+```julia
+julia> a = [[1 3; 2 4], [5 7; 6 8]];
+
+julia> b = [[9 11; 10 12], [13 15; 14 16]];
+
+julia> map(.*, a, b)
+2-element Vector{Matrix{Int64}}:
+ [9 33; 20 48]
+ [65 105; 84 128]
+
+julia> Base.BroadcastFunction(+)(a, b) == a .+ b
+true
+```
+
+
+::: tip Julia 1.6
+
+`BroadcastFunction` and the standalone `.op` syntax are available as of Julia 1.6.
+
+:::
+
+
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L1335-L1360)
 
 </div>
 <br>
@@ -1951,7 +2032,7 @@ Base.BroadcastStyle(::Type{<:MyContainer}) = MyContainerStyle()
 One then writes method(s) (at least [`similar`](/base/arrays#Base.similar)) operating on `Broadcasted{MyContainerStyle}`. There are also several pre-defined subtypes of `BroadcastStyle` that you may be able to leverage; see the [Interfaces chapter](/manual/interfaces#man-interfaces-broadcasting) for more information.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L21-L34)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L21-L34)
 
 </div>
 <br>
@@ -1990,7 +2071,7 @@ Note that if two or more `AbstractArrayStyle` subtypes conflict, broadcasting ma
 See also [`Broadcast.DefaultArrayStyle`](/base/arrays#Base.Broadcast.DefaultArrayStyle).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L51-L76)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L51-L76)
 
 </div>
 <br>
@@ -2003,7 +2084,7 @@ See also [`Broadcast.DefaultArrayStyle`](/base/arrays#Base.Broadcast.DefaultArra
 `Broadcast.ArrayStyle{MyArrayType}()` is a [`BroadcastStyle`](/base/arrays#Base.Broadcast.BroadcastStyle) indicating that an object behaves as an array for broadcasting. It presents a simple way to construct [`Broadcast.AbstractArrayStyle`](/base/arrays#Base.Broadcast.AbstractArrayStyle)s for specific `AbstractArray` container types. Broadcast styles created this way lose track of dimensionality; if keeping track is important for your type, you should create your own custom [`Broadcast.AbstractArrayStyle`](/base/arrays#Base.Broadcast.AbstractArrayStyle).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L79-L85)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L79-L85)
 
 </div>
 <br>
@@ -2016,7 +2097,7 @@ See also [`Broadcast.DefaultArrayStyle`](/base/arrays#Base.Broadcast.DefaultArra
 `Broadcast.DefaultArrayStyle{N}()` is a [`BroadcastStyle`](/base/arrays#Base.Broadcast.BroadcastStyle) indicating that an object behaves as an `N`-dimensional array for broadcasting. Specifically, `DefaultArrayStyle` is used for any `AbstractArray` type that hasn&#39;t defined a specialized style, and in the absence of overrides from other `broadcast` arguments the resulting output type is `Array`. When there are multiple inputs to `broadcast`, `DefaultArrayStyle` &quot;loses&quot; to any other [`Broadcast.ArrayStyle`](/base/arrays#Base.Broadcast.ArrayStyle).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L89-L96)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L89-L96)
 
 </div>
 <br>
@@ -2055,7 +2136,7 @@ Base.RefValue{String}("hello")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L680-L707)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L680-L707)
 
 </div>
 <br>
@@ -2082,7 +2163,7 @@ julia> Broadcast.combine_axes(1, 1, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L483-L495)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L483-L495)
 
 </div>
 <br>
@@ -2108,7 +2189,7 @@ Base.Broadcast.DefaultArrayStyle{2}()
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L409-L422)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L409-L422)
 
 </div>
 <br>
@@ -2137,7 +2218,7 @@ Base.Broadcast.DefaultArrayStyle{1}()
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/broadcast.jl#L434-L449)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/broadcast.jl#L434-L449)
 
 </div>
 <br>
@@ -2208,7 +2289,7 @@ julia> getindex(A, A .> 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L1276-L1333)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L1276-L1333)
 
 </div>
 <br>
@@ -2249,7 +2330,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L1412-L1434)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L1412-L1434)
 
 </div>
 <br>
@@ -2264,9 +2345,7 @@ nextind(A, i)
 ```
 
 
-Return the index after `i` in `A`. The returned index is often equivalent to `i
-- 1`for an integer`i`. This function can be useful for generic code.
-  
+Return the index after `i` in `A`. The returned index is often equivalent to `i + 1` for an integer `i`. This function can be useful for generic code.
 
 ::: warning Warning
 
@@ -2299,7 +2378,7 @@ CartesianIndex(1, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/tuple.jl#L111-L142)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/tuple.jl#L111-L142)
 
 </div>
 <br>
@@ -2314,9 +2393,7 @@ prevind(A, i)
 ```
 
 
-Return the index before `i` in `A`. The returned index is often equivalent to `i
-- 1`for an integer`i`. This function can be useful for generic code.
-  
+Return the index before `i` in `A`. The returned index is often equivalent to `i - 1` for an integer `i`. This function can be useful for generic code.
 
 ::: warning Warning
 
@@ -2349,7 +2426,7 @@ CartesianIndex(2, 0)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/tuple.jl#L77-L108)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/tuple.jl#L77-L108)
 
 </div>
 <br>
@@ -2388,7 +2465,7 @@ julia> copyto!(A, Ainds, B, Binds)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/multidimensional.jl#L1169-L1193)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/multidimensional.jl#L1212-L1236)
 
 </div>
 <br>
@@ -2426,7 +2503,7 @@ This method requires at least Julia 1.1. In Julia 1.0 this method is available f
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L893-L914)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L893-L914)
 
 </div>
 <br>
@@ -2466,7 +2543,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L941-L966)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L953-L978)
 
 </div>
 <br>
@@ -2488,7 +2565,7 @@ Very few operations are defined on Colons directly; instead they are converted b
 The singleton instance of `Colon` is also a function used to construct ranges; see [`:`](/base/math#Base.::).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L975-L986)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L987-L998)
 
 </div>
 <br>
@@ -2549,7 +2626,7 @@ Using a `CartesianIndex` as a &quot;scalar&quot; for `broadcast` requires Julia 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/multidimensional.jl#L19-L72)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/multidimensional.jl#L19-L72)
 
 </div>
 <br>
@@ -2653,7 +2730,7 @@ CartesianIndices((5:6, 9:10))
 For cartesian to linear index conversion, see [`LinearIndices`](/base/arrays#Base.LinearIndices).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/multidimensional.jl#L186-L267)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/multidimensional.jl#L186-L267)
 
 </div>
 <br>
@@ -2671,7 +2748,7 @@ Dims{N}
 An `NTuple` of `N` `Int`s used to represent the dimensions of an [`AbstractArray`](/base/arrays#Core.AbstractArray).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/indices.jl#L3-L8)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/indices.jl#L3-L8)
 
 </div>
 <br>
@@ -2730,7 +2807,7 @@ julia> linear[1,2]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/indices.jl#L478-L524)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/indices.jl#L478-L524)
 
 </div>
 <br>
@@ -2776,7 +2853,7 @@ julia> to_indices(A, (1,2)) # no shape checking
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/indices.jl#L319-L358)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/indices.jl#L319-L358)
 
 </div>
 <br>
@@ -2815,7 +2892,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L652-L678)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L652-L678)
 
 
 
@@ -2827,7 +2904,7 @@ checkbounds(A, I...)
 Throw an error if the specified indices `I` are not in bounds for the given array `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L692-L696)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L692-L696)
 
 </div>
 <br>
@@ -2858,7 +2935,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L732-L750)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L732-L750)
 
 </div>
 <br>
@@ -2884,7 +2961,7 @@ julia> Base.elsize(rand(Float32, 10))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L244-L256)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L244-L256)
 
 </div>
 <br>
@@ -2910,7 +2987,7 @@ view(m::GenericMemory{M, T}, inds::Union{UnitRange, OneTo})
 Create a vector `v::Vector{T}` backed by the specified indices of `m`. It is only safe to resize `v` if `m` is subseqently not used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/genericmemory.jl#L301-L306)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/genericmemory.jl#L328-L333)
 
 
 
@@ -2958,7 +3035,7 @@ julia> view(2:5, 2:3) # returns a range as type is immutable
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/subarray.jl#L165-L210)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/subarray.jl#L165-L210)
 
 </div>
 <br>
@@ -3013,7 +3090,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/views.jl#L77-L124)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/views.jl#L77-L124)
 
 </div>
 <br>
@@ -3063,7 +3140,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/views.jl#L211-L246)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/views.jl#L211-L246)
 
 </div>
 <br>
@@ -3101,7 +3178,7 @@ julia> parent(V)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L1479-L1504)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L1479-L1504)
 
 </div>
 <br>
@@ -3134,7 +3211,7 @@ julia> parentindices(V)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/subarray.jl#L83-L100)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/subarray.jl#L83-L100)
 
 </div>
 <br>
@@ -3176,7 +3253,7 @@ julia> selectdim(A, 2, 3:4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L226-L252)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L226-L252)
 
 </div>
 <br>
@@ -3221,7 +3298,7 @@ Use caution if some combinations of bits in `Out` are not considered valid and w
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/essentials.jl#L672-L705)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/essentials.jl#L684-L717)
 
 
 
@@ -3265,7 +3342,7 @@ ERROR: Padding of type UInt32 is not compatible with type Tuple{UInt8, UInt32}.
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reinterpretarray.jl#L29-L66)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reinterpretarray.jl#L30-L67)
 
 
 
@@ -3311,7 +3388,7 @@ julia> reinterpret(reshape, Int, a)             # the result is a matrix
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reinterpretarray.jl#L137-L173)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reinterpretarray.jl#L142-L178)
 
 </div>
 <br>
@@ -3373,7 +3450,7 @@ julia> reshape(1:6, 2, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/reshapedarray.jl#L64-L117)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/reshapedarray.jl#L64-L117)
 
 </div>
 <br>
@@ -3418,7 +3495,7 @@ julia> b[1,1,1] = 5; a
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L48-L81)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L48-L81)
 
 </div>
 <br>
@@ -3460,7 +3537,7 @@ julia> vec(1:3)
 See also [`reshape`](/base/arrays#Base.reshape), [`dropdims`](/base/arrays#Base.dropdims).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L11-L40)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L11-L40)
 
 </div>
 <br>
@@ -3480,7 +3557,7 @@ SubArray{T,N,P,I,L} <: AbstractArray{T,N}
 Construct `SubArray`s using the [`view`](/base/arrays#Base.view) function.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/subarray.jl#L7-L13)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/subarray.jl#L7-L13)
 
 </div>
 <br>
@@ -3614,7 +3691,7 @@ julia> a * b
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L1996-L2106)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L1998-L2108)
 
 </div>
 <br>
@@ -3686,7 +3763,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L1882-L1940)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L1884-L1942)
 
 </div>
 <br>
@@ -3747,7 +3824,7 @@ julia> hcat([1.1, 9.9], Matrix(undef, 2, 0))  # hcat with empty 2×0 Matrix
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L1942-L1990)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L1944-L1992)
 
 </div>
 <br>
@@ -3797,7 +3874,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L2144-L2181)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L2146-L2183)
 
 </div>
 <br>
@@ -3890,7 +3967,7 @@ julia> hvncat(((3, 3), (3, 3), (6,)), true, a, b, c, d, e, f)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L2297-L2381)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L2299-L2383)
 
 </div>
 <br>
@@ -3992,7 +4069,7 @@ julia> hvcat(5, M...) |> size  # hvcat puts matrices next to each other
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L2790-L2880)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L2792-L2882)
 
 
 
@@ -4025,7 +4102,7 @@ julia> stack(eachrow([1 2 3; 4 5 6]), (10, 100); dims=1) do row, n
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L2883-L2909)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L2885-L2911)
 
 </div>
 <br>
@@ -4054,7 +4131,7 @@ julia> a = Base.vect(UInt8(1), 2.5, 1//2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L168-L182)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L168-L182)
 
 </div>
 <br>
@@ -4138,7 +4215,7 @@ julia> circshift(z, -1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L265-L336)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L265-L336)
 
 </div>
 <br>
@@ -4164,7 +4241,7 @@ Behavior can be unexpected when any mutated argument shares memory with any othe
 See also [`circshift`](/base/arrays#Base.circshift).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/multidimensional.jl#L1198-L1207)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/multidimensional.jl#L1241-L1250)
 
 </div>
 <br>
@@ -4214,7 +4291,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/multidimensional.jl#L1253-L1287)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/multidimensional.jl#L1296-L1330)
 
 </div>
 <br>
@@ -4266,7 +4343,7 @@ Int64[]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2640-L2679)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2638-L2677)
 
 </div>
 <br>
@@ -4330,7 +4407,7 @@ julia> findall(≥(0), d)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2580-L2630)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2578-L2628)
 
 </div>
 <br>
@@ -4377,7 +4454,7 @@ CartesianIndex(2, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2268-L2302)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2266-L2300)
 
 </div>
 <br>
@@ -4425,7 +4502,7 @@ CartesianIndex(2, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2350-L2384)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2348-L2382)
 
 </div>
 <br>
@@ -4474,7 +4551,7 @@ CartesianIndex(2, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2446-L2481)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2444-L2479)
 
 </div>
 <br>
@@ -4519,7 +4596,7 @@ CartesianIndex(2, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2537-L2568)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2535-L2566)
 
 </div>
 <br>
@@ -4564,7 +4641,7 @@ CartesianIndex(2, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2234-L2265)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2232-L2263)
 
 </div>
 <br>
@@ -4604,7 +4681,7 @@ julia> findnext(isspace, "a b c", 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2308-L2336)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2306-L2334)
 
 </div>
 <br>
@@ -4651,7 +4728,7 @@ CartesianIndex(2, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2410-L2443)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2408-L2441)
 
 </div>
 <br>
@@ -4699,7 +4776,7 @@ julia> findprev(isspace, "a b c", 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2487-L2523)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2485-L2521)
 
 </div>
 <br>
@@ -4820,7 +4897,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/permuteddimsarray.jl#L88-L195)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/permuteddimsarray.jl#L88-L195)
 
 
 
@@ -4896,7 +4973,7 @@ julia> transpose(V)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/permuteddimsarray.jl#L203-L270)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/permuteddimsarray.jl#L203-L270)
 
 </div>
 <br>
@@ -4916,7 +4993,7 @@ Permute the dimensions of array `src` and store the result in the array `dest`. 
 See also [`permutedims`](/base/arrays#Base.permutedims).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/permuteddimsarray.jl#L273-L283)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/permuteddimsarray.jl#L273-L283)
 
 </div>
 <br>
@@ -4951,7 +5028,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/permuteddimsarray.jl#L20-L41)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/permuteddimsarray.jl#L20-L41)
 
 </div>
 <br>
@@ -4984,7 +5061,7 @@ julia> promote_shape((2,3,1,4), (2, 3, 1, 4, 1))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/indices.jl#L155-L173)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/indices.jl#L155-L173)
 
 </div>
 <br>
@@ -5046,7 +5123,7 @@ julia> accumulate(+, fill(1, 2, 5), dims=2, init=100.0)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/accumulate.jl#L231-L277)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/accumulate.jl#L231-L277)
 
 </div>
 <br>
@@ -5105,7 +5182,7 @@ julia> accumulate!(*, B, A, dims=2, init=10)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/accumulate.jl#L302-L343)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/accumulate.jl#L302-L343)
 
 </div>
 <br>
@@ -5140,7 +5217,7 @@ julia> cumprod(a, dims=2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/accumulate.jl#L171-L192)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/accumulate.jl#L171-L192)
 
 
 
@@ -5182,7 +5259,7 @@ julia> cumprod("julia")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/accumulate.jl#L197-L226)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/accumulate.jl#L197-L226)
 
 </div>
 <br>
@@ -5206,7 +5283,7 @@ Behavior can be unexpected when any mutated argument shares memory with any othe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/accumulate.jl#L150-L157)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/accumulate.jl#L150-L157)
 
 
 
@@ -5224,7 +5301,7 @@ Behavior can be unexpected when any mutated argument shares memory with any othe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/accumulate.jl#L161-L168)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/accumulate.jl#L161-L168)
 
 </div>
 <br>
@@ -5283,7 +5360,7 @@ In the former case, the integers are widened to system word size and therefore t
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/accumulate.jl#L66-L112)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/accumulate.jl#L66-L112)
 
 
 
@@ -5323,7 +5400,7 @@ julia> cumsum(fill(1, 2) for i in 1:3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/accumulate.jl#L118-L145)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/accumulate.jl#L118-L145)
 
 </div>
 <br>
@@ -5347,7 +5424,7 @@ Behavior can be unexpected when any mutated argument shares memory with any othe
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/accumulate.jl#L41-L47)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/accumulate.jl#L41-L47)
 
 </div>
 <br>
@@ -5393,7 +5470,7 @@ julia> diff(vec(a))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/multidimensional.jl#L1003-L1032)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/multidimensional.jl#L1037-L1066)
 
 </div>
 <br>
@@ -5436,7 +5513,7 @@ julia> repeat([1, 2, 3], 2, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L343-L370)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L343-L370)
 
 
 
@@ -5474,7 +5551,7 @@ julia> repeat([1 2; 3 4], inner=(2, 1), outer=(1, 3))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarraymath.jl#L375-L407)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarraymath.jl#L375-L407)
 
 
 
@@ -5496,7 +5573,7 @@ julia> repeat("ha", 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/strings/basic.jl#L751-L763)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/strings/basic.jl#L750-L762)
 
 
 
@@ -5516,7 +5593,7 @@ julia> repeat('A', 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/strings/string.jl#L563-L574)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/strings/string.jl#L561-L572)
 
 </div>
 <br>
@@ -5549,7 +5626,7 @@ julia> rot180(a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/arraymath.jl#L158-L175)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/arraymath.jl#L158-L175)
 
 
 
@@ -5581,7 +5658,7 @@ julia> rot180(a,2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/arraymath.jl#L260-L283)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/arraymath.jl#L260-L283)
 
 </div>
 <br>
@@ -5614,7 +5691,7 @@ julia> rotl90(a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/arraymath.jl#L103-L120)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/arraymath.jl#L103-L120)
 
 
 
@@ -5656,7 +5733,7 @@ julia> rotl90(a,4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/arraymath.jl#L185-L218)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/arraymath.jl#L185-L218)
 
 </div>
 <br>
@@ -5689,7 +5766,7 @@ julia> rotr90(a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/arraymath.jl#L131-L148)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/arraymath.jl#L131-L148)
 
 
 
@@ -5731,7 +5808,7 @@ julia> rotr90(a,4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/arraymath.jl#L225-L258)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/arraymath.jl#L225-L258)
 
 </div>
 <br>
@@ -5810,7 +5887,7 @@ true
 Notice that in `eachslice(A; dims=2)`, the specified dimension is the one _without_ a colon in the slice. This is `view(A,:,i,:)`, whereas `mapslices(f, A; dims=(1,3))` uses `A[:,i,:]`. The function `f` may mutate values in the slice without affecting `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/abstractarray.jl#L3218-L3287)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/abstractarray.jl#L3220-L3289)
 
 </div>
 <br>
@@ -5864,7 +5941,7 @@ julia> s[1]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/slicearray.jl#L131-L165)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/slicearray.jl#L131-L165)
 
 </div>
 <br>
@@ -5918,7 +5995,7 @@ julia> s[1]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/slicearray.jl#L169-L203)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/slicearray.jl#L169-L203)
 
 </div>
 <br>
@@ -5983,7 +6060,7 @@ julia> eachslice(m, dims=1, drop=false)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/slicearray.jl#L77-L126)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/slicearray.jl#L77-L126)
 
 </div>
 <br>
@@ -6040,7 +6117,7 @@ julia> B[invperm(v)]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/combinatorics.jl#L246-L286)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/combinatorics.jl#L246-L286)
 
 </div>
 <br>
@@ -6069,7 +6146,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/combinatorics.jl#L62-L75)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/combinatorics.jl#L62-L75)
 
 </div>
 <br>
@@ -6115,7 +6192,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/combinatorics.jl#L184-L214)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/combinatorics.jl#L184-L214)
 
 </div>
 <br>
@@ -6159,7 +6236,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/combinatorics.jl#L217-L243)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/combinatorics.jl#L217-L243)
 
 </div>
 <br>
@@ -6203,7 +6280,7 @@ Prior to Julia 1.6, only single-integer `dims` are supported in `reverse`.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/arraymath.jl#L30-L58)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/arraymath.jl#L30-L58)
 
 </div>
 <br>
@@ -6237,7 +6314,7 @@ Julia🚀
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/strings/basic.jl#L728-L748)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/strings/basic.jl#L727-L747)
 
 </div>
 <br>
@@ -6278,7 +6355,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/array.jl#L2153-L2178)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/array.jl#L2151-L2176)
 
 
 
@@ -6296,7 +6373,7 @@ Multidimensional `reverse!` requires Julia 1.6.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/base/arraymath.jl#L62-L69)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/arraymath.jl#L62-L69)
 
 </div>
 <br>

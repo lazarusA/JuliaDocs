@@ -36,7 +36,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Mmap/src/Mmap.jl#L21-L42)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Mmap/src/Mmap.jl#L21-L42)
 
 </div>
 <br>
@@ -96,7 +96,7 @@ creates a `m`-by-`n` `Matrix{Int}`, linked to the file associated with stream `s
 A more portable file would need to encode the word size – 32 bit or 64 bit – and endianness information in the header. In practice, consider encoding binary data using standard formats like HDF5 (which can be used with memory-mapping).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Mmap/src/Mmap.jl#L127-L185)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Mmap/src/Mmap.jl#L127-L185)
 
 
 
@@ -141,7 +141,7 @@ julia> rm("mmap.bin")
 This creates a 25-by-30000 `BitArray`, linked to the file associated with stream `io`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Mmap/src/Mmap.jl#L287-L323)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Mmap/src/Mmap.jl#L287-L323)
 
 </div>
 <br>
@@ -159,7 +159,7 @@ Mmap.sync!(array)
 Forces synchronization between the in-memory version of a memory-mapped `Array` or [`BitArray`](/base/arrays#Base.BitArray) and the on-disk version.
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Mmap/src/Mmap.jl#L363-L368)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Mmap/src/Mmap.jl#L363-L368)
 
 </div>
 <br>

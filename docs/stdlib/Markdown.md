@@ -427,7 +427,7 @@ MD
 `MD` represents a Markdown document. Note that the `MD` constructor should not generally be used directly, since it constructs the internal data structures. Instead, you can construct `MD` objects using the exported macros [`@md_str`](/stdlib/Markdown#Markdown.@md_str) and [`@doc_str`](/stdlib/Markdown#Markdown.@doc_str).
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Markdown/src/parse/parse.jl#L3-L9)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Markdown/src/parse/parse.jl#L3-L9)
 
 </div>
 <br>
@@ -458,7 +458,7 @@ Markdown.MD
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Markdown/src/Markdown.jl#L71-L86)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Markdown/src/Markdown.jl#L71-L86)
 
 </div>
 <br>
@@ -490,7 +490,7 @@ Markdown.MD
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Markdown/src/Markdown.jl#L98-L116)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Markdown/src/Markdown.jl#L98-L116)
 
 </div>
 <br>
@@ -518,7 +518,7 @@ julia> html(md"hello _world_")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Markdown/src/render/html.jl#L191-L205)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Markdown/src/render/html.jl#L191-L205)
 
 </div>
 <br>
@@ -546,7 +546,7 @@ julia> latex(md"hello _world_")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/3a083e6f562588db232d656e89848b0633896963/stdlib/Markdown/src/render/latex.jl#L173-L186)
+[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Markdown/src/render/latex.jl#L173-L186)
 
 </div>
 <br>
