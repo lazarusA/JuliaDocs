@@ -762,7 +762,7 @@ Consider the printed output from the following:
 
 ```julia
 julia> @sync for i in 1:3
-           @async write(stdout, string(i), " Foo ", " Bar ")
+           Threads.@spawn write(stdout, string(i), " Foo ", " Bar ")
        end
 123 Foo  Foo  Foo  Bar  Bar  Bar
 ```
@@ -774,7 +774,7 @@ This is happening because, while the `write` call is synchronous, the writing of
 
 ```julia
 julia> @sync for i in 1:3
-           @async println(stdout, string(i), " Foo ", " Bar ")
+           Threads.@spawn println(stdout, string(i), " Foo ", " Bar ")
        end
 1 Foo  Bar
 2 Foo  Bar
@@ -788,7 +788,7 @@ You can lock your writes with a `ReentrantLock` like this:
 julia> l = ReentrantLock();
 
 julia> @sync for i in 1:3
-           @async begin
+           Threads.@spawn begin
                lock(l)
                try
                    write(stdout, string(i), " Foo ", " Bar ")

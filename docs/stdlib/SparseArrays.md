@@ -162,6 +162,27 @@ Details can be found in the [Sparse Vectors and Matrices](/stdlib/SparseArrays#s
 | [`sprandn(rng,m,n,d)`](/stdlib/SparseArrays#SparseArrays.sprandn) | [`randn(rng,m,n)`](/stdlib/Random#Base.randn) | Creates a _m_-by-_n_ random matrix (of density _d_) with iid non-zero elements generated with the `rng` random number generator                      |
 
 
+## Sparse Linear Algebra {#stdlib-sparse-linalg}
+
+Sparse matrix solvers call functions from [SuiteSparse](http://suitesparse.com). The following factorizations are available:
+1. [`cholesky`](/stdlib/LinearAlgebra#LinearAlgebra.cholesky)
+  
+2. [`ldlt`](/stdlib/LinearAlgebra#LinearAlgebra.ldlt)
+  
+3. [`lu`](/stdlib/LinearAlgebra#LinearAlgebra.lu)
+  
+4. [`qr`](/stdlib/LinearAlgebra#LinearAlgebra.qr)
+  
+
+| Type                | Description                      |
+|:------------------- |:-------------------------------- |
+| `CHOLMOD.Factor`    | Cholesky and LDLt factorizations |
+| `UMFPACK.UmfpackLU` | LU factorization                 |
+| `SPQR.QRSparse`     | QR factorization                 |
+
+
+
+
 # SparseArrays API {#stdlib-sparse-arrays}
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='SparseArrays.AbstractSparseArray' href='#SparseArrays.AbstractSparseArray'>#</a>&nbsp;<b><u>SparseArrays.AbstractSparseArray</u></b> &mdash; <i>Type</i>.
@@ -177,7 +198,7 @@ AbstractSparseArray{Tv,Ti,N}
 Supertype for `N`-dimensional sparse arrays (or array-like types) with elements of type `Tv` and index type `Ti`. [`SparseMatrixCSC`](/stdlib/SparseArrays#SparseArrays.SparseMatrixCSC), [`SparseVector`](/stdlib/SparseArrays#SparseArrays.SparseVector) and `SuiteSparse.CHOLMOD.Sparse` are subtypes of this.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/abstractsparse.jl#L3-L9)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/abstractsparse.jl#L3-L9)
 
 </div>
 <br>
@@ -195,7 +216,7 @@ AbstractSparseVector{Tv,Ti}
 Supertype for one-dimensional sparse arrays (or array-like types) with elements of type `Tv` and index type `Ti`. Alias for `AbstractSparseArray{Tv,Ti,1}`.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/abstractsparse.jl#L12-L17)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/abstractsparse.jl#L12-L17)
 
 </div>
 <br>
@@ -213,7 +234,7 @@ AbstractSparseMatrix{Tv,Ti}
 Supertype for two-dimensional sparse arrays (or array-like types) with elements of type `Tv` and index type `Ti`. Alias for `AbstractSparseArray{Tv,Ti,2}`.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/abstractsparse.jl#L27-L32)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/abstractsparse.jl#L27-L32)
 
 </div>
 <br>
@@ -249,7 +270,7 @@ sparse([5, 6, 0, 7])
 yields the same sparse vector.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L13-L35)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L13-L35)
 
 </div>
 <br>
@@ -267,7 +288,7 @@ SparseMatrixCSC{Tv,Ti<:Integer} <: AbstractSparseMatrixCSC{Tv,Ti}
 Matrix type for storing sparse matrices in the [Compressed Sparse Column](/stdlib/SparseArrays#man-csc) format. The standard way of constructing SparseMatrixCSC is through the [`sparse`](/stdlib/SparseArrays#SparseArrays.sparse) function. See also [`spzeros`](/stdlib/SparseArrays#SparseArrays.spzeros), [`spdiagm`](/stdlib/SparseArrays#SparseArrays.spdiagm) and [`sprand`](/stdlib/SparseArrays#SparseArrays.sprand).
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L11-L18)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L11-L18)
 
 </div>
 <br>
@@ -302,7 +323,7 @@ julia> sparse(A)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L996-L1015)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L996-L1015)
 
 
 
@@ -333,7 +354,7 @@ julia> sparse(Is, Js, Vs)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1030-L1057)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1030-L1057)
 
 </div>
 <br>
@@ -366,7 +387,7 @@ For the sake of efficiency, this method performs no argument checking beyond `1 
 This method runs in `O(m, n, length(I))` time. The HALFPERM algorithm described in F. Gustavson, &quot;Two fast algorithms for sparse matrices: multiplication and permuted transposition,&quot; ACM TOMS 4(3), 250-269 (1978) inspired this method&#39;s use of a pair of counting sorts.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1102-L1149)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1102-L1149)
 
 
 
@@ -388,7 +409,7 @@ This method requires Julia version 1.10 or later.
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1292-L1310)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1292-L1310)
 
 </div>
 <br>
@@ -431,7 +452,7 @@ julia> sparsevec([1, 3, 1, 2, 2], [true, true, false, false, false])
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L296-L326)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L296-L326)
 
 
 
@@ -453,7 +474,7 @@ julia> sparsevec(Dict(1 => 3, 2 => 2))
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L374-L387)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L374-L387)
 
 
 
@@ -476,7 +497,7 @@ julia> sparsevec([1.0, 2.0, 0.0, 0.0, 3.0, 0.0])
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L510-L523)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L510-L523)
 
 </div>
 <br>
@@ -496,7 +517,7 @@ Create an uninitialized mutable array with the given element type, index type, a
 The output matrix has zeros in the same locations as the input, but uninitialized values for the nonzero locations.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L708-L719)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L708-L719)
 
 </div>
 <br>
@@ -530,7 +551,7 @@ false
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/abstractsparse.jl#L45-L63)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/abstractsparse.jl#L45-L63)
 
 </div>
 <br>
@@ -562,7 +583,7 @@ julia> nnz(A)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L203-L219)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L203-L219)
 
 </div>
 <br>
@@ -594,7 +615,7 @@ julia> findnz(A)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/abstractsparse.jl#L112-L129)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/abstractsparse.jl#L112-L129)
 
 </div>
 <br>
@@ -626,7 +647,7 @@ julia> spzeros(Float32, 4)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L2081-L2100)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L2081-L2100)
 
 
 
@@ -648,7 +669,7 @@ This methods requires Julia version 1.10 or later.
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L2114-L2126)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L2114-L2126)
 
 </div>
 <br>
@@ -674,7 +695,7 @@ This methods requires Julia version 1.10 or later.
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L2143-L2155)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L2143-L2155)
 
 
 
@@ -696,7 +717,7 @@ This method requires Julia version 1.10 or later.
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L2166-L2182)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L2166-L2182)
 
 </div>
 <br>
@@ -728,7 +749,7 @@ julia> spdiagm(-1 => [1,2,3,4], 1 => [4,3,2,1])
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L4234-L4254)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L4234-L4254)
 
 
 
@@ -764,7 +785,7 @@ julia> spdiagm(sparse([1,0,3]))
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L4258-L4284)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L4258-L4284)
 
 </div>
 <br>
@@ -788,7 +809,7 @@ This method was added in Julia 1.8. It mimics previous concatenation behavior, w
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L1343-L1352)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L1343-L1352)
 
 </div>
 <br>
@@ -812,7 +833,7 @@ This method was added in Julia 1.8. It mimics previous concatenation behavior, w
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L1358-L1367)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L1358-L1367)
 
 </div>
 <br>
@@ -836,7 +857,7 @@ This method was added in Julia 1.8. It mimics previous concatenation behavior, w
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L1373-L1384)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L1373-L1384)
 
 </div>
 <br>
@@ -867,7 +888,7 @@ julia> blockdiag(sparse(2I, 3, 3), sparse(4I, 2, 2))
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L4007-L4022)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L4007-L4022)
 
 </div>
 <br>
@@ -905,7 +926,7 @@ julia> sprand(Float64, 3, 0.75)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1994-L2026)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1994-L2026)
 
 </div>
 <br>
@@ -939,7 +960,7 @@ julia> sprandn(2, 2, 0.75)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L2051-L2069)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L2051-L2069)
 
 </div>
 <br>
@@ -974,7 +995,7 @@ julia> nonzeros(A)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L232-L255)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L232-L255)
 
 </div>
 <br>
@@ -1009,7 +1030,7 @@ julia> rowvals(A)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L261-L283)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L261-L283)
 
 </div>
 <br>
@@ -1048,7 +1069,7 @@ Adding or removing nonzero elements to the matrix may invalidate the `nzrange`, 
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L289-L310)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L289-L310)
 
 
 
@@ -1060,7 +1081,7 @@ nzrange(x::SparseVectorUnion, col)
 Give the range of indices to the structural nonzero values of a sparse vector. The column index `col` is ignored (assumed to be `1`).
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L123-L128)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L123-L128)
 
 </div>
 <br>
@@ -1078,7 +1099,7 @@ droptol!(A::AbstractSparseMatrixCSC, tol)
 Removes stored values from `A` whose absolute value is less than or equal to `tol`.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1858-L1862)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1858-L1862)
 
 
 
@@ -1090,7 +1111,7 @@ droptol!(x::AbstractCompressedVector, tol)
 Removes stored values from `x` whose absolute value is less than or equal to `tol`.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L2335-L2339)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L2335-L2339)
 
 </div>
 <br>
@@ -1110,7 +1131,7 @@ Removes stored numerical zeros from `x`.
 For an out-of-place version, see [`dropzeros`](/stdlib/SparseArrays#SparseArrays.dropzeros). For algorithmic information, see `fkeep!`.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L2342-L2349)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L2342-L2349)
 
 </div>
 <br>
@@ -1147,7 +1168,7 @@ julia> dropzeros(A)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1877-L1898)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1877-L1898)
 
 
 
@@ -1177,7 +1198,7 @@ julia> dropzeros(A)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsevector.jl#L2353-L2373)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsevector.jl#L2353-L2373)
 
 </div>
 <br>
@@ -1224,7 +1245,7 @@ julia> permute(A, [1, 2, 3, 4], [4, 3, 2, 1])
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1717-L1750)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1717-L1750)
 
 </div>
 <br>
@@ -1259,7 +1280,7 @@ For additional (algorithmic) information, and for versions of these methods that
 See also [`permute`](/stdlib/SparseArrays#SparseArrays.permute).
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1639-L1668)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1639-L1668)
 
 </div>
 <br>
@@ -1284,7 +1305,7 @@ This method is the parent of several methods performing transposition and permut
 This method implements the `HALFPERM` algorithm described in F. Gustavson, &quot;Two fast algorithms for sparse matrices: multiplication and permuted transposition,&quot; ACM TOMS 4(3), 250-269 (1978). The algorithm runs in `O(size(A, 1), size(A, 2), nnz(A))` time and requires no space beyond that passed in.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1336-L1357)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1336-L1357)
 
 </div>
 <br>
@@ -1304,7 +1325,7 @@ Transpose `A` and store it in `X` while applying the function `f` to the non-zer
 See `halfperm!`
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1405-L1413)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1405-L1413)
 
 </div>
 <br>
@@ -1329,4 +1350,22 @@ Several other Julia packages provide sparse matrix implementations that should b
 7. [ExtendableSparse.jl](https://github.com/j-fu/ExtendableSparse.jl) enables fast insertion into sparse matrices using a lazy approach to new stored indices.
   
 8. [Finch.jl](https://github.com/willow-ahrens/Finch.jl) supports extensive multidimensional sparse array formats and operations through a mini tensor language and compiler, all in native Julia. Support for COO, CSF, CSR, CSC and more, as well as operations like broadcast, reduce, etc. and custom operations.
+  
+
+External packages providing sparse direct solvers:
+1. [KLU.jl](https://github.com/JuliaSparse/KLU.jl)
+  
+2. [Pardiso.jl](https://github.com/JuliaSparse/Pardiso.jl/)
+  
+
+External packages providing solvers for iterative solution of eigensystems and singular value decompositions:
+1. [ArnoldiMethods.jl](https://github.com/JuliaLinearAlgebra/ArnoldiMethod.jl)
+  
+2. [KrylovKit](https://github.com/Jutho/KrylovKit.jl)
+  
+3. [Arpack.jl](https://github.com/JuliaLinearAlgebra/Arpack.jl)
+  
+
+External packages for working with graphs:
+1. [Graphs.jl](https://github.com/JuliaGraphs/Graphs.jl)
   

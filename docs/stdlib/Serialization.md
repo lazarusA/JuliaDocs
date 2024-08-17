@@ -24,7 +24,7 @@ The data format can change in minor (1.x) Julia releases, but files written by p
 In some cases, the word size (32- or 64-bit) of the reading and writing machines must match. In rarer cases the OS or architecture must also match, for example when using packages that contain platform-dependent code.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Serialization/src/Serialization.jl#L775-L798)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Serialization/src/Serialization.jl#L775-L798)
 
 
 
@@ -42,7 +42,7 @@ This method is available as of Julia 1.1.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Serialization/src/Serialization.jl#L805-L812)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Serialization/src/Serialization.jl#L805-L812)
 
 </div>
 <br>
@@ -60,7 +60,7 @@ deserialize(stream)
 Read a value written by [`serialize`](/stdlib/Serialization#Serialization.serialize). `deserialize` assumes the binary data read from `stream` is correct and has been serialized by a compatible implementation of [`serialize`](/stdlib/Serialization#Serialization.serialize). `deserialize` is designed for simplicity and performance, and so does not validate the data read. Malformed data can result in process termination. The caller must ensure the integrity and correctness of data read from `stream`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Serialization/src/Serialization.jl#L817-L825)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Serialization/src/Serialization.jl#L817-L825)
 
 
 
@@ -78,7 +78,7 @@ This method is available as of Julia 1.1.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Serialization/src/Serialization.jl#L828-L835)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Serialization/src/Serialization.jl#L828-L835)
 
 </div>
 <br>
@@ -106,7 +106,7 @@ Write an identifying header to the specified serializer. The header consists of 
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Serialization/src/Serialization.jl#L710-L724)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Serialization/src/Serialization.jl#L710-L724)
 
 </div>
 <br>

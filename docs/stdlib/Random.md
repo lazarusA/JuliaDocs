@@ -46,7 +46,7 @@ Random
 Support for generating random numbers. Provides [`rand`](/stdlib/Random#Base.rand), [`randn`](/stdlib/Random#Base.randn), [`AbstractRNG`](/stdlib/Random#Random.AbstractRNG), [`Xoshiro`](/stdlib/Random#Random.Xoshiro), [`MersenneTwister`](/stdlib/Random#Random.MersenneTwister), and [`RandomDevice`](/stdlib/Random#Random.RandomDevice).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Random.jl#L3-L8)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Random.jl#L3-L8)
 
 </div>
 <br>
@@ -133,7 +133,7 @@ The complexity of `rand(rng, s::Union{AbstractDict,AbstractSet})` is linear in t
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Random.jl#L308-L381)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Random.jl#L310-L383)
 
 </div>
 <br>
@@ -164,7 +164,7 @@ julia> rand!(Xoshiro(123), zeros(5))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Random.jl#L384-L403)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Random.jl#L386-L405)
 
 </div>
 <br>
@@ -200,7 +200,7 @@ julia> bitrand(Xoshiro(123), 10)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/misc.jl#L13-L33)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/misc.jl#L13-L33)
 
 </div>
 <br>
@@ -259,7 +259,7 @@ julia> randn(rng, ComplexF32, (2, 3))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/normal.jl#L12-L63)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/normal.jl#L12-L63)
 
 </div>
 <br>
@@ -290,7 +290,7 @@ julia> randn!(Xoshiro(123), zeros(5))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/normal.jl#L181-L197)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/normal.jl#L181-L197)
 
 </div>
 <br>
@@ -324,7 +324,7 @@ julia> randexp(rng, 3, 3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/normal.jl#L130-L152)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/normal.jl#L130-L152)
 
 </div>
 <br>
@@ -355,7 +355,7 @@ julia> randexp!(Xoshiro(123), zeros(5))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/normal.jl#L200-L216)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/normal.jl#L200-L216)
 
 </div>
 <br>
@@ -393,7 +393,7 @@ julia> randstring("ACGT")
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/misc.jl#L43-L67)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/misc.jl#L43-L67)
 
 </div>
 <br>
@@ -423,7 +423,7 @@ julia> randsubseq(Xoshiro(123), 1:8, 0.3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/misc.jl#L160-L175)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/misc.jl#L160-L175)
 
 </div>
 <br>
@@ -458,7 +458,7 @@ julia> S
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/misc.jl#L134-L154)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/misc.jl#L134-L154)
 
 </div>
 <br>
@@ -496,7 +496,7 @@ julia> randperm(Xoshiro(123), 4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/misc.jl#L271-L295)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/misc.jl#L271-L295)
 
 </div>
 <br>
@@ -526,7 +526,7 @@ julia> randperm!(Xoshiro(123), Vector{Int}(undef, 4))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/misc.jl#L299-L316)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/misc.jl#L299-L316)
 
 </div>
 <br>
@@ -568,7 +568,7 @@ julia> randcycle(Xoshiro(123), 6)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/misc.jl#L340-L368)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/misc.jl#L340-L368)
 
 </div>
 <br>
@@ -604,7 +604,7 @@ julia> randcycle!(Xoshiro(123), Vector{Int}(undef, 6))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/misc.jl#L372-L396)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/misc.jl#L372-L396)
 
 </div>
 <br>
@@ -640,7 +640,7 @@ julia> shuffle(Xoshiro(123), Vector(1:10))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/misc.jl#L240-L263)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/misc.jl#L240-L263)
 
 </div>
 <br>
@@ -676,7 +676,7 @@ julia> shuffle!(Xoshiro(123), Vector(1:10))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/misc.jl#L186-L207)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/misc.jl#L186-L207)
 
 </div>
 <br>
@@ -712,7 +712,7 @@ This function was introduced in Julia 1.3.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/RNGs.jl#L378-L398)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/RNGs.jl#L378-L398)
 
 </div>
 <br>
@@ -770,7 +770,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Random.jl#L406-L455)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Random.jl#L408-L457)
 
 </div>
 <br>
@@ -788,7 +788,7 @@ AbstractRNG
 Supertype for random number generators such as [`MersenneTwister`](/stdlib/Random#Random.MersenneTwister) and [`RandomDevice`](/stdlib/Random#Random.RandomDevice).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Random.jl#L34-L38)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Random.jl#L36-L40)
 
 </div>
 <br>
@@ -818,7 +818,7 @@ Seeding `TaskLocalRNG()` with a negative integer seed requires at least Julia 1.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Xoshiro.jl#L184-L206)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Xoshiro.jl#L184-L206)
 
 </div>
 <br>
@@ -873,7 +873,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Xoshiro.jl#L6-L51)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Xoshiro.jl#L6-L51)
 
 </div>
 <br>
@@ -918,7 +918,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/RNGs.jl#L79-L110)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/RNGs.jl#L79-L110)
 
 </div>
 <br>
@@ -936,7 +936,7 @@ RandomDevice()
 Create a `RandomDevice` RNG object. Two such objects will always generate different streams of random numbers. The entropy is obtained from the operating system.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/RNGs.jl#L6-L12)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/RNGs.jl#L6-L12)
 
 </div>
 <br>
@@ -997,7 +997,7 @@ When `sp = Sampler(rng, x, repetition)`, `rand(rng, sp)` will be used to draw ra
 [`Random.SamplerType`](/stdlib/Random#Random.SamplerType) and [`Random.SamplerTrivial`](/stdlib/Random#Random.SamplerTrivial) are default fallbacks for _types_ and _values_, respectively. [`Random.SamplerSimple`](/stdlib/Random#Random.SamplerSimple) can be used to store pre-computed values without defining extra types for only this purpose.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Random.jl#L124-L138)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Random.jl#L126-L140)
 
 </div>
 <br>
@@ -1015,7 +1015,7 @@ SamplerType{T}()
 A sampler for types, containing no other information. The default fallback for `Sampler` when called with types.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Random.jl#L154-L159)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Random.jl#L156-L161)
 
 </div>
 <br>
@@ -1035,7 +1035,7 @@ Create a sampler that just wraps the given value `x`. This is the default fall-b
 The recommended use case is sampling from values without precomputed data.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Random.jl#L170-L178)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Random.jl#L172-L180)
 
 </div>
 <br>
@@ -1055,7 +1055,7 @@ Create a sampler that wraps the given value `x` and the `data`. The `eltype` of 
 The recommended use case is sampling from values with precomputed data.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Random/src/Random.jl#L191-L198)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Random/src/Random.jl#L193-L200)
 
 </div>
 <br>

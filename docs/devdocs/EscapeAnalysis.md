@@ -254,7 +254,7 @@ X  │    %13 = Core.tuple(%11)::Tuple{Int64}
 ◌  │    %16 = Base.sub_int(%15, 1)::Int64
 ◌  │    %17 = Base.slt_int(%7, %16)::Bool
 ◌  └───       goto #3 if not %17
-X  2 ── %19 = %new(Base.var"#133#134"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}, %3, %16, %12, %11, %10, %7, %6, %5)::Base.var"#133#134"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}
+X  2 ── %19 = %new(Base.var"#136#137"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}, %3, %16, %12, %11, %10, %7, %6, %5)::Base.var"#136#137"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}
 ✓  └───       invoke %19()::MemoryRef{Any}
 ◌  3 ┄─       goto #4
 X  4 ── %22 = Base.getfield(%3, :size)::Tuple{Int64}
@@ -503,7 +503,7 @@ X  │    %13 = Core.tuple(%11)::Tuple{Int64}
 ◌  │    %16 = Base.sub_int(%15, 1)::Int64
 ◌  │    %17 = Base.slt_int(%7, %16)::Bool
 ◌  └───       goto #3 if not %17
-X  2 ── %19 = %new(Base.var"#133#134"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}, %3, %16, %12, %11, %10, %7, %6, %5)::Base.var"#133#134"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}
+X  2 ── %19 = %new(Base.var"#136#137"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}, %3, %16, %12, %11, %10, %7, %6, %5)::Base.var"#136#137"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}
 ✓  └───       invoke %19()::MemoryRef{Any}
 ◌  3 ┄─       goto #4
 X  4 ── %22 = Base.getfield(%3, :size)::Tuple{Int64}
@@ -528,7 +528,7 @@ X  │    %38 = Core.tuple(%36)::Tuple{Int64}
 ◌  │    %41 = Base.sub_int(%40, 1)::Int64
 ◌  │    %42 = Base.slt_int(%32, %41)::Bool
 ◌  └───       goto #7 if not %42
-X  6 ── %44 = %new(Base.var"#133#134"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}, %3, %41, %37, %36, %35, %32, %31, %30)::Base.var"#133#134"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}
+X  6 ── %44 = %new(Base.var"#136#137"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}, %3, %41, %37, %36, %35, %32, %31, %30)::Base.var"#136#137"{Vector{Any}, Int64, Int64, Int64, Int64, Int64, Memory{Any}, MemoryRef{Any}}
 ✓  └───       invoke %44()::MemoryRef{Any}
 ◌  7 ┄─       goto #8
 X  8 ── %47 = Base.getfield(%3, :size)::Tuple{Int64}
@@ -701,7 +701,7 @@ Analyzes escape information in `ir`:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L608-L615)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L608-L615)
 
 </div>
 <br>
@@ -719,7 +719,7 @@ estate::EscapeState
 Extended lattice that maps arguments and SSA values to escape information represented as [`EscapeInfo`](/devdocs/EscapeAnalysis#Core.Compiler.EscapeAnalysis.EscapeInfo). Escape information imposed on SSA IR element `x` can be retrieved by `estate[x]`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L440-L445)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L440-L445)
 
 </div>
 <br>
@@ -784,7 +784,7 @@ There are utility constructors to create common `EscapeInfo`s, e.g.,
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L41-L81)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/base/compiler/ssair/EscapeAnalysis/EscapeAnalysis.jl#L41-L81)
 
 </div>
 <br>

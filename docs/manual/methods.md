@@ -511,7 +511,7 @@ Start some other operations that use `f(x)`:
 julia> g(x) = f(x)
 g (generic function with 1 method)
 
-julia> t = @async f(wait()); yield();
+julia> t = Threads.@spawn f(wait()); yield();
 ```
 
 
@@ -538,7 +538,7 @@ julia> g(1)
 julia> fetch(schedule(t, 1))
 "original definition"
 
-julia> t = @async f(wait()); yield();
+julia> t = Threads.@spawn f(wait()); yield();
 
 julia> fetch(schedule(t, 1))
 "definition for Int"

@@ -24,7 +24,7 @@ This function has moved to `Base` with Julia 1.1, consider using `copy!(dst, src
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Future/src/Future.jl#L14-L22)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Future/src/Future.jl#L14-L22)
 
 </div>
 <br>
@@ -42,7 +42,7 @@ randjump(r::MersenneTwister, steps::Integer) -> MersenneTwister
 Create an initialized `MersenneTwister` object, whose state is moved forward (without generating numbers) from `r` by `steps` steps. One such step corresponds to the generation of two `Float64` numbers. For each different value of `steps`, a large polynomial has to be generated internally. One is already pre-computed for `steps=big(10)^20`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/Future/src/Future.jl#L30-L38)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/Future/src/Future.jl#L30-L38)
 
 </div>
 <br>

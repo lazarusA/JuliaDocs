@@ -385,7 +385,7 @@ NoPivot
 Pivoting is not performed. This is the default strategy for [`cholesky`](/stdlib/LinearAlgebra#LinearAlgebra.cholesky) and [`qr`](/stdlib/LinearAlgebra#LinearAlgebra.qr) factorizations. Note, however, that other matrix factorizations such as the LU factorization may fail without pivoting, and may also be numerically unstable for floating-point matrices in the face of roundoff error. In such cases, this pivot strategy is mainly useful for pedagogical purposes.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L198-L206)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L198-L206)
 
 </div>
 <br>
@@ -407,7 +407,7 @@ Beware that for floating-point matrices, the resulting LU algorithm is numerical
 Note that the [element type](/base/collections#Base.eltype) of the matrix must admit an [`iszero`](/base/numbers#Base.iszero) method.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L209-L222)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L209-L222)
 
 </div>
 <br>
@@ -429,7 +429,7 @@ In the LU case, the maximum-magnitude element within the current column in the r
 In the Cholesky case, the maximal element among the remaining diagonal elements is chosen as the pivot element. This is sometimes referred to as the &quot;diagonal pivoting&quot; algorithm, and leads to _complete pivoting_ (i.e., of both rows and columns by the same permutation). In this case, the (real part of the) [element type](/base/collections#Base.eltype) of the matrix must admit a [`<`](/base/math#Base.:<) method.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L225-L242)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L225-L242)
 
 </div>
 <br>
@@ -449,7 +449,7 @@ The column with the maximum norm is used for subsequent computation. This is use
 Note that the [element type](/base/collections#Base.eltype) of the matrix must admit [`norm`](/stdlib/LinearAlgebra#LinearAlgebra.norm) and [`abs`](/base/math#Base.abs) methods, whose respective result types must admit a [`<`](/base/math#Base.:<) method.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L245-L253)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L245-L253)
 
 </div>
 <br>
@@ -481,7 +481,7 @@ julia> [1 1; 0 1] * [1 0; 1 1]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/matmul.jl#L107-L119)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/matmul.jl#L107-L119)
 
 </div>
 <br>
@@ -512,7 +512,7 @@ These optimisations require at least Julia 1.7.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/matmul.jl#L1126-L1147)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/matmul.jl#L1126-L1147)
 
 </div>
 <br>
@@ -551,7 +551,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1156-L1186)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1156-L1186)
 
 </div>
 <br>
@@ -589,7 +589,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1207-L1230)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1207-L1230)
 
 </div>
 <br>
@@ -607,7 +607,7 @@ SingularException
 Exception thrown when the input matrix has one or more zero-valued eigenvalues, and is not invertible. A linear solve involving such a matrix cannot be computed. The `info` field indicates the location of (one of) the singular value(s).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/exceptions.jl#L20-L26)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/exceptions.jl#L20-L26)
 
 </div>
 <br>
@@ -625,7 +625,7 @@ PosDefException
 Exception thrown when the input matrix was not [positive definite](https://en.wikipedia.org/wiki/Definiteness_of_a_matrix). Some linear algebra functions and factorizations are only applicable to positive definite matrices. The `info` field indicates the location of (one of) the eigenvalue(s) which is (are) less than/equal to 0.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/exceptions.jl#L31-L37)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/exceptions.jl#L31-L37)
 
 </div>
 <br>
@@ -643,7 +643,7 @@ ZeroPivotException <: Exception
 Exception thrown when a matrix factorization/solve encounters a zero in a pivot (diagonal) position and cannot proceed.  This may _not_ mean that the matrix is singular: it may be fruitful to switch to a different factorization such as pivoted LU that can re-order variables to eliminate spurious zero pivots. The `info` field indicates the location of (one of) the zero pivot(s).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/exceptions.jl#L62-L70)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/exceptions.jl#L62-L70)
 
 </div>
 <br>
@@ -661,7 +661,7 @@ RankDeficientException
 Exception thrown when the input matrix is [rank deficient](https://en.wikipedia.org/wiki/Rank_(linear_algebra)). Some linear algebra functions, such as the Cholesky decomposition, are only applicable to matrices that are not rank deficient. The `info` field indicates the computed rank of the matrix.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/exceptions.jl#L51-L57)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/exceptions.jl#L51-L57)
 
 </div>
 <br>
@@ -679,7 +679,7 @@ LAPACKException
 Generic LAPACK exception thrown either during direct calls to the [LAPACK functions](/stdlib/LinearAlgebra#man-linalg-lapack-functions) or during calls to other functions that use the LAPACK functions internally but lack specialized error handling. The `info` field contains additional information on the underlying error and depends on the LAPACK function that was invoked.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/exceptions.jl#L9-L15)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/exceptions.jl#L9-L15)
 
 </div>
 <br>
@@ -725,7 +725,7 @@ julia> dot(x, y)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L885-L919)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L885-L919)
 
 </div>
 <br>
@@ -763,7 +763,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L975-L997)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L975-L997)
 
 </div>
 <br>
@@ -805,7 +805,7 @@ julia> cross(a,b)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L355-L381)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L355-L381)
 
 </div>
 <br>
@@ -838,7 +838,7 @@ julia> axpy!(2, x, y)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1514-L1532)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1514-L1532)
 
 </div>
 <br>
@@ -871,7 +871,7 @@ julia> axpby!(2, x, 2, y)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1560-L1578)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1560-L1578)
 
 </div>
 <br>
@@ -895,7 +895,7 @@ Overwrite `x` with `c*x + s*y` and `y` with `-conj(s)*x + c*y`. Returns `x` and 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1608-L1616)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1608-L1616)
 
 </div>
 <br>
@@ -919,7 +919,7 @@ Overwrite `x` with `c*x + s*y` and `y` with `conj(s)*x - c*y`. Returns `x` and `
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1631-L1639)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1631-L1639)
 
 </div>
 <br>
@@ -973,7 +973,7 @@ julia> factorize(A) # factorize will check to see that A is already factorized
 This returns a `5×5 Bidiagonal{Float64}`, which can now be passed to other linear algebra functions (e.g. eigensolvers) which will use specialized methods for `Bidiagonal` types.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1386-L1429)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1383-L1426)
 
 </div>
 <br>
@@ -1037,7 +1037,7 @@ julia> Diagonal(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/diagonal.jl#L23-L69)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/diagonal.jl#L23-L69)
 
 
 
@@ -1074,7 +1074,7 @@ julia> Diagonal(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/diagonal.jl#L72-L101)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/diagonal.jl#L72-L101)
 
 
 
@@ -1086,7 +1086,7 @@ Diagonal{T}(undef, n)
 Construct an uninitialized `Diagonal{T}` of length `n`. See `undef`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/diagonal.jl#L130-L134)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/diagonal.jl#L130-L134)
 
 </div>
 <br>
@@ -1136,7 +1136,7 @@ julia> Bl = Bidiagonal(dv, ev, :L) # ev is on the first subdiagonal
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/bidiag.jl#L29-L67)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/bidiag.jl#L29-L67)
 
 
 
@@ -1174,7 +1174,7 @@ julia> Bidiagonal(A, :L) # contains the main diagonal and first subdiagonal of A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/bidiag.jl#L82-L111)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/bidiag.jl#L82-L111)
 
 </div>
 <br>
@@ -1236,7 +1236,7 @@ julia> A[2,1]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/tridiag.jl#L18-L69)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/tridiag.jl#L18-L69)
 
 
 
@@ -1272,7 +1272,7 @@ julia> SymTridiagonal(B)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/tridiag.jl#L82-L109)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/tridiag.jl#L82-L109)
 
 </div>
 <br>
@@ -1314,7 +1314,7 @@ julia> Tridiagonal(dl, d, du)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/tridiag.jl#L506-L534)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/tridiag.jl#L506-L534)
 
 
 
@@ -1345,7 +1345,7 @@ julia> Tridiagonal(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/tridiag.jl#L554-L576)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/tridiag.jl#L554-L576)
 
 </div>
 <br>
@@ -1398,7 +1398,7 @@ julia> hermitianpart(A)
 Note that `Supper` will not be equal to `Slower` unless `A` is itself symmetric (e.g. if `A == transpose(A)`).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetric.jl#L14-L59)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetric.jl#L14-L59)
 
 </div>
 <br>
@@ -1456,7 +1456,7 @@ Hermitian(fill(complex(1,1), 1, 1)) == fill(1, 1, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetric.jl#L107-L149)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetric.jl#L107-L149)
 
 </div>
 <br>
@@ -1491,7 +1491,7 @@ julia> LowerTriangular(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/triangular.jl#L54-L73)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/triangular.jl#L54-L73)
 
 </div>
 <br>
@@ -1526,7 +1526,7 @@ julia> UpperTriangular(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/triangular.jl#L75-L94)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/triangular.jl#L75-L94)
 
 </div>
 <br>
@@ -1561,7 +1561,7 @@ julia> UnitLowerTriangular(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/triangular.jl#L96-L117)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/triangular.jl#L96-L117)
 
 </div>
 <br>
@@ -1596,7 +1596,7 @@ julia> UnitUpperTriangular(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/triangular.jl#L119-L140)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/triangular.jl#L119-L140)
 
 </div>
 <br>
@@ -1647,7 +1647,7 @@ julia> UpperHessenberg(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/hessenberg.jl#L6-L43)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/hessenberg.jl#L6-L43)
 
 </div>
 <br>
@@ -1695,7 +1695,7 @@ julia> J[1:2, 1:2]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/uniformscaling.jl#L6-L38)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/uniformscaling.jl#L6-L38)
 
 </div>
 <br>
@@ -1726,7 +1726,7 @@ julia> [1 2im 3; 1im 2 3] * I
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/uniformscaling.jl#L43-L58)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/uniformscaling.jl#L43-L58)
 
 </div>
 <br>
@@ -1767,7 +1767,7 @@ julia> (0.7*I)(3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/uniformscaling.jl#L61-L83)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/uniformscaling.jl#L61-L83)
 
 </div>
 <br>
@@ -1785,7 +1785,7 @@ LinearAlgebra.Factorization
 Abstract type for [matrix factorizations](https://en.wikipedia.org/wiki/Matrix_decomposition) a.k.a. matrix decompositions. See [online documentation](/stdlib/LinearAlgebra#man-linalg-factorizations) for a list of available matrix factorizations.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/factorization.jl#L4-L11)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/factorization.jl#L4-L11)
 
 </div>
 <br>
@@ -1844,7 +1844,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lu.jl#L6-L50)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lu.jl#L6-L50)
 
 </div>
 <br>
@@ -1913,7 +1913,7 @@ See also [`lu!`](/stdlib/LinearAlgebra#LinearAlgebra.lu!)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/umfpack.jl#L325-L383)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/umfpack.jl#L325-L383)
 
 
 
@@ -2014,7 +2014,7 @@ U factor (rank-deficient):
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lu.jl#L240-L340)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lu.jl#L240-L340)
 
 </div>
 <br>
@@ -2068,7 +2068,7 @@ julia> F \ ones(2)
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/umfpack.jl#L415-L459)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/umfpack.jl#L415-L459)
 
 
 
@@ -2117,7 +2117,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lu.jl#L110-L149)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lu.jl#L110-L149)
 
 </div>
 <br>
@@ -2180,7 +2180,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/cholesky.jl#L30-L81)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/cholesky.jl#L30-L81)
 
 </div>
 <br>
@@ -2236,7 +2236,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/cholesky.jl#L105-L152)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/cholesky.jl#L105-L152)
 
 </div>
 <br>
@@ -2296,7 +2296,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/cholesky.jl#L490-L541)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/cholesky.jl#L490-L541)
 
 
 
@@ -2350,7 +2350,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/cholesky.jl#L555-L609)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/cholesky.jl#L555-L609)
 
 
 
@@ -2433,7 +2433,7 @@ true
 
 ::: tip Note
 
-This method uses the CHOLMOD[^ACM887][^DavisHager2009] library from [SuiteSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse). CHOLMOD only supports real or complex types in single or double precision.  Input matrices not of those element types will be  converted to these types as appropriate.
+This method uses the CHOLMOD[^ACM887][^DavisHager2009] library from [SuiteSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse). CHOLMOD only supports real or complex types in single or double precision. Input matrices not of those element types will be converted to these types as appropriate.
 
 Many other functions from CHOLMOD are wrapped but not exported from the `Base.SparseArrays.CHOLMOD` module.
 
@@ -2446,7 +2446,7 @@ Many other functions from CHOLMOD are wrapped but not exported from the `Base.Sp
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/cholmod.jl#L1494-L1600)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/cholmod.jl#L1528-L1634)
 
 </div>
 <br>
@@ -2479,7 +2479,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/cholesky.jl#L423-L443)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/cholesky.jl#L423-L443)
 
 
 
@@ -2491,7 +2491,7 @@ cholesky!(A::AbstractMatrix, RowMaximum(); tol = 0.0, check = true) -> CholeskyP
 The same as [`cholesky`](/stdlib/LinearAlgebra#LinearAlgebra.cholesky), but saves space by overwriting the input `A`, instead of creating a copy. An [`InexactError`](/base/base#Core.InexactError) exception is thrown if the factorization produces a number not representable by the element type of `A`, e.g. for integer types.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/cholesky.jl#L466-L473)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/cholesky.jl#L466-L473)
 
 
 
@@ -2506,12 +2506,12 @@ See also [`cholesky`](/stdlib/LinearAlgebra#LinearAlgebra.cholesky).
 
 ::: tip Note
 
-This method uses the CHOLMOD library from SuiteSparse, which only supports real or complex types in single or double precision.  Input matrices not of those element types will be converted to these types as appropriate.
+This method uses the CHOLMOD library from SuiteSparse, which only supports real or complex types in single or double precision. Input matrices not of those element types will be converted to these types as appropriate.
 
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/cholmod.jl#L1458-L1473)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/cholmod.jl#L1492-L1507)
 
 </div>
 <br>
@@ -2529,7 +2529,7 @@ lowrankupdate(C::Cholesky, v::AbstractVector) -> CC::Cholesky
 Update a Cholesky factorization `C` with the vector `v`. If `A = C.U'C.U` then `CC = cholesky(C.U'C.U + v*v')` but the computation of `CC` only uses `O(n^2)` operations.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/cholesky.jl#L987-L993)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/cholesky.jl#L987-L993)
 
 
 
@@ -2545,7 +2545,7 @@ The returned factor is always an `LDLt` factorization.
 See also [`lowrankupdate!`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankupdate!), [`lowrankdowndate`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankdowndate), [`lowrankdowndate!`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankdowndate!).
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/cholmod.jl#L1759-L1767)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/cholmod.jl#L1793-L1801)
 
 </div>
 <br>
@@ -2563,7 +2563,7 @@ lowrankdowndate(C::Cholesky, v::AbstractVector) -> CC::Cholesky
 Downdate a Cholesky factorization `C` with the vector `v`. If `A = C.U'C.U` then `CC = cholesky(C.U'C.U - v*v')` but the computation of `CC` only uses `O(n^2)` operations.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/cholesky.jl#L996-L1002)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/cholesky.jl#L996-L1002)
 
 
 
@@ -2579,7 +2579,7 @@ The returned factor is always an `LDLt` factorization.
 See also [`lowrankdowndate!`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankdowndate!), [`lowrankupdate`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankupdate), [`lowrankupdate!`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankupdate!).
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/cholmod.jl#L1774-L1782)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/cholmod.jl#L1808-L1816)
 
 </div>
 <br>
@@ -2597,7 +2597,7 @@ lowrankupdate!(C::Cholesky, v::AbstractVector) -> CC::Cholesky
 Update a Cholesky factorization `C` with the vector `v`. If `A = C.U'C.U` then `CC = cholesky(C.U'C.U + v*v')` but the computation of `CC` only uses `O(n^2)` operations. The input factorization `C` is updated in place such that on exit `C == CC`. The vector `v` is destroyed during the computation.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/cholesky.jl#L888-L895)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/cholesky.jl#L888-L895)
 
 
 
@@ -2613,7 +2613,7 @@ Update an `LDLt` or `LLt` Factorization `F` of `A` to a factorization of `A + C*
 See also [`lowrankupdate`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankupdate), [`lowrankdowndate`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankdowndate), [`lowrankdowndate!`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankdowndate!).
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/cholmod.jl#L1729-L1737)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/cholmod.jl#L1763-L1771)
 
 </div>
 <br>
@@ -2631,7 +2631,7 @@ lowrankdowndate!(C::Cholesky, v::AbstractVector) -> CC::Cholesky
 Downdate a Cholesky factorization `C` with the vector `v`. If `A = C.U'C.U` then `CC = cholesky(C.U'C.U - v*v')` but the computation of `CC` only uses `O(n^2)` operations. The input factorization `C` is updated in place such that on exit `C == CC`. The vector `v` is destroyed during the computation.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/cholesky.jl#L934-L941)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/cholesky.jl#L934-L941)
 
 
 
@@ -2647,7 +2647,7 @@ Update an `LDLt` or `LLt` Factorization `F` of `A` to a factorization of `A - C*
 See also [`lowrankdowndate`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankdowndate), [`lowrankupdate`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankupdate), [`lowrankupdate!`](/stdlib/LinearAlgebra#LinearAlgebra.lowrankupdate!).
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/cholmod.jl#L1744-L1752)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/cholmod.jl#L1778-L1786)
 
 </div>
 <br>
@@ -2699,7 +2699,7 @@ D factor:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/ldlt.jl#L3-L42)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/ldlt.jl#L3-L42)
 
 </div>
 <br>
@@ -2746,7 +2746,7 @@ julia> S \ b
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/ldlt.jl#L129-L162)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/ldlt.jl#L129-L162)
 
 
 
@@ -2763,14 +2763,14 @@ Setting the optional `shift` keyword argument computes the factorization of `A+s
 
 ::: tip Note
 
-This method uses the CHOLMOD[^ACM887][^DavisHager2009] library from [SuiteSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse). CHOLMOD only supports real or complex types in single or double precision.  Input matrices not of those element types will be converted to these types as appropriate.
+This method uses the CHOLMOD[^ACM887][^DavisHager2009] library from [SuiteSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse). CHOLMOD only supports real or complex types in single or double precision. Input matrices not of those element types will be converted to these types as appropriate.
 
 Many other functions from CHOLMOD are wrapped but not exported from the `Base.SparseArrays.CHOLMOD` module.
 
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/cholmod.jl#L1667-L1704)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/cholmod.jl#L1701-L1738)
 
 </div>
 <br>
@@ -2810,7 +2810,7 @@ julia> S
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/ldlt.jl#L92-L116)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/ldlt.jl#L92-L116)
 
 
 
@@ -2825,12 +2825,12 @@ See also [`ldlt`](/stdlib/LinearAlgebra#LinearAlgebra.ldlt).
 
 ::: tip Note
 
-This method uses the CHOLMOD library from [SuiteSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse),  which only supports real or complex types in single or double precision.  Input matrices not of those element types will be converted to these types as appropriate.
+This method uses the CHOLMOD library from [SuiteSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse), which only supports real or complex types in single or double precision. Input matrices not of those element types will be converted to these types as appropriate.
 
 :::
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/cholmod.jl#L1625-L1640)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/cholmod.jl#L1659-L1674)
 
 </div>
 <br>
@@ -2866,7 +2866,7 @@ The object has two fields:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/qr.jl#L4-L35)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/qr.jl#L4-L35)
 
 </div>
 <br>
@@ -2917,7 +2917,7 @@ This format should not to be confused with the older _WY_ representation [^Bisch
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/qr.jl#L59-L112)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/qr.jl#L59-L112)
 
 </div>
 <br>
@@ -2955,7 +2955,7 @@ The object has three fields:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/qr.jl#L169-L201)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/qr.jl#L169-L201)
 
 </div>
 <br>
@@ -3013,7 +3013,7 @@ Column permutation:
 
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/spqr.jl#L151-L194)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/spqr.jl#L151-L194)
 
 
 
@@ -3088,12 +3088,12 @@ true
 
 ::: tip Note
 
-`qr` returns multiple types because LAPACK uses several representations that minimize the memory storage requirements of products of Householder elementary reflectors, so that the `Q` and `R` matrices can be stored compactly rather as two separate dense matrices.
+`qr` returns multiple types because LAPACK uses several representations that minimize the memory storage requirements of products of Householder elementary reflectors, so that the `Q` and `R` matrices can be stored compactly rather than two separate dense matrices.
 
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/qr.jl#L343-L421)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/qr.jl#L343-L421)
 
 </div>
 <br>
@@ -3145,7 +3145,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/qr.jl#L297-L333)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/qr.jl#L297-L333)
 
 </div>
 <br>
@@ -3195,7 +3195,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lq.jl#L4-L42)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lq.jl#L4-L42)
 
 </div>
 <br>
@@ -3245,7 +3245,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lq.jl#L73-L111)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lq.jl#L73-L111)
 
 </div>
 <br>
@@ -3263,7 +3263,7 @@ lq!(A) -> LQ
 Compute the [`LQ`](/stdlib/LinearAlgebra#LinearAlgebra.LQ) factorization of `A`, using the input matrix as a workspace. See also [`lq`](/stdlib/LinearAlgebra#LinearAlgebra.lq).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lq.jl#L65-L70)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lq.jl#L65-L70)
 
 </div>
 <br>
@@ -3330,7 +3330,7 @@ permutation:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/bunchkaufman.jl#L16-L74)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/bunchkaufman.jl#L16-L74)
 
 </div>
 <br>
@@ -3414,7 +3414,7 @@ julia> S.L*S.D*S.L' - A[S.p, S.p]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/bunchkaufman.jl#L130-L207)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/bunchkaufman.jl#L133-L210)
 
 </div>
 <br>
@@ -3432,7 +3432,7 @@ bunchkaufman!(A, rook::Bool=false; check = true) -> BunchKaufman
 `bunchkaufman!` is the same as [`bunchkaufman`](/stdlib/LinearAlgebra#LinearAlgebra.bunchkaufman), but saves space by overwriting the input `A`, instead of creating a copy.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/bunchkaufman.jl#L102-L107)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/bunchkaufman.jl#L102-L107)
 
 </div>
 <br>
@@ -3489,7 +3489,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L4-L49)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L4-L49)
 
 </div>
 <br>
@@ -3552,7 +3552,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L60-L111)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L60-L111)
 
 </div>
 <br>
@@ -3587,7 +3587,7 @@ julia> eigvals(diag_matrix)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L321-L342)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L321-L342)
 
 
 
@@ -3602,7 +3602,7 @@ julia> eigvals(-2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L346-L354)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L346-L354)
 
 
 
@@ -3634,7 +3634,7 @@ julia> eigvals(A,B)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L599-L621)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L599-L621)
 
 
 
@@ -3658,7 +3658,7 @@ See James W. Demmel et al, SIAM J. Sci. Comput. 30, 3, 1508 (2008) for a compari
 The default `alg` used may change in the future.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetriceigen.jl#L125-L139)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetriceigen.jl#L126-L140)
 
 
 
@@ -3691,7 +3691,7 @@ julia> eigvals(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetriceigen.jl#L155-L180)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetriceigen.jl#L156-L181)
 
 
 
@@ -3724,7 +3724,7 @@ julia> eigvals(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetriceigen.jl#L195-L219)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetriceigen.jl#L196-L220)
 
 </div>
 <br>
@@ -3768,7 +3768,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L280-L307)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L280-L307)
 
 
 
@@ -3816,7 +3816,7 @@ julia> B
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L542-L579)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L542-L579)
 
 
 
@@ -3828,7 +3828,7 @@ eigvals!(A::Union{SymTridiagonal, Hermitian, Symmetric}, irange::UnitRange) -> v
 Same as [`eigvals`](/stdlib/LinearAlgebra#LinearAlgebra.eigvals), but saves space by overwriting the input `A`, instead of creating a copy. `irange` is a range of eigenvalue _indices_ to search for - for instance, the 2nd to 8th eigenvalues.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetriceigen.jl#L146-L151)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetriceigen.jl#L147-L152)
 
 
 
@@ -3840,7 +3840,7 @@ eigvals!(A::Union{SymTridiagonal, Hermitian, Symmetric}, vl::Real, vu::Real) -> 
 Same as [`eigvals`](/stdlib/LinearAlgebra#LinearAlgebra.eigvals), but saves space by overwriting the input `A`, instead of creating a copy. `vl` is the lower bound of the interval to search for eigenvalues, and `vu` is the upper bound.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetriceigen.jl#L186-L191)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetriceigen.jl#L187-L192)
 
 </div>
 <br>
@@ -3882,7 +3882,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L357-L389)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L357-L389)
 
 </div>
 <br>
@@ -3924,7 +3924,7 @@ Stacktrace:
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L398-L430)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L398-L430)
 
 </div>
 <br>
@@ -3973,7 +3973,7 @@ julia> eigvecs(A, [1.])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/tridiag.jl#L297-L332)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/tridiag.jl#L297-L332)
 
 
 
@@ -3996,7 +3996,7 @@ julia> eigvecs([1.0 0.0 0.0; 0.0 3.0 0.0; 0.0 0.0 18.0])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L258-L273)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L258-L273)
 
 
 
@@ -4028,7 +4028,7 @@ julia> eigvecs(A, B)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L627-L650)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L627-L650)
 
 </div>
 <br>
@@ -4089,7 +4089,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L181-L237)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L181-L237)
 
 
 
@@ -4137,7 +4137,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L481-L526)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L481-L526)
 
 
 
@@ -4171,7 +4171,7 @@ The `alg` keyword argument requires Julia 1.12 or later.
 The following functions are available for `Eigen` objects: [`inv`](/base/math#Base.inv-Tuple{Number}), [`det`](/stdlib/LinearAlgebra#LinearAlgebra.det), and [`isposdef`](/stdlib/LinearAlgebra#LinearAlgebra.isposdef).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetriceigen.jl#L30-L53)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetriceigen.jl#L31-L54)
 
 
 
@@ -4195,7 +4195,7 @@ If `irange` is not `1:n`, where `n` is the dimension of `A`, then the returned f
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetriceigen.jl#L63-L79)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetriceigen.jl#L64-L80)
 
 
 
@@ -4219,7 +4219,7 @@ If [`vl`, `vu`] does not contain all eigenvalues of `A`, then the returned facto
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetriceigen.jl#L88-L104)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetriceigen.jl#L89-L105)
 
 </div>
 <br>
@@ -4238,7 +4238,7 @@ eigen!(A, B; sortby)
 Same as [`eigen`](/stdlib/LinearAlgebra#LinearAlgebra.eigen), but saves space by overwriting the input `A` (and `B`), instead of creating a copy.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/eigen.jl#L142-L148)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/eigen.jl#L142-L148)
 
 </div>
 <br>
@@ -4256,7 +4256,7 @@ Hessenberg <: Factorization
 A `Hessenberg` object represents the Hessenberg factorization `QHQ'` of a square matrix, or a shift `Q(H+μI)Q'` thereof, which is produced by the [`hessenberg`](/stdlib/LinearAlgebra#LinearAlgebra.hessenberg) function.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/hessenberg.jl#L379-L384)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/hessenberg.jl#L379-L384)
 
 </div>
 <br>
@@ -4311,7 +4311,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/hessenberg.jl#L427-L476)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/hessenberg.jl#L427-L476)
 
 </div>
 <br>
@@ -4329,7 +4329,7 @@ hessenberg!(A) -> Hessenberg
 `hessenberg!` is the same as [`hessenberg`](/stdlib/LinearAlgebra#LinearAlgebra.hessenberg), but saves space by overwriting the input `A`, instead of creating a copy.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/hessenberg.jl#L419-L424)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/hessenberg.jl#L419-L424)
 
 </div>
 <br>
@@ -4386,7 +4386,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/schur.jl#L4-L49)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/schur.jl#L4-L49)
 
 </div>
 <br>
@@ -4408,7 +4408,7 @@ If `F::GeneralizedSchur` is the factorization object, the (quasi) triangular Sch
 Iterating the decomposition produces the components `F.S`, `F.T`, `F.Q`, `F.Z`, `F.α`, and `F.β`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/schur.jl#L293-L309)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/schur.jl#L293-L309)
 
 </div>
 <br>
@@ -4465,7 +4465,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/schur.jl#L107-L156)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/schur.jl#L107-L156)
 
 
 
@@ -4479,7 +4479,7 @@ Computes the Generalized Schur (or QZ) factorization of the matrices `A` and `B`
 Iterating the decomposition produces the components `F.S`, `F.T`, `F.Q`, `F.Z`, `F.α`, and `F.β`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/schur.jl#L356-L368)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/schur.jl#L356-L368)
 
 </div>
 <br>
@@ -4527,7 +4527,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/schur.jl#L70-L102)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/schur.jl#L70-L102)
 
 
 
@@ -4539,7 +4539,7 @@ schur!(A::StridedMatrix, B::StridedMatrix) -> F::GeneralizedSchur
 Same as [`schur`](/stdlib/LinearAlgebra#LinearAlgebra.schur) but uses the input matrices `A` and `B` as workspace.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/schur.jl#L343-L347)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/schur.jl#L343-L347)
 
 </div>
 <br>
@@ -4557,7 +4557,7 @@ ordschur(F::Schur, select::Union{Vector{Bool},BitVector}) -> F::Schur
 Reorders the Schur factorization `F` of a matrix `A = Z*T*Z'` according to the logical array `select` returning the reordered factorization `F` object. The selected eigenvalues appear in the leading diagonal of `F.Schur` and the corresponding leading columns of `F.vectors` form an orthogonal/unitary basis of the corresponding right invariant subspace. In the real case, a complex conjugate pair of eigenvalues must be either both included or both excluded via `select`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/schur.jl#L280-L289)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/schur.jl#L280-L289)
 
 
 
@@ -4569,7 +4569,7 @@ ordschur(F::GeneralizedSchur, select::Union{Vector{Bool},BitVector}) -> F::Gener
 Reorders the Generalized Schur factorization `F` of a matrix pair `(A, B) = (Q*S*Z', Q*T*Z')` according to the logical array `select` and returns a GeneralizedSchur object `F`. The selected eigenvalues appear in the leading diagonal of both `F.S` and `F.T`, and the left and right orthogonal/unitary Schur vectors are also reordered such that `(A, B) = F.Q*(F.S, F.T)*F.Z'` still holds and the generalized eigenvalues of `A` and `B` can still be obtained with `F.α./F.β`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/schur.jl#L394-L403)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/schur.jl#L394-L403)
 
 </div>
 <br>
@@ -4587,7 +4587,7 @@ ordschur!(F::Schur, select::Union{Vector{Bool},BitVector}) -> F::Schur
 Same as [`ordschur`](/stdlib/LinearAlgebra#LinearAlgebra.ordschur) but overwrites the factorization `F`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/schur.jl#L263-L267)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/schur.jl#L263-L267)
 
 
 
@@ -4599,7 +4599,7 @@ ordschur!(F::GeneralizedSchur, select::Union{Vector{Bool},BitVector}) -> F::Gene
 Same as `ordschur` but overwrites the factorization `F`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/schur.jl#L374-L378)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/schur.jl#L374-L378)
 
 </div>
 <br>
@@ -4666,7 +4666,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/svd.jl#L4-L58)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/svd.jl#L4-L58)
 
 </div>
 <br>
@@ -4756,7 +4756,7 @@ julia> F.V*F.D2*F.R0*F.Q'
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/svd.jl#L282-L359)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/svd.jl#L282-L359)
 
 </div>
 <br>
@@ -4814,7 +4814,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/svd.jl#L134-L178)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/svd.jl#L134-L178)
 
 
 
@@ -4870,7 +4870,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/svd.jl#L408-L458)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/svd.jl#L408-L458)
 
 </div>
 <br>
@@ -4888,7 +4888,7 @@ svd!(A; full::Bool = false, alg::Algorithm = default_svd_alg(A)) -> SVD
 `svd!` is the same as [`svd`](/stdlib/LinearAlgebra#LinearAlgebra.svd), but saves space by overwriting the input `A`, instead of creating a copy. See documentation of [`svd`](/stdlib/LinearAlgebra#LinearAlgebra.svd) for details.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/svd.jl#L94-L99)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/svd.jl#L94-L99)
 
 
 
@@ -4900,7 +4900,7 @@ svd!(A, B) -> GeneralizedSVD
 `svd!` is the same as [`svd`](/stdlib/LinearAlgebra#LinearAlgebra.svd), but modifies the arguments `A` and `B` in-place, instead of making copies. See documentation of [`svd`](/stdlib/LinearAlgebra#LinearAlgebra.svd) for details.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/svd.jl#L390-L395)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/svd.jl#L390-L395)
 
 </div>
 <br>
@@ -4937,7 +4937,7 @@ julia> svdvals(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/svd.jl#L221-L242)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/svd.jl#L221-L242)
 
 
 
@@ -4969,7 +4969,7 @@ julia> svdvals(A, B)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/svd.jl#L544-L567)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/svd.jl#L544-L567)
 
 </div>
 <br>
@@ -4987,7 +4987,7 @@ svdvals!(A)
 Return the singular values of `A`, saving space by overwriting the input. See also [`svdvals`](/stdlib/LinearAlgebra#LinearAlgebra.svdvals) and [`svd`](/stdlib/LinearAlgebra#LinearAlgebra.svd).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/svd.jl#L212-L217)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/svd.jl#L212-L217)
 
 
 
@@ -4999,7 +4999,7 @@ svdvals!(A, B)
 Return the generalized singular values from the generalized singular value decomposition of `A` and `B`, saving space by overwriting `A` and `B`. See also [`svd`](/stdlib/LinearAlgebra#LinearAlgebra.svd) and [`svdvals`](/stdlib/LinearAlgebra#LinearAlgebra.svdvals).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/svd.jl#L527-L533)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/svd.jl#L527-L533)
 
 </div>
 <br>
@@ -5019,7 +5019,7 @@ A Givens rotation linear operator. The fields `c` and `s` represent the cosine a
 See also [`givens`](/stdlib/LinearAlgebra#LinearAlgebra.givens).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/givens.jl#L26-L36)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/givens.jl#L26-L36)
 
 </div>
 <br>
@@ -5060,7 +5060,7 @@ y[i2] = 0
 See also [`LinearAlgebra.Givens`](/stdlib/LinearAlgebra#LinearAlgebra.Givens).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/givens.jl#L267-L287)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/givens.jl#L267-L287)
 
 
 
@@ -5087,7 +5087,7 @@ B[i2,j] = 0
 See also [`LinearAlgebra.Givens`](/stdlib/LinearAlgebra#LinearAlgebra.Givens).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/givens.jl#L299-L313)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/givens.jl#L299-L313)
 
 
 
@@ -5114,7 +5114,7 @@ B[i2] = 0
 See also [`LinearAlgebra.Givens`](/stdlib/LinearAlgebra#LinearAlgebra.Givens).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/givens.jl#L318-L332)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/givens.jl#L318-L332)
 
 </div>
 <br>
@@ -5151,7 +5151,7 @@ julia> triu(a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L391-L412)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L391-L412)
 
 
 
@@ -5189,7 +5189,7 @@ julia> triu(a,-3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L439-L467)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L439-L467)
 
 </div>
 <br>
@@ -5207,7 +5207,7 @@ triu!(M)
 Upper triangle of a matrix, overwriting `M` in the process. See also [`triu`](/stdlib/LinearAlgebra#LinearAlgebra.triu).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L501-L506)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L501-L506)
 
 
 
@@ -5240,7 +5240,7 @@ julia> triu!(M, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L115-L139)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L115-L139)
 
 </div>
 <br>
@@ -5277,7 +5277,7 @@ julia> tril(a)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L415-L436)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L415-L436)
 
 
 
@@ -5315,7 +5315,7 @@ julia> tril(a,-3)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L470-L498)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L470-L498)
 
 </div>
 <br>
@@ -5333,7 +5333,7 @@ tril!(M)
 Lower triangle of a matrix, overwriting `M` in the process. See also [`tril`](/stdlib/LinearAlgebra#LinearAlgebra.tril).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L509-L514)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L509-L514)
 
 
 
@@ -5366,7 +5366,7 @@ julia> tril!(M, 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L153-L177)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L153-L177)
 
 </div>
 <br>
@@ -5412,7 +5412,7 @@ Specifying an `IndexStyle` requires at least Julia 1.11.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L219-L249)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L219-L249)
 
 </div>
 <br>
@@ -5448,7 +5448,7 @@ julia> diag(A,1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L257-L277)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L257-L277)
 
 </div>
 <br>
@@ -5495,7 +5495,7 @@ julia> diagm(1 => [1,2,3], 1 => [1,2,3])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L280-L319)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L280-L319)
 
 
 
@@ -5519,7 +5519,7 @@ julia> diagm([1,2,3])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L352-L369)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L352-L369)
 
 </div>
 <br>
@@ -5537,7 +5537,7 @@ rank(::QRSparse{Tv,Ti}) -> Ti
 Return the rank of the QR factorization
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/spqr.jl#L369-L373)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/spqr.jl#L369-L373)
 
 
 
@@ -5549,7 +5549,7 @@ rank(S::SparseMatrixCSC{Tv,Ti}; [tol::Real]) -> Ti
 Calculate rank of `S` by calculating its QR factorization. Values smaller than `tol` are considered as zero. See SPQR&#39;s manual.
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/solvers/spqr.jl#L376-L380)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/solvers/spqr.jl#L376-L380)
 
 
 
@@ -5594,7 +5594,7 @@ julia> rank(diagm(0 => [1, 0.001, 2]), atol=1.5)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1023-L1065)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1023-L1065)
 
 </div>
 <br>
@@ -5662,7 +5662,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L605-L666)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L605-L666)
 
 
 
@@ -5697,7 +5697,7 @@ julia> norm(-2, Inf)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L687-L712)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L687-L712)
 
 </div>
 <br>
@@ -5743,7 +5743,7 @@ julia> opnorm(A, 1)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L776-L811)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L776-L811)
 
 
 
@@ -5755,7 +5755,7 @@ opnorm(x::Number, p::Real=2)
 For numbers, return $\left( |x|^p \right)^{1/p}$. This is equivalent to [`norm`](/stdlib/LinearAlgebra#LinearAlgebra.norm).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L824-L829)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L824-L829)
 
 
 
@@ -5806,7 +5806,7 @@ julia> norm(v, Inf)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L832-L877)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L832-L877)
 
 </div>
 <br>
@@ -5824,7 +5824,7 @@ normalize!(a::AbstractArray, p::Real=2)
 Normalize the array `a` in-place so that its `p`-norm equals unity, i.e. `norm(a, p) == 1`. See also [`normalize`](/stdlib/LinearAlgebra#LinearAlgebra.normalize) and [`norm`](/stdlib/LinearAlgebra#LinearAlgebra.norm).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1894-L1900)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1894-L1900)
 
 </div>
 <br>
@@ -5889,7 +5889,7 @@ NaN
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1920-L1972)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1920-L1972)
 
 </div>
 <br>
@@ -5907,7 +5907,7 @@ cond(M, p::Real=2)
 Condition number of the matrix `M`, computed using the operator `p`-norm. Valid values for `p` are `1`, `2` (default), or `Inf`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1630-L1635)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1627-L1632)
 
 </div>
 <br>
@@ -5930,7 +5930,7 @@ Skeel condition number $\kappa_S$ of the matrix `M`, optionally with respect to 
 This quantity is also known in the literature as the Bauer condition number, relative condition number, or componentwise relative condition number.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1245-L1261)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1245-L1261)
 
 </div>
 <br>
@@ -5961,7 +5961,7 @@ julia> tr(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1074-L1089)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1074-L1089)
 
 </div>
 <br>
@@ -6002,7 +6002,7 @@ julia> det(BigInt[1 0; 2 2]) # exact integer determinant
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1697-L1723)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1697-L1723)
 
 </div>
 <br>
@@ -6036,7 +6036,7 @@ julia> logdet(Matrix(I, 3, 3))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1775-L1794)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1775-L1794)
 
 </div>
 <br>
@@ -6081,7 +6081,7 @@ julia> logabsdet(B)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1736-L1766)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1736-L1766)
 
 </div>
 <br>
@@ -6117,7 +6117,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1101-L1124)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1101-L1124)
 
 </div>
 <br>
@@ -6176,7 +6176,7 @@ julia> M * N
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1505-L1550)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1502-L1547)
 
 </div>
 <br>
@@ -6226,7 +6226,7 @@ julia> nullspace(M, atol=0.95)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1582-L1620)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1579-L1617)
 
 </div>
 <br>
@@ -6282,7 +6282,7 @@ julia> reshape(kron(v,w), (length(w), length(v)))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L448-L493)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L448-L493)
 
 </div>
 <br>
@@ -6306,7 +6306,7 @@ This function requires Julia 1.6 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L386-L394)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L386-L394)
 
 </div>
 <br>
@@ -6346,7 +6346,7 @@ julia> exp(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L596-L622)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L593-L619)
 
 </div>
 <br>
@@ -6380,7 +6380,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L627-L643)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L624-L640)
 
 </div>
 <br>
@@ -6408,7 +6408,7 @@ julia> [1 2; 0 3]^3
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L579-L591)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L576-L588)
 
 </div>
 <br>
@@ -6447,7 +6447,7 @@ julia> ℯ^[1 2; 0 3]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L650-L671)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L647-L668)
 
 </div>
 <br>
@@ -6488,7 +6488,7 @@ julia> log(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L808-L839)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L805-L836)
 
 </div>
 <br>
@@ -6546,7 +6546,7 @@ julia> .√(1:4)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/math.jl#L729-L770)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/base/math.jl#L631-L672)
 
 
 
@@ -6583,7 +6583,7 @@ julia> sqrt(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L871-L916)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L868-L913)
 
 </div>
 <br>
@@ -6624,7 +6624,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L952-L984)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L949-L981)
 
 </div>
 <br>
@@ -6654,7 +6654,7 @@ julia> cos(fill(1.0, (2,2)))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1013-L1028)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1010-L1025)
 
 </div>
 <br>
@@ -6684,7 +6684,7 @@ julia> sin(fill(1.0, (2,2)))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1046-L1061)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1043-L1058)
 
 </div>
 <br>
@@ -6719,7 +6719,7 @@ julia> C
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1083-L1102)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1080-L1099)
 
 </div>
 <br>
@@ -6749,7 +6749,7 @@ julia> tan(fill(1.0, (2,2)))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1132-L1147)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1129-L1144)
 
 </div>
 <br>
@@ -6767,7 +6767,7 @@ sec(A::AbstractMatrix)
 Compute the matrix secant of a square matrix `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1358-L1362)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1355-L1359)
 
 </div>
 <br>
@@ -6785,7 +6785,7 @@ csc(A::AbstractMatrix)
 Compute the matrix cosecant of a square matrix `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1358-L1362)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1355-L1359)
 
 </div>
 <br>
@@ -6803,7 +6803,7 @@ cot(A::AbstractMatrix)
 Compute the matrix cotangent of a square matrix `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1358-L1362)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1355-L1359)
 
 </div>
 <br>
@@ -6821,7 +6821,7 @@ cosh(A::AbstractMatrix)
 Compute the matrix hyperbolic cosine of a square matrix `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1157-L1161)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1154-L1158)
 
 </div>
 <br>
@@ -6839,7 +6839,7 @@ sinh(A::AbstractMatrix)
 Compute the matrix hyperbolic sine of a square matrix `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1171-L1175)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1168-L1172)
 
 </div>
 <br>
@@ -6857,7 +6857,7 @@ tanh(A::AbstractMatrix)
 Compute the matrix hyperbolic tangent of a square matrix `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1185-L1189)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1182-L1186)
 
 </div>
 <br>
@@ -6875,7 +6875,7 @@ sech(A::AbstractMatrix)
 Compute the matrix hyperbolic secant of square matrix `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1363-L1367)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1360-L1364)
 
 </div>
 <br>
@@ -6893,7 +6893,7 @@ csch(A::AbstractMatrix)
 Compute the matrix hyperbolic cosecant of square matrix `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1363-L1367)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1360-L1364)
 
 </div>
 <br>
@@ -6911,7 +6911,7 @@ coth(A::AbstractMatrix)
 Compute the matrix hyperbolic cotangent of square matrix `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1363-L1367)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1360-L1364)
 
 </div>
 <br>
@@ -6944,7 +6944,7 @@ julia> acos(cos([0.5 0.1; -0.2 0.3]))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1205-L1224)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1202-L1221)
 
 </div>
 <br>
@@ -6977,7 +6977,7 @@ julia> asin(sin([0.5 0.1; -0.2 0.3]))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1236-L1255)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1233-L1252)
 
 </div>
 <br>
@@ -7010,7 +7010,7 @@ julia> atan(tan([0.5 0.1; -0.2 0.3]))
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1267-L1286)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1264-L1283)
 
 </div>
 <br>
@@ -7028,7 +7028,7 @@ asec(A::AbstractMatrix)
 Compute the inverse matrix secant of `A`. 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1377-L1379)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1374-L1376)
 
 </div>
 <br>
@@ -7046,7 +7046,7 @@ acsc(A::AbstractMatrix)
 Compute the inverse matrix cosecant of `A`. 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1377-L1379)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1374-L1376)
 
 </div>
 <br>
@@ -7064,7 +7064,7 @@ acot(A::AbstractMatrix)
 Compute the inverse matrix cotangent of `A`. 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1377-L1379)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1374-L1376)
 
 </div>
 <br>
@@ -7085,7 +7085,7 @@ Compute the inverse hyperbolic matrix cosine of a square matrix `A`.  For the th
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1297-L1304)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1294-L1301)
 
 </div>
 <br>
@@ -7106,7 +7106,7 @@ Compute the inverse hyperbolic matrix sine of a square matrix `A`.  For the theo
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1316-L1323)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1313-L1320)
 
 </div>
 <br>
@@ -7127,7 +7127,7 @@ Compute the inverse hyperbolic matrix tangent of a square matrix `A`.  For the t
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1334-L1341)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1331-L1338)
 
 </div>
 <br>
@@ -7145,7 +7145,7 @@ asech(A::AbstractMatrix)
 Compute the inverse matrix hyperbolic secant of `A`. 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1380-L1382)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1377-L1379)
 
 </div>
 <br>
@@ -7163,7 +7163,7 @@ acsch(A::AbstractMatrix)
 Compute the inverse matrix hyperbolic cosecant of `A`. 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1380-L1382)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1377-L1379)
 
 </div>
 <br>
@@ -7181,7 +7181,7 @@ acoth(A::AbstractMatrix)
 Compute the inverse matrix hyperbolic cotangent of `A`. 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1380-L1382)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1377-L1379)
 
 </div>
 <br>
@@ -7222,7 +7222,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1738-L1765)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1735-L1762)
 
 </div>
 <br>
@@ -7268,7 +7268,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L1661-L1692)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L1658-L1689)
 
 </div>
 <br>
@@ -7302,7 +7302,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/factorization.jl#L72-L88)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/factorization.jl#L72-L88)
 
 
 
@@ -7333,7 +7333,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lu.jl#L403-L424)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lu.jl#L403-L424)
 
 </div>
 <br>
@@ -7372,7 +7372,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1268-L1291)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1268-L1291)
 
 </div>
 <br>
@@ -7405,7 +7405,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L74-L92)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L74-L92)
 
 </div>
 <br>
@@ -7438,7 +7438,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/dense.jl#L51-L70)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/dense.jl#L51-L70)
 
 </div>
 <br>
@@ -7484,7 +7484,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1391-L1421)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1391-L1421)
 
 </div>
 <br>
@@ -7530,7 +7530,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1346-L1376)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1346-L1376)
 
 </div>
 <br>
@@ -7585,7 +7585,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1469-L1510)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1469-L1510)
 
 </div>
 <br>
@@ -7624,7 +7624,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L1307-L1330)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L1307-L1330)
 
 </div>
 <br>
@@ -7728,7 +7728,7 @@ julia> transpose(D) # blocks are recursively transposed
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/adjtrans.jl#L191-L276)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/adjtrans.jl#L191-L276)
 
 
 
@@ -7740,7 +7740,7 @@ transpose(F::Factorization)
 Lazy transpose of the factorization `F`. By default, returns a [`TransposeFactorization`](/stdlib/LinearAlgebra#LinearAlgebra.TransposeFactorization), except for `Factorization`s with real `eltype`, in which case returns an [`AdjointFactorization`](/stdlib/LinearAlgebra#LinearAlgebra.AdjointFactorization).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/factorization.jl#L53-L58)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/factorization.jl#L53-L58)
 
 </div>
 <br>
@@ -7760,7 +7760,7 @@ Transpose the matrix `A` and stores it in the matrix `X`. `size(X)` must be equa
 See `halfperm!`
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1426-L1434)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1426-L1434)
 
 
 
@@ -7799,7 +7799,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/transpose.jl#L8-L40)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/transpose.jl#L8-L40)
 
 </div>
 <br>
@@ -7834,7 +7834,7 @@ julia> Transpose(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/adjtrans.jl#L35-L58)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/adjtrans.jl#L35-L58)
 
 </div>
 <br>
@@ -7852,7 +7852,7 @@ TransposeFactorization
 Lazy wrapper type for the transpose of the underlying `Factorization` object. Usually, the `TransposeFactorization` constructor should not be called directly, use [`transpose(:: Factorization)`](/stdlib/LinearAlgebra#Base.transpose) instead.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/factorization.jl#L27-L33)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/factorization.jl#L27-L33)
 
 </div>
 <br>
@@ -7963,7 +7963,7 @@ julia> C'
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/adjtrans.jl#L95-L188)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/adjtrans.jl#L95-L188)
 
 
 
@@ -7975,7 +7975,7 @@ adjoint(F::Factorization)
 Lazy adjoint of the factorization `F`. By default, returns an [`AdjointFactorization`](/stdlib/LinearAlgebra#LinearAlgebra.AdjointFactorization) wrapper.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/factorization.jl#L46-L51)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/factorization.jl#L46-L51)
 
 </div>
 <br>
@@ -7995,7 +7995,7 @@ Transpose the matrix `A` and stores the adjoint of the elements in the matrix `X
 See `halfperm!`
 
 
-[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/e61663ad0a79a48906b0b12d53506e731a614ab8/src/sparsematrix.jl#L1437-L1445)
+[source](https://github.com/JuliaSparse/SparseArrays.jl/blob/0dd8d45d55b305458d0d3d3451057589b684f72f/src/sparsematrix.jl#L1437-L1445)
 
 
 
@@ -8034,7 +8034,7 @@ julia> A
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/transpose.jl#L43-L75)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/transpose.jl#L43-L75)
 
 </div>
 <br>
@@ -8069,7 +8069,7 @@ julia> Adjoint(A)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/adjtrans.jl#L8-L31)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/adjtrans.jl#L8-L31)
 
 </div>
 <br>
@@ -8087,7 +8087,7 @@ AdjointFactorization
 Lazy wrapper type for the adjoint of the underlying `Factorization` object. Usually, the `AdjointFactorization` constructor should not be called directly, use [`adjoint(:: Factorization)`](/stdlib/LinearAlgebra#Base.adjoint) instead.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/factorization.jl#L14-L20)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/factorization.jl#L14-L20)
 
 </div>
 <br>
@@ -8128,7 +8128,7 @@ julia> copy(T)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/transpose.jl#L153-L180)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/transpose.jl#L153-L180)
 
 </div>
 <br>
@@ -8169,7 +8169,7 @@ julia> LinearAlgebra.stride1(B)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L261-L287)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L261-L287)
 
 </div>
 <br>
@@ -8199,7 +8199,7 @@ julia> LinearAlgebra.checksquare(A, B)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L318-L333)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L318-L333)
 
 </div>
 <br>
@@ -8229,7 +8229,7 @@ This function requires at least Julia 1.1. In Julia 1.0 it is available from the
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L742-L765)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L738-L761)
 
 </div>
 <br>
@@ -8255,7 +8255,7 @@ This function requires Julia 1.10 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetric.jl#L1000-L1013)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetric.jl#L1000-L1013)
 
 </div>
 <br>
@@ -8281,7 +8281,7 @@ This function requires Julia 1.10 or later.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/symmetric.jl#L1016-L1027)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/symmetric.jl#L1016-L1027)
 
 </div>
 <br>
@@ -8307,7 +8307,7 @@ B[ir_dest, jr_dest] = adjoint(A)[jr_src, ir_src]
 The elements `B[ir_dest, jr_dest]` are overwritten. Furthermore, the index range parameters must satisfy `length(ir_dest) == length(jr_src)` and `length(jr_dest) == length(ir_src)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/transpose.jl#L202-L213)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/transpose.jl#L202-L213)
 
 </div>
 <br>
@@ -8333,7 +8333,7 @@ B[ir_dest, jr_dest] = transpose(A)[jr_src, ir_src]
 The elements `B[ir_dest, jr_dest]` are overwritten. Furthermore, the index range parameters must satisfy `length(ir_dest) == length(jr_src)` and `length(jr_dest) == length(ir_src)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/transpose.jl#L186-L197)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/transpose.jl#L186-L197)
 
 
 
@@ -8358,7 +8358,7 @@ The elements `B[ir_dest, jr_dest]` are overwritten. Furthermore, the index range
 See also [`copyto!`](/base/c#Base.copyto!) and [`copy_adjoint!`](/stdlib/LinearAlgebra#LinearAlgebra.copy_adjoint!).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/matmul.jl#L782-L801)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/matmul.jl#L782-L801)
 
 </div>
 <br>
@@ -8402,7 +8402,7 @@ true
 For custom matrix and vector types, it is recommended to implement 5-argument `mul!` rather than implementing 3-argument `mul!` directly if possible.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/matmul.jl#L233-L260)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/matmul.jl#L233-L260)
 
 
 
@@ -8442,7 +8442,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/matmul.jl#L263-L292)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/matmul.jl#L263-L292)
 
 </div>
 <br>
@@ -8485,7 +8485,7 @@ julia> lmul!(0.0, [Inf])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L261-L290)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L261-L290)
 
 
 
@@ -8522,7 +8522,7 @@ julia> lmul!(F.Q, B)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/matmul.jl#L347-L377)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/matmul.jl#L347-L377)
 
 </div>
 <br>
@@ -8565,7 +8565,7 @@ julia> rmul!([NaN], 0.0)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L223-L252)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L223-L252)
 
 
 
@@ -8602,7 +8602,7 @@ julia> rmul!(A, F.Q)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/matmul.jl#L314-L344)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/matmul.jl#L314-L344)
 
 </div>
 <br>
@@ -8653,7 +8653,7 @@ julia> A\X
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L371-L409)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L371-L409)
 
 
 
@@ -8698,7 +8698,7 @@ julia> A\Y
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L412-L450)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L412-L450)
 
 
 
@@ -8725,7 +8725,7 @@ julia> ldiv!(2.0, B)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L324-L342)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L324-L342)
 
 
 
@@ -8743,7 +8743,7 @@ Compute `A \ B` in-place by Gaussian elimination with partial pivoting and store
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/tridiag.jl#L961-L969)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/tridiag.jl#L961-L969)
 
 </div>
 <br>
@@ -8769,7 +8769,7 @@ Certain structured matrix types, such as `Diagonal` and `UpperTriangular`, are p
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L454-L469)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/LinearAlgebra.jl#L454-L469)
 
 
 
@@ -8796,7 +8796,7 @@ julia> rdiv!(A, 2.0)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/generic.jl#L298-L316)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/generic.jl#L298-L316)
 
 </div>
 <br>
@@ -8852,7 +8852,7 @@ Many BLAS functions accept arguments that determine whether to transpose an argu
 Interface to BLAS subroutines.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L3-L5)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L3-L5)
 
 </div>
 <br>
@@ -8873,7 +8873,7 @@ Set the number of threads the BLAS library should use equal to `n::Integer`.
 Also accepts `nothing`, in which case julia tries to guess the default number of threads. Passing `nothing` is discouraged and mainly exists for historical reasons.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L123-L131)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L123-L131)
 
 </div>
 <br>
@@ -8897,7 +8897,7 @@ Get the number of threads the BLAS library is using.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L143-L150)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L143-L150)
 
 </div>
 <br>
@@ -8929,7 +8929,7 @@ Overwrite `X` with `c*X + s*Y` and `Y` with `-conj(s)*X + c*Y` for the first `n`
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L218-L226)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L218-L226)
 
 </div>
 <br>
@@ -8950,7 +8950,7 @@ Overwrite `X` with `a*X` for the first `n` elements of array `X` with stride `in
 If `n` and `incx` are not provided, `length(X)` and `stride(X,1)` are used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L248-L255)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L248-L255)
 
 </div>
 <br>
@@ -8971,7 +8971,7 @@ Return `X` scaled by `a` for the first `n` elements of array `X` with stride `in
 If `n` and `incx` are not provided, `length(X)` and `stride(X,1)` are used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L258-L265)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L258-L265)
 
 </div>
 <br>
@@ -8989,7 +8989,7 @@ blascopy!(n, X, incx, Y, incy)
 Copy `n` elements of array `X` with stride `incx` to array `Y` with stride `incy`. Returns `Y`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L193-L197)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L193-L197)
 
 </div>
 <br>
@@ -9015,7 +9015,7 @@ julia> BLAS.dot(10, fill(1.0, 10), 1, fill(1.0, 20), 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L293-L304)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L293-L304)
 
 </div>
 <br>
@@ -9041,7 +9041,7 @@ julia> BLAS.dotu(10, fill(1.0im, 10), 1, fill(1.0+im, 20), 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L322-L333)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L322-L333)
 
 </div>
 <br>
@@ -9067,7 +9067,7 @@ julia> BLAS.dotc(10, fill(1.0im, 10), 1, fill(1.0+im, 20), 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L307-L319)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L307-L319)
 
 </div>
 <br>
@@ -9096,7 +9096,7 @@ julia> BLAS.nrm2(1, fill(1.0, 8), 2)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L403-L416)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L403-L416)
 
 </div>
 <br>
@@ -9127,7 +9127,7 @@ julia> BLAS.asum(2, fill(1.0im, 10), 5)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L440-L457)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L440-L457)
 
 </div>
 <br>
@@ -9146,7 +9146,7 @@ iamax(dx)
 Find the index of the element of `dx` with the maximum absolute value. `n` is the length of `dx`, and `incx` is the stride. If `n` and `incx` are not provided, they assume default values of `n=length(dx)` and `incx=stride1(dx)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L620-L626)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L620-L626)
 
 </div>
 <br>
@@ -9172,7 +9172,7 @@ gemv!(tA, alpha, A, x, beta, y)
 Update the vector `y` as `alpha*A*x + beta*y` or `alpha*A'x + beta*y` according to [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans). `alpha` and `beta` are scalars. Return the updated `y`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L686-L692)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L686-L692)
 
 </div>
 <br>
@@ -9190,7 +9190,7 @@ gemv(tA, alpha, A, x)
 Return `alpha*A*x` or `alpha*A'x` according to [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans). `alpha` is a scalar.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L695-L700)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L695-L700)
 
 </div>
 <br>
@@ -9208,7 +9208,7 @@ gemv(tA, A, x)
 Return `A*x` or `A'x` according to [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L703-L707)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L703-L707)
 
 </div>
 <br>
@@ -9226,7 +9226,7 @@ gbmv!(trans, m, kl, ku, alpha, A, x, beta, y)
 Update vector `y` as `alpha*A*x + beta*y` or `alpha*A'*x + beta*y` according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans). The matrix `A` is a general band matrix of dimension `m` by `size(A,2)` with `kl` sub-diagonals and `ku` super-diagonals. `alpha` and `beta` are scalars. Return the updated `y`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L712-L718)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L712-L718)
 
 </div>
 <br>
@@ -9244,7 +9244,7 @@ gbmv(trans, m, kl, ku, alpha, A, x)
 Return `alpha*A*x` or `alpha*A'*x` according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans). The matrix `A` is a general band matrix of dimension `m` by `size(A,2)` with `kl` sub-diagonals and `ku` super-diagonals, and `alpha` is a scalar.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L721-L727)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L721-L727)
 
 </div>
 <br>
@@ -9262,7 +9262,7 @@ hemv!(ul, alpha, A, x, beta, y)
 Update the vector `y` as `alpha*A*x + beta*y`. `A` is assumed to be Hermitian. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. `alpha` and `beta` are scalars. Return the updated `y`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L849-L855)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L849-L855)
 
 </div>
 <br>
@@ -9280,7 +9280,7 @@ hemv(ul, alpha, A, x)
 Return `alpha*A*x`. `A` is assumed to be Hermitian. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. `alpha` is a scalar.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L896-L902)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L896-L902)
 
 </div>
 <br>
@@ -9298,7 +9298,7 @@ hemv(ul, A, x)
 Return `A*x`. `A` is assumed to be Hermitian. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L905-L910)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L905-L910)
 
 </div>
 <br>
@@ -9332,7 +9332,7 @@ Return the updated `y`.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L979-L1003)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L979-L1003)
 
 </div>
 <br>
@@ -9350,7 +9350,7 @@ symv!(ul, alpha, A, x, beta, y)
 Update the vector `y` as `alpha*A*x + beta*y`. `A` is assumed to be symmetric. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. `alpha` and `beta` are scalars. Return the updated `y`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L773-L779)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L773-L779)
 
 </div>
 <br>
@@ -9368,7 +9368,7 @@ symv(ul, alpha, A, x)
 Return `alpha*A*x`. `A` is assumed to be symmetric. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. `alpha` is a scalar.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L831-L837)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L831-L837)
 
 </div>
 <br>
@@ -9386,7 +9386,7 @@ symv(ul, A, x)
 Return `A*x`. `A` is assumed to be symmetric. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L840-L845)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L840-L845)
 
 </div>
 <br>
@@ -9406,7 +9406,7 @@ Update vector `y` as `alpha*A*x + beta*y` where `A` is a symmetric band matrix o
 Return the updated `y`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1060-L1070)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1060-L1070)
 
 </div>
 <br>
@@ -9424,7 +9424,7 @@ sbmv(uplo, k, alpha, A, x)
 Return `alpha*A*x` where `A` is a symmetric band matrix of order `size(A,2)` with `k` super-diagonals stored in the argument `A`. Only the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1042-L1048)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1042-L1048)
 
 </div>
 <br>
@@ -9442,7 +9442,7 @@ sbmv(uplo, k, A, x)
 Return `A*x` where `A` is a symmetric band matrix of order `size(A,2)` with `k` super-diagonals stored in the argument `A`. Only the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1051-L1057)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1051-L1057)
 
 </div>
 <br>
@@ -9476,7 +9476,7 @@ Return the updated `y`.
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1139-L1163)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1139-L1163)
 
 </div>
 <br>
@@ -9494,7 +9494,7 @@ trmv!(ul, tA, dA, A, b)
 Return `op(A)*b`, where `op` is determined by [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans). Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. [`dA`](/stdlib/LinearAlgebra#stdlib-blas-diag) determines if the diagonal values are read or are assumed to be all ones. The multiplication occurs in-place on `b`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1285-L1293)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1285-L1293)
 
 </div>
 <br>
@@ -9512,7 +9512,7 @@ trmv(ul, tA, dA, A, b)
 Return `op(A)*b`, where `op` is determined by [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans). Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. [`dA`](/stdlib/LinearAlgebra#stdlib-blas-diag) determines if the diagonal values are read or are assumed to be all ones.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1275-L1282)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1275-L1282)
 
 </div>
 <br>
@@ -9530,7 +9530,7 @@ trsv!(ul, tA, dA, A, b)
 Overwrite `b` with the solution to `A*x = b` or one of the other two variants determined by [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans) and [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo). [`dA`](/stdlib/LinearAlgebra#stdlib-blas-diag) determines if the diagonal values are read or are assumed to be all ones. Return the updated `b`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1332-L1340)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1332-L1340)
 
 </div>
 <br>
@@ -9548,7 +9548,7 @@ trsv(ul, tA, dA, A, b)
 Return the solution to `A*x = b` or one of the other two variants determined by [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans) and [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo). [`dA`](/stdlib/LinearAlgebra#stdlib-blas-diag) determines if the diagonal values are read or are assumed to be all ones.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1343-L1350)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1343-L1350)
 
 </div>
 <br>
@@ -9568,7 +9568,7 @@ ger!(alpha, x, y, A)
 Rank-1 update of the matrix `A` with vectors `x` and `y` as `alpha*x*y' + A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1389-L1393)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1389-L1393)
 
 </div>
 <br>
@@ -9586,7 +9586,7 @@ her!(uplo, alpha, x, A)
 Methods for complex arrays only. Rank-1 update of the Hermitian matrix `A` with vector `x` as `alpha*x*x' + A`. [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) controls which triangle of `A` is updated. Returns `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1488-L1494)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1488-L1494)
 
 </div>
 <br>
@@ -9604,7 +9604,7 @@ syr!(uplo, alpha, x, A)
 Rank-1 update of the symmetric matrix `A` with vector `x` as `alpha*x*transpose(x) + A`. [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) controls which triangle of `A` is updated. Returns `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1456-L1461)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1456-L1461)
 
 </div>
 <br>
@@ -9636,7 +9636,7 @@ The array inputs `x` and `AP` must all be of `Float32` or `Float64` type. Return
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1211-L1234)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1211-L1234)
 
 </div>
 <br>
@@ -9666,7 +9666,7 @@ Update the lower or upper triangular part specified by [`uplo`](/stdlib/LinearAl
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1520-L1529)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1520-L1529)
 
 </div>
 <br>
@@ -9690,7 +9690,7 @@ Return the lower or upper triangular part specified by [`uplo`](/stdlib/LinearAl
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1582-L1589)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1582-L1589)
 
 </div>
 <br>
@@ -9714,7 +9714,7 @@ Return the lower or upper triangular part specified by [`uplo`](/stdlib/LinearAl
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1592-L1599)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1592-L1599)
 
 </div>
 <br>
@@ -9732,7 +9732,7 @@ gemm!(tA, tB, alpha, A, B, beta, C)
 Update `C` as `alpha*A*B + beta*C` or the other three variants according to [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans) and `tB`. Return the updated `C`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1602-L1607)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1602-L1607)
 
 </div>
 <br>
@@ -9750,7 +9750,7 @@ gemm(tA, tB, alpha, A, B)
 Return `alpha*A*B` or the other three variants according to [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans) and `tB`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1662-L1666)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1662-L1666)
 
 </div>
 <br>
@@ -9768,7 +9768,7 @@ gemm(tA, tB, A, B)
 Return `A*B` or the other three variants according to [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans) and `tB`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1669-L1673)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1669-L1673)
 
 </div>
 <br>
@@ -9786,7 +9786,7 @@ symm!(side, ul, alpha, A, B, beta, C)
 Update `C` as `alpha*A*B + beta*C` or `alpha*B*A + beta*C` according to [`side`](/stdlib/LinearAlgebra#stdlib-blas-side). `A` is assumed to be symmetric. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. Return the updated `C`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1760-L1766)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1760-L1766)
 
 </div>
 <br>
@@ -9804,7 +9804,7 @@ symm(side, ul, alpha, A, B)
 Return `alpha*A*B` or `alpha*B*A` according to [`side`](/stdlib/LinearAlgebra#stdlib-blas-side). `A` is assumed to be symmetric. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1742-L1748)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1742-L1748)
 
 </div>
 <br>
@@ -9822,7 +9822,7 @@ symm(side, ul, A, B)
 Return `A*B` or `B*A` according to [`side`](/stdlib/LinearAlgebra#stdlib-blas-side). `A` is assumed to be symmetric. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1751-L1757)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1751-L1757)
 
 </div>
 <br>
@@ -9840,7 +9840,7 @@ hemm!(side, ul, alpha, A, B, beta, C)
 Update `C` as `alpha*A*B + beta*C` or `alpha*B*A + beta*C` according to [`side`](/stdlib/LinearAlgebra#stdlib-blas-side). `A` is assumed to be Hermitian. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. Return the updated `C`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1849-L1855)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1849-L1855)
 
 </div>
 <br>
@@ -9858,7 +9858,7 @@ hemm(side, ul, alpha, A, B)
 Return `alpha*A*B` or `alpha*B*A` according to [`side`](/stdlib/LinearAlgebra#stdlib-blas-side). `A` is assumed to be Hermitian. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1832-L1838)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1832-L1838)
 
 </div>
 <br>
@@ -9876,7 +9876,7 @@ hemm(side, ul, A, B)
 Return `A*B` or `B*A` according to [`side`](/stdlib/LinearAlgebra#stdlib-blas-side). `A` is assumed to be Hermitian. Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1841-L1846)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1841-L1846)
 
 </div>
 <br>
@@ -9894,7 +9894,7 @@ syrk!(uplo, trans, alpha, A, beta, C)
 Rank-k update of the symmetric matrix `C` as `alpha*A*transpose(A) + beta*C` or `alpha*transpose(A)*A + beta*C` according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans). Only the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `C` is used. Return `C`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1860-L1866)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1860-L1866)
 
 </div>
 <br>
@@ -9912,7 +9912,7 @@ syrk(uplo, trans, alpha, A)
 Return either the upper triangle or the lower triangle of `A`, according to [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo), of `alpha*A*transpose(A)` or `alpha*transpose(A)*A`, according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1869-L1876)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1869-L1876)
 
 </div>
 <br>
@@ -9930,7 +9930,7 @@ herk!(uplo, trans, alpha, A, beta, C)
 Methods for complex arrays only. Rank-k update of the Hermitian matrix `C` as `alpha*A*A' + beta*C` or `alpha*A'*A + beta*C` according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans). Only the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `C` is updated. Returns `C`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1920-L1926)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1920-L1926)
 
 </div>
 <br>
@@ -9948,7 +9948,7 @@ herk(uplo, trans, alpha, A)
 Methods for complex arrays only. Returns the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `alpha*A*A'` or `alpha*A'*A`, according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L1929-L1934)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L1929-L1934)
 
 </div>
 <br>
@@ -9966,7 +9966,7 @@ syr2k!(uplo, trans, alpha, A, B, beta, C)
 Rank-2k update of the symmetric matrix `C` as `alpha*A*transpose(B) + alpha*B*transpose(A) + beta*C` or `alpha*transpose(A)*B + alpha*transpose(B)*A + beta*C` according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans). Only the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `C` is used. Returns `C`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L2017-L2025)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L2017-L2025)
 
 </div>
 <br>
@@ -9984,7 +9984,7 @@ syr2k(uplo, trans, alpha, A, B)
 Returns the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `alpha*A*transpose(B) + alpha*B*transpose(A)` or `alpha*transpose(A)*B + alpha*transpose(B)*A`, according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L2028-L2035)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L2028-L2035)
 
 
 
@@ -9996,7 +9996,7 @@ syr2k(uplo, trans, A, B)
 Return the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A*transpose(B) + B*transpose(A)` or `transpose(A)*B + transpose(B)*A`, according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L2041-L2046)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L2041-L2046)
 
 </div>
 <br>
@@ -10014,7 +10014,7 @@ her2k!(uplo, trans, alpha, A, B, beta, C)
 Rank-2k update of the Hermitian matrix `C` as `alpha*A*B' + alpha*B*A' + beta*C` or `alpha*A'*B + alpha*B'*A + beta*C` according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans). The scalar `beta` has to be real. Only the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `C` is used. Return `C`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L2091-L2098)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L2091-L2098)
 
 </div>
 <br>
@@ -10032,7 +10032,7 @@ her2k(uplo, trans, alpha, A, B)
 Return the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `alpha*A*B' + alpha*B*A'` or `alpha*A'*B + alpha*B'*A`, according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L2101-L2106)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L2101-L2106)
 
 
 
@@ -10044,7 +10044,7 @@ her2k(uplo, trans, A, B)
 Return the [`uplo`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A*B' + B*A'` or `A'*B + B'*A`, according to [`trans`](/stdlib/LinearAlgebra#stdlib-blas-trans).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L2109-L2114)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L2109-L2114)
 
 </div>
 <br>
@@ -10062,7 +10062,7 @@ trmm!(side, ul, tA, dA, alpha, A, B)
 Update `B` as `alpha*A*B` or one of the other three variants determined by [`side`](/stdlib/LinearAlgebra#stdlib-blas-side) and [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans). Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. [`dA`](/stdlib/LinearAlgebra#stdlib-blas-diag) determines if the diagonal values are read or are assumed to be all ones. Return the updated `B`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L2119-L2128)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L2119-L2128)
 
 </div>
 <br>
@@ -10080,7 +10080,7 @@ trmm(side, ul, tA, dA, alpha, A, B)
 Return `alpha*A*B` or one of the other three variants determined by [`side`](/stdlib/LinearAlgebra#stdlib-blas-side) and [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans). Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. [`dA`](/stdlib/LinearAlgebra#stdlib-blas-diag) determines if the diagonal values are read or are assumed to be all ones.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L2131-L2139)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L2131-L2139)
 
 </div>
 <br>
@@ -10098,7 +10098,7 @@ trsm!(side, ul, tA, dA, alpha, A, B)
 Overwrite `B` with the solution to `A*X = alpha*B` or one of the other three variants determined by [`side`](/stdlib/LinearAlgebra#stdlib-blas-side) and [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans). Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. [`dA`](/stdlib/LinearAlgebra#stdlib-blas-diag) determines if the diagonal values are read or are assumed to be all ones. Returns the updated `B`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L2142-L2151)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L2142-L2151)
 
 </div>
 <br>
@@ -10116,7 +10116,7 @@ trsm(side, ul, tA, dA, alpha, A, B)
 Return the solution to `A*X = alpha*B` or one of the other three variants determined by determined by [`side`](/stdlib/LinearAlgebra#stdlib-blas-side) and [`tA`](/stdlib/LinearAlgebra#stdlib-blas-trans). Only the [`ul`](/stdlib/LinearAlgebra#stdlib-blas-uplo) triangle of `A` is used. [`dA`](/stdlib/LinearAlgebra#stdlib-blas-diag) determines if the diagonal values are read or are assumed to be all ones.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/blas.jl#L2154-L2162)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/blas.jl#L2154-L2162)
 
 </div>
 <br>
@@ -10137,7 +10137,7 @@ Note that the LAPACK API provided by Julia can and will change in the future. Si
 Interfaces to LAPACK subroutines.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L4-L6)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L4-L6)
 
 </div>
 <br>
@@ -10155,7 +10155,7 @@ gbtrf!(kl, ku, m, AB) -> (AB, ipiv)
 Compute the LU factorization of a banded matrix `AB`. `kl` is the first subdiagonal containing a nonzero band, `ku` is the last superdiagonal containing one, and `m` is the first dimension of the matrix `AB`. Returns the LU factorization in-place and `ipiv`, the vector of pivots used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L199-L206)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L199-L206)
 
 </div>
 <br>
@@ -10173,7 +10173,7 @@ gbtrs!(trans, kl, ku, m, AB, ipiv, B)
 Solve the equation `AB * X = B`. `trans` determines the orientation of `AB`. It may be `N` (no transpose), `T` (transpose), or `C` (conjugate transpose). `kl` is the first subdiagonal containing a nonzero band, `ku` is the last superdiagonal containing one, and `m` is the first dimension of the matrix `AB`. `ipiv` is the vector of pivots returned from `gbtrf!`. Returns the vector or matrix `X`, overwriting `B` in-place.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L209-L217)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L209-L217)
 
 </div>
 <br>
@@ -10191,7 +10191,7 @@ gebal!(job, A) -> (ilo, ihi, scale)
 Balance the matrix `A` before computing its eigensystem or Schur factorization. `job` can be one of `N` (`A` will not be permuted or scaled), `P` (`A` will only be permuted), `S` (`A` will only be scaled), or `B` (`A` will be both permuted and scaled). Modifies `A` in-place and returns `ilo`, `ihi`, and `scale`. If permuting was turned on, `A[i,j] = 0` if `j > i` and `1 < j < ilo` or `j > ihi`. `scale` contains information about the scaling/permutations performed.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L279-L288)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L279-L288)
 
 </div>
 <br>
@@ -10209,7 +10209,7 @@ gebak!(job, side, ilo, ihi, scale, V)
 Transform the eigenvectors `V` of a matrix balanced using `gebal!` to the unscaled/unpermuted eigenvectors of the original matrix. Modifies `V` in-place. `side` can be `L` (left eigenvectors are transformed) or `R` (right eigenvectors are transformed).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L291-L298)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L291-L298)
 
 </div>
 <br>
@@ -10227,7 +10227,7 @@ gebrd!(A) -> (A, d, e, tauq, taup)
 Reduce `A` in-place to bidiagonal form `A = QBP'`. Returns `A`, containing the bidiagonal matrix `B`; `d`, containing the diagonal elements of `B`; `e`, containing the off-diagonal elements of `B`; `tauq`, containing the elementary reflectors representing `Q`; and `taup`, containing the elementary reflectors representing `P`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L597-L605)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L597-L605)
 
 </div>
 <br>
@@ -10247,7 +10247,7 @@ Compute the `LQ` factorization of `A`, `A = LQ`. `tau` contains scalars which pa
 Returns `A` and `tau` modified in-place.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L608-L617)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L608-L617)
 
 
 
@@ -10261,7 +10261,7 @@ Compute the `LQ` factorization of `A`, `A = LQ`.
 Returns `A`, modified in-place, and `tau`, which contains scalars which parameterize the elementary reflectors of the factorization.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L716-L723)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L716-L723)
 
 </div>
 <br>
@@ -10281,7 +10281,7 @@ Compute the `QL` factorization of `A`, `A = QL`. `tau` contains scalars which pa
 Returns `A` and `tau` modified in-place.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L620-L628)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L620-L628)
 
 
 
@@ -10295,7 +10295,7 @@ Compute the `QL` factorization of `A`, `A = QL`.
 Returns `A`, modified in-place, and `tau`, which contains scalars which parameterize the elementary reflectors of the factorization.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L726-L733)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L726-L733)
 
 </div>
 <br>
@@ -10315,7 +10315,7 @@ Compute the `QR` factorization of `A`, `A = QR`. `tau` contains scalars which pa
 Returns `A` and `tau` modified in-place.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L685-L693)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L685-L693)
 
 
 
@@ -10329,7 +10329,7 @@ Compute the `QR` factorization of `A`, `A = QR`.
 Returns `A`, modified in-place, and `tau`, which contains scalars which parameterize the elementary reflectors of the factorization.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L758-L765)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L758-L765)
 
 </div>
 <br>
@@ -10349,7 +10349,7 @@ Compute the pivoted `QR` factorization of `A`, `AP = QR` using BLAS level 3. `P`
 `A`, `jpvt`, and `tau` are modified in-place.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L631-L644)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L631-L644)
 
 </div>
 <br>
@@ -10369,7 +10369,7 @@ Compute the `RQ` factorization of `A`, `A = RQ`. `tau` contains scalars which pa
 Returns `A` and `tau` modified in-place.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L696-L704)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L696-L704)
 
 
 
@@ -10383,7 +10383,7 @@ Compute the `RQ` factorization of `A`, `A = RQ`.
 Returns `A`, modified in-place, and `tau`, which contains scalars which parameterize the elementary reflectors of the factorization.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L768-L775)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L768-L775)
 
 </div>
 <br>
@@ -10403,7 +10403,7 @@ Compute the blocked `QR` factorization of `A`, `A = QR`. `T` contains upper tria
 Returns `A` and `T` modified in-place.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L659-L669)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L659-L669)
 
 
 
@@ -10417,7 +10417,7 @@ Compute the blocked `QR` factorization of `A`, `A = QR`. `nb` sets the block siz
 Returns `A`, modified in-place, and `T`, which contains upper triangular block reflectors which parameterize the elementary reflectors of the factorization.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L736-L745)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L736-L745)
 
 </div>
 <br>
@@ -10437,7 +10437,7 @@ Recursively computes the blocked `QR` factorization of `A`, `A = QR`. `T` contai
 Returns `A` and `T` modified in-place.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L672-L682)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L672-L682)
 
 
 
@@ -10451,7 +10451,7 @@ Recursively computes the blocked `QR` factorization of `A`, `A = QR`.
 Returns `A`, modified in-place, and `T`, which contains upper triangular block reflectors which parameterize the elementary reflectors of the factorization.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L748-L755)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L748-L755)
 
 </div>
 <br>
@@ -10469,7 +10469,7 @@ getrf!(A, ipiv) -> (A, ipiv, info)
 Compute the pivoted `LU` factorization of `A`, `A = LU`. `ipiv` contains the pivoting information and `info` a code which indicates success (`info = 0`), a singular value in `U` (`info = i`, in which case `U[i,i]` is singular), or an error code (`info < 0`).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L707-L713)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L707-L713)
 
 
 
@@ -10483,7 +10483,7 @@ Compute the pivoted `LU` factorization of `A`, `A = LU`.
 Returns `A`, modified in-place, `ipiv`, the pivoting information, and an `info` code which indicates success (`info = 0`), a singular value in `U` (`info = i`, in which case `U[i,i]` is singular), or an error code (`info < 0`).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L778-L786)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L778-L786)
 
 </div>
 <br>
@@ -10501,7 +10501,7 @@ tzrzf!(A) -> (A, tau)
 Transforms the upper trapezoidal matrix `A` to upper triangular form in-place. Returns `A` and `tau`, the scalar parameters for the elementary reflectors of the transformation.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L954-L960)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L954-L960)
 
 </div>
 <br>
@@ -10519,7 +10519,7 @@ ormrz!(side, trans, A, tau, C)
 Multiplies the matrix `C` by `Q` from the transformation supplied by `tzrzf!`. Depending on `side` or `trans` the multiplication can be left-sided (`side = L, Q*C`) or right-sided (`side = R, C*Q`) and `Q` can be unmodified (`trans = N`), transposed (`trans = T`), or conjugate transposed (`trans = C`). Returns matrix `C` which is modified in-place with the result of the multiplication.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L942-L951)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L942-L951)
 
 </div>
 <br>
@@ -10537,7 +10537,7 @@ gels!(trans, A, B) -> (F, B, ssr)
 Solves the linear equation `A * X = B`, `transpose(A) * X = B`, or `adjoint(A) * X = B` using a QR or LQ factorization. Modifies the matrix/vector `B` in place with the solution. `A` is overwritten with its `QR` or `LQ` factorization. `trans` may be one of `N` (no modification), `T` (transpose), or `C` (conjugate transpose). `gels!` searches for the minimum norm/least squares solution. `A` may be under or over determined. The solution is returned in `B`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1097-L1106)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1097-L1106)
 
 </div>
 <br>
@@ -10555,7 +10555,7 @@ gesv!(A, B) -> (B, A, ipiv)
 Solves the linear equation `A * X = B` where `A` is a square matrix using the `LU` factorization of `A`. `A` is overwritten with its `LU` factorization and `B` is overwritten with the solution `X`. `ipiv` contains the pivoting information for the `LU` factorization of `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1109-L1116)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1109-L1116)
 
 </div>
 <br>
@@ -10573,7 +10573,7 @@ getrs!(trans, A, ipiv, B)
 Solves the linear equation `A * X = B`, `transpose(A) * X = B`, or `adjoint(A) * X = B` for square `A`. Modifies the matrix/vector `B` in place with the solution. `A` is the `LU` factorization from `getrf!`, with `ipiv` the pivoting information. `trans` may be one of `N` (no modification), `T` (transpose), or `C` (conjugate transpose).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1119-L1127)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1119-L1127)
 
 </div>
 <br>
@@ -10591,7 +10591,7 @@ getri!(A, ipiv)
 Computes the inverse of `A`, using its `LU` factorization found by `getrf!`. `ipiv` is the pivot information output and `A` contains the `LU` factorization of `getrf!`. `A` is overwritten with its inverse.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1130-L1137)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1130-L1137)
 
 </div>
 <br>
@@ -10611,7 +10611,7 @@ Solves the linear equation `A * X = B` (`trans = N`), `transpose(A) * X = B` (`t
 Returns the solution `X`; `equed`, which is an output if `fact` is not `N`, and describes the equilibration that was performed; `R`, the row equilibration diagonal; `C`, the column equilibration diagonal; `B`, which may be overwritten with its equilibrated form `Diagonal(R)*B` (if `trans = N` and `equed = R,B`) or `Diagonal(C)*B` (if `trans = T,C` and `equed = C,B`); `rcond`, the reciprocal condition number of `A` after equilbrating; `ferr`, the forward error bound for each solution vector in `X`; `berr`, the forward error bound for each solution vector in `X`; and `work`, the reciprocal pivot growth factor.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1286-L1309)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1286-L1309)
 
 
 
@@ -10623,7 +10623,7 @@ gesvx!(A, B)
 The no-equilibration, no-transpose simplification of `gesvx!`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1313-L1317)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1313-L1317)
 
 </div>
 <br>
@@ -10641,7 +10641,7 @@ gelsd!(A, B, rcond) -> (B, rnk)
 Computes the least norm solution of `A * X = B` by finding the `SVD` factorization of `A`, then dividing-and-conquering the problem. `B` is overwritten with the solution `X`. Singular values below `rcond` will be treated as zero. Returns the solution in `B` and the effective rank of `A` in `rnk`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1512-L1520)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1512-L1520)
 
 </div>
 <br>
@@ -10659,7 +10659,7 @@ gelsy!(A, B, rcond) -> (B, rnk)
 Computes the least norm solution of `A * X = B` by finding the full `QR` factorization of `A`, then dividing-and-conquering the problem. `B` is overwritten with the solution `X`. Singular values below `rcond` will be treated as zero. Returns the solution in `B` and the effective rank of `A` in `rnk`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1523-L1531)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1523-L1531)
 
 </div>
 <br>
@@ -10677,7 +10677,7 @@ gglse!(A, c, B, d) -> (X,res)
 Solves the equation `A * x = c` where `x` is subject to the equality constraint `B * x = d`. Uses the formula `||c - A*x||^2 = 0` to solve. Returns `X` and the residual sum-of-squares.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1585-L1591)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1585-L1591)
 
 </div>
 <br>
@@ -10695,7 +10695,7 @@ geev!(jobvl, jobvr, A) -> (W, VL, VR)
 Finds the eigensystem of `A`. If `jobvl = N`, the left eigenvectors of `A` aren&#39;t computed. If `jobvr = N`, the right eigenvectors of `A` aren&#39;t computed. If `jobvl = V` or `jobvr = V`, the corresponding eigenvectors are computed. Returns the eigenvalues in `W`, the right eigenvectors in `VR`, and the left eigenvectors in `VL`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1896-L1904)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1896-L1904)
 
 </div>
 <br>
@@ -10713,7 +10713,7 @@ gesdd!(job, A) -> (U, S, VT)
 Finds the singular value decomposition of `A`, `A = U * S * V'`, using a divide and conquer approach. If `job = A`, all the columns of `U` and the rows of `V'` are computed. If `job = N`, no columns of `U` or rows of `V'` are computed. If `job = O`, `A` is overwritten with the columns of (thin) `U` and the rows of (thin) `V'`. If `job = S`, the columns of (thin) `U` and the rows of (thin) `V'` are computed and returned separately.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1907-L1916)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1907-L1916)
 
 </div>
 <br>
@@ -10733,7 +10733,7 @@ Finds the singular value decomposition of `A`, `A = U * S * V'`. If `jobu = A`, 
 Returns `U`, `S`, and `Vt`, where `S` are the singular values of `A`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1919-L1932)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1919-L1932)
 
 </div>
 <br>
@@ -10751,7 +10751,7 @@ ggsvd!(jobu, jobv, jobq, A, B) -> (U, V, Q, alpha, beta, k, l, R)
 Finds the generalized singular value decomposition of `A` and `B`, `U'*A*Q = D1*R` and `V'*B*Q = D2*R`. `D1` has `alpha` on its diagonal and `D2` has `beta` on its diagonal. If `jobu = U`, the orthogonal/unitary matrix `U` is computed. If `jobv = V` the orthogonal/unitary matrix `V` is computed. If `jobq = Q`, the orthogonal/unitary matrix `Q` is computed. If `jobu`, `jobv` or `jobq` is `N`, that matrix is not computed. This function is only available in LAPACK versions prior to 3.6.0.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L1935-L1945)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L1935-L1945)
 
 </div>
 <br>
@@ -10769,7 +10769,7 @@ ggsvd3!(jobu, jobv, jobq, A, B) -> (U, V, Q, alpha, beta, k, l, R)
 Finds the generalized singular value decomposition of `A` and `B`, `U'*A*Q = D1*R` and `V'*B*Q = D2*R`. `D1` has `alpha` on its diagonal and `D2` has `beta` on its diagonal. If `jobu = U`, the orthogonal/unitary matrix `U` is computed. If `jobv = V` the orthogonal/unitary matrix `V` is computed. If `jobq = Q`, the orthogonal/unitary matrix `Q` is computed. If `jobu`, `jobv`, or `jobq` is `N`, that matrix is not computed. This function requires LAPACK 3.6.0.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L2074-L2083)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L2074-L2083)
 
 </div>
 <br>
@@ -10787,7 +10787,7 @@ geevx!(balanc, jobvl, jobvr, sense, A) -> (A, w, VL, VR, ilo, ihi, scale, abnrm,
 Finds the eigensystem of `A` with matrix balancing. If `jobvl = N`, the left eigenvectors of `A` aren&#39;t computed. If `jobvr = N`, the right eigenvectors of `A` aren&#39;t computed. If `jobvl = V` or `jobvr = V`, the corresponding eigenvectors are computed. If `balanc = N`, no balancing is performed. If `balanc = P`, `A` is permuted but not scaled. If `balanc = S`, `A` is scaled but not permuted. If `balanc = B`, `A` is permuted and scaled. If `sense = N`, no reciprocal condition numbers are computed. If `sense = E`, reciprocal condition numbers are computed for the eigenvalues only. If `sense = V`, reciprocal condition numbers are computed for the right eigenvectors only. If `sense = B`, reciprocal condition numbers are computed for the right eigenvectors and the eigenvectors. If `sense = E,B`, the right and left eigenvectors must be computed.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L2524-L2540)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L2524-L2540)
 
 </div>
 <br>
@@ -10805,7 +10805,7 @@ ggev!(jobvl, jobvr, A, B) -> (alpha, beta, vl, vr)
 Finds the generalized eigendecomposition of `A` and `B`. If `jobvl = N`, the left eigenvectors aren&#39;t computed. If `jobvr = N`, the right eigenvectors aren&#39;t computed. If `jobvl = V` or `jobvr = V`, the corresponding eigenvectors are computed.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L2543-L2550)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L2543-L2550)
 
 </div>
 <br>
@@ -10823,7 +10823,7 @@ ggev3!(jobvl, jobvr, A, B) -> (alpha, beta, vl, vr)
 Finds the generalized eigendecomposition of `A` and `B` using a blocked algorithm. If `jobvl = N`, the left eigenvectors aren&#39;t computed. If `jobvr = N`, the right eigenvectors aren&#39;t computed. If `jobvl = V` or `jobvr = V`, the corresponding eigenvectors are computed.  This function requires LAPACK 3.6.0.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L2553-L2561)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L2553-L2561)
 
 </div>
 <br>
@@ -10843,7 +10843,7 @@ Solves the equation `A * X = B` where `A` is a tridiagonal matrix with `dl` on t
 Overwrites `B` with the solution `X` and returns it.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L2735-L2743)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L2735-L2743)
 
 </div>
 <br>
@@ -10863,7 +10863,7 @@ Finds the `LU` factorization of a tridiagonal matrix with `dl` on the subdiagona
 Modifies `dl`, `d`, and `du` in-place and returns them and the second superdiagonal `du2` and the pivoting vector `ipiv`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L2746-L2754)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L2746-L2754)
 
 </div>
 <br>
@@ -10881,7 +10881,7 @@ gttrs!(trans, dl, d, du, du2, ipiv, B)
 Solves the equation `A * X = B` (`trans = N`), `transpose(A) * X = B` (`trans = T`), or `adjoint(A) * X = B` (`trans = C`) using the `LU` factorization computed by `gttrf!`. `B` is overwritten with the solution `X`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L2757-L2763)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L2757-L2763)
 
 </div>
 <br>
@@ -10899,7 +10899,7 @@ orglq!(A, tau, k = length(tau))
 Explicitly finds the matrix `Q` of a `LQ` factorization after calling `gelqf!` on `A`. Uses the output of `gelqf!`. `A` is overwritten by `Q`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3164-L3169)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3164-L3169)
 
 </div>
 <br>
@@ -10917,7 +10917,7 @@ orgqr!(A, tau, k = length(tau))
 Explicitly finds the matrix `Q` of a `QR` factorization after calling `geqrf!` on `A`. Uses the output of `geqrf!`. `A` is overwritten by `Q`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3172-L3177)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3172-L3177)
 
 </div>
 <br>
@@ -10935,7 +10935,7 @@ orgql!(A, tau, k = length(tau))
 Explicitly finds the matrix `Q` of a `QL` factorization after calling `geqlf!` on `A`. Uses the output of `geqlf!`. `A` is overwritten by `Q`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3180-L3185)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3180-L3185)
 
 </div>
 <br>
@@ -10953,7 +10953,7 @@ orgrq!(A, tau, k = length(tau))
 Explicitly finds the matrix `Q` of a `RQ` factorization after calling `gerqf!` on `A`. Uses the output of `gerqf!`. `A` is overwritten by `Q`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3188-L3193)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3188-L3193)
 
 </div>
 <br>
@@ -10971,7 +10971,7 @@ ormlq!(side, trans, A, tau, C)
 Computes `Q * C` (`trans = N`), `transpose(Q) * C` (`trans = T`), `adjoint(Q) * C` (`trans = C`) for `side = L` or the equivalent right-sided multiplication for `side = R` using `Q` from a `LQ` factorization of `A` computed using `gelqf!`. `C` is overwritten.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3196-L3203)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3196-L3203)
 
 </div>
 <br>
@@ -10989,7 +10989,7 @@ ormqr!(side, trans, A, tau, C)
 Computes `Q * C` (`trans = N`), `transpose(Q) * C` (`trans = T`), `adjoint(Q) * C` (`trans = C`) for `side = L` or the equivalent right-sided multiplication for `side = R` using `Q` from a `QR` factorization of `A` computed using `geqrf!`. `C` is overwritten.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3206-L3213)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3206-L3213)
 
 </div>
 <br>
@@ -11007,7 +11007,7 @@ ormql!(side, trans, A, tau, C)
 Computes `Q * C` (`trans = N`), `transpose(Q) * C` (`trans = T`), `adjoint(Q) * C` (`trans = C`) for `side = L` or the equivalent right-sided multiplication for `side = R` using `Q` from a `QL` factorization of `A` computed using `geqlf!`. `C` is overwritten.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3216-L3223)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3216-L3223)
 
 </div>
 <br>
@@ -11025,7 +11025,7 @@ ormrq!(side, trans, A, tau, C)
 Computes `Q * C` (`trans = N`), `transpose(Q) * C` (`trans = T`), `adjoint(Q) * C` (`trans = C`) for `side = L` or the equivalent right-sided multiplication for `side = R` using `Q` from a `RQ` factorization of `A` computed using `gerqf!`. `C` is overwritten.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3226-L3233)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3226-L3233)
 
 </div>
 <br>
@@ -11043,7 +11043,7 @@ gemqrt!(side, trans, V, T, C)
 Computes `Q * C` (`trans = N`), `transpose(Q) * C` (`trans = T`), `adjoint(Q) * C` (`trans = C`) for `side = L` or the equivalent right-sided multiplication for `side = R` using `Q` from a `QR` factorization of `A` computed using `geqrt!`. `C` is overwritten.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3236-L3243)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3236-L3243)
 
 </div>
 <br>
@@ -11061,7 +11061,7 @@ posv!(uplo, A, B) -> (A, B)
 Finds the solution to `A * X = B` where `A` is a symmetric or Hermitian positive definite matrix. If `uplo = U` the upper Cholesky decomposition of `A` is computed. If `uplo = L` the lower Cholesky decomposition of `A` is computed. `A` is overwritten by its Cholesky decomposition. `B` is overwritten with the solution `X`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3379-L3387)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3379-L3387)
 
 </div>
 <br>
@@ -11079,7 +11079,7 @@ potrf!(uplo, A)
 Computes the Cholesky (upper if `uplo = U`, lower if `uplo = L`) decomposition of positive-definite matrix `A`. `A` is overwritten and returned with an info code.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3390-L3396)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3390-L3396)
 
 </div>
 <br>
@@ -11099,7 +11099,7 @@ Computes the inverse of positive-definite matrix `A` after calling `potrf!` to f
 `A` is overwritten by its inverse and returned.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3399-L3407)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3399-L3407)
 
 </div>
 <br>
@@ -11117,7 +11117,7 @@ potrs!(uplo, A, B)
 Finds the solution to `A * X = B` where `A` is a symmetric or Hermitian positive definite matrix whose Cholesky decomposition was computed by `potrf!`. If `uplo = U` the upper Cholesky decomposition of `A` was computed. If `uplo = L` the lower Cholesky decomposition of `A` was computed. `B` is overwritten with the solution `X`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3410-L3418)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3410-L3418)
 
 </div>
 <br>
@@ -11137,7 +11137,7 @@ Computes the (upper if `uplo = U`, lower if `uplo = L`) pivoted Cholesky decompo
 Returns `A`, the pivots `piv`, the rank of `A`, and an `info` code. If `info = 0`, the factorization succeeded. If `info = i > 0`, then `A` is indefinite or rank-deficient.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3421-L3431)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3421-L3431)
 
 </div>
 <br>
@@ -11155,7 +11155,7 @@ ptsv!(D, E, B)
 Solves `A * X = B` for positive-definite tridiagonal `A`. `D` is the diagonal of `A` and `E` is the off-diagonal. `B` is overwritten with the solution `X` and returned.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3488-L3494)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3488-L3494)
 
 </div>
 <br>
@@ -11173,7 +11173,7 @@ pttrf!(D, E)
 Computes the LDLt factorization of a positive-definite tridiagonal matrix with `D` as diagonal and `E` as off-diagonal. `D` and `E` are overwritten and returned.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3497-L3503)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3497-L3503)
 
 </div>
 <br>
@@ -11191,7 +11191,7 @@ pttrs!(D, E, B)
 Solves `A * X = B` for positive-definite tridiagonal `A` with diagonal `D` and off-diagonal `E` after computing `A`&#39;s LDLt factorization using `pttrf!`. `B` is overwritten with the solution `X`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3570-L3576)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3570-L3576)
 
 </div>
 <br>
@@ -11209,7 +11209,7 @@ trtri!(uplo, diag, A)
 Finds the inverse of (upper if `uplo = U`, lower if `uplo = L`) triangular matrix `A`. If `diag = N`, `A` has non-unit diagonal elements. If `diag = U`, all diagonal elements of `A` are one. `A` is overwritten with its inverse.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3640-L3647)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3640-L3647)
 
 </div>
 <br>
@@ -11227,7 +11227,7 @@ trtrs!(uplo, trans, diag, A, B)
 Solves `A * X = B` (`trans = N`), `transpose(A) * X = B` (`trans = T`), or `adjoint(A) * X = B` (`trans = C`) for (upper if `uplo = U`, lower if `uplo = L`) triangular matrix `A`. If `diag = N`, `A` has non-unit diagonal elements. If `diag = U`, all diagonal elements of `A` are one. `B` is overwritten with the solution `X`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3650-L3658)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3650-L3658)
 
 </div>
 <br>
@@ -11245,7 +11245,7 @@ trcon!(norm, uplo, diag, A)
 Finds the reciprocal condition number of (upper if `uplo = U`, lower if `uplo = L`) triangular matrix `A`. If `diag = N`, `A` has non-unit diagonal elements. If `diag = U`, all diagonal elements of `A` are one. If `norm = I`, the condition number is found in the infinity norm. If `norm = O` or `1`, the condition number is found in the one norm.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3935-L3943)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3935-L3943)
 
 </div>
 <br>
@@ -11263,7 +11263,7 @@ trevc!(side, howmny, select, T, VL = similar(T), VR = similar(T))
 Finds the eigensystem of an upper triangular matrix `T`. If `side = R`, the right eigenvectors are computed. If `side = L`, the left eigenvectors are computed. If `side = B`, both sets are computed. If `howmny = A`, all eigenvectors are found. If `howmny = B`, all eigenvectors are found and backtransformed using `VL` and `VR`. If `howmny = S`, only the eigenvectors corresponding to the values in `select` are computed.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3946-L3956)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3946-L3956)
 
 </div>
 <br>
@@ -11281,7 +11281,7 @@ trrfs!(uplo, trans, diag, A, B, X, Ferr, Berr) -> (Ferr, Berr)
 Estimates the error in the solution to `A * X = B` (`trans = N`), `transpose(A) * X = B` (`trans = T`), `adjoint(A) * X = B` (`trans = C`) for `side = L`, or the equivalent equations a right-handed `side = R` `X * A` after computing `X` using `trtrs!`. If `uplo = U`, `A` is upper triangular. If `uplo = L`, `A` is lower triangular. If `diag = N`, `A` has non-unit diagonal elements. If `diag = U`, all diagonal elements of `A` are one. `Ferr` and `Berr` are optional inputs. `Ferr` is the forward error and `Berr` is the backward error, each component-wise.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L3960-L3971)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L3960-L3971)
 
 </div>
 <br>
@@ -11299,7 +11299,7 @@ stev!(job, dv, ev) -> (dv, Zmat)
 Computes the eigensystem for a symmetric tridiagonal matrix with `dv` as diagonal and `ev` as off-diagonal. If `job = N` only the eigenvalues are found and returned in `dv`. If `job = V` then the eigenvectors are also found and returned in `Zmat`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L4154-L4161)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L4154-L4161)
 
 </div>
 <br>
@@ -11317,7 +11317,7 @@ stebz!(range, order, vl, vu, il, iu, abstol, dv, ev) -> (dv, iblock, isplit)
 Computes the eigenvalues for a symmetric tridiagonal matrix with `dv` as diagonal and `ev` as off-diagonal. If `range = A`, all the eigenvalues are found. If `range = V`, the eigenvalues in the half-open interval `(vl, vu]` are found. If `range = I`, the eigenvalues with indices between `il` and `iu` are found. If `order = B`, eigvalues are ordered within a block. If `order = E`, they are ordered across all the blocks. `abstol` can be set as a tolerance for convergence.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L4164-L4174)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L4164-L4174)
 
 </div>
 <br>
@@ -11335,7 +11335,7 @@ stegr!(jobz, range, dv, ev, vl, vu, il, iu) -> (w, Z)
 Computes the eigenvalues (`jobz = N`) or eigenvalues and eigenvectors (`jobz = V`) for a symmetric tridiagonal matrix with `dv` as diagonal and `ev` as off-diagonal. If `range = A`, all the eigenvalues are found. If `range = V`, the eigenvalues in the half-open interval `(vl, vu]` are found. If `range = I`, the eigenvalues with indices between `il` and `iu` are found. The eigenvalues are returned in `w` and the eigenvectors in `Z`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L4177-L4187)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L4177-L4187)
 
 </div>
 <br>
@@ -11353,7 +11353,7 @@ stein!(dv, ev_in, w_in, iblock_in, isplit_in)
 Computes the eigenvectors for a symmetric tridiagonal matrix with `dv` as diagonal and `ev_in` as off-diagonal. `w_in` specifies the input eigenvalues for which to find corresponding eigenvectors. `iblock_in` specifies the submatrices corresponding to the eigenvalues in `w_in`. `isplit_in` specifies the splitting points between the submatrix blocks.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L4190-L4198)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L4190-L4198)
 
 </div>
 <br>
@@ -11371,7 +11371,7 @@ syconv!(uplo, A, ipiv) -> (A, work)
 Converts a symmetric matrix `A` (which has been factorized into a triangular matrix) into two matrices `L` and `D`. If `uplo = U`, `A` is upper triangular. If `uplo = L`, it is lower triangular. `ipiv` is the pivot vector from the triangular factorization. `A` is overwritten by `L` and `D`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5193-L5201)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5193-L5201)
 
 </div>
 <br>
@@ -11389,7 +11389,7 @@ sysv!(uplo, A, B) -> (B, A, ipiv)
 Finds the solution to `A * X = B` for symmetric matrix `A`. If `uplo = U`, the upper half of `A` is stored. If `uplo = L`, the lower half is stored. `B` is overwritten by the solution `X`. `A` is overwritten by its Bunch-Kaufman factorization. `ipiv` contains pivoting information about the factorization.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5204-L5212)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5204-L5212)
 
 </div>
 <br>
@@ -11409,7 +11409,7 @@ Computes the Bunch-Kaufman factorization of a symmetric matrix `A`. If `uplo = U
 Returns `A`, overwritten by the factorization, a pivot vector `ipiv`, and the error code `info` which is a non-negative integer. If `info` is positive the matrix is singular and the diagonal part of the factorization is exactly zero at position `info`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5215-L5226)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5215-L5226)
 
 
 
@@ -11423,7 +11423,7 @@ Computes the Bunch-Kaufman factorization of a symmetric matrix `A`. If `uplo = U
 Returns `A`, overwritten by the factorization, the pivot vector `ipiv`, and the error code `info` which is a non-negative integer. If `info` is positive the matrix is singular and the diagonal part of the factorization is exactly zero at position `info`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5229-L5240)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5229-L5240)
 
 </div>
 <br>
@@ -11441,7 +11441,7 @@ sytri!(uplo, A, ipiv)
 Computes the inverse of a symmetric matrix `A` using the results of `sytrf!`. If `uplo = U`, the upper half of `A` is stored. If `uplo = L`, the lower half is stored. `A` is overwritten by its inverse.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5243-L5249)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5243-L5249)
 
 </div>
 <br>
@@ -11459,7 +11459,7 @@ sytrs!(uplo, A, ipiv, B)
 Solves the equation `A * X = B` for a symmetric matrix `A` using the results of `sytrf!`. If `uplo = U`, the upper half of `A` is stored. If `uplo = L`, the lower half is stored. `B` is overwritten by the solution `X`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5252-L5259)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5252-L5259)
 
 </div>
 <br>
@@ -11477,7 +11477,7 @@ hesv!(uplo, A, B) -> (B, A, ipiv)
 Finds the solution to `A * X = B` for Hermitian matrix `A`. If `uplo = U`, the upper half of `A` is stored. If `uplo = L`, the lower half is stored. `B` is overwritten by the solution `X`. `A` is overwritten by its Bunch-Kaufman factorization. `ipiv` contains pivoting information about the factorization.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5263-L5271)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5263-L5271)
 
 </div>
 <br>
@@ -11497,7 +11497,7 @@ Computes the Bunch-Kaufman factorization of a Hermitian matrix `A`. If `uplo = U
 Returns `A`, overwritten by the factorization, a pivot vector `ipiv`, and the error code `info` which is a non-negative integer. If `info` is positive the matrix is singular and the diagonal part of the factorization is exactly zero at position `info`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5274-L5285)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5274-L5285)
 
 
 
@@ -11511,7 +11511,7 @@ Computes the Bunch-Kaufman factorization of a Hermitian matrix `A`. If `uplo = U
 Returns `A`, overwritten by the factorization, the pivot vector `ipiv`, and the error code `info` which is a non-negative integer. If `info` is positive the matrix is singular and the diagonal part of the factorization is exactly zero at position `info`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5288-L5299)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5288-L5299)
 
 </div>
 <br>
@@ -11529,7 +11529,7 @@ hetri!(uplo, A, ipiv)
 Computes the inverse of a Hermitian matrix `A` using the results of `sytrf!`. If `uplo = U`, the upper half of `A` is stored. If `uplo = L`, the lower half is stored. `A` is overwritten by its inverse.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5302-L5308)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5302-L5308)
 
 </div>
 <br>
@@ -11547,7 +11547,7 @@ hetrs!(uplo, A, ipiv, B)
 Solves the equation `A * X = B` for a Hermitian matrix `A` using the results of `sytrf!`. If `uplo = U`, the upper half of `A` is stored. If `uplo = L`, the lower half is stored. `B` is overwritten by the solution `X`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5311-L5318)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5311-L5318)
 
 </div>
 <br>
@@ -11565,7 +11565,7 @@ syev!(jobz, uplo, A)
 Finds the eigenvalues (`jobz = N`) or eigenvalues and eigenvectors (`jobz = V`) of a symmetric matrix `A`. If `uplo = U`, the upper triangle of `A` is used. If `uplo = L`, the lower triangle of `A` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5738-L5744)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5738-L5744)
 
 </div>
 <br>
@@ -11585,7 +11585,7 @@ Finds the eigenvalues (`jobz = N`) or eigenvalues and eigenvectors (`jobz = V`) 
 The eigenvalues are returned in `W` and the eigenvectors in `Z`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5747-L5759)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5747-L5759)
 
 </div>
 <br>
@@ -11603,7 +11603,7 @@ syevd!(jobz, uplo, A)
 Finds the eigenvalues (`jobz = N`) or eigenvalues and eigenvectors (`jobz = V`) of a symmetric matrix `A`. If `uplo = U`, the upper triangle of `A` is used. If `uplo = L`, the lower triangle of `A` is used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5763-L5769)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5763-L5769)
 
 </div>
 <br>
@@ -11621,7 +11621,7 @@ sygvd!(itype, jobz, uplo, A, B) -> (w, A, B)
 Finds the generalized eigenvalues (`jobz = N`) or eigenvalues and eigenvectors (`jobz = V`) of a symmetric matrix `A` and symmetric positive-definite matrix `B`. If `uplo = U`, the upper triangles of `A` and `B` are used. If `uplo = L`, the lower triangles of `A` and `B` are used. If `itype = 1`, the problem to solve is `A * x = lambda * B * x`. If `itype = 2`, the problem to solve is `A * B * x = lambda * x`. If `itype = 3`, the problem to solve is `B * A * x = lambda * x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5772-L5783)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5772-L5783)
 
 </div>
 <br>
@@ -11641,7 +11641,7 @@ Computes the singular value decomposition of a bidiagonal matrix with `d` on the
 Returns the singular values in `d`, and the matrix `C` overwritten with `Q' * C`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5836-L5845)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5836-L5845)
 
 </div>
 <br>
@@ -11661,7 +11661,7 @@ Computes the singular value decomposition of a bidiagonal matrix with `d` on the
 Returns the singular values in `d`, and if `compq = P`, the compact singular vectors in `iq`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5907-L5919)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5907-L5919)
 
 </div>
 <br>
@@ -11679,7 +11679,7 @@ gecon!(normtype, A, anorm)
 Finds the reciprocal condition number of matrix `A`. If `normtype = I`, the condition number is found in the infinity norm. If `normtype = O` or `1`, the condition number is found in the one norm. `A` must be the result of `getrf!` and `anorm` is the norm of `A` in the relevant norm.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L5994-L6001)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L5994-L6001)
 
 </div>
 <br>
@@ -11697,7 +11697,7 @@ gehrd!(ilo, ihi, A) -> (A, tau)
 Converts a matrix `A` to Hessenberg form. If `A` is balanced with `gebal!` then `ilo` and `ihi` are the outputs of `gebal!`. Otherwise they should be `ilo = 1` and `ihi = size(A,2)`. `tau` contains the elementary reflectors of the factorization.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L6045-L6052)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L6045-L6052)
 
 </div>
 <br>
@@ -11715,7 +11715,7 @@ orghr!(ilo, ihi, A, tau)
 Explicitly finds `Q`, the orthogonal/unitary matrix from `gehrd!`. `ilo`, `ihi`, `A`, and `tau` must correspond to the input/output to `gehrd!`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L6095-L6100)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L6095-L6100)
 
 </div>
 <br>
@@ -11735,7 +11735,7 @@ Computes the eigenvalues (`jobvs = N`) or the eigenvalues and Schur vectors (`jo
 Returns `A`, `vs` containing the Schur vectors, and `w`, containing the eigenvalues.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L6717-L6725)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L6717-L6725)
 
 </div>
 <br>
@@ -11755,7 +11755,7 @@ Computes the generalized eigenvalues, generalized Schur form, left Schur vectors
 The generalized eigenvalues are returned in `alpha` and `beta`. The left Schur vectors are returned in `vsl` and the right Schur vectors are returned in `vsr`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L6729-L6738)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L6729-L6738)
 
 </div>
 <br>
@@ -11775,7 +11775,7 @@ Computes the generalized eigenvalues, generalized Schur form, left Schur vectors
 The generalized eigenvalues are returned in `alpha` and `beta`. The left Schur vectors are returned in `vsl` and the right Schur vectors are returned in `vsr`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L6741-L6750)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L6741-L6750)
 
 </div>
 <br>
@@ -11794,7 +11794,7 @@ trexc!(ifst, ilst, T, Q) -> (T, Q)
 Reorder the Schur factorization `T` of a matrix, such that the diagonal block of `T` with row index `ifst` is moved to row index `ilst`. If `compq = V`, the Schur vectors `Q` are reordered. If `compq = N` they are not modified. The 4-arg method calls the 5-arg method with `compq = V`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L7061-L7069)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L7061-L7069)
 
 </div>
 <br>
@@ -11815,7 +11815,7 @@ Reorder the Schur factorization of a matrix and optionally finds reciprocal cond
 Returns `T`, `Q`, reordered eigenvalues in `w`, the condition number of the cluster of eigenvalues `s`, and the condition number of the invariant subspace `sep`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L7072-L7089)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L7072-L7089)
 
 </div>
 <br>
@@ -11833,7 +11833,7 @@ tgsen!(select, S, T, Q, Z) -> (S, T, alpha, beta, Q, Z)
 Reorders the vectors of a generalized Schur decomposition. `select` specifies the eigenvalues in each cluster.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L7092-L7097)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L7092-L7097)
 
 </div>
 <br>
@@ -11853,7 +11853,7 @@ Solves the Sylvester matrix equation `A * X +/- X * B = scale*C` where `A` and `
 Returns `X` (overwriting `C`) and `scale`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L7134-L7145)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L7134-L7145)
 
 </div>
 <br>
@@ -11871,7 +11871,7 @@ hseqr!(job, compz, ilo, ihi, H, Z) -> (H, Z, w)
 Computes all eigenvalues and (optionally) the Schur factorization of a matrix reduced to Hessenberg form. If `H` is balanced with `gebal!` then `ilo` and `ihi` are the outputs of `gebal!`. Otherwise they should be `ilo = 1` and `ihi = size(H,2)`. `tau` contains the elementary reflectors of the factorization.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LinearAlgebra/src/lapack.jl#L6247-L6255)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LinearAlgebra/src/lapack.jl#L6247-L6255)
 
 </div>
 <br>

@@ -85,7 +85,7 @@ Mirror structs for some of the built-in types are [defined in `julia.h`](https:/
 
 ## Garbage collector mark bits {#Garbage-collector-mark-bits}
 
-The garbage collector uses several bits from the metadata portion of the `jl_typetag_t` to track each object in the system. Further details about this algorithm can be found in the comments of the [garbage collector implementation in `gc.c`](https://github.com/JuliaLang/julia/blob/master/src/gc.c).
+The garbage collector uses several bits from the metadata portion of the `jl_typetag_t` to track each object in the system. Further details about this algorithm can be found in the comments of the [garbage collector implementation in `gc-stock.c`](https://github.com/JuliaLang/julia/blob/master/src/gc-stock.c).
 
 ## Object allocation {#Object-allocation}
 
@@ -171,7 +171,7 @@ jl_value_t *newobj(jl_value_t *type, size_t nfields);
 ```
 
 
-And at the lowest level, memory is getting allocated by a call to the garbage collector (in `gc.c`), then tagged with its type:
+And at the lowest level, memory is getting allocated by a call to the garbage collector (in `gc-stock.c`), then tagged with its type:
 
 ```c
 jl_value_t *jl_gc_allocobj(size_t nbytes);

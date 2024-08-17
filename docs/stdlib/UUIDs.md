@@ -13,7 +13,7 @@ uuid1([rng::AbstractRNG]) -> UUID
 ```
 
 
-Generates a version 1 (time-based) universally unique identifier (UUID), as specified by RFC 4122. Note that the Node ID is randomly generated (does not identify the host) according to section 4.5 of the RFC.
+Generates a version 1 (time-based) universally unique identifier (UUID), as specified by [RFC 4122](https://www.ietf.org/rfc/rfc4122). Note that the Node ID is randomly generated (does not identify the host) according to section 4.5 of the RFC.
 
 The default rng used by `uuid1` is not `Random.default_rng()` and every invocation of `uuid1()` without an argument should be expected to return a unique identifier. Importantly, the outputs of `uuid1` do not repeat even when `Random.seed!(seed)` is called. Currently (as of Julia 1.6), `uuid1` uses `Random.RandomDevice` as the default rng. However, this is an implementation detail that may change in the future.
 
@@ -36,7 +36,7 @@ UUID("cfc395e8-590f-11e8-1f13-43a2532b2fa8")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/UUIDs/src/UUIDs.jl#L38-L63)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/UUIDs/src/UUIDs.jl#L38-L63)
 
 </div>
 <br>
@@ -51,7 +51,7 @@ uuid4([rng::AbstractRNG]) -> UUID
 ```
 
 
-Generates a version 4 (random or pseudo-random) universally unique identifier (UUID), as specified by RFC 4122.
+Generates a version 4 (random or pseudo-random) universally unique identifier (UUID), as specified by [RFC 4122](https://www.ietf.org/rfc/rfc4122).
 
 The default rng used by `uuid4` is not `Random.default_rng()` and every invocation of `uuid4()` without an argument should be expected to return a unique identifier. Importantly, the outputs of `uuid4` do not repeat even when `Random.seed!(seed)` is called. Currently (as of Julia 1.6), `uuid4` uses `Random.RandomDevice` as the default rng. However, this is an implementation detail that may change in the future.
 
@@ -74,7 +74,7 @@ UUID("856e446e-0c6a-472a-9638-f7b8557cd282")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/UUIDs/src/UUIDs.jl#L87-L111)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/UUIDs/src/UUIDs.jl#L91-L115)
 
 </div>
 <br>
@@ -113,7 +113,7 @@ UUID("2df91e3f-da06-5362-a6fe-03772f2e14c9")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/UUIDs/src/UUIDs.jl#L119-L140)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/UUIDs/src/UUIDs.jl#L123-L144)
 
 </div>
 <br>
@@ -139,7 +139,7 @@ julia> uuid_version(uuid4())
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/UUIDs/src/UUIDs.jl#L17-L28)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/UUIDs/src/UUIDs.jl#L17-L28)
 
 </div>
 <br>

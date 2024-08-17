@@ -59,9 +59,15 @@ To make referring to particular styles more convenient, there is a global `Dict{
 
 Any package registering new faces should ensure that they are prefixed by the package name, i.e. follow the format `mypackage_myface`. This is important for predictability, and to prevent name clashes.
 
+Furthermore, packages should take care to use (and introduce) _semantic_ faces (like `code`) over direct colours and styles (like `cyan`). This is helpful in a number of ways, from making the intent in usage more obvious, aiding composability, and making user customisation more intuitive.
+
 :::
 
-There is one set of exemptions to the package-prefix rule, the set of basic faces that are part of the default value of the faces dictionary.
+There are two set of exemptions to the package-prefix rule:
+- the set of basic faces that are part of the default value of the faces dictionary
+  
+- faces introduced by Julia&#39;s own standard library, namely `JuliaSyntaxHighlighting`
+  
 
 #### Basic faces {#stdlib-styledstrings-basic-faces}
 
@@ -287,7 +293,7 @@ inheritval = ws, ':'?, symbol ;
 
 
 
-[source](https://github.com/JuliaLang/StyledStrings.jl/blob/d7496d24d3f05536bce6a7eb4cd8ca05a75c02aa/src/styledmarkup.jl#L864-L947)
+[source](https://github.com/JuliaLang/StyledStrings.jl/blob/f6035eb97b516862b16e36cab2ecc6ea8adc3d7c/src/styledmarkup.jl#L895-L978)
 
 </div>
 <br>
@@ -307,7 +313,7 @@ Construct a styled string. Within the string, `{<specs>:<content>}` structures a
 This is a functional equivalent of the [`@styled_str`](/stdlib/StyledStrings#StyledStrings.StyledMarkup.@styled_str) macro, just without interpolation capabilities.
 
 
-[source](https://github.com/JuliaLang/StyledStrings.jl/blob/d7496d24d3f05536bce6a7eb4cd8ca05a75c02aa/src/styledmarkup.jl#L967-L978)
+[source](https://github.com/JuliaLang/StyledStrings.jl/blob/f6035eb97b516862b16e36cab2ecc6ea8adc3d7c/src/styledmarkup.jl#L998-L1009)
 
 </div>
 <br>
@@ -361,7 +367,7 @@ All attributes can be set via the keyword constructor, and default to `nothing`.
   
 
 
-[source](https://github.com/JuliaLang/StyledStrings.jl/blob/d7496d24d3f05536bce6a7eb4cd8ca05a75c02aa/src/faces.jl#L82-L119)
+[source](https://github.com/JuliaLang/StyledStrings.jl/blob/f6035eb97b516862b16e36cab2ecc6ea8adc3d7c/src/faces.jl#L86-L123)
 
 </div>
 <br>
@@ -391,7 +397,7 @@ Face (sample)
 
 
 
-[source](https://github.com/JuliaLang/StyledStrings.jl/blob/d7496d24d3f05536bce6a7eb4cd8ca05a75c02aa/src/faces.jl#L374-L391)
+[source](https://github.com/JuliaLang/StyledStrings.jl/blob/f6035eb97b516862b16e36cab2ecc6ea8adc3d7c/src/faces.jl#L378-L395)
 
 </div>
 <br>
@@ -422,7 +428,7 @@ red and blue mixed make purple
 
 
 
-[source](https://github.com/JuliaLang/StyledStrings.jl/blob/d7496d24d3f05536bce6a7eb4cd8ca05a75c02aa/src/faces.jl#L439-L459)
+[source](https://github.com/JuliaLang/StyledStrings.jl/blob/f6035eb97b516862b16e36cab2ecc6ea8adc3d7c/src/faces.jl#L443-L463)
 
 </div>
 <br>
@@ -452,7 +458,7 @@ SimpleColor(rgb::UInt32)   # e.g. 0x123456
 Also see `tryparse(SimpleColor, rgb::String)`.
 
 
-[source](https://github.com/JuliaLang/StyledStrings.jl/blob/d7496d24d3f05536bce6a7eb4cd8ca05a75c02aa/src/faces.jl#L5-L22)
+[source](https://github.com/JuliaLang/StyledStrings.jl/blob/f6035eb97b516862b16e36cab2ecc6ea8adc3d7c/src/faces.jl#L5-L22)
 
 </div>
 <br>
@@ -470,7 +476,7 @@ parse(::Type{SimpleColor}, rgb::String)
 An analogue of `tryparse(SimpleColor, rgb::String)` (which see), that raises an error instead of returning `nothing`.
 
 
-[source](https://github.com/JuliaLang/StyledStrings.jl/blob/d7496d24d3f05536bce6a7eb4cd8ca05a75c02aa/src/faces.jl#L69-L74)
+[source](https://github.com/JuliaLang/StyledStrings.jl/blob/f6035eb97b516862b16e36cab2ecc6ea8adc3d7c/src/faces.jl#L73-L78)
 
 </div>
 <br>
@@ -503,7 +509,7 @@ julia> tryparse(SimpleColor, "#nocolor")
 
 
 
-[source](https://github.com/JuliaLang/StyledStrings.jl/blob/d7496d24d3f05536bce6a7eb4cd8ca05a75c02aa/src/faces.jl#L34-L55)
+[source](https://github.com/JuliaLang/StyledStrings.jl/blob/f6035eb97b516862b16e36cab2ecc6ea8adc3d7c/src/faces.jl#L38-L59)
 
 </div>
 <br>
@@ -521,7 +527,7 @@ merge(initial::Face, others::Face...)
 Merge the properties of the `initial` face and `others`, with later faces taking priority.
 
 
-[source](https://github.com/JuliaLang/StyledStrings.jl/blob/d7496d24d3f05536bce6a7eb4cd8ca05a75c02aa/src/faces.jl#L486-L491)
+[source](https://github.com/JuliaLang/StyledStrings.jl/blob/f6035eb97b516862b16e36cab2ecc6ea8adc3d7c/src/faces.jl#L490-L495)
 
 </div>
 <br>

@@ -223,7 +223,7 @@ Now we can start `bpftrace` and have it monitor `rt__new__task` for _only_ this 
 
 And if we spawn a single task:
 
-`@async 1+1`
+`Threads.@spawn 1+1`
 
 we see this task being created:
 
@@ -232,8 +232,8 @@ we see this task being created:
 However, if we spawn a bunch of tasks from that newly-spawned task:
 
 ```julia
-@async for i in 1:10
-   @async 1+1
+Threads.@spawn for i in 1:10
+   Threads.@spawn 1+1
 end
 ```
 

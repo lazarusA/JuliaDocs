@@ -34,7 +34,7 @@ free(buf_ref)
 In particular, note that `LibGit2.free` should be called afterward on the `Ref` object.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L105-L119)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L105-L119)
 
 </div>
 <br>
@@ -94,7 +94,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L132-L164)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L132-L164)
 
 </div>
 <br>
@@ -134,7 +134,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L362-L383)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L362-L383)
 
 </div>
 <br>
@@ -166,7 +166,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L455-L473)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L455-L473)
 
 </div>
 <br>
@@ -194,7 +194,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L485-L495)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L485-L495)
 
 </div>
 <br>
@@ -226,7 +226,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L540-L556)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L540-L556)
 
 </div>
 <br>
@@ -258,7 +258,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L504-L521)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L504-L521)
 
 </div>
 <br>
@@ -304,7 +304,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L398-L428)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L398-L428)
 
 </div>
 <br>
@@ -332,7 +332,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L880-L895)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L880-L895)
 
 </div>
 <br>
@@ -366,7 +366,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L321-L339)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L321-L339)
 
 </div>
 <br>
@@ -387,7 +387,7 @@ GitAnnotated(repo::GitRepo, committish::AbstractString)
 An annotated git commit carries with it information about how it was looked up and why, so that rebase or merge operations have more information about the context of the commit. Conflict files contain information about the source/target branches in the merge which are conflicting, for instance. An annotated commit can refer to the tip of a remote branch, for instance when a [`FetchHead`](/stdlib/LibGit2#LibGit2.FetchHead) is passed, or to a branch head described using `GitReference`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/merge.jl#L3-L15)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/merge.jl#L3-L15)
 
 </div>
 <br>
@@ -405,7 +405,7 @@ GitBlame(repo::GitRepo, path::AbstractString; options::BlameOptions=BlameOptions
 Construct a `GitBlame` object for the file at `path`, using change information gleaned from the history of `repo`. The `GitBlame` object records who changed which chunks of the file when, and how. `options` controls how to separate the contents of the file and which commits to probe - see [`BlameOptions`](/stdlib/LibGit2#LibGit2.BlameOptions) for more information.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/blame.jl#L3-L10)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/blame.jl#L3-L10)
 
 </div>
 <br>
@@ -428,7 +428,7 @@ Return a `GitBlob` object from `repo` specified by `hash`/`spec`.
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L127-L135)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L127-L135)
 
 </div>
 <br>
@@ -451,7 +451,7 @@ Return a `GitCommit` object from `repo` specified by `hash`/`spec`.
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L127-L135)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L127-L135)
 
 </div>
 <br>
@@ -469,7 +469,7 @@ GitConfig(path::AbstractString, level::Consts.GIT_CONFIG=Consts.CONFIG_LEVEL_APP
 Create a new `GitConfig` by loading configuration information from the file at `path`. See [`addfile`](/stdlib/LibGit2#LibGit2.addfile) for more information about the `level`, `repo` and `force` options.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/config.jl#L3-L8)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/config.jl#L3-L8)
 
 
 
@@ -481,7 +481,7 @@ GitConfig(repo::GitRepo)
 Get the stored configuration for the git repository `repo`. If `repo` does not have a specific configuration file set, the default git configuration will be used.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/config.jl#L27-L33)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/config.jl#L27-L33)
 
 
 
@@ -493,7 +493,7 @@ GitConfig(level::Consts.GIT_CONFIG=Consts.CONFIG_LEVEL_DEFAULT)
 Get the default git configuration by loading the global and system configuration files into a prioritized configuration. This can be used to access default configuration options outside a specific git repository.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/config.jl#L42-L48)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/config.jl#L42-L48)
 
 </div>
 <br>
@@ -511,7 +511,7 @@ GitHash
 A git object identifier, based on the sha-1 hash. It is a 20 byte string (40 hex digits) used to identify a `GitObject` in a repository.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L13-L18)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L13-L18)
 
 </div>
 <br>
@@ -534,7 +534,7 @@ Return the specified object ([`GitCommit`](/stdlib/LibGit2#LibGit2.GitCommit), [
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L115-L124)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L115-L124)
 
 </div>
 <br>
@@ -560,7 +560,7 @@ remote = LibGit2.GitRemote(repo, "upstream", repo_url)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L3-L13)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L3-L13)
 
 
 
@@ -581,7 +581,7 @@ remote = LibGit2.GitRemote(repo, "upstream", repo_url, refspec)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L23-L36)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L23-L36)
 
 </div>
 <br>
@@ -607,7 +607,7 @@ remote = LibGit2.GitRemoteAnon(repo, repo_url)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L46-L56)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L46-L56)
 
 </div>
 <br>
@@ -625,7 +625,7 @@ LibGit2.GitRepo(path::AbstractString)
 Open a git repository at `path`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L3-L7)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L3-L7)
 
 </div>
 <br>
@@ -643,7 +643,7 @@ LibGit2.GitRepoExt(path::AbstractString, flags::Cuint = Cuint(Consts.REPOSITORY_
 Open a git repository at `path` with extended controls (for instance, if the current user must be a member of a special access group to read `path`).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L16-L21)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L16-L21)
 
 </div>
 <br>
@@ -670,7 +670,7 @@ end
 Here, `LibGit2.count` finds the number of commits along the walk with a certain `GitHash`. Since the `GitHash` is unique to a commit, `cnt` will be `1`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/walker.jl#L3-L20)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/walker.jl#L3-L20)
 
 </div>
 <br>
@@ -688,7 +688,7 @@ GitShortHash(hash::GitHash, len::Integer)
 A shortened git object identifier, which can be used to identify a git object when it is unique, consisting of the initial `len` hexadecimal digits of `hash` (the remaining digits are ignored).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L26-L32)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L26-L32)
 
 </div>
 <br>
@@ -706,7 +706,7 @@ LibGit2.GitSignature
 This is a Julia wrapper around a pointer to a [`git_signature`](https://libgit2.org/libgit2/#HEAD/type/git_signature) object.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1100-L1105)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1100-L1105)
 
 </div>
 <br>
@@ -724,7 +724,7 @@ LibGit2.GitStatus(repo::GitRepo; status_opts=StatusOptions())
 Collect information about the status of each file in the git repository `repo` (e.g. is the file modified, staged, etc.). `status_opts` can be used to set various options, for instance whether or not to look at untracked files or whether to include submodules or not. See [`StatusOptions`](/stdlib/LibGit2#LibGit2.StatusOptions) for more information.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/status.jl#L3-L11)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/status.jl#L3-L11)
 
 </div>
 <br>
@@ -747,7 +747,7 @@ Return a `GitTag` object from `repo` specified by `hash`/`spec`.
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L127-L135)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L127-L135)
 
 </div>
 <br>
@@ -770,7 +770,7 @@ Return a `GitTree` object from `repo` specified by `hash`/`spec`.
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L127-L135)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L127-L135)
 
 </div>
 <br>
@@ -788,7 +788,7 @@ LibGit2.IndexEntry
 In-memory representation of a file entry in the index. Matches the [`git_index_entry`](https://libgit2.org/libgit2/#HEAD/type/git_index_entry) struct.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L737-L742)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L737-L742)
 
 </div>
 <br>
@@ -806,7 +806,7 @@ LibGit2.IndexTime
 Matches the [`git_index_time`](https://libgit2.org/libgit2/#HEAD/type/git_index_time) struct.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L727-L731)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L727-L731)
 
 </div>
 <br>
@@ -840,7 +840,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L634-L652)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L634-L652)
 
 </div>
 <br>
@@ -894,7 +894,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L574-L616)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L574-L616)
 
 </div>
 <br>
@@ -945,7 +945,7 @@ julia> fetch(remote, "master", options=fo)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L278-L310)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L278-L310)
 
 </div>
 <br>
@@ -977,7 +977,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L665-L683)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L665-L683)
 
 </div>
 <br>
@@ -1015,7 +1015,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L796-L818)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L796-L818)
 
 </div>
 <br>
@@ -1047,7 +1047,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L763-L781)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L763-L781)
 
 </div>
 <br>
@@ -1065,7 +1065,7 @@ LibGit2.RemoteCallbacks
 Callback settings. Matches the [`git_remote_callbacks`](https://libgit2.org/libgit2/#HEAD/type/git_remote_callbacks) struct.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L214-L219)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L214-L219)
 
 </div>
 <br>
@@ -1091,7 +1091,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L53-L64)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L53-L64)
 
 </div>
 <br>
@@ -1117,7 +1117,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L859-L873)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L859-L873)
 
 </div>
 <br>
@@ -1147,7 +1147,7 @@ The fields represent:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L829-L844)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L829-L844)
 
 </div>
 <br>
@@ -1187,7 +1187,7 @@ strs = String[...]
 Note that no call to `free` is required as the data is allocated by Julia.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L71-L93)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L71-L93)
 
 </div>
 <br>
@@ -1205,7 +1205,7 @@ LibGit2.TimeStruct
 Time in a signature. Matches the [`git_time`](https://libgit2.org/libgit2/#HEAD/type/git_time) struct.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L39-L44)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L39-L44)
 
 </div>
 <br>
@@ -1236,7 +1236,7 @@ Add an existing git configuration file located at `path` to the current `GitConf
 `addfile` will error. If `force` is `true`, the existing configuration will be replaced by the one in the file at `path`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/config.jl#L70-L86)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/config.jl#L70-L86)
 
 </div>
 <br>
@@ -1263,7 +1263,7 @@ Add all the files with paths specified by `files` to the index `idx` (or the ind
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/index.jl#L82-L103)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/index.jl#L82-L103)
 
 </div>
 <br>
@@ -1291,7 +1291,7 @@ String["+refs/heads/*:refs/remotes/upstream/*"]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L253-L266)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L253-L266)
 
 </div>
 <br>
@@ -1327,7 +1327,7 @@ You may need to [`close`](/base/io-network#Base.close) and reopen the `GitRemote
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L274-L295)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L274-L295)
 
 </div>
 <br>
@@ -1354,7 +1354,7 @@ id = LibGit2.addblob!(repo, blob_file)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/blob.jl#L54-L66)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/blob.jl#L54-L66)
 
 </div>
 <br>
@@ -1372,7 +1372,7 @@ author(c::GitCommit)
 Return the `Signature` of the author of the commit `c`. The author is the person who made changes to the relevant file(s). See also [`committer`](/stdlib/LibGit2#LibGit2.committer).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/commit.jl#L27-L32)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/commit.jl#L27-L32)
 
 </div>
 <br>
@@ -1411,7 +1411,7 @@ auths = LibGit2.authors(repo)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L900-L923)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L900-L923)
 
 </div>
 <br>
@@ -1429,7 +1429,7 @@ branch(repo::GitRepo)
 Equivalent to `git branch`. Create a new branch from the current HEAD.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L365-L370)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L365-L370)
 
 </div>
 <br>
@@ -1465,7 +1465,7 @@ LibGit2.branch!(repo, "new_branch", set_head=false)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L380-L404)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L380-L404)
 
 </div>
 <br>
@@ -1503,7 +1503,7 @@ LibGit2.checkout!(repo, string(commit_oid), force=true)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L471-L496)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L471-L496)
 
 </div>
 <br>
@@ -1529,7 +1529,7 @@ repo = LibGit2.clone(repo_url, "/home/me/projects/Example")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L452-L464)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L452-L464)
 
 
 
@@ -1566,7 +1566,7 @@ julia_repo = LibGit2.clone(julia_url, "julia_path", branch="release-0.6")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L527-L556)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L527-L556)
 
 </div>
 <br>
@@ -1596,7 +1596,7 @@ The keyword arguments are:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/commit.jl#L91-L109)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/commit.jl#L91-L109)
 
 
 
@@ -1608,7 +1608,7 @@ LibGit2.commit(rb::GitRebase, sig::GitSignature)
 Commit the current patch to the rebase `rb`, using `sig` as the committer. Is silent if the commit has already been applied.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/rebase.jl#L71-L76)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/rebase.jl#L71-L76)
 
 </div>
 <br>
@@ -1626,7 +1626,7 @@ committer(c::GitCommit)
 Return the `Signature` of the committer of the commit `c`. The committer is the person who committed the changes originally authored by the [`author`](/stdlib/LibGit2#LibGit2.author), but need not be the same as the `author`, for example, if the `author` emailed a patch to a `committer` who committed it.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/commit.jl#L43-L50)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/commit.jl#L43-L50)
 
 </div>
 <br>
@@ -1655,7 +1655,7 @@ end
 `LibGit2.count` finds the number of commits along the walk with a certain `GitHash` `commit_oid1`, starting the walk from that commit and moving forwards in time from it. Since the `GitHash` is unique to a commit, `cnt` will be `1`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/walker.jl#L132-L155)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/walker.jl#L132-L155)
 
 </div>
 <br>
@@ -1673,7 +1673,7 @@ counthunks(blame::GitBlame)
 Return the number of distinct &quot;hunks&quot; with a file. A hunk may contain multiple lines. A hunk is usually a piece of a file that was added/changed/removed together, for example, a function added to a source file or an inner loop that was optimized out of that function later.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/blame.jl#L20-L27)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/blame.jl#L20-L27)
 
 </div>
 <br>
@@ -1691,7 +1691,7 @@ LibGit2.create_branch(repo::GitRepo, bname::AbstractString, commit_obj::GitCommi
 Create a new branch in the repository `repo` with name `bname`, which points to commit `commit_obj` (which has to be part of `repo`). If `force` is `true`, overwrite an existing branch named `bname` if it exists. If `force` is `false` and a branch already exists named `bname`, this function will throw an error.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L223-L231)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L223-L231)
 
 </div>
 <br>
@@ -1725,7 +1725,7 @@ If a user is presented with a credential prompt they can abort the prompt by typ
 For addition details see the LibGit2 guide on [authenticating against a server](https://libgit2.org/docs/guides/authentication/).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/callbacks.jl#L244-L269)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/callbacks.jl#L244-L269)
 
 </div>
 <br>
@@ -1738,7 +1738,7 @@ For addition details see the LibGit2 guide on [authenticating against a server](
 C function pointer for `credentials_callback`
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/callbacks.jl#L513)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/callbacks.jl#L513)
 
 </div>
 <br>
@@ -1751,7 +1751,7 @@ C function pointer for `credentials_callback`
 Return signature object. Free it after use.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/signature.jl#L66)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/signature.jl#L66)
 
 </div>
 <br>
@@ -1769,7 +1769,7 @@ LibGit2.delete_branch(branch::GitReference)
 Delete the branch pointed to by `branch`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L244-L248)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L244-L248)
 
 </div>
 <br>
@@ -1816,7 +1816,7 @@ files = LibGit2.diff_files(repo, "branch/a", "branch/b", filter=filt)
 Equivalent to `git diff --name-only --diff-filter=<filter> <branch1> <branch2>`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L170-L202)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L170-L202)
 
 </div>
 <br>
@@ -1834,7 +1834,7 @@ entryid(te::GitTreeEntry)
 Return the [`GitHash`](/stdlib/LibGit2#LibGit2.GitHash) of the object to which `te` refers.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tree.jl#L90-L94)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tree.jl#L90-L94)
 
 </div>
 <br>
@@ -1852,7 +1852,7 @@ entrytype(te::GitTreeEntry)
 Return the type of the object to which `te` refers. The result will be one of the types which [`objtype`](/stdlib/LibGit2#LibGit2.objtype) returns, e.g. a `GitTree` or `GitBlob`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tree.jl#L78-L83)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tree.jl#L78-L83)
 
 </div>
 <br>
@@ -1874,7 +1874,7 @@ Fetch from the specified `rmt` remote git repository, using `refspecs` to determ
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L303-L312)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L303-L312)
 
 
 
@@ -1900,7 +1900,7 @@ The keyword arguments are:
 Equivalent to `git fetch [<remoteurl>|<repo>] [<refspecs>]`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L253-L270)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L253-L270)
 
 </div>
 <br>
@@ -1937,7 +1937,7 @@ false
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L476-L498)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L476-L498)
 
 </div>
 <br>
@@ -1967,7 +1967,7 @@ String["+refs/heads/*:refs/remotes/upstream/*"]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L197-L212)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L197-L212)
 
 </div>
 <br>
@@ -1980,7 +1980,7 @@ String["+refs/heads/*:refs/remotes/upstream/*"]
 C function pointer for `fetchhead_foreach_callback`
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/callbacks.jl#L515)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/callbacks.jl#L515)
 
 </div>
 <br>
@@ -1998,7 +1998,7 @@ merge_base(repo::GitRepo, one::AbstractString, two::AbstractString) -> GitHash
 Find a merge base (a common ancestor) between the commits `one` and `two`. `one` and `two` may both be in string form. Return the `GitHash` of the merge base.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/merge.jl#L256-L261)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/merge.jl#L256-L261)
 
 </div>
 <br>
@@ -2036,7 +2036,7 @@ If you specify a `branch`, this must be done in reference format, since the stri
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L729-L756)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L729-L756)
 
 </div>
 <br>
@@ -2070,7 +2070,7 @@ LibGit2.merge!(repo, [upst_ann])
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/merge.jl#L124-L146)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/merge.jl#L124-L146)
 
 </div>
 <br>
@@ -2112,7 +2112,7 @@ LibGit2.merge!(repo, [upst_ann_2], false) # will return true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/merge.jl#L165-L198)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/merge.jl#L165-L198)
 
 </div>
 <br>
@@ -2130,7 +2130,7 @@ ffmerge!(repo::GitRepo, ann::GitAnnotated)
 Fastforward merge changes into current HEAD. This is only possible if the commit referred to by `ann` is descended from the current HEAD (e.g. if pulling changes from a remote branch which is simply ahead of the local branch tip).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/merge.jl#L99-L105)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/merge.jl#L99-L105)
 
 </div>
 <br>
@@ -2148,7 +2148,7 @@ LibGit2.fullname(ref::GitReference)
 Return the name of the reference pointed to by the symbolic reference `ref`. If `ref` is not a symbolic reference, return an empty string.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L91-L97)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L91-L97)
 
 </div>
 <br>
@@ -2166,7 +2166,7 @@ features()
 Return a list of git features the current version of libgit2 supports, such as threading or using HTTPS or SSH.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/utils.jl#L68-L73)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/utils.jl#L68-L73)
 
 </div>
 <br>
@@ -2184,7 +2184,7 @@ filename(te::GitTreeEntry)
 Return the filename of the object on disk to which `te` refers.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tree.jl#L54-L58)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tree.jl#L54-L58)
 
 </div>
 <br>
@@ -2202,7 +2202,7 @@ filemode(te::GitTreeEntry) -> Cint
 Return the UNIX filemode of the object on disk to which `te` refers as an integer.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tree.jl#L68-L72)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tree.jl#L68-L72)
 
 </div>
 <br>
@@ -2226,7 +2226,7 @@ Return the location of the &quot;git&quot; files of `repo`:
 See also [`workdir`](/stdlib/LibGit2#LibGit2.workdir), [`path`](/stdlib/LibGit2#LibGit2.path).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L187-L196)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L187-L196)
 
 </div>
 <br>
@@ -2278,7 +2278,7 @@ julia> LibGit2.git_url(scheme="ssh", username="git", host="github.com", port=222
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/utils.jl#L95-L130)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/utils.jl#L95-L130)
 
 </div>
 <br>
@@ -2307,7 +2307,7 @@ GitHash("d114feb74ce63307afe878a5228ad014e0289a85")
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/oid.jl#L79-L93)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/oid.jl#L79-L93)
 
 </div>
 <br>
@@ -2325,7 +2325,7 @@ LibGit2.head(repo::GitRepo) -> GitReference
 Return a `GitReference` to the current HEAD of `repo`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L36-L40)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L36-L40)
 
 
 
@@ -2337,7 +2337,7 @@ head(pkg::AbstractString) -> String
 Return current HEAD [`GitHash`](/stdlib/LibGit2#LibGit2.GitHash) of the `pkg` repo as a string.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L58-L63)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L58-L63)
 
 </div>
 <br>
@@ -2355,7 +2355,7 @@ LibGit2.head!(repo::GitRepo, ref::GitReference) -> GitReference
 Set the HEAD of `repo` to the object pointed to by `ref`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L254-L258)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L254-L258)
 
 </div>
 <br>
@@ -2373,7 +2373,7 @@ LibGit2.head_oid(repo::GitRepo) -> GitHash
 Lookup the object id of the current HEAD of git repository `repo`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L54-L59)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L54-L59)
 
 </div>
 <br>
@@ -2391,7 +2391,7 @@ LibGit2.headname(repo::GitRepo)
 Lookup the name of the current HEAD of git repository `repo`. If `repo` is currently detached, return the name of the HEAD it&#39;s detached from.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L69-L76)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L69-L76)
 
 </div>
 <br>
@@ -2409,7 +2409,7 @@ LibGit2.init(path::AbstractString, bare::Bool=false) -> GitRepo
 Open a new git repository at `path`. If `bare` is `false`, the working tree will be created in `path/.git`. If `bare` is `true`, no working directory will be created.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L39-L45)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L39-L45)
 
 </div>
 <br>
@@ -2445,7 +2445,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L226-L247)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L226-L247)
 
 </div>
 <br>
@@ -2463,7 +2463,7 @@ isbinary(blob::GitBlob) -> Bool
 Use a heuristic to guess if a file is binary: searching for NULL bytes and looking for a reasonable ratio of printable to non-printable characters among the first 8000 bytes.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/blob.jl#L41-L47)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/blob.jl#L41-L47)
 
 </div>
 <br>
@@ -2495,7 +2495,7 @@ true
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L83-L100)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L83-L100)
 
 </div>
 <br>
@@ -2527,7 +2527,7 @@ LibGit2.isdiff(repo, "HEAD") # now true
 Equivalent to `git diff-index <treeish> [-- <pathspecs>]`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L139-L157)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L139-L157)
 
 </div>
 <br>
@@ -2560,7 +2560,7 @@ LibGit2.isdirty(repo, new_file) # now true
 Equivalent to `git diff-index HEAD [-- <pathspecs>]`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L116-L135)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L116-L135)
 
 </div>
 <br>
@@ -2578,7 +2578,7 @@ LibGit2.isorphan(repo::GitRepo)
 Check if the current branch is an &quot;orphan&quot; branch, i.e. has no commits. The first commit to this branch will have no parents.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L23-L28)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L23-L28)
 
 </div>
 <br>
@@ -2596,7 +2596,7 @@ isset(val::Integer, flag::Integer)
 Test whether the bits of `val` indexed by `flag` are set (`1`) or unset (`0`).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/utils.jl#L46-L50)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/utils.jl#L46-L50)
 
 </div>
 <br>
@@ -2614,7 +2614,7 @@ iszero(id::GitHash) -> Bool
 Determine whether all hexadecimal digits of the given [`GitHash`](/stdlib/LibGit2#LibGit2.GitHash) are zero.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/oid.jl#L209-L213)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/oid.jl#L209-L213)
 
 </div>
 <br>
@@ -2634,7 +2634,7 @@ Determine if the branch specified by `branch_name` exists in the repository `rep
 Return either a `GitReference` to the requested branch if it exists, or [`nothing`](/base/constants#Core.nothing) if not.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L267-L276)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L267-L276)
 
 </div>
 <br>
@@ -2663,7 +2663,7 @@ end
 Here, `LibGit2.map` visits each commit using the `GitRevWalker` and finds its `GitHash`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/walker.jl#L86-L108)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/walker.jl#L86-L108)
 
 </div>
 <br>
@@ -2678,7 +2678,7 @@ Mirror callback function
 Function sets `+refs/*:refs/*` refspecs and `mirror` flag for remote reference.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/callbacks.jl#L3-L7)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/callbacks.jl#L3-L7)
 
 </div>
 <br>
@@ -2691,7 +2691,7 @@ Function sets `+refs/*:refs/*` refspecs and `mirror` flag for remote reference.
 C function pointer for `mirror_callback`
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/callbacks.jl#L511)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/callbacks.jl#L511)
 
 </div>
 <br>
@@ -2709,7 +2709,7 @@ message(c::GitCommit, raw::Bool=false)
 Return the commit message describing the changes made in commit `c`. If `raw` is `false`, return a slightly &quot;cleaned up&quot; message (which has any leading newlines removed). If `raw` is `true`, the message is not stripped of any such newlines.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/commit.jl#L5-L12)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/commit.jl#L5-L12)
 
 </div>
 <br>
@@ -2729,7 +2729,7 @@ Run analysis on the branches pointed to by the annotated branch tips `anns` and 
 Return two outputs, `analysis` and `preference`. `analysis` has several possible values:     * `MERGE_ANALYSIS_NONE`: it is not possible to merge the elements of `anns`.     * `MERGE_ANALYSIS_NORMAL`: a regular merge, when HEAD and the commits that the       user wishes to merge have all diverged from a common ancestor. In this case the       changes have to be resolved and conflicts may occur.     * `MERGE_ANALYSIS_UP_TO_DATE`: all the input commits the user wishes to merge can       be reached from HEAD, so no merge needs to be performed.     * `MERGE_ANALYSIS_FASTFORWARD`: the input commit is a descendant of HEAD and so no       merge needs to be performed - instead, the user can simply checkout the       input commit(s).     * `MERGE_ANALYSIS_UNBORN`: the HEAD of the repository refers to a commit which does not       exist. It is not possible to merge, but it may be possible to checkout the input       commits. `preference` also has several possible values:     * `MERGE_PREFERENCE_NONE`: the user has no preference.     * `MERGE_PREFERENCE_NO_FASTFORWARD`: do not allow any fast-forward merges.     * `MERGE_PREFERENCE_FASTFORWARD_ONLY`: allow only fast-forward merges and no       other type (which may introduce conflicts). `preference` can be controlled through the repository or global git configuration.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/merge.jl#L57-L84)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/merge.jl#L57-L84)
 
 </div>
 <br>
@@ -2747,7 +2747,7 @@ LibGit2.name(ref::GitReference)
 Return the full name of `ref`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L110-L114)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L110-L114)
 
 
 
@@ -2773,7 +2773,7 @@ julia> name(remote)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L169-L187)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L169-L187)
 
 
 
@@ -2785,7 +2785,7 @@ LibGit2.name(tag::GitTag)
 The name of `tag` (e.g. `"v0.5"`).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tag.jl#L57-L61)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tag.jl#L57-L61)
 
 </div>
 <br>
@@ -2803,7 +2803,7 @@ need_update(repo::GitRepo)
 Equivalent to `git update-index`. Return `true` if `repo` needs updating.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L70-L75)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L70-L75)
 
 </div>
 <br>
@@ -2821,7 +2821,7 @@ objtype(obj_type::Consts.OBJECT)
 Return the type corresponding to the enum value.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1221-L1225)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1221-L1225)
 
 </div>
 <br>
@@ -2845,7 +2845,7 @@ Return the base file path of the repository `repo`.
 See also [`gitdir`](/stdlib/LibGit2#LibGit2.gitdir), [`workdir`](/stdlib/LibGit2#LibGit2.workdir).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L231-L242)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L231-L242)
 
 </div>
 <br>
@@ -2873,7 +2873,7 @@ Only annotated tags can be peeled to `GitTag` objects. Lightweight tags (the def
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L186-L198)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L186-L198)
 
 
 
@@ -2889,7 +2889,7 @@ Recursively peel `obj` until an object of type `T` is obtained. If no `T` is pro
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L256-L264)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L256-L264)
 
 </div>
 <br>
@@ -2907,7 +2907,7 @@ LibGit2.posixpath(path)
 Standardise the path string `path` to use POSIX separators.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/utils.jl#L83-L87)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/utils.jl#L83-L87)
 
 </div>
 <br>
@@ -2935,7 +2935,7 @@ You can add information about the push refspecs in two other ways: by setting an
 :::
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L323-L339)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L323-L339)
 
 
 
@@ -2963,7 +2963,7 @@ The keyword arguments are:
 Equivalent to `git push [<remoteurl>|<repo>] [<refspecs>]`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L309-L325)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L309-L325)
 
 </div>
 <br>
@@ -2981,7 +2981,7 @@ LibGit2.push!(w::GitRevWalker, cid::GitHash)
 Start the [`GitRevWalker`](/stdlib/LibGit2#LibGit2.GitRevWalker) `walker` at commit `cid`. This function can be used to apply a function to all commits since a certain year, by passing the first commit of that year as `cid` and then passing the resulting `w` to [`LibGit2.map`](/stdlib/LibGit2#LibGit2.map).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/walker.jl#L58-L64)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/walker.jl#L58-L64)
 
 </div>
 <br>
@@ -2999,7 +2999,7 @@ LibGit2.push_head!(w::GitRevWalker)
 Push the HEAD commit and its ancestors onto the [`GitRevWalker`](/stdlib/LibGit2#LibGit2.GitRevWalker) `w`. This ensures that HEAD and all its ancestor commits will be encountered during the walk.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/walker.jl#L45-L51)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/walker.jl#L45-L51)
 
 </div>
 <br>
@@ -3033,7 +3033,7 @@ String["refs/heads/master"]
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L223-L242)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L223-L242)
 
 </div>
 <br>
@@ -3051,7 +3051,7 @@ raw(id::GitHash) -> Vector{UInt8}
 Obtain the raw bytes of the [`GitHash`](/stdlib/LibGit2#LibGit2.GitHash) as a vector of length 20.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/oid.jl#L169-L173)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/oid.jl#L169-L173)
 
 </div>
 <br>
@@ -3070,7 +3070,7 @@ LibGit2.read_tree!(idx::GitIndex, treehash::AbstractGitHash)
 Read the tree `tree` (or the tree pointed to by `treehash` in the repository owned by `idx`) into the index `idx`. The current index contents will be replaced.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/index.jl#L67-L73)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/index.jl#L67-L73)
 
 </div>
 <br>
@@ -3098,7 +3098,7 @@ fi
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L834-L850)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L834-L850)
 
 </div>
 <br>
@@ -3116,7 +3116,7 @@ LibGit2.ref_list(repo::GitRepo) -> Vector{String}
 Get a list of all reference names in the `repo` repository.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L208-L212)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L208-L212)
 
 </div>
 <br>
@@ -3140,7 +3140,7 @@ Return a `Cint` corresponding to the type of `ref`:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L78-L85)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L78-L85)
 
 </div>
 <br>
@@ -3158,7 +3158,7 @@ LibGit2.remotes(repo::GitRepo)
 Return a vector of the names of the remotes of `repo`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L510-L514)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L510-L514)
 
 </div>
 <br>
@@ -3177,7 +3177,7 @@ remove!(idx::GitIndex, files::AbstractString...)
 Remove all the files with paths specified by `files` in the index `idx` (or the index of the `repo`).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/index.jl#L128-L134)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/index.jl#L128-L134)
 
 </div>
 <br>
@@ -3195,7 +3195,7 @@ reset(val::Integer, flag::Integer)
 Unset the bits of `val` indexed by `flag`, returning them to `0`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/utils.jl#L53-L57)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/utils.jl#L53-L57)
 
 </div>
 <br>
@@ -3213,28 +3213,28 @@ reset!(payload, [config]) -> CredentialPayload
 Reset the `payload` state back to the initial values so that it can be used again within the credential callback. If a `config` is provided the configuration will also be updated.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1416-L1421)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1416-L1421)
 
 
 
 Updates some entries, determined by the `pathspecs`, in the index from the target commit tree.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L429)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L429)
 
 
 
 Sets the current head to the specified commit oid and optionally resets the index and working tree to match.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L441)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L441)
 
 
 
 git reset [&lt;committish&gt;] [–] &lt;pathspecs&gt;... 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L636)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L636)
 
 
 
@@ -3290,7 +3290,7 @@ new_head = LibGit2.reset!(repo, head_oid, mode)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L643-L685)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L643-L685)
 
 </div>
 <br>
@@ -3308,7 +3308,7 @@ restore(s::State, repo::GitRepo)
 Return a repository `repo` to a previous `State` `s`, for example the HEAD of a branch before a merge attempt. `s` can be generated using the [`snapshot`](/stdlib/LibGit2#LibGit2.snapshot) function.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L962-L968)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L962-L968)
 
 </div>
 <br>
@@ -3347,7 +3347,7 @@ LibGit2.revcount(repo, string(commit_oid1), string(commit_oid2))
 This will return `(-1, 0)`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L688-L715)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L688-L715)
 
 </div>
 <br>
@@ -3376,7 +3376,7 @@ LibGit2.set_remote_url(repo_path, "upstream2", "https://github.com/JuliaLang/Exa
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L409-L423)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L409-L423)
 
 </div>
 <br>
@@ -3407,7 +3407,7 @@ julia> LibGit2.shortname(branch_ref)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L49-L66)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L49-L66)
 
 </div>
 <br>
@@ -3425,7 +3425,7 @@ snapshot(repo::GitRepo) -> State
 Take a snapshot of the current state of the repository `repo`, storing the current HEAD, index, and any uncommitted work. The output `State` can be used later during a call to [`restore`](/stdlib/LibGit2#LibGit2.restore) to return the repository to the snapshotted state.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L933-L940)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L933-L940)
 
 </div>
 <br>
@@ -3466,7 +3466,7 @@ julia> LibGit2.split_cfg_entry(entry)
 Refer to the [git config syntax documentation](https://git-scm.com/docs/git-config#_syntax) for more details.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L939-L963)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L939-L963)
 
 </div>
 <br>
@@ -3484,7 +3484,7 @@ LibGit2.status(repo::GitRepo, path::String) -> Union{Cuint, Cvoid}
 Lookup the status of the file at `path` in the git repository `repo`. For instance, this can be used to check if the file at `path` has been modified and needs to be staged and committed.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/status.jl#L41-L48)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/status.jl#L41-L48)
 
 </div>
 <br>
@@ -3502,7 +3502,7 @@ stage(ie::IndexEntry) -> Cint
 Get the stage number of `ie`. The stage number `0` represents the current state of the working tree, but other numbers can be used in the case of a merge conflict. In such a case, the various stage numbers on an `IndexEntry` describe which side(s) of the conflict the current state of the file belongs to. Stage `0` is the state before the attempted merge, stage `1` is the changes which have been made locally, stages `2` and larger are for changes from other branches (for instance, in the case of a multi-branch &quot;octopus&quot; merge, stages `2`, `3`, and `4` might be used).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/index.jl#L200-L210)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/index.jl#L200-L210)
 
 </div>
 <br>
@@ -3528,7 +3528,7 @@ The keyword arguments are:
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tag.jl#L29-L39)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tag.jl#L29-L39)
 
 </div>
 <br>
@@ -3546,7 +3546,7 @@ LibGit2.tag_delete(repo::GitRepo, tag::AbstractString)
 Remove the git tag `tag` from the repository `repo`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tag.jl#L18-L22)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tag.jl#L18-L22)
 
 </div>
 <br>
@@ -3564,7 +3564,7 @@ LibGit2.tag_list(repo::GitRepo) -> Vector{String}
 Get a list of all tags in the git repository `repo`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tag.jl#L3-L7)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tag.jl#L3-L7)
 
 </div>
 <br>
@@ -3582,7 +3582,7 @@ LibGit2.target(tag::GitTag)
 The `GitHash` of the target object of `tag`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tag.jl#L73-L77)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tag.jl#L73-L77)
 
 </div>
 <br>
@@ -3600,7 +3600,7 @@ toggle(val::Integer, flag::Integer)
 Flip the bits of `val` indexed by `flag`, so that if a bit is `0` it will be `1` after the toggle, and vice-versa.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/utils.jl#L60-L65)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/utils.jl#L60-L65)
 
 </div>
 <br>
@@ -3618,7 +3618,7 @@ transact(f::Function, repo::GitRepo)
 Apply function `f` to the git repository `repo`, taking a [`snapshot`](/stdlib/LibGit2#LibGit2.snapshot) before applying `f`. If an error occurs within `f`, `repo` will be returned to its snapshot state using [`restore`](/stdlib/LibGit2#LibGit2.restore). The error which occurred will be rethrown, but the state of `repo` will not be corrupted.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/LibGit2.jl#L983-L990)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/LibGit2.jl#L983-L990)
 
 </div>
 <br>
@@ -3645,7 +3645,7 @@ The function parameter `f` should have following signature:
 A negative value returned from `f` stops the tree walk. A positive value means that the entry will be skipped if `post` is `false`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tree.jl#L9-L25)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tree.jl#L9-L25)
 
 </div>
 <br>
@@ -3665,7 +3665,7 @@ Determine if the branch containing `ref` has a specified upstream branch.
 Return either a `GitReference` to the upstream branch if it exists, or [`nothing`](/base/constants#Core.nothing) if the requested branch does not have an upstream counterpart.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/reference.jl#L298-L305)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/reference.jl#L298-L305)
 
 </div>
 <br>
@@ -3684,7 +3684,7 @@ update!(idx::GitIndex, files::AbstractString...)
 Update all the files with paths specified by `files` in the index `idx` (or the index of the `repo`). Match the state of each file in the index with the current state on disk, removing it if it has been removed on disk, or updating its entry in the object database.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/index.jl#L112-L120)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/index.jl#L112-L120)
 
 </div>
 <br>
@@ -3716,7 +3716,7 @@ julia> LibGit2.url(remote)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/remote.jl#L117-L133)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/remote.jl#L117-L133)
 
 </div>
 <br>
@@ -3734,7 +3734,7 @@ version() -> VersionNumber
 Return the version of libgit2 in use, as a [`VersionNumber`](/manual/strings#man-version-number-literals).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/utils.jl#L31-L35)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/utils.jl#L31-L35)
 
 </div>
 <br>
@@ -3752,7 +3752,7 @@ with(f::Function, obj)
 Resource management helper function. Applies `f` to `obj`, making sure to call `close` on `obj` after `f` successfully returns or throws an error. Ensures that allocated git resources are finalized as soon as they are no longer needed.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1169-L1175)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1169-L1175)
 
 </div>
 <br>
@@ -3770,7 +3770,7 @@ with_warn(f::Function, ::Type{T}, args...)
 Resource management helper function. Apply `f` to `args`, first constructing an instance of type `T` from `args`. Makes sure to call `close` on the resulting object after `f` successfully returns or throws an error. Ensures that allocated git resources are finalized as soon as they are no longer needed. If an error is thrown by `f`, a warning is shown containing the error.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1186-L1194)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1186-L1194)
 
 </div>
 <br>
@@ -3796,7 +3796,7 @@ This will typically be the parent directory of `gitdir(repo)`, but can be differ
 See also [`gitdir`](/stdlib/LibGit2#LibGit2.gitdir), [`path`](/stdlib/LibGit2#LibGit2.path).
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/repository.jl#L206-L219)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/repository.jl#L206-L219)
 
 </div>
 <br>
@@ -3823,7 +3823,7 @@ blob = LibGit2.GitBlob(tree_entry)
 
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/tree.jl#L120-L132)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/tree.jl#L120-L132)
 
 </div>
 <br>
@@ -3836,7 +3836,7 @@ blob = LibGit2.GitBlob(tree_entry)
 Credential that support only `user` and `password` parameters
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1251)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1251)
 
 </div>
 <br>
@@ -3849,7 +3849,7 @@ Credential that support only `user` and `password` parameters
 SSH credential type
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1282)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1282)
 
 </div>
 <br>
@@ -3867,7 +3867,7 @@ isfilled(cred::AbstractCredential) -> Bool
 Verifies that a credential is ready for use in authentication.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1244-L1248)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1244-L1248)
 
 </div>
 <br>
@@ -3880,7 +3880,7 @@ Verifies that a credential is ready for use in authentication.
 Caches credential information for re-use
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1321)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1321)
 
 </div>
 <br>
@@ -3898,7 +3898,7 @@ LibGit2.CredentialPayload
 Retains the state between multiple calls to the credential callback for the same URL. A `CredentialPayload` instance is expected to be `reset!` whenever it will be used with a different URL.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1356-L1362)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1356-L1362)
 
 </div>
 <br>
@@ -3918,7 +3918,7 @@ Store the `payload` credential for re-use in a future authentication. Should onl
 The `shred` keyword controls whether sensitive information in the payload credential field should be destroyed. Should only be set to `false` during testing.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1438-L1446)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1438-L1446)
 
 </div>
 <br>
@@ -3938,7 +3938,7 @@ Discard the `payload` credential from begin re-used in future authentication. Sh
 The `shred` keyword controls whether sensitive information in the payload credential field should be destroyed. Should only be set to `false` during testing.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/types.jl#L1469-L1477)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/types.jl#L1469-L1477)
 
 </div>
 <br>
@@ -3971,7 +3971,7 @@ These priority levels correspond to the natural escalation logic (from higher to
   
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/stdlib/LibGit2/src/consts.jl#L421-L435)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/stdlib/LibGit2/src/consts.jl#L421-L435)
 
 </div>
 <br>

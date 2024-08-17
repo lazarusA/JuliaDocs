@@ -15,8 +15,8 @@ $ julia
   (_)     | (_) (_)    |
    _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
   | | | | | | |/ _` |  |
-  | | |_| | | | (_| |  |  Version 1.12.0-DEV.1102 (2024-07-23)
- _/ |\__'_|_|_|\__'_|  |  la/docs/d0ea96fb3b* (fork: 208 commits, 0 days)
+  | | |_| | | | (_| |  |  Version 1.12.0-DEV.1056 (2024-08-17)
+ _/ |\__'_|_|_|\__'_|  |  la/docs_vitepress/b4082487c4 (fork: 161 commits, 24 days)
 |__/                   |
 
 
@@ -57,4 +57,4 @@ search: begin disable_sigint reenable_sigint
 ```
 
 
-If you already know Julia a bit, you might want to peek ahead at [Performance Tips](/manual/performance-tips#man-performance-tips) and [Workflow Tips](/manual/workflow-tips#man-workflow-tips), or check out the comprehensive [ModernJuliaWorkflows](https://modernjuliaworkflows.github.io/) blog.
+If you already know Julia a bit, you might want to peek ahead at [Performance Tips](/manual/performance-tips#man-performance-tips) and [Workflow Tips](/manual/workflow-tips#man-workflow-tips), or check out the comprehensive [ModernJuliaWorkflows](https://modernjuliaworkflows.org/) blog.

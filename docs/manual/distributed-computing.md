@@ -79,7 +79,7 @@ Note that we used `1 .+ fetch(r)` instead of `1 .+ r`. This is because we do not
 
 An important thing to remember is that, once fetched, a [`Future`](/stdlib/Distributed#Distributed.Future) will cache its value locally. Further [`fetch`](/base/parallel#Base.fetch-Tuple{Task}) calls do not entail a network hop. Once all referencing [`Future`](/stdlib/Distributed#Distributed.Future)s have fetched, the remote stored value is deleted.
 
-[`@async`](/base/parallel#Base.@async) is similar to [`@spawnat`](/stdlib/Distributed#Distributed.@spawnat), but only runs tasks on the local process. We use it to create a &quot;feeder&quot; task for each process. Each task picks the next index that needs to be computed, then waits for its process to finish, then repeats until we run out of indices. Note that the feeder tasks do not begin to execute until the main task reaches the end of the [`@sync`](/base/parallel#Base.@sync) block, at which point it surrenders control and waits for all the local tasks to complete before returning from the function. As for v0.7 and beyond, the feeder tasks are able to share state via `nextidx` because they all run on the same process. Even if `Tasks` are scheduled cooperatively, locking may still be required in some contexts, as in [asynchronous I/O](/manual/faq#faq-async-io). This means context switches only occur at well-defined points: in this case, when [`remotecall_fetch`](/stdlib/Distributed#Distributed.remotecall_fetch-Tuple{Any,%20Integer,%20Vararg{Any}}) is called. This is the current state of implementation and it may change for future Julia versions, as it is intended to make it possible to run up to N `Tasks` on M `Process`, aka [M:N Threading](https://en.wikipedia.org/wiki/Thread_(computing)#Models). Then a lock acquiring\releasing model for `nextidx` will be needed, as it is not safe to let multiple processes read-write a resource at the same time.
+[`Threads.@spawn`](/base/multi-threading#Base.Threads.@spawn) is similar to [`@spawnat`](/stdlib/Distributed#Distributed.@spawnat), but only runs tasks on the local process. We use it to create a &quot;feeder&quot; task for each process. Each task picks the next index that needs to be computed, then waits for its process to finish, then repeats until we run out of indices. Note that the feeder tasks do not begin to execute until the main task reaches the end of the [`@sync`](/base/parallel#Base.@sync) block, at which point it surrenders control and waits for all the local tasks to complete before returning from the function. As for v0.7 and beyond, the feeder tasks are able to share state via `nextidx` because they all run on the same process. Even if `Tasks` are scheduled cooperatively, locking may still be required in some contexts, as in [asynchronous I/O](/manual/faq#faq-async-io). This means context switches only occur at well-defined points: in this case, when [`remotecall_fetch`](/stdlib/Distributed#Distributed.remotecall_fetch-Tuple{Any,%20Integer,%20Vararg{Any}}) is called. This is the current state of implementation and it may change for future Julia versions, as it is intended to make it possible to run up to N `Tasks` on M `Process`, aka [M:N Threading](https://en.wikipedia.org/wiki/Thread_(computing)#Models). Then a lock acquiring\releasing model for `nextidx` will be needed, as it is not safe to let multiple processes read-write a resource at the same time.
 
 ## Code Availability and Loading Packages {#code-availability}
 
@@ -511,7 +511,7 @@ julia> function make_jobs(n)
 
 julia> n = 12;
 
-julia> errormonitor(@async make_jobs(n)); # feed the jobs channel with "n" jobs
+julia> errormonitor(Threads.@spawn make_jobs(n)); # feed the jobs channel with "n" jobs
 
 julia> for p in workers() # start tasks on the workers to process requests in parallel
            remote_do(do_work, p, jobs, results)
@@ -697,7 +697,7 @@ Since all processes have access to the underlying data, you do have to be carefu
 ```julia
 @sync begin
     for p in procs(S)
-        @async begin
+        Threads.@spawn begin
             remotecall_wait(fill!, p, S, p)
         end
     end
@@ -779,7 +779,7 @@ and one that delegates in chunks:
 julia> function advection_shared!(q, u)
            @sync begin
                for p in procs(q)
-                   @async remotecall_wait(advection_shared_chunk!, p, q, u)
+                   Threads.@spawn remotecall_wait(advection_shared_chunk!, p, q, u)
                end
            end
            q

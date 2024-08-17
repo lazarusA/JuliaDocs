@@ -616,7 +616,7 @@ fetch(x::Any)
 Return `x`.
 
 
-[source](https://github.com/JuliaLang/julia/blob/d0ea96fb3beee191e4f46c76ae048c5a0ef4a3a8/base/task.jl#L527-L531)
+[source](https://github.com/JuliaLang/julia/blob/b4082487c46b74edf91566306202a6443a6bf791/base/task.jl#L527-L531)
 
 </div>
 <br>

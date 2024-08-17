@@ -305,8 +305,8 @@ For example, when reading all of the output from a command, call `read(out, Stri
 Another common solution is to separate the reader and writer of the pipeline into separate [`Task`](/base/parallel#Core.Task)s:
 
 ```julia
-writer = @async write(process, "data")
-reader = @async do_compute(read(process, String))
+writer = Threads.@spawn write(process, "data")
+reader = Threads.@spawn do_compute(read(process, String))
 wait(writer)
 fetch(reader)
 ```

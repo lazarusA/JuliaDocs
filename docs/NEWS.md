@@ -48,6 +48,8 @@
 ## Multi-threading changes {#Multi-threading-changes}
 
 ## Build system changes {#Build-system-changes}
+- There are new `Makefile`s to build Julia and LLVM using the Binary Optimization and Layout Tool (BOLT), see  `contrib/bolt` and `contrib/pgo-lto-bolt` ([#54107](https://github.com/JuliaLang/julia/issues/54107)).
+  
 
 ## New library functions {#New-library-functions}
 - `logrange(start, stop; length)` makes a range of constant ratio, instead of constant step ([#39071](https://github.com/JuliaLang/julia/issues/39071))
@@ -57,6 +59,10 @@
 - `waitany(tasks; throw=false)` and `waitall(tasks; failfast=false, throw=false)` which wait multiple tasks at once ([#53341](https://github.com/JuliaLang/julia/issues/53341)).
   
 - `uuid7()` creates an RFC 9652 compliant UUID with version 7 ([#54834](https://github.com/JuliaLang/julia/issues/54834)).
+  
+- `insertdims(array; dims)` allows to insert singleton dimensions into an array which is the inverse operation to `dropdims`
+  
+- The new `Fix` type is a generalization of `Fix1/Fix2` for fixing a single argument ([#54653](https://github.com/JuliaLang/julia/issues/54653)).
   
 
 ## New library features {#New-library-features}
@@ -78,20 +84,30 @@
   
 - `@timed` now additionally returns the elapsed compilation and recompilation time ([#52889](https://github.com/JuliaLang/julia/issues/52889))
   
+- `escape_string` takes additional keyword arguments `ascii=true` (to escape all non-ASCII characters) and `fullhex=true` (to require full 4/8-digit hex numbers for u/U escapes, e.g. for C compatibility) [#55099](https://github.com/JuliaLang/julia/issues/55099)).
+  
 - `filter` can now act on a `NamedTuple` ([#50795](https://github.com/JuliaLang/julia/issues/50795)).
   
 - `tempname` can now take a suffix string to allow the file name to include a suffix and include that suffix in the uniquing checking ([#53474](https://github.com/JuliaLang/julia/issues/53474))
   
 - `RegexMatch` objects can now be used to construct `NamedTuple`s and `Dict`s ([#50988](https://github.com/JuliaLang/julia/issues/50988))
   
+- `Lockable` is now exported ([#54595](https://github.com/JuliaLang/julia/issues/54595))
+  
+- New `ltruncate`, `rtruncate` and `ctruncate` functions for truncating strings to text width, accounting for char widths ([#55351](https://github.com/JuliaLang/julia/issues/55351))
+  
 
 ## Standard library changes {#Standard-library-changes}
 - `gcdx(0, 0)` now returns `(0, 0, 0)` instead of `(0, 1, 0)` ([#40989](https://github.com/JuliaLang/julia/issues/40989)).
+  
+- `fd` returns a `RawFD` instead of an `Int` ([#55080](https://github.com/JuliaLang/julia/issues/55080)).
   
 
 #### StyledStrings
 
 #### JuliaSyntaxHighlighting
+- A new standard library for applying syntax highlighting to Julia code, this uses `JuliaSyntax` and `StyledStrings` to implement a `highlight` function that creates an `AnnotatedString` with syntax highlighting applied.
+  
 
 #### Package Manager {#Package-Manager}
 
@@ -140,5 +156,7 @@
 ## Deprecated or removed {#Deprecated-or-removed}
 
 ## External dependencies {#External-dependencies}
+- The terminal info database, `terminfo`, is now vendored by default, providing a better REPL user experience when `terminfo` is not available on the system. Julia can be built without vendoring the database using the Makefile option `WITH_TERMINFO=0`. ([#55411](https://github.com/JuliaLang/julia/issues/55411))
+  
 
 ## Tooling Improvements {#Tooling-Improvements}

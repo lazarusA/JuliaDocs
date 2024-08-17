@@ -35,7 +35,7 @@ julia> schedule(t); wait(t)
 
 instead of only calling `schedule`, you will see a five second pause before the next input prompt appears. That is because the REPL is waiting for `t` to finish before proceeding.
 
-It is common to want to create a task and schedule it right away, so the macro [`@async`](/base/parallel#Base.@async) is provided for that purpose –- `@async x` is equivalent to `schedule(@task x)`.
+It is common to want to create a task and schedule it right away, so the macro [`Threads.@spawn`](/base/multi-threading#Base.Threads.@spawn) is provided for that purpose –- `Threads.@spawn x` is equivalent to `task = @task x; task.sticky = false; schedule(task)`.
 
 ## Communicating with Channels {#Communicating-with-Channels}
 
@@ -138,7 +138,7 @@ A channel can be visualized as a pipe, i.e., it has a write end and a read end :
   
   # we can schedule `n` instances of `foo` to be active concurrently.
   for _ in 1:n
-      errormonitor(@async foo())
+      errormonitor(Threads.@spawn foo())
   end
   ```
   
@@ -214,10 +214,10 @@ julia> function make_jobs(n)
 
 julia> n = 12;
 
-julia> errormonitor(@async make_jobs(n)); # feed the jobs channel with "n" jobs
+julia> errormonitor(Threads.@spawn make_jobs(n)); # feed the jobs channel with "n" jobs
 
 julia> for i in 1:4 # start 4 tasks to process requests in parallel
-           errormonitor(@async do_work())
+           errormonitor(Threads.@spawn do_work())
        end
 
 julia> @elapsed while n > 0 # print out results

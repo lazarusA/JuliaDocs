@@ -218,7 +218,7 @@ Let&#39;s jump right in with a simple example involving TCP sockets. This functi
 ```julia
 julia> using Sockets
 
-julia> errormonitor(@async begin
+julia> errormonitor(Threads.@spawn begin
            server = listen(2000)
            while true
                sock = accept(server)
@@ -270,11 +270,11 @@ As expected we saw &quot;Hello World&quot; printed. So, let&#39;s actually analy
 A great strength of Julia is that since the API is exposed synchronously even though the I/O is actually happening asynchronously, we didn&#39;t have to worry about callbacks or even making sure that the server gets to run. When we called [`connect`](/stdlib/Distributed#Sockets.connect-Tuple{ClusterManager,%20Int64,%20WorkerConfig}) the current task waited for the connection to be established and only continued executing after that was done. In this pause, the server task resumed execution (because a connection request was now available), accepted the connection, printed the message and waited for the next client. Reading and writing works in the same way. To see this, consider the following simple echo server:
 
 ```julia
-julia> errormonitor(@async begin
+julia> errormonitor(Threads.@spawn begin
            server = listen(2001)
            while true
                sock = accept(server)
-               @async while isopen(sock)
+               Threads.@spawn while isopen(sock)
                    write(sock, readline(sock, keep=true))
                end
            end
@@ -284,7 +284,7 @@ Task (runnable) @0x00007fd31dc12e60
 julia> clientside = connect(2001)
 TCPSocket(RawFD(28) open, 0 bytes waiting)
 
-julia> errormonitor(@async while isopen(clientside)
+julia> errormonitor(Threads.@spawn while isopen(clientside)
            write(stdout, readline(clientside, keep=true))
        end)
 Task (runnable) @0x00007fd31dc11870
@@ -321,10 +321,10 @@ ip"74.125.226.225"
 
 ## Asynchronous I/O {#Asynchronous-I/O}
 
-All I/O operations exposed by [`Base.read`](/base/io-network#Base.read) and [`Base.write`](/base/io-network#Base.write) can be performed asynchronously through the use of [coroutines](/manual/control-flow#man-tasks). You can create a new coroutine to read from or write to a stream using the [`@async`](/base/parallel#Base.@async) macro:
+All I/O operations exposed by [`Base.read`](/base/io-network#Base.read) and [`Base.write`](/base/io-network#Base.write) can be performed asynchronously through the use of [coroutines](/manual/control-flow#man-tasks). You can create a new coroutine to read from or write to a stream using the [`Threads.@spawn`](/base/multi-threading#Base.Threads.@spawn) macro:
 
 ```julia
-julia> task = @async open("foo.txt", "w") do io
+julia> task = Threads.@spawn open("foo.txt", "w") do io
            write(io, "Hello, World!")
        end;
 
@@ -342,7 +342,7 @@ It&#39;s common to run into situations where you want to perform multiple asynch
 julia> using Sockets
 
 julia> @sync for hostname in ("google.com", "github.com", "julialang.org")
-           @async begin
+           Threads.@spawn begin
                conn = connect(hostname, 80)
                write(conn, "GET / HTTP/1.1\r\nHost:$(hostname)\r\n\r\n")
                readline(conn, keep=true)

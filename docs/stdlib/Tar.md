@@ -1,4 +1,8 @@
 
+
+
+The `Tar` module provides a simple interface for handling tar archives, including creation of archives, extraction of selected files from an archive, and access to metadata.
+
 # Tar
 <div style='border-width:1px; border-style:solid; border-color:black; padding: 1em; border-radius: 25px;'>
 <a id='Tar.create' href='#Tar.create'>#</a>&nbsp;<b><u>Tar.create</u></b> &mdash; <i>Function</i>.
@@ -29,7 +33,7 @@ If the `skeleton` keyword is passed then the file or IO handle given is used as 
 If the `portable` flag is true then path names are checked for validity on Windows, which ensures that they don&#39;t contain illegal characters or have names that are reserved. See https://stackoverflow.com/a/31976060/659248 for details.
 
 
-[source](https://github.com/JuliaIO/Tar.jl/blob/81888a33704b233a2ad6f82f84456a1dd82c87f0/src/Tar.jl#L57-L89)
+[source](https://github.com/JuliaIO/Tar.jl/blob/1114260f5c7a7b59441acadca2411fa227bb8a3b/src/Tar.jl#L65-L97)
 
 </div>
 <br>
@@ -69,7 +73,7 @@ If `copy_symlinks` is `true` then instead of extracting symbolic links as such, 
 If `set_permissions` is `false`, no permissions are set on the extracted files.
 
 
-[source](https://github.com/JuliaIO/Tar.jl/blob/81888a33704b233a2ad6f82f84456a1dd82c87f0/src/Tar.jl#L179-L228)
+[source](https://github.com/JuliaIO/Tar.jl/blob/1114260f5c7a7b59441acadca2411fa227bb8a3b/src/Tar.jl#L188-L237)
 
 </div>
 <br>
@@ -98,7 +102,7 @@ By default `list` will error if it encounters any tarball contents which the `ex
 If the `tarball` argument is a skeleton file (see `extract` and `create`) then `list` will detect that from the file header and appropriately list or iterate the headers of the skeleton file.
 
 
-[source](https://github.com/JuliaIO/Tar.jl/blob/81888a33704b233a2ad6f82f84456a1dd82c87f0/src/Tar.jl#L123-L153)
+[source](https://github.com/JuliaIO/Tar.jl/blob/1114260f5c7a7b59441acadca2411fa227bb8a3b/src/Tar.jl#L132-L162)
 
 </div>
 <br>
@@ -137,7 +141,7 @@ Before it is passed to the predicate function, the `Header` object is somewhat m
 If the `portable` flag is true then path names are checked for validity on Windows, which ensures that they don&#39;t contain illegal characters or have names that are reserved. See https://stackoverflow.com/a/31976060/659248 for details.
 
 
-[source](https://github.com/JuliaIO/Tar.jl/blob/81888a33704b233a2ad6f82f84456a1dd82c87f0/src/Tar.jl#L276-L313)
+[source](https://github.com/JuliaIO/Tar.jl/blob/1114260f5c7a7b59441acadca2411fa227bb8a3b/src/Tar.jl#L286-L323)
 
 </div>
 <br>
@@ -170,7 +174,7 @@ Currently supported values for `algorithm` are `git-sha1` (the default) and `git
 The `skip_empty` option controls whether directories in the tarball which recursively contain no files or symlinks are included in the hash or ignored. In general, if you are hashing the content of a tarball or a file tree, you care about all directories, not just non-empty ones, so including these in the computed hash is the default. So why does this function even provide the option to skip empty directories? Because git refuses to store empty directories and will ignore them if you try to add them to a repo. So if you compute a reference tree hash by by adding files to a git repo and then asking git for the tree hash, the hash value that you get will match the hash value computed by `tree_hash` with `skip_empty=true`. In other words, this option allows `tree_hash` to emulate how git would hash a tree with empty directories. If you are hashing trees that may contain empty directories (i.e. do not come from a git repo), however, it is recommended that you hash them using a tool (such as this one) that does not ignore empty directories.
 
 
-[source](https://github.com/JuliaIO/Tar.jl/blob/81888a33704b233a2ad6f82f84456a1dd82c87f0/src/Tar.jl#L336-L392)
+[source](https://github.com/JuliaIO/Tar.jl/blob/1114260f5c7a7b59441acadca2411fa227bb8a3b/src/Tar.jl#L346-L402)
 
 </div>
 <br>
@@ -198,7 +202,7 @@ Types are represented with the following symbols: `file`, `hardlink`, `symlink`,
 The tar format includes various other metadata about records, including user and group IDs, user and group names, and timestamps. The `Tar` package, by design, completely ignores these. When creating tar files, these fields are always set to zero/empty. When reading tar files, these fields are ignored aside from verifying header checksums for each header record for all fields.
 
 
-[source](https://github.com/JuliaIO/Tar.jl/blob/81888a33704b233a2ad6f82f84456a1dd82c87f0/src/header.jl#L1-L24)
+[source](https://github.com/JuliaIO/Tar.jl/blob/1114260f5c7a7b59441acadca2411fa227bb8a3b/src/header.jl#L1-L24)
 
 </div>
 <br>
